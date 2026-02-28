@@ -1,9 +1,165 @@
 @extends('layouts.app')
 @section('content')
 
+{{-- Setup for Animation (Agar aapke layout file mein nahi hai toh ise add karein) --}}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({
+            offset: 120, // Jab element screen par thoda dikhe tab shuru ho
+            duration: 800, // Animation ki speed
+            easing: 'ease-in-out', // Smooth movement
+            once: true // Sirf ek baar animate ho
+        });
+    });
+</script>
+<style>
+    .services__page-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .services__page-item:hover {
+        transform: translateY(-10px);
+    }
+</style>
+<!-- Banner Area Start -->
+<div class="home__banner">
+  <div class="banner__slide swiper banner-slide">
+    <div class="swiper-wrapper">
 
-	{{-- Banner / Hero Section Start --}}
-	<div class="banner__two" data-background="{{ asset('assets/img/bg/banner.jpg') }}">
+      <!-- Slide 1: Tattoo & Piercing -->
+      <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
+        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-1.jpg"></div>
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-8 order-last order-lg-first">
+              <div class="banner__slide-content">
+                <span class="subtitle__one" data-animation="fadeInLeft" data-delay=".4s">
+                  Welcome to Fantas Beauty
+                </span>
+
+                <h1 data-animation="fadeInLeft" data-delay=".6s">
+                  Luxury Tattoo & Piercing Studio
+                </h1>
+
+                <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
+                  Clean, precise, and artistic — custom tattoos and safe piercing services with premium hygiene standards.
+                </p>
+
+                <div class="banner__slide-content-button" data-animation="fadeInLeft" data-delay=".9s">
+                  <a href="about.html" class="theme-banner-btn">
+                    Read More<i class="far fa-angle-double-right"></i>
+                  </a>
+                  <a href="services.html" class="theme-border-btn">
+                    Tattoo & Piercing<i class="far fa-angle-double-right"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/banner-1.png" alt="Tattoo & Piercing">
+        </div>
+      </div>
+
+      <!-- Slide 2: Nails -->
+      <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
+        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-2.jpg"></div>
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-8 order-last order-lg-first">
+              <div class="banner__slide-content">
+                <span class="subtitle__one" data-animation="fadeInLeft" data-delay=".4s">
+                  Premium Nail Care
+                </span>
+
+                <h1 data-animation="fadeInLeft" data-delay=".6s">
+                  Nail Extensions & Luxury Nail Art
+                </h1>
+
+                <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
+                  From gel polish to detailed nail art — flawless finishing, long-lasting shine, and premium products.
+                </p>
+
+                <div class="banner__slide-content-button" data-animation="fadeInLeft" data-delay=".9s">
+                  <a href="about.html" class="theme-banner-btn">
+                    Read More<i class="far fa-angle-double-right"></i>
+                  </a>
+                  <a href="services.html" class="theme-border-btn">
+                    View Nail Services<i class="far fa-angle-double-right"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/banner-2.png" alt="Nail Services">
+        </div>
+      </div>
+
+      <!-- Slide 3: Eyelashes -->
+      <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
+        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-3.jpg"></div>
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-8 order-last order-lg-first">
+              <div class="banner__slide-content">
+                <span class="subtitle__one" data-animation="fadeInLeft" data-delay=".4s">
+                  Eyelash Specialists
+                </span>
+
+                <h1 data-animation="fadeInLeft" data-delay=".6s">
+                  Eyelash Extensions for a Stunning Look
+                </h1>
+
+                <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
+                  Natural to volume lashes — lightweight, comfortable, and styled to match your eye shape perfectly.
+                </p>
+
+                <div class="banner__slide-content-button" data-animation="fadeInLeft" data-delay=".9s">
+                  <a href="about.html" class="theme-banner-btn">
+                    Read More<i class="far fa-angle-double-right"></i>
+                  </a>
+                  <a href="services.html" class="theme-border-btn">
+                    View Eyelash Services<i class="far fa-angle-double-right"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/banner-3.png" alt="Eyelash Extensions">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="home__banner-button">
+      <div class="home__banner-button-prev swiper-button-prev">
+        <i class="far fa-long-arrow-left"></i>
+      </div>
+      <div class="home__banner-button-next swiper-button-next">
+        <i class="far fa-long-arrow-right"></i>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Banner Area End -->
+<!-- <div class="banner__two" data-background="{{ asset('assets/img/bg/banner.jpg') }}">
 		<div class="container custom__container">
 			<div class="row align-items-center">
 
@@ -33,109 +189,99 @@
 
 			</div>
 		</div>
-	</div>
-	{{-- Banner / Hero Section End --}}
+</div> -->
+{{-- Banner / Hero Section End --}}
 
-	{{-- =========================
-	HOW IT WORKS (4 STEPS)
-	========================= --}}
-	<div class="services__three section-padding">
-		<div class="container">
+{{-- =========================
+HOW IT WORKS (4 STEPS)
+========================= --}}
+<div class="services__three section-padding">
+    <div class="container">
 
-			{{-- Title --}}
-			<div class="row mb-65">
-				<div class="col-xl-12">
-					<div class="services__three-title">
-						<span class="subtitle__one">Process</span>
-						<h2>How It Works</h2>
-					</div>
-				</div>
-			</div>
+        {{-- Title --}}
+        <div class="row mb-65">
+            <div class="col-xl-12">
+                {{-- Title par Fade-down animation --}}
+                <div class="services__three-title" data-aos="fade-down" data-aos-duration="1000">
+                    <span class="subtitle__two text-black" style="position: initial;">Process</span>
+                    <span class="subtitle__one">Process</span>
+                    <h2 class="text-black">How It Works</h2>
+                </div>
+            </div>
+        </div>
 
-			<div class="row">
+        <div class="row">
 
-				{{-- Step 01 --}}
-				<div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30">
-					<div class="services__three-item">
-						<div class="services__three-item-icon">
-							<img src="{{ asset('assets/img/icon/services-1.png') }}" alt="Consultation">
-						</div>
-						<div class="services__three-item-content">
-							<h4 class="text-white">01. Best Consultation </h4>
-							<p>
-								Share your tattoo idea, placement, and references with our artists.
-								Our team reviews and responds within 24–48 hours with guidance.
-							</p>
-							<a href="{{ url('/book-appointment') }}" class="simple-btn">
-								Book Now <i class="far fa-angle-double-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+            {{-- Step 01 --}}
+            <div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30" data-aos="fade-up" data-aos-delay="100">
+                <div class="services__page-item">
+                    <div class="services__page-item-icon">
+                        <img src="{{ asset('assets/img/icon/services-1.png') }}" alt="Consultation">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4 class="text-black">01. Best Consultation </h4>
+                        <p>
+                            Share your tattoo idea, placement, and references with our artists.
+                            Our team reviews and responds within 24–48 hours with guidance.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-				{{-- Step 02 --}}
-				<div class="col-xl-3 col-lg-4 col-md-6 md-mb-30">
-					<div class="services__three-item">
-						<div class="services__three-item-icon">
-							<img src="{{ asset('assets/img/icon/services-2.png') }}" alt="Design">
-						</div>
-						<div class="services__three-item-content">
-							<h4 class="text-white">02. Design & Deposit</h4>
-							<p>
-								We prepare a custom sketch based on your concept and take approval.
-								A small deposit confirms your booking slot securely.
-							</p>
-							<a href="{{ url('/contact-us') }}" class="simple-btn">
-								Ask Details <i class="far fa-angle-double-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+            {{-- Step 02 --}}
+            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30" data-aos="fade-up" data-aos-delay="300">
+                <div class="services__page-item">
+                    <div class="services__page-item-icon">
+                        <img src="{{ asset('assets/img/icon/services-2.png') }}" alt="Design">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4 class="text-black">02. Design & Deposit</h4>
+                        <p>
+                            We prepare a custom sketch based on your concept and take approval.
+                            A small deposit confirms your booking slot securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-				{{-- Step 03 --}}
-				<div class="col-xl-3 col-lg-4 col-md-6 md-mb-30">
-					<div class="services__three-item">
-						<div class="services__three-item-icon">
-							<img src="{{ asset('assets/img/icon/services-3.png') }}" alt="Appointment">
-						</div>
-						<div class="services__three-item-content">
-							<h4 class="text-white">03. Appointment</h4>
-							<p>
-								Visit the studio well-rested and hydrated for your session.
-								Depending on design, tattoo sessions usually last 3–8 hours.
-							</p>
-							<a href="{{ url('/book-appointment') }}" class="simple-btn">
-								Get Slot <i class="far fa-angle-double-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+            {{-- Step 03 --}}
+            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30" data-aos="fade-up" data-aos-delay="500">
+                <div class="services__page-item">
+                    <div class="services__page-item-icon">
+                        <img src="{{ asset('assets/img/icon/services-3.png') }}" alt="Appointment">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4 class="text-black">03. Appointment</h4>
+                        <p>
+                            Visit the studio well-rested and hydrated for your session.
+                            Depending on design, tattoo sessions usually last 3–8 hours.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-				{{-- Step 04 --}}
-				<div class="col-xl-3 col-lg-4 col-md-6">
-					<div class="services__three-item">
-						<div class="services__three-item-icon">
-							<img src="{{ asset('assets/img/icon/services-4.png') }}" alt="Aftercare">
-						</div>
-						<div class="services__three-item-content">
-							<h4 class="text-white">04. Aftercare</h4>
-							<p>
-								Follow our professional aftercare instructions carefully for proper healing.
-								We provide complete support until your tattoo heals perfectly.
-							</p>
-							<a href="{{ url('/contact-us') }}" class="simple-btn">
-								Aftercare Help <i class="far fa-angle-double-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+            {{-- Step 04 --}}
+            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="services__page-item">
+                    <div class="services__page-item-icon">
+                        <img src="{{ asset('assets/img/icon/services-4.png') }}" alt="Aftercare">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4 class="text-black">04. Aftercare</h4>
+                        <p>
+                            Follow our professional aftercare instructions carefully for proper healing.
+                            We provide complete support until your tattoo heals perfectly.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-			</div>
-		</div>
-	</div>
-	{{-- =========================
-	HOW IT WORKS END
-	========================= --}}
+        </div>
+    </div>
+</div>
+{{-- =========================
+HOW IT WORKS END
+========================= --}}
 
 	{{-- =========================
 	ABOUT SECTION
@@ -205,73 +351,10 @@
 	ABOUT END
 	========================= --}}
 
-	{{-- =========================
+{{-- =========================
         GALLERY SECTION
 ========================= --}}
-<div class="gallery__area section-padding">
-    <div class="container">
-
-        {{-- Title --}}
-        <div class="row mb-65">
-            <div class="col-xl-12">
-                <div class="gallery__area-title">
-                    <span class="subtitle__two">Gallery</span>
-                    <span class="subtitle__one">Our Work</span>
-                    <h2>Explore Our Latest Tattoo, Lashes & Nail Transformations</h2>
-                </div>
-            </div>
-        </div>
-
-        @php
-            $gallery = [
-                ['img' => 'assets/testimonials/original-grid-image-26816-1487672786-1.webp',  'title' => 'Custom Tattoo',        'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/original-grid-image-26400-1487673173-6.webp',  'title' => 'Custom Tattoo',        'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/1.jpg',  'title' => 'Custom Tattoo',        'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/deeb222d-64b9-4c37-84b8-2b6064cd5d10.webp',  'title' => 'Custom Tattoo',        'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/2.jpg',  'title' => 'Eyelash Extensions',   'tag' => 'Lashes'],
-                ['img' => 'assets/testimonials/12.jpg',  'title' => 'Eyelash Extensions',   'tag' => 'Lashes'],
-                ['img' => 'assets/testimonials/3.jpg',  'title' => 'Nail Extensions',      'tag' => 'Nails'],
-                ['img' => 'assets/testimonials/4.jpg',  'title' => 'Fine Line Tattoo',     'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/5.jpg',  'title' => 'Volume Lashes',        'tag' => 'Lashes'],
-                ['img' => 'assets/testimonials/6.jpg',  'title' => 'Gel Nail Art',         'tag' => 'Nails'],
-                ['img' => 'assets/testimonials/7.jpg',  'title' => 'Minimal Tattoo',       'tag' => 'Tattoo Art'],
-                ['img' => 'assets/testimonials/8.jpg',  'title' => 'Classic Lash Set',     'tag' => 'Lashes'],
-            ];
-        @endphp
-
-        {{-- Grid --}}
-        <div class="row g-4 mb-65">
-            @foreach($gallery as $g)
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="gallery__area-item h-100">
-                        <div class="gallery__area-item-image">
-
-                            <img class="img__full gallery-img"
-                                 src="{{ asset($g['img']) }}"
-                                 alt="{{ $g['title'] }}">
-
-                            <div class="gallery__area-item-image-content">
-                                <h4>{{ $g['title'] }}</h4>
-                                <span>{{ $g['tag'] }}</span>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        {{-- Button --}}
-        <div class="row t-center">
-            <div class="col-xl-12">
-                <a href="{{ url('/gallery') }}" class="theme-banner-btn">
-                    View Full Gallery <i class="far fa-angle-double-right"></i>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</div>
+@include('component.gallery')
 {{-- =========================
         GALLERY END
 ========================= --}}
@@ -279,110 +362,118 @@
 	{{-- =========================
 	SERVICES SECTION
 	========================= --}}
-	<div class="services__two section-padding pb-0">
-		<div class="container">
-			<div class="row align-items-center">
+<div class="services__two section-padding pb-0">
+    <div class="container">
+        <div class="row align-items-center">
 
-				{{-- Left Image --}}
-				<div class="col-xl-6 xl-mb-30">
-					<div class="services__two-left">
-						<img class="img__full" src="{{ asset('assets/img/ChatGPT Image Feb 26, 2026, 02_02_29 PM.png') }}"
-							alt="Fantas Beauty Services">
-					</div>
-				</div>
+            {{-- Left Image with Animation --}}
+            <div class="col-xl-6 xl-mb-30" data-aos="fade-right" data-aos-duration="1000">
+                <div class="services__two-left">
+                    <img class="img__full" src="{{ asset('assets/img/ChatGPT Image Feb 26, 2026, 02_02_29 PM.png') }}"
+                        alt="Fantas Beauty Services">
+                </div>
+            </div>
 
-				{{-- Right Content --}}
-				<div class="col-xl-6">
-					<div class="services__two-right">
+            {{-- Right Content --}}
+            <div class="col-xl-6">
+                <div class="services__two-right">
 
-						<div class="services__two-right-title">
-							<span class="subtitle__two">Services</span>
-							<span class="subtitle__one">Our Expertise</span>
-							<h2>Luxury Tattoo & Beauty Services</h2>
-						</div>
+                    <div class="services__two-right-title" data-aos="fade-left" data-aos-duration="1000">
+                        <span class="subtitle__two">Services</span>
+                        <span class="subtitle__one">Our Expertise</span>
+                        <h2>Luxury Tattoo & Beauty Services</h2>
+                    </div>
 
-						<div class="row">
+                    <div class="row">
 
-							{{-- Tattoo --}}
-							<div class="col-sm-6 mb-30">
-								<div class="services__two-right-item">
-									<div class="services__two-right-item-icon">
-										<img src="{{ asset('assets/img/icon/services-1.png') }}" alt="Tattoo">
-									</div>
-									<div class="services__two-right-item-content">
-										<h4>
-											<a href="{{ url('/services/tattoo') }}">Custom Tattoo Art</a>
-										</h4>
-										<p>
-											Precision-crafted tattoos designed by professional artists, ensuring
-											hygiene, detail, and long-lasting perfection.
-										</p>
-									</div>
-								</div>
-							</div>
+                        {{-- 1. Tattoo --}}
+                        <div class="col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="100">
+                            <div class="services__two-right-item">
+                                <div class="services__two-right-item-icon">
+                                    <img src="{{ asset('assets/img/icon/services-1.png') }}" alt="Tattoo">
+                                </div>
+                                <div class="services__two-right-item-content">
+                                    <h4>
+                                        <a href="{{ url('/services/tattoo') }}">Custom Tattoo Art</a>
+                                    </h4>
+                                    <p>
+                                        Precision-crafted tattoos designed by professional artists, ensuring
+                                        hygiene, detail, and long-lasting perfection.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-							{{-- Eyelashes --}}
-							<div class="col-sm-6 mb-30">
-								<div class="services__two-right-item">
-									<div class="services__two-right-item-icon">
-										<img src="{{ asset('assets/img/icon/services-2.png') }}" alt="Lashes">
-									</div>
-									<div class="services__two-right-item-content">
-										<h4>
-											<a href="{{ url('/services/eyelashes') }}">Eyelash Extensions</a>
-										</h4>
-										<p>
-											From natural to volume lashes, achieve fuller, longer, and perfectly
-											styled lashes for a confident look.
-										</p>
-									</div>
-								</div>
-							</div>
+                        {{-- 2. Piercing (Updated Content) --}}
+                        <div class="col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="200">
+                            <div class="services__two-right-item">
+                                <div class="services__two-right-item-icon">
+                                    <img src="{{ asset('assets/img/icon/services-2.png') }}" alt="Piercing">
+                                </div>
+                                <div class="services__two-right-item-content">
+                                    <h4>
+                                        <a href="{{ url('/services/piercing') }}">Professional Piercing</a>
+                                    </h4>
+                                    <p>
+                                        Safe and hygienic piercing services using high-quality jewelry.
+                                        Expertly done for comfort and quick healing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-							{{-- Nails --}}
-							<div class="col-sm-6">
-								<div class="services__two-right-item">
-									<div class="services__two-right-item-icon">
-										<img src="{{ asset('assets/img/icon/services-3.png') }}" alt="Nails">
-									</div>
-									<div class="services__two-right-item-content">
-										<h4>
-											<a href="{{ url('/services/nails') }}">Nail Extensions & Art</a>
-										</h4>
-										<p>
-											Premium nail extensions, gel polish, and creative nail art crafted
-											with precision and luxury finishing.
-										</p>
-									</div>
-								</div>
-							</div>
+                        {{-- 3. Nails (Updated Content) --}}
+                        <div class="col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="300">
+                            <div class="services__two-right-item">
+                                <div class="services__two-right-item-icon">
+                                    <img src="{{ asset('assets/img/icon/services-3.png') }}" alt="Nails">
+                                </div>
+                                <div class="services__two-right-item-content">
+                                    <h4>
+                                        <a href="{{ url('/services/nails') }}">Nail Extensions & Art</a>
+                                    </h4>
+                                    <p>
+                                        Premium nail extensions, gel polish, and creative nail art crafted
+                                        with precision and luxury finishing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-							{{-- Beauty --}}
-							<div class="col-sm-6 mt-30">
-								<div class="services__two-right-item">
-									<div class="services__two-right-item-icon">
-										<img src="{{ asset('assets/img/icon/services-4.png') }}" alt="Beauty">
-									</div>
-									<div class="services__two-right-item-content">
-										<h4>
-											<a href="{{ url('/services/beauty') }}">Beauty & Grooming</a>
-										</h4>
-										<p>
-											Professional beauty care including brows, skin, and grooming —
-											designed to enhance your natural elegance.
-										</p>
-									</div>
-								</div>
-							</div>
+                        {{-- 4. Eyelashes (Updated Content) --}}
+                        <div class="col-sm-6 mb-30" data-aos="fade-up" data-aos-delay="400">
+                            <div class="services__two-right-item">
+                                <div class="services__two-right-item-icon">
+                                    <img src="{{ asset('assets/img/icon/services-4.png') }}" alt="Lashes">
+                                </div>
+                                <div class="services__two-right-item-content">
+                                    <h4>
+                                        <a href="{{ url('/services/eyelashes') }}">Eyelash Extensions</a>
+                                    </h4>
+                                    <p>
+                                        From natural to volume lashes, achieve fuller, longer, and perfectly
+                                        styled lashes for a confident look.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+<style>
+    /* Chhota sa UI touch: Hover par card thoda upar uthega */
+    .services__two-right-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .services__two-right-item:hover {
+        transform: translateY(-5px);
+    }
+</style>
 	{{-- =========================
 	SERVICES END
 	========================= --}}
@@ -391,54 +482,7 @@
 	{{-- =========================
 	WORKING HOURS
 	========================= --}}
-	<div class="working__two section-padding">
-
-		<div class="working__two-shape">
-			<img src="{{ asset('assets/img/shape/hours.png') }}" alt="Working Hours Shape">
-		</div>
-
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-xl-7 col-lg-7 lg-mb-30">
-					<div class="working__two-left">
-						<div class="working__two-left-title">
-							<span class="subtitle__two">Working</span>
-							<span class="subtitle__one">Opening Hours</span>
-							<h2>Visit Fantas Beauty Studio</h2>
-							<p>
-								We welcome you to experience luxury tattoo artistry, flawless lash extensions,
-								and premium nail services in a clean and professional environment.
-								Our studio maintains the highest hygiene standards to ensure
-								comfort, safety, and satisfaction for every client.
-							</p>
-						</div>
-						<div class="working__two-left-hours">
-							<ul>
-								<li>Monday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Tuesday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Wednesday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Thursday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Friday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Saturday <span>10:00 AM - 08:00 PM</span></li>
-								<li>Sunday <span>10:00 AM - 08:00 PM</span></li>
-							</ul>
-						</div>
-						<a href="{{ url('/book-appointment') }}" class="theme-banner-btn">
-							Book Appointment <i class="far fa-angle-double-right"></i>
-						</a>
-
-					</div>
-				</div>
-
-				{{-- Right Image --}}
-				<div class="col-xl-5 col-lg-5">
-					<img class="img__full" src="https://html.nextwpcook.com/barbex/assets/img/calendar.jpg"
-						alt="Fantas Beauty Working Hours">
-				</div>
-
-			</div>
-		</div>
-	</div>
+	
 	{{-- =========================
 	WORKING HOURS END
 	========================= --}}

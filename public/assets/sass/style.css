@@ -3784,7 +3784,7 @@ Banner Three
 
 @media (max-width: 575px) {
   .banner__two {
-    padding: 140px 0;
+    padding: 25px 0;
   }
 }
 
@@ -4429,7 +4429,7 @@ Services Two
   z-index: 1;
 }
 
-.services__two::after {
+/* .services__two::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -4438,7 +4438,7 @@ Services Two
   bottom: 0;
   left: 0;
   z-index: -1;
-}
+} */
 
 .services__two-right-title h2 {
   max-width: 450px;
@@ -4496,7 +4496,7 @@ Services Two
 Services Three
 ==========================================================================*/
 .services__three {
-  background: var(--color-10);
+  background: var(--color-5);
 }
 
 .services__three-title {
@@ -6728,7 +6728,7 @@ Pagination
 Gallery
 ========================================================================== */
 .gallery__area {
-  background: var(--color-10);
+  background: var(--color-5);
   position: relative;
   z-index: 1;
 }
@@ -7682,10 +7682,10 @@ Testimonial Two
   margin-right: 40px;
 }
 
-.testimonial__two-item-image img {
+/* .testimonial__two-item-image img {
   max-width: 190px;
   border-radius: 50%;
-}
+} */
 
 .testimonial__two-item-content {
   overflow: hidden;
@@ -7781,7 +7781,8 @@ Testimonial Two
     margin-bottom: 30px;
   }
   .testimonial__two-item-image img {
-    max-width: 170px;
+    /* max-width: 170px; */
+            object-fit: scale-down;
   }
   .testimonial__two-item-content p {
     font-size: 16px;

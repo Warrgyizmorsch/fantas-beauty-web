@@ -57,6 +57,28 @@
 
                             <li><a href="{{ url('/') }}">Home</a></li>
 
+                                <li class="menu-item-has-children">
+                                    <a href="#">Services</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ url('services.tattoos') }}">
+                                                Tattoos & Piercing
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('services.nails') }}">
+                                                Nail Services
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('services.eyelashes') }}">
+                                                Eyelash Extensions
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            <li><a href="{{ url('/gallery') }}">Gallery</a></li>
                             <li><a href="{{ url('/about-us') }}">About Us</a></li>
 
                             <li><a href="{{ url('/contact-us') }}">Contact</a></li>

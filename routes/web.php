@@ -14,3 +14,11 @@ Route::get('/contact-us', function () {
     return view('contact');
 });
 
+Route::get('/gallery', function () {
+    return view('gallery');
+});
+
+Route::get('/book-appointment', function () {
+    return view('book-appointment');
+});
+
