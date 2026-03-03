@@ -3,12 +3,12 @@
 @section('title', 'Contact - Fantas Beauty')
 
 @section('content')
-<div class="page__banner" data-background="{{ asset('assets/img/bg/page.jpg') }}">
+<div class="page__banner" data-background="{{ asset('assets/img/bg/common-banner.png') }}">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="page__banner-title">
-                    <h1>Contact Us</h1>
+                    <h1>Gallary</h1>
                     <div class="page__banner-title-menu">
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>

@@ -7,7 +7,7 @@
 {{-- =========================
         PAGE BANNER
 ========================= --}}
-<div class="page__banner" data-background="{{ asset('assets/img/bg/page.jpg') }}">
+<div class="page__banner" data-background="{{ asset('assets/img/bg/common-banner.png') }}">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">

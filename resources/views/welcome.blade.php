@@ -21,6 +21,17 @@
     .services__page-item:hover {
         transform: translateY(-10px);
     }
+
+    .banner__slide-area-image {
+        /* Ensures the image covers the entire container area */
+        background-size: cover !important;
+        /* Centers the image within the container */
+        background-position: center center !important;
+        /* Prevents the image from repeating */
+        background-repeat: no-repeat !important;
+        /* Optional: Helps with scaling on some devices */
+        image-rendering: -webkit-optimize-contrast; 
+    }
 </style>
 <!-- Banner Area Start -->
 <div class="home__banner">
@@ -29,7 +40,10 @@
 
       <!-- Slide 1: Tattoo & Piercing -->
       <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
-        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-1.jpg"></div>
+        <div class="banner__slide-area-image" 
+         data-background="assets/img/bg/Tatto4.png"
+         style="background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; filter: brightness(2) !important;">
+    </div>
 
         <div class="container">
           <div class="row align-items-center">
@@ -48,10 +62,10 @@
                 </p>
 
                 <div class="banner__slide-content-button" data-animation="fadeInLeft" data-delay=".9s">
-                  <a href="about.html" class="theme-banner-btn">
+                  <a href="{{ url('/about-us') }}" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="services.html" class="theme-border-btn">
+                  <a href="{{url ('/services.tattoos')}}" class="theme-border-btn">
                     Tattoo & Piercing<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
@@ -61,14 +75,14 @@
           </div>
         </div>
 
-        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
-          <img src="assets/img/bg/banner-1.png" alt="Tattoo & Piercing">
-        </div>
+        {{-- <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/piercing fantas beauty small banner.png" alt="Tattoo & Piercing">
+        </div> --}}
       </div>
 
       <!-- Slide 2: Nails -->
       <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
-        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-2.jpg"></div>
+        <div class="banner__slide-area-image" data-background="assets/img/bg/NailExtensions.png"></div>
 
         <div class="container">
           <div class="row align-items-center">
@@ -83,14 +97,14 @@
                 </h1>
 
                 <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
-                  From gel polish to detailed nail art — flawless finishing, long-lasting shine, and premium products.
+                 From gel polish to detailed nail art — flawless finishing, long-lasting shine, and premium products.
                 </p>
 
                 <div class="banner__slide-content-button" data-animation="fadeInLeft" data-delay=".9s">
-                  <a href="about.html" class="theme-banner-btn">
+                  <a href="{{ url('/about-us') }}" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="services.html" class="theme-border-btn">
+                  <a href="{{url ('/services.nails')}}" class="theme-border-btn">
                     View Nail Services<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
@@ -100,14 +114,14 @@
           </div>
         </div>
 
-        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
-          <img src="assets/img/bg/banner-2.png" alt="Nail Services">
-        </div>
+        {{-- <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/Nail Extensions small banner fantas beauty.png" alt="Eyelash Extensions">
+        </div> --}}
       </div>
 
       <!-- Slide 3: Eyelashes -->
       <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000">
-        <div class="banner__slide-area-image" data-background="assets/img/bg/banner-bg-3.jpg"></div>
+        <div class="banner__slide-area-image" data-background="assets/img/bg/Eyelashes.png"></div>
 
         <div class="container">
           <div class="row align-items-center">
@@ -129,7 +143,7 @@
                   <a href="about.html" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="services.html" class="theme-border-btn">
+                  <a href="{{url ('/services.eyelashes')}}" class="theme-border-btn">
                     View Eyelash Services<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
@@ -139,9 +153,9 @@
           </div>
         </div>
 
-        <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
-          <img src="assets/img/bg/banner-3.png" alt="Eyelash Extensions">
-        </div>
+        {{-- <div class="banner__slide-right" data-animation="fadeInRight" data-delay="1.3s">
+          <img src="assets/img/bg/Eyelashes small banner fantas beauty.png" alt="Eyelash Extensions">
+        </div> --}}
       </div>
 
     </div>

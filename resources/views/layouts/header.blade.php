@@ -4,33 +4,75 @@
         HEADER START
 ========================= --}}
 <style>
-    /* Default Desktop Logo */
-.logo-img {
-    height: 60px;
-    width: auto;
-    transition: all 0.3s ease;
-}
-
-/* Sticky header logo smaller */
-.header__sticky .logo-img {
-    height: 70px;
-}
-
-/* Tablet */
-@media (max-width: 991px) {
     .logo-img {
-        height: 45px;
+        height: 50px; 
+        width: auto;
+        transition: all 0.3s ease;
     }
-}
 
-/* Mobile */
-@media (max-width: 576px) {
-    .logo-img {
-        height: 38px;
+    .header__sticky .logo-img {
+        height: 60px;
     }
-}
+
+    /* Tablet */
+    @media (max-width: 991px) {
+        .logo-img {
+            height: 40px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .logo-img {
+            height: 35px;
+        }
+    }
+
+    .header__area {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+
+    .header__area-menubar-right-menu ul li a {
+        padding-top: 20px !important; 
+        padding-bottom: 20px !important;
+    }
+
+    .header__area-menubar-right-menu ul li .primary-btn {
+        padding: 10px 25px !important;
+    }
 </style>
 <div class="header__sticky">
+    <div class="top__bar">
+    <div class="container custom__container">
+        <div class="row align-items-center">
+            
+            {{-- Poori width (col-12) links ko de di taaki center me theek se fail jayein --}}
+            <div class="col-12">
+                <div class="top__bar-left">
+                    <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
+                        <li>
+                            <a href="{{ url('/services.tattoos') }}" style="font-weight: 500; font-size: 14px;">
+                                Tattoos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/services.nails') }}" style="font-weight: 500; font-size: 14px;">
+                                Makeup
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/services.eyelashes') }}" style="font-weight: 500; font-size: 14px;">
+                                Lashes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
     <div class="header__area two">
         <div class="container custom__container">
             <div class="header__area-menubar">
@@ -80,7 +122,7 @@
 
                             <li><a href="{{ url('/gallery') }}">Gallery</a></li>
                             <li><a href="{{ url('/about-us') }}">About Us</a></li>
-
+                                
                             <li><a href="{{ url('/contact-us') }}">Contact</a></li>
 
                             <li>
@@ -95,6 +137,13 @@
 
                 {{-- RIGHT SIDE ICONS --}}
                 <div class="header__area-menubar-right-box">
+
+                    <div class="header__area-menubar-right-call">
+                        <a href="tel:+447514836169">
+                            <i class="fal fa-phone-alt"></i>
+                            +44 7514 836169
+                        </a>                       
+                    </div>
 
                     {{-- SEARCH --}}
                     <div class="header__area-menubar-right-box-search">
@@ -121,7 +170,6 @@
                             <i class="fal fa-bars"></i>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
