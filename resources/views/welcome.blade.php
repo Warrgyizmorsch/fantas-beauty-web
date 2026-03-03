@@ -1,19 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-{{-- Setup for Animation (Agar aapke layout file mein nahi hai toh ise add karein) --}}
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({
-            offset: 120, // Jab element screen par thoda dikhe tab shuru ho
-            duration: 800, // Animation ki speed
-            easing: 'ease-in-out', // Smooth movement
-            once: true // Sirf ek baar animate ho
-        });
-    });
-</script>
+
 <style>
     .services__page-item {
         transition: transform 0.3s ease, box-shadow 0.3s ease;

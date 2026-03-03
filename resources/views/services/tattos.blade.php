@@ -2,7 +2,7 @@
 @section('content')
 	
 <!-- Page Banner Start -->
-<div class="page__banner" data-background="assets/img/gallery/tattoo-1.jpg">
+<div class="page__banner" data-background="{{ asset('assets/img/gallery/tattoo-1.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -42,7 +42,7 @@
                 <div class="history__area-right">
 
                     <div class="history__area-right-title">
-                        <span class="subtitle__two">Our Journey</span>
+                        <!-- <span class="subtitle__two">Our Journey</span> -->
                         <span class="subtitle__one">Fantas Ink & Piercing</span>
                         <h2>Crafting Art, Ink & Confidence</h2>
 
@@ -83,7 +83,7 @@
     <div class="container">
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
-                <span class="subtitle__two text-primary">What We Do</span>
+                <!-- <span class="subtitle__two text-primary">What We Do</span> -->
                 <h2>Our Premium Specialties</h2>
                 <p class="text-muted">Explore our wide range of professional body art and piercing services, executed with top-tier hygiene and precision.</p>
             </div>

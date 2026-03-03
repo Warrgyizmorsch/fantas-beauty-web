@@ -2,7 +2,7 @@
 @section('content')
 	
 <!-- Page Banner Start -->
-<div class="page__banner" data-background="assets/img/bg/Gemini_Generated_Image_auf42mauf42mauf4.png">
+<div class="page__banner" data-background="{{ asset('assets/img/bg/Gemini_Generated_Image_auf42mauf42mauf4.png') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -42,7 +42,7 @@
                 <div class="history__area-right">
 
                     <div class="history__area-right-title">
-                        <span class="subtitle__two">Our Journey</span>
+                        <!-- <span class="subtitle__two">Our Journey</span> -->
                         <span class="subtitle__one">Fantas Lash Studio</span>
                         <h2>Crafting Beauty, Volume & Confidence</h2>
 
@@ -83,7 +83,7 @@
     <div class="container">
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
-                <span class="subtitle__two text-primary">What We Do</span>
+                <!-- <span class="subtitle__two text-primary">What We Do</span> -->
                 <h2>Our Premium Specialties</h2>
                 <p class="text-muted">Explore our wide range of luxury eyelash extensions and lash care services, executed with top-tier hygiene and precision.</p>
             </div>

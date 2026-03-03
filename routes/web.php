@@ -23,15 +23,15 @@ Route::get('/book-appointment', function () {
     return view('book-appointment');
 });
 
-Route::get('/services.tattoos', function () {
+Route::get('/services/tattoos', function () {
     return view('services.tattos');
 });
 
-Route::get('/services.nails', function () {
+Route::get('/services/nails', function () {
     return view('services.nail');
 });
 
-Route::get('/services.eyelashes', function () {
+Route::get('/services/eyelashes', function () {
     return view('services.eyelash');
 });
 

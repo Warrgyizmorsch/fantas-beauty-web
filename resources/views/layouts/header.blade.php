@@ -50,17 +50,17 @@
                 <div class="top__bar-left">
                     <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
                         <li>
-                            <a href="{{ url('/services.tattoos') }}" style="font-weight: 500; font-size: 14px;">
+                            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px;">
                                 Tattoos
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('/services.nails') }}" style="font-weight: 500; font-size: 14px;">
+                            <a href="{{ url('/services/nails') }}" style="font-weight: 500; font-size: 14px;">
                                 Makeup
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('/services.eyelashes') }}" style="font-weight: 500; font-size: 14px;">
+                            <a href="{{ url('/services/eyelashes') }}" style="font-weight: 500; font-size: 14px;">
                                 Lashes
                             </a>
                         </li>
@@ -100,17 +100,17 @@
                                     <a href="#">Services</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ url('services.tattoos') }}">
+                                            <a href="{{ url('services/tattoos') }}">
                                                 Tattoos & Piercing
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('services.nails') }}">
+                                            <a href="{{ url('services/nails') }}">
                                                 Nail Services
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('services.eyelashes') }}">
+                                            <a href="{{ url('services/eyelashes') }}">
                                                 Eyelash Extensions
                                             </a>
                                         </li>
@@ -135,20 +135,24 @@
                 {{-- RIGHT SIDE ICONS --}}
                 <div class="header__area-menubar-right-box">
 
-                    <div class="header__area-menubar-right-call">
-                        <a href="tel:+447514836169">
-                            <i class="fal fa-phone-alt"></i>
-                            +44 7514 836169
-                        </a>                       
+                    <div class="header__area-menubar-right-call header-call-desktop">
+                        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
+                            <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
+                            <span class="call-text">
+                            <small>Call Us</small>
+                            <strong>+44 7514 836169</strong>
+                            </span>
+                        </a>
                     </div>
+
 
                     {{-- SEARCH --}}
                     <div class="header__area-menubar-right-box-search">
-                        <div class="search">
+                        <!-- <div class="search">
                             <span class="header__area-menubar-right-box-search-icon two open">
                                 <i class="fal fa-search"></i>
                             </span>
-                        </div>
+                        </div> -->
 
                         <div class="header__area-menubar-right-box-search-box">
                             <form action="{{ url('/search') }}" method="GET">
@@ -258,6 +262,44 @@
 </div>
 
 <div class="sidebar-overlay"></div>
+
+<style>
+  .header-call-desktop{display:none;}
+  @media (min-width: 992px){ .header-call-desktop{display:block;} }
+
+  .call-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius:999px;
+    text-decoration:none;
+    border:1px solid rgba(0,0,0,.12);
+    background: rgba(255,255,255,.9);
+    transition: .2s;
+  }
+  .call-pill:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+  .call-ico{
+    width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;
+    border:1px solid rgba(0,0,0,.12);
+  }
+  .call-text small{
+    display:block;
+    font-size:12px;
+    opacity:.7;
+    line-height:1;
+  }
+  .call-text strong{
+    display:block;
+    font-size:14px;
+    line-height:1.1;
+    letter-spacing:.2px;
+  }
+</style>
 {{-- =========================
         SIDEBAR END
 ========================= --}}
