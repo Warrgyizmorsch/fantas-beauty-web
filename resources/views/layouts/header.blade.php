@@ -46,8 +46,6 @@
     <div class="top__bar">
     <div class="container custom__container">
         <div class="row align-items-center">
-            
-            {{-- Poori width (col-12) links ko de di taaki center me theek se fail jayein --}}
             <div class="col-12">
                 <div class="top__bar-left">
                     <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
@@ -69,7 +67,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
