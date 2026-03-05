@@ -356,7 +356,23 @@ HOW IT WORKS END
 {{-- =========================
         GALLERY SECTION
 ========================= --}}
-@include('component.gallery')
+@php
+    $gallery = [
+        ['img' => 'assets/testimonials/original-grid-image-26816-1487672786-1.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art'],
+        ['img' => 'assets/testimonials/2.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails'],
+        ['img' => 'assets/testimonials/original-grid-image-26400-1487673173-6.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art'],
+        // ['img' => 'assets/testimonials/1.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art'],
+        ['img' => 'assets/testimonials/deeb222d-64b9-4c37-84b8-2b6064cd5d10.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art'],
+        ['img' => 'assets/testimonials/3.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails'],
+        ['img' => 'assets/testimonials/12.jpg', 'title' => 'Nail Extensions & Fine Line', 'tag' => 'Nails & Tattoo Art'],
+        ['img' => 'assets/testimonials/4.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair'],
+        ['img' => 'assets/testimonials/7.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair'],
+        // ['img' => 'assets/testimonials/5.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair'],
+        ['img' => 'assets/testimonials/6.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair'],
+        // ['img' => 'assets/testimonials/8.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails'],
+    ];
+@endphp
+@include('component.gallery', ['gallery' => $gallery])
 {{-- =========================
         GALLERY END
 ========================= --}}
