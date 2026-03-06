@@ -55,13 +55,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('/services/nails') }}" style="font-weight: 500; font-size: 14px;">
-                                Makeup
+                            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px;">
+                                Piercing
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('/services/eyelashes') }}" style="font-weight: 500; font-size: 14px;">
-                                Lashes
+                            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px;">
+                                Makeover
                             </a>
                         </li>
                     </ul>
@@ -101,17 +101,17 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ url('services/tattoos') }}">
-                                                Tattoos & Piercing
+                                                Tattoos 
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('services/nails') }}">
-                                                Nail Services
+                                            <a href="{{ url('services/Piercing') }}">
+                                                Piercing
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('services/eyelashes') }}">
-                                                Eyelash Extensions
+                                            <a href="{{ url('services/makeover') }}">
+                                                Makeover
                                             </a>
                                         </li>
                                     </ul>

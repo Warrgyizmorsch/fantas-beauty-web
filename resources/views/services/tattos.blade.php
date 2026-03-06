@@ -2,22 +2,80 @@
 @section('content')
 	
 <!-- Page Banner Start -->
-<div class="page__banner" data-background="{{ asset('assets/img/gallery/tattoo-1.jpg') }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="page__banner-title">
-                        <h1>Tattoos & Piercing</h1>
-                        <div class="page__banner-title-menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>_</span>About</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="home__banner">
+  <div class="banner__slide swiper banner-slide">
+    <div class="swiper-wrapper">
+
+      <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000" style="height: 500px; min-height: 500px; position: relative;">
+        <div class="banner__slide-area-image" 
+             style="background-image: url('{{ asset ('assets/img/bg/Tatto1.png')}}'); 
+                    background-size: cover !important; 
+                    background-position: center !important; 
+                    background-repeat: no-repeat !important; 
+                    filter: brightness(0.7) !important; 
+                    position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
         </div>
+
+        <div class="container" style="height: 100%; display: flex; align-items: center;">
+          <div class="row align-items-center">
+            <div class="col-xl-8 order-last order-lg-first">
+              <div class="banner__slide-content">
+                <span class="subtitle__one" data-animation="fadeInLeft" data-delay=".4s">
+                  Welcome to Fantas Beauty
+                </span>
+                <h1 data-animation="fadeInLeft" data-delay=".6s" style="color: #fff; margin-bottom: -10px;">
+                  Luxury Tattoo
+                </h1>
+                <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
+                  Clean, precise, and artistic — custom tattoos and safe piercing services with premium hygiene standards.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000" style="height: 500px; min-height: 500px; position: relative;">
+        <div class="banner__slide-area-image" 
+             style="background-image: url('{{ asset ('assets/img/bg/Tatto4.png')}}'); 
+                    background-size: cover !important; 
+                    background-position: center !important; 
+                    background-repeat: no-repeat !important; 
+                    filter: brightness(0.7) !important; 
+                    position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
+        </div>
+
+        <div class="container" style="height: 100%; display: flex; align-items: center;">
+          <div class="row align-items-center">
+            <div class="col-xl-8">
+              <div class="banner__slide-content">
+                <span class="subtitle__one" data-animation="fadeInLeft" data-delay=".4s">
+                  Welcome to Fantas Beauty
+                </span>
+                <h1 data-animation="fadeInLeft" data-delay=".6s" style="color: #fff; margin-bottom: -10px;">
+                  Luxury Tattoo
+                </h1>
+                <p data-animation="fadeInLeft" data-delay=".75s" style="color: rgba(255,255,255,.85); margin: 14px 0 0; max-width: 620px;">
+                  Clean, precise, and artistic — custom tattoos and safe piercing services.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="home__banner-button">
+      <div class="home__banner-button-prev swiper-button-prev">
+        <i class="far fa-long-arrow-left"></i>
+      </div>
+      <div class="home__banner-button-next swiper-button-next">
+        <i class="far fa-long-arrow-right"></i>
+      </div>
+    </div>
+
+  </div>
 </div>
 <!-- Page Banner End -->
    <div class="history__area section-padding">
@@ -125,67 +183,20 @@
         </div>
     </div>
 </div>
-<div class="gallery__area section-padding">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-lg-12 text-center">
-                <span class="subtitle__two">Portfolio</span>
-                <h2>Recent Ink & Piercings</h2>
-            </div>
-        </div>
 
-        {{-- Bootstrap Grid Gallery --}}
-        <div class="row g-4">
-            {{-- Image 1 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/tattoo-1.jpg') }}')">
-                    <img src="{{ asset('assets/img/gallery/tattoo-1.jpg') }}" alt="Tattoo Work 1" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
-            
-            {{-- Image 2 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/blog-banner.png') }}')">
-                    <img src="{{ asset('assets/img/gallery/blog-banner.png') }}" alt="Piercing Work 1" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
+ @php
+    $gallery = [
+        ['img' => 'assets/img/gallery/blog-banner.png', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/piercing-2.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-1.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-2.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
 
-            {{-- Image 3 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/tattoo-2.jpg') }}')">
-                    <img src="{{ asset('assets/img/gallery/tattoo-2.jpg') }}" alt="Tattoo Work 2" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
-
-            {{-- Image 4 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/piercing-2.jpg') }}')">
-                    <img src="{{ asset('assets/img/gallery/piercing-2.jpg') }}" alt="Piercing Work 2" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
-
-            {{-- Image 5 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/tattoo3.png') }}')">
-                    <img src="{{ asset('assets/img/gallery/tattoo3.png') }}" alt="Tattoo Work 3" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
-
-            {{-- Image 6 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="gallery-item overflow-hidden rounded shadow-sm" style="cursor: pointer;" onclick="openImageModal('{{ asset('assets/img/gallery/tattoo-4.jpg') }}')">
-                    <img src="{{ asset('assets/img/gallery/tattoo-4.jpg') }}" alt="Tattoo Work 4" class="img-fluid w-100 hover-zoom">
-                </div>
-            </div>
-        </div>
-        
-        <div class="row mt-4">
-            <div class="col-12 text-center">
-                <a href="{{ url('/gallery') }}" class="theme-btn">View Full Gallery <i class="far fa-angle-double-right"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
+        ['img' => 'assets/img/gallery/tattoo3.png', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-4.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+    ];
+@endphp
+@include('component.gallery')
+    
 <div class="mission__area section-padding" style="background-color: #fdfbf7;">
     <div class="container">
         <div class="row align-items-center">

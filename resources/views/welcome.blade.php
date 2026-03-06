@@ -53,7 +53,7 @@
                   <a href="{{ url('/about-us') }}" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="{{url ('/services.tattoos')}}" class="theme-border-btn">
+                  <a href="{{url ('/services/tattoos')}}" class="theme-border-btn">
                     Tattoo & Piercing<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
@@ -92,7 +92,7 @@
                   <a href="{{ url('/about-us') }}" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="{{url ('/services.nails')}}" class="theme-border-btn">
+                  <a href="{{url ('/services/Piercing')}}" class="theme-border-btn">
                     View Nail Services<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
@@ -131,8 +131,8 @@
                   <a href="about.html" class="theme-banner-btn">
                     Read More<i class="far fa-angle-double-right"></i>
                   </a>
-                  <a href="{{url ('/services.eyelashes')}}" class="theme-border-btn">
-                    View Eyelash Services<i class="far fa-angle-double-right"></i>
+                  <a href="{{url ('/services/makeover')}}" class="theme-border-btn">
+                    View Makeover Services<i class="far fa-angle-double-right"></i>
                   </a>
                 </div>
 
