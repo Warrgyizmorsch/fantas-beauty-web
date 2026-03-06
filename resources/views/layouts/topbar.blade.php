@@ -1,7 +1,7 @@
 <style>
     /* Top bar ki height choti karne ke liye */
     .top__bar {
-        padding: 5px 0 !important; /* Upar-niche ki padding kam kar di */
+        padding: 0px 0 !important; /* Upar-niche ki padding kam kar di */
         min-height: auto;
     }
 

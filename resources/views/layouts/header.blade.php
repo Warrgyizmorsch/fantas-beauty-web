@@ -47,25 +47,33 @@
     <div class="container custom__container">
         <div class="row align-items-center">
             <div class="col-12">
-                <div class="top__bar-left">
-                    <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
-                        <li>
-                            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px;">
-                                Tattoos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px;">
-                                Piercing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px;">
-                                Makeover
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <div class="top__bar-left" style="position: relative; display: flex; align-items: center; min-height: 50px;">
+    
+    <ul class="d-flex align-items-center justify-content-center w-100" style="margin: 0; padding: 0; list-style: none; gap: 30px;">
+        <li>
+            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
+                Tattoos
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
+                Piercing
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
+                Makeover
+            </a>
+        </li>
+    </ul>
+
+    <div style="position: absolute; right: 0;">
+        <button id="installAppBtn" class="theme-btn">
+            <i class="fas fa-download"></i>
+        </button>
+    </div>
+
+</div>
             </div>
         </div>
     </div>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#d4a373">
+    <link rel="apple-touch-icon" href="{{ asset('assets/logo/fantas-logo-192.png') }}">
     {{-- Meta --}}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -78,5 +82,51 @@
         class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script>
+    // 1. Register Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("{{ asset('sw.js') }}")
+                .then(reg => console.log('Service Worker Registered!', reg))
+                .catch(err => console.error('Service Worker Registration Failed', err));
+        });
+    }
+
+    // 2. Install Button Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Browser ka default install popup rokein
+        e.preventDefault();
+        // Event ko save karein taaki baad mein trigger kar sakein
+        deferredPrompt = e;
+        // Apna custom button show karein
+        installBtn.style.display = 'inline-block';
+    });
+
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            // Install popup show karein
+            deferredPrompt.prompt();
+            // User ka response check karein
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('User ne App install kar li');
+            } else {
+                console.log('User ne App install cancel kar di');
+            }
+            deferredPrompt = null;
+            // Button wapas hide kar dein
+            installBtn.style.display = 'none';
+        }
+    });
+
+    window.addEventListener('appinstalled', () => {
+        // Agar pehle se install ho gayi toh button chupa dein
+        installBtn.style.display = 'none';
+        console.log('PWA is already installed');
+    });
+</script>
 </body>
 </html>
