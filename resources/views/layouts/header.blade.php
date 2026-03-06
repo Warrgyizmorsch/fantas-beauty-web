@@ -41,39 +41,51 @@
     .header__area-menubar-right-menu ul li .primary-btn {
         padding: 10px 25px !important;
     }
+    @media only screen and (max-width: 767px) {
+    /* Container ko align karne ke liye */
+    .header__area-menubar-right-box {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .header__area-menubar-right-box-download {
+        margin-right: 31px; /* Three lines se gap */
+        margin-top: -66px;      /* Negative margin ki zaroorat nahi padegi */
+        display: inline-block;
+    }
+
+    /* Button ka size mobile ke hisaab se perfect karne ke liye */
+    #installAppBtn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
 </style>
 <div class="header__sticky">
     <div class="top__bar">
     <div class="container custom__container">
         <div class="row align-items-center">
             <div class="col-12">
-                <div class="top__bar-left" style="position: relative; display: flex; align-items: center; min-height: 50px;">
-    
-    <ul class="d-flex align-items-center justify-content-center w-100" style="margin: 0; padding: 0; list-style: none; gap: 30px;">
-        <li>
-            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
-                Tattoos
-            </a>
-        </li>
-        <li>
-            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
-                Piercing
-            </a>
-        </li>
-        <li>
-            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px; text-decoration: none; color: inherit;">
-                Makeover
-            </a>
-        </li>
-    </ul>
-
-    <div style="position: absolute; right: 0;">
-        <button id="installAppBtn" class="theme-btn">
-            <i class="fas fa-download"></i>
-        </button>
-    </div>
-
-</div>
+                <div class="top__bar-left">
+                    <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
+                        <li>
+                            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px;">
+                                Tattoos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px;">
+                                Piercing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px;">
+                                Makeover
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -141,45 +153,43 @@
                 </div>
 
                 {{-- RIGHT SIDE ICONS --}}
-                <div class="header__area-menubar-right-box">
+<div class="header__area-menubar-right-box d-flex align-items-center justify-content-end">
 
-                    <div class="header__area-menubar-right-call header-call-desktop">
-                        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
-                            <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
-                            <span class="call-text">
-                            <small>Call Us</small>
-                            <strong>+44 7514 836169</strong>
-                            </span>
-                        </a>
-                    </div>
+    <div class="header__area-menubar-right-call header-call-desktop">
+        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
+            <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
+            <span class="call-text">
+                <small>Call Us</small>
+                <strong>+44 7514 836169</strong>
+            </span>
+        </a>
+    </div>
 
+    <div class="header__area-menubar-right-box-search">
+        <div class="header__area-menubar-right-box-search-box">
+            <form action="{{ url('/search') }}" method="GET">
+                <input type="search" name="query" placeholder="Search Here...">
+                <button type="submit"><i class="fal fa-search"></i></button>
+            </form>
+            <span class="header__area-menubar-right-box-search-box-icon">
+                <i class="fal fa-times"></i>
+            </span>
+        </div>
+    </div>
 
-                    {{-- SEARCH --}}
-                    <div class="header__area-menubar-right-box-search">
-                        <!-- <div class="search">
-                            <span class="header__area-menubar-right-box-search-icon two open">
-                                <i class="fal fa-search"></i>
-                            </span>
-                        </div> -->
+    <div class="header__area-menubar-right-box-download">
+        <button id="installAppBtn" class="btn" style="padding: 8px 12px; font-size: 20px; border-radius: 5px;">
+            <i class="fas fa-download"></i>
+        </button>
+    </div>
 
-                        <div class="header__area-menubar-right-box-search-box">
-                            <form action="{{ url('/search') }}" method="GET">
-                                <input type="search" name="query" placeholder="Search Here...">
-                                <button type="submit"><i class="fal fa-search"></i></button>
-                            </form>
-                            <span class="header__area-menubar-right-box-search-box-icon">
-                                <i class="fal fa-times"></i>
-                            </span>
-                        </div>
-                    </div>
+    <div class="header__area-menubar-right-box-sidebar">
+        <div class="header__area-menubar-right-box-sidebar-popup-icon" style="cursor: pointer; font-size: 20px;">
+            <i class="fal fa-bars"></i>
+        </div>
+    </div>
 
-                    {{-- SIDEBAR TOGGLE --}}
-                    <div class="header__area-menubar-right-box-sidebar">
-                        <div class="header__area-menubar-right-box-sidebar-popup-icon">
-                            <i class="fal fa-bars"></i>
-                        </div>
-                    </div>
-                </div>
+</div>
             </div>
         </div>
     </div>
