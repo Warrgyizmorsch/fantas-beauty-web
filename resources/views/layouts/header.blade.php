@@ -153,43 +153,41 @@
                 </div>
 
                 {{-- RIGHT SIDE ICONS --}}
-<div class="header__area-menubar-right-box d-flex align-items-center justify-content-end">
+                <div class="header__area-menubar-right-box d-flex align-items-center justify-content-end">
+                    <div class="header__area-menubar-right-call header-call-desktop">
+                        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
+                            <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
+                            <span class="call-text">
+                                <small>Call Us</small>
+                                <strong>+44 7514 836169</strong>
+                            </span>
+                        </a>
+                    </div>
 
-    <div class="header__area-menubar-right-call header-call-desktop">
-        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
-            <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
-            <span class="call-text">
-                <small>Call Us</small>
-                <strong>+44 7514 836169</strong>
-            </span>
-        </a>
-    </div>
+                    <div class="header__area-menubar-right-box-search">
+                        <div class="header__area-menubar-right-box-search-box">
+                            <form action="{{ url('/search') }}" method="GET">
+                                <input type="search" name="query" placeholder="Search Here...">
+                                <button type="submit"><i class="fal fa-search"></i></button>
+                            </form>
+                            <span class="header__area-menubar-right-box-search-box-icon">
+                                <i class="fal fa-times"></i>
+                            </span>
+                        </div>
+                    </div>
 
-    <div class="header__area-menubar-right-box-search">
-        <div class="header__area-menubar-right-box-search-box">
-            <form action="{{ url('/search') }}" method="GET">
-                <input type="search" name="query" placeholder="Search Here...">
-                <button type="submit"><i class="fal fa-search"></i></button>
-            </form>
-            <span class="header__area-menubar-right-box-search-box-icon">
-                <i class="fal fa-times"></i>
-            </span>
-        </div>
-    </div>
+                    <div class="header__area-menubar-right-box-download">
+                        <button id="installAppBtn" class="btn" style="padding: 8px 12px; font-size: 20px; border-radius: 5px;">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
 
-    <div class="header__area-menubar-right-box-download">
-        <button id="installAppBtn" class="btn" style="padding: 8px 12px; font-size: 20px; border-radius: 5px;">
-            <i class="fas fa-download"></i>
-        </button>
-    </div>
-
-    <div class="header__area-menubar-right-box-sidebar">
-        <div class="header__area-menubar-right-box-sidebar-popup-icon" style="cursor: pointer; font-size: 20px;">
-            <i class="fal fa-bars"></i>
-        </div>
-    </div>
-
-</div>
+                    <div class="header__area-menubar-right-box-sidebar">
+                        <div class="header__area-menubar-right-box-sidebar-popup-icon" style="cursor: pointer; font-size: 20px;">
+                            <i class="fal fa-bars"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
