@@ -646,7 +646,8 @@ Video Animation CSS
   --body-font: 'Arimo', sans-serif;
   --heading-font: 'Arima Madurai', cursive;
   --white: #FFFFFF;
-  --primary-color: #B48E40;
+  /* --primary-color: #B48E40; */
+  --primary-color: #FFE02E;
   --heading-color: #0F1212;
   --body-color: #333334;
   --color-1: #666667;
