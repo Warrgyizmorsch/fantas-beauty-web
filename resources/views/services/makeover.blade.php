@@ -166,52 +166,650 @@
         </div>
     </div>
 </div>
+
 <div class="services__area section-padding bg-light">
     <div class="container">
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
-                <!-- <span class="subtitle__two text-primary">What We Do</span> -->
-                <h2>Our Premium Specialties</h2>
-                <p class="text-muted">Explore our wide range of luxury eyelash extensions and lash care services, executed with top-tier hygiene and precision.</p>
+                <h2>Our Beauty & Makeover Services</h2>
+                <p class="text-muted">
+                    Discover our complete range of beauty, hair and makeover services designed for everyday care and special occasion looks.
+                </p>
             </div>
         </div>
 
-        <div class="row">
-            {{-- Service Card 1 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/Gemini_Generated_Image_3wkxut3wkxut3wkx.png') }}" alt="Custom Tattoos" width="50">
+        <div class="row justify-content-center">
+
+            {{-- Threading --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="\assets\img\services\threding.jpg" alt="Threading">
                     </div>
-                    <h4>Hair Grooming & Styling</h4>
-                    <p class="text-muted mb-0">From precision cuts and vibrant coloring to luxurious treatments and flawless styling, our expert hair stylists work with all hair types and textures.</p>
-                </div>
-            </div>
-            
-            {{-- Service Card 2 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/nail-polish.png') }}" alt="Body Piercing" width="50">
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Threading</a></h4>
+                        <p class="service-short-desc">
+                            Clean and precise facial grooming for a neat and polished everyday look.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Eyebrows</li>
+                            <li>Upper Lip</li>
+                            <li>Chin</li>
+                            <li>Sides</li>
+                            <li>Cheeks</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Neck</li>
+                                <li>Forehead</li>
+                                <li>Full Face</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Threading"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
                     </div>
-                    <h4>Nail Artistry & Care</h4>
-                    <p class="text-muted mb-0">Experience the ultimate in pampering with our professional nail services We offer a full range of treatments.</p>
                 </div>
             </div>
 
-            {{-- Service Card 3 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/eyebrow.png') }}" alt="Cover Ups" width="50">
+            {{-- Waxing --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/wax.jpg" alt="Waxing">
                     </div>
-                    <h4>Eyelash Extensions & Care</h4>
-                    <p class="text-muted mb-0">As a leader in lash artistry, we offer soft classic sets, flawless volume lashes, and specialized lash lifts.</p>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Waxing</a></h4>
+                        <p class="service-short-desc">
+                            Smooth skin care services for face and body with clean and comfortable finishing.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Eyebrows</li>
+                            <li>Upper Lip</li>
+                            <li>Chin</li>
+                            <li>Sides</li>
+                            <li>Cheeks</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Neck</li>
+                                <li>Full Face</li>
+                                <li>Full Arm / Half Arm</li>
+                                <li>Underarm</li>
+                                <li>Full Leg / Half Leg</li>
+                                <li>Back / Chest</li>
+                                <li>Bikini / Hollywood / Brazilian</li>
+                                <li>Full Body Wax</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Waxing"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            {{-- Eye Treatments --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/eye.jpg" alt="Eye Treatments">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Eye Treatments</a></h4>
+                        <p class="service-short-desc">
+                            Lash and brow enhancement services to define and elevate your overall look.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Eyebrow Tinting</li>
+                            <li>Eyelash Tinting</li>
+                            <li>Thread & Tint</li>
+                            <li>Wax & Tint</li>
+                            <li>Eyelash Extensions</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Semi-Permanent Eyelashes</li>
+                                <li>Lash Removal</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Eye Treatments"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Massage --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/massage.png" alt="Massage">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Massage</a></h4>
+                        <p class="service-short-desc">
+                            Relaxing massage treatments designed to ease stress and reduce body tension.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Neck Massage</li>
+                            <li>Back Massage</li>
+                            <li>Shoulder Massage</li>
+                            <li>Neck, Back & Shoulders</li>
+                            <li>Full Body Massage</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Personalized Relaxation Sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Massage"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Facials --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/facial.png" alt="Facials">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Facials</a></h4>
+                        <p class="service-short-desc">
+                            Skin care treatments for cleansing, glow and a refreshed appearance.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Mini Facial</li>
+                            <li>Deep Cleanse Facial</li>
+                            <li>Herbal Facial</li>
+                            <li>Gold Facial</li>
+                            <li>Glow Care Finish</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Skin Refresh Sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Facials"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Semi Permanent Make-up --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/semi.png" alt="Semi Permanent Make-up">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Semi Permanent Make-up</a></h4>
+                        <p class="service-short-desc">
+                            Long-lasting beauty definition with expertly shaped brows, eyes and lips.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Eyebrows</li>
+                            <li>Ombre Brows</li>
+                            <li>Eyebrow Refill</li>
+                            <li>Eyeliner</li>
+                            <li>Top & Bottom Eyeliner</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Lip Liner</li>
+                                <li>Full Lip Colour</li>
+                                <li>Microblading</li>
+                                <li>Beauty Spot</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Semi Permanent Make-up"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Hair Treatments --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="/assets/img/services/hair.jpg" alt="Hair Treatments">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Hair Treatments</a></h4>
+                        <p class="service-short-desc">
+                            Styling, treatment and finishing services for complete professional hair care.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Lace Weave</li>
+                            <li>Wash & Set</li>
+                            <li>Wash & Blow-Dry</li>
+                            <li>Steam Treatment</li>
+                            <li>Hair Treatment</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Curly Perm</li>
+                                <li>Weave-on</li>
+                                <li>Curly Hair</li>
+                                <li>Ponytail</li>
+                                <li>Afro Twist</li>
+                                <li>Highlights</li>
+                                <li>Straight Bonding</li>
+                                <li>Trim</li>
+                                <li>Cornrows</li>
+                                <li>Micro-bonding</li>
+                                <li>Relaxer</li>
+                                <li>Gel Twist</li>
+                                <li>Front Lace Closure</li>
+                                <li>Front Lace Wig</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Hair Treatments"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Braids --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="{{ asset('assets/img/services/braids.jpg') }}" alt="Braids">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Braids</a></h4>
+                        <p class="service-short-desc">
+                            Stylish braid options for protective looks and statement hair styling.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Box Braids</li>
+                            <li>Goddess Braids</li>
+                            <li>Knotless Braids</li>
+                            <li>Butterfly Locks</li>
+                            <li>Single Braids</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Custom Styling Finish</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Braids"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Tooth Gems --}}
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__page-item service-card-item">
+                    <div class="service-card-image">
+                        <img src="{{ asset('assets/img/services/tooth-gems.jpg') }}" alt="Tooth Gems">
+                    </div>
+                    <div class="services__page-item-content">
+                        <h4><a href="javascript:void(0)">Tooth Gems</a></h4>
+                        <p class="service-short-desc">
+                            Add a stylish sparkle to your smile with gem and temporary design options.
+                        </p>
+
+                        <ul class="service-sublist">
+                            <li>Small Gem</li>
+                            <li>Big Gem</li>
+                            <li>Extra Big Gem</li>
+                            <li>Temporary Tattoo</li>
+                            <li>Beauty Accent Styling</li>
+                        </ul>
+
+                        <div class="service-more-content">
+                            <ul class="service-sublist pt-0">
+                                <li>Custom Gem Placement</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-btn-group">
+                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
+                                Read More <i class="far fa-angle-double-right"></i>
+                            </a>
+                            <a href="javascript:void(0)"
+                               class="theme-btn-sm get-price-btn"
+                               data-service="Tooth Gems"
+                               data-bs-toggle="modal"
+                               data-bs-target="#getPriceModal">
+                                Get Price
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Get Price Modal Start -->
+<div class="modal fade" id="getPriceModal" tabindex="-1" aria-labelledby="getPriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content get-price-modal-content border-0">
+            <div class="modal-header border-0 pb-0">
+                <div>
+                    <h4 class="modal-title mb-1" id="getPriceModalLabel">Get Price</h4>
+                    <p class="text-muted mb-0">Fill in your details and our team will contact you.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body pt-3">
+                <form action="{{ url('/service-price-enquiry') }}" method="POST">
+                    @csrf
+
+                    <div class="mb-3">
+                        <label class="form-label">Selected Service</label>
+                        <input type="text" class="form-control" id="selectedServiceInput" name="service" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" name="phone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" name="message" rows="4" placeholder="Write your requirement or preferred service details"></textarea>
+                    </div>
+
+                    <button type="submit" class="theme-btn w-100">
+                        Submit Enquiry <i class="far fa-angle-double-right"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<!-- Get Price Modal End -->
+
+<style>
+    .service-card-item {
+        height: 100%;
+        transition: all 0.35s ease;
+        overflow: hidden;
+    }
+
+    .service-card-item:hover {
+        transform: translateY(-6px);
+    }
+
+    .service-card-image {
+        width: 100%;
+        height: 230px;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .service-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+    }
+
+    .service-card-item:hover .service-card-image img {
+        transform: scale(1.06);
+    }
+
+    .services__page-item-content {
+        padding: 25px;
+    }
+
+    .service-short-desc {
+        margin-bottom: 14px;
+    }
+
+    .service-sublist {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 18px 0;
+    }
+
+    .service-sublist li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 8px;
+        color: #666;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .service-sublist li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 11px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #c98a52;
+    }
+
+    .service-more-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.45s ease, opacity 0.35s ease, margin-top 0.35s ease;
+    }
+
+    .service-card-item.active .service-more-content {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 8px;
+    }
+
+    .service-toggle-btn {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .service-card-item.active .service-toggle-btn i {
+        transform: rotate(90deg);
+        transition: 0.3s ease;
+    }
+
+    .services__page-item-content h4 a {
+        pointer-events: none;
+    }
+
+    .service-btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .theme-btn-sm {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #c98a52;
+        color: #fff;
+        padding: 9px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: 0.3s ease;
+        text-decoration: none;
+        border: 1px solid #c98a52;
+    }
+
+    .theme-btn-sm:hover {
+        background: #b87943;
+        color: #fff;
+    }
+
+    .get-price-modal-content {
+        border-radius: 16px;
+        padding: 8px;
+    }
+
+    .get-price-modal-content .form-control {
+        min-height: 48px;
+        border-radius: 8px;
+        box-shadow: none;
+    }
+
+    .get-price-modal-content textarea.form-control {
+        min-height: 120px;
+    }
+
+    .get-price-modal-content .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButtons = document.querySelectorAll('.service-toggle-btn');
+        const priceButtons = document.querySelectorAll('.get-price-btn');
+        const selectedServiceInput = document.getElementById('selectedServiceInput');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const card = this.closest('.service-card-item');
+                const isActive = card.classList.contains('active');
+
+                if (isActive) {
+                    card.classList.remove('active');
+                    this.innerHTML = 'Read More <i class="far fa-angle-double-right"></i>';
+                } else {
+                    card.classList.add('active');
+                    this.innerHTML = 'Show Less <i class="far fa-angle-double-right"></i>';
+                }
+            });
+        });
+
+        priceButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const serviceName = this.getAttribute('data-service');
+                selectedServiceInput.value = serviceName;
+            });
+        });
+    });
+</script>
  @php
     $gallery = [
         ['img' => 'assets/testimonials/1.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair', 'cat' => 'tattoo'],

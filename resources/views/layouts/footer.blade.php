@@ -84,8 +84,8 @@
                             </div>
                             <div class="footer__two-widget-contact-item-content">
                                 <h6>
-                                    <a href="tel:+447514836169">
-                                        +44 7514 836169
+                                    <a href="tel:+447957317266">
+                                        +44 07957 317266
                                     </a>
                                 </h6>
                             </div>
@@ -147,7 +147,7 @@
                                 </a>
                             </li>
                                <li>
-                                <a href="https://api.whatsapp.com/send/?phone=447514836169&text&type=phone_number&app_absent=0" target="_blank">
+                                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>

@@ -78,7 +78,7 @@
 
     {{-- Extra Page JS --}}
     @stack('scripts')
-    <a href="https://wa.me/447514836169?text=Hi%20Fantas%20Beauty,%20I%20would%20like%20to%20book%20an%20appointment!" 
+    <a href="https://wa.me/447957317266?text=Hi%20Fantas%20Beauty,%20I%20would%20like%20to%20book%20an%20appointment!" 
         class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>

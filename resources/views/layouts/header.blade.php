@@ -155,11 +155,11 @@
                 {{-- RIGHT SIDE ICONS --}}
                 <div class="header__area-menubar-right-box d-flex align-items-center justify-content-end">
                     <div class="header__area-menubar-right-call header-call-desktop">
-                        <a class="call-pill" href="tel:+447514836169" aria-label="Call us">
+                        <a class="call-pill" href="tel:+447957317266" aria-label="Call us">
                             <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
                             <span class="call-text">
                                 <small>Call Us</small>
-                                <strong>+44 7514 836169</strong>
+                                <strong>+44 7957 317266</strong>
                             </span>
                         </a>
                     </div>
@@ -226,7 +226,7 @@
             </div>
             <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
                 <span>Call Now</span>
-                <h6><a href="tel:+447514836169">+44 7514 836169</a></h6>
+                <h6><a href="tel:+447957317266">+44 7957 317266</a></h6>
             </div>
         </div>
 
@@ -269,7 +269,7 @@
                 </a>
             </li>
                <li>
-                <a href="https://api.whatsapp.com/send/?phone=447514836169&text&type=phone_number&app_absent=0" target="_blank">
+                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </li>
