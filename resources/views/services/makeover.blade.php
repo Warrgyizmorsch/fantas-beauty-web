@@ -1128,7 +1128,7 @@
                                         <div class="row g-0"> 
                                             
                                             <div class="col-4 position-relative border-end border-white border-2">
-                                                <img src="{{ asset('assets/img/gallery/12.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <img src="{{ asset('assets/img/gallery/10.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
                                                     <h6 class="text-white fw-bold mb-2">Normal Polish Nail</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
@@ -1136,7 +1136,7 @@
                                             </div>
                                             
                                             <div class="col-4 position-relative border-end border-white border-2">
-                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <img src="{{ asset('assets/img/gallery/Gemini_Generated_Image_hzi3ehhzi3ehhzi3 (1).png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
                                                     <h6 class="text-white fw-bold mb-2">Manicure Normal Polish</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
@@ -1144,7 +1144,7 @@
                                             </div>
                                             
                                             <div class="col-4 position-relative">
-                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <img src="{{ asset('assets/img/gallery/Gemini_Generated_Image_ofg7puofg7puofg7 (1).png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
                                                     <h6 class="text-white fw-bold mb-2">Pedicure</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
@@ -1163,7 +1163,7 @@
                     <div class="tab-pane fade" id="henna-content" role="tabpanel">
                         <div class="card border-0 rounded-4 shadow-sm mb-4">
                             <div class="row g-0 align-items-center">
-                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Henna"></div>
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/13.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Henna"></div>
                                 <div class="col-lg-7 p-4 p-md-5">
                                     <h3 class="fw-bold mb-3">Traditional Henna Art</h3>
                                     <p class="text-muted mb-4">Intricate and beautiful organic Henna designs perfect for weddings, festivals, and personal expression.</p>
@@ -1183,25 +1183,25 @@
                                         <div class="row g-0"> 
                                             
                                             <div class="col-4 position-relative border-end border-white border-2">
-                                                <img src="{{ asset('assets/img/gallery/16.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <img src="{{ asset('assets/img/gallery/14.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
-                                                    <h6 class="text-white fw-bold mb-2">Eyebrows</h6>
+                                                    <h6 class="text-white fw-bold mb-2">Henna</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-4 position-relative border-end border-white border-2">
-                                                <img src="{{ asset('assets/img/gallery/25.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <img src="{{ asset('assets/img/gallery/13.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
-                                                    <h6 class="text-white fw-bold mb-2">Upper Lip</h6>
+                                                    <h6 class="text-white fw-bold mb-2">Henna</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-4 position-relative">
-                                                <img src="{{ asset('assets/img/gallery/27.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <img src="{{ asset('assets/img/gallery/closeup-hands-pretty-hindu-bride-with-henna-tattoo.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
                                                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
-                                                    <h6 class="text-white fw-bold mb-2">Full Face</h6>
+                                                    <h6 class="text-white fw-bold mb-2">Henna</h6>
                                                     <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
                                                 </div>
                                             </div>
@@ -1210,7 +1210,7 @@
                                     </div>
 
                                     {{-- SLIDE 2 (Images 4, 5, 6) --}}
-                                    <div class="carousel-item">
+                                    {{-- <div class="carousel-item">
                                         <div class="row g-0"> 
                                             
                                             <div class="col-4 position-relative border-end border-white border-2">
@@ -1237,10 +1237,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHenna" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselHenna" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselHenna" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
+                                {{-- <button class="carousel-control-next" type="button" data-bs-target="#carouselHenna" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
                             </div>
                         </div>
                     </div>
