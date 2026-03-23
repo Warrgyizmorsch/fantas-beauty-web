@@ -184,6 +184,79 @@
     </div>
 </div>
 
+<div class="services__area section-padding bg-white">
+    <div class="container">  
+        
+        {{-- Main Section Header --}}
+        <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-7">
+                <span class="text-uppercase fw-bold" style="color: #d4a373; letter-spacing: 2px;">Portfolio</span>
+                <h2 class="display-5 fw-bold mb-3 mt-2 text-dark">Premium Tattoo Artistry</h2>
+                <p class="text-muted lead fs-6">Experience our world-class tattooing, where creative vision meets flawless execution and uncompromising hygiene.</p>
+            </div>
+        </div>
+
+        <div class="accordion border-0" id="tattooAccordion">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="{{ asset('assets/img/gallery/7.png') }}" class="img-fluid rounded-4 shadow-lg w-100" alt="Custom Tattoos" style="height: 500px; object-fit: cover;">
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <h3 class="display-6 fw-bold text-dark mb-3">Tattoos</h3>
+                    <p class="text-muted fs-5 mb-4">Bring your unique vision to life. Our award-winning artists specialize in bespoke designs, from hyper-realism and portraits to traditional and neo-traditional masterpieces tailored perfectly to your body flow.</p>
+                    <button type="button" class="theme-btn px-4 py-3 rounded-pill text-uppercase fw-bold collapsed" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                        Send Enquiry <i class="far fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            {{-- <div id="customSlider" class="collapse mb-5 pb-4 border-bottom" data-bs-parent="#tattooAccordion">
+                <div class="mt-4 px-lg-3">
+                    <div id="carouselCustom" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner py-3">
+                            <div class="carousel-item active">
+                                <div class="row g-4">
+                                    <div class="col-6 position-relative">
+                                        <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Realism" style="height: 450px; object-fit: cover;">
+                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                            <h4 class="text-white fw-bold mb-2">Realism Portrait</h4>
+                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 position-relative">
+                                        <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Neo Traditional" style="height: 450px; object-fit: cover;">
+                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                            <h4 class="text-white fw-bold mb-2">Neo-Traditional</h4>
+                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row g-4">
+                                    <div class="col-6 position-relative">
+                                        <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Japanese" style="height: 450px; object-fit: cover;">
+                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                            <h4 class="text-white fw-bold mb-2">Japanese Irezumi</h4>
+                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCustom" data-bs-slide="prev" style="width: 8%;">
+                            <div class="bg-white rounded-circle shadow-lg d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;"><i class="fas fa-chevron-left text-dark"></i></div>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselCustom" data-bs-slide="next" style="width: 8%;">
+                            <div class="bg-white rounded-circle shadow-lg d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;"><i class="fas fa-chevron-right text-dark"></i></div>
+                        </button>
+                    </div>
+                </div>
+            </div> --}}
+        </div> {{-- End Accordion --}}
+    </div>
+</div>
+
  @php
     $gallery = [
         ['img' => 'assets/img/gallery/blog-banner.png', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
@@ -232,29 +305,50 @@
             <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
                 <div class="mission__area-right">
                     {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 77%;margin-left: 69px;">
+                    <img src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;">
                 </div>
             </div>
         </div>
     </div>
 </div>
-	
-	<!-- Instagram Area Start -->	
-	@include('component.instagram')
-	<!-- Instagram Area End -->
-    
-    <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl"> <div class="modal-content bg-transparent border-0">
-            <div class="modal-header border-0 pb-0 justify-content-end">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1); opacity: 1;"></button>
+
+<!-- Instagram Area Start -->	
+@include('component.instagram')
+<!-- Instagram Area End -->
+
+{{-- INQUIRY FORM --}}
+<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fw-bold text-dark" id="inquiryModalLabel">Enquiry  About Piercing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-center pt-0">
-                <img id="modalImage" src="" class="img-fluid rounded shadow-lg" alt="Preview" style="max-height: 85vh; object-fit: contain;">
+            
+            <div class="modal-body p-4">
+                <p class="text-muted small mb-4">Leave your details below and our piercing experts will get back to you shortly to confirm your consultation.</p>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Full Name</label>
+                        <input type="text" class="form-control rounded-3" placeholder="Enter your full name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Phone Number</label>
+                        <input type="tel" class="form-control rounded-3" placeholder="Enter your mobile number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold">Message or Questions (Optional)</label>
+                        <textarea class="form-control rounded-3" rows="3" placeholder="Any specific piercing you are looking for?"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Send Inquiry</button>
+                </form>
             </div>
+            
         </div>
     </div>
 </div>
-
+    
 <script>
     function openImageModal(imageSrc) {
         // Modal ke andar wale <img> tag ka src change karna

@@ -137,54 +137,291 @@
         </div>
     </div>
 </div>
-<div class="services__area section-padding bg-light">
+<div class="services__area section-padding bg-white">
     <div class="container">
+        
+        {{-- Section Header --}}
         <div class="row mb-5 justify-content-center text-center">
-            <div class="col-lg-8">
-                <!-- <span class="subtitle__two text-primary">What We Do</span> -->
-                <h2>Our Premium Specialties</h2>
-                <p class="text-muted">Explore our wide range of luxury body piercing artistry and expert care services, executed with uncompromising hygiene and absolute precision.</p>
+            <div class="col-lg-7">
+                <span class="text-uppercase text-warning fw-bold" style="letter-spacing: 2px;">Portfolio</span>
+                <h2 class="display-6 fw-bold mb-3 mt-2">Premium Specialties</h2>
+                <p class="text-muted lead fs-6">Select a category below to explore our luxury piercing artistry, executed with absolute precision.</p>
             </div>
         </div>
 
-        <div class="row">
-            {{-- Service Card 1 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/round-earrings.png') }}" alt="Custom Tattoos" width="50">
-                    </div>
-                    <h4>Curated Ear Stacks</h4>
-                    <p class="text-muted mb-0">From elegant minimalism to intricate, unique combinations of studs, hoops, and chains, we help you define your personal ear aesthetic with premium, personalized styling.</p>
-                </div>
-            </div>
+        {{-- Category Image Cards (Bootstrap Native) --}}
+        <div class="row g-4 mb-4">
             
-            {{-- Service Card 2 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/piercing.png') }}" alt="Body Piercing" width="50">
+            {{-- Category 1: Basic Piercings --}}
+            <div class="col-lg-4 col-md-6">
+                <div role="button" data-bs-toggle="collapse" data-bs-target="#basic-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
+                    <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="card-img" alt="Basic Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
+                        <h3 class="fs-4 fw-bold text-white mb-1">Basic Piercings</h3>
+                        <p class="text-white-50 small mb-3">Standard Lobe, Helix & More</p>
+                        <div class="d-flex align-items-center text-warning text-uppercase fw-bold" style="font-size: 0.85rem; letter-spacing: 1px;">
+                            Explore Gallery <i class="far fa-long-arrow-right ms-2 fs-5"></i>
+                        </div>
                     </div>
-                    <h4>Delicate Facial Piercings</h4>
-                    <p class="text-muted mb-0">Precisely applied septum, nostril, eyebrow, and labret piercings designed to enhance your natural beauty.</p>
                 </div>
             </div>
 
-            {{-- Service Card 3 --}}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 text-center p-4">
-                    <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/septum.png') }}" alt="Cover Ups" width="50">
+            {{-- Category 2: Wellness Piercings --}}
+            <div class="col-lg-4 col-md-6">
+                <div role="button" data-bs-toggle="collapse" data-bs-target="#wellness-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
+                    <img src="{{ asset('assets/img/gallery/2.png') }}" class="card-img" alt="Wellness Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
+                        <h3 class="fs-4 fw-bold text-white mb-1">Wellness Piercings</h3>
+                        <p class="text-white-50 small mb-3">Daith, Shen Men & Curative</p>
+                        <div class="d-flex align-items-center text-warning text-uppercase fw-bold" style="font-size: 0.85rem; letter-spacing: 1px;">
+                            Explore Gallery <i class="far fa-long-arrow-right ms-2 fs-5"></i>
+                        </div>
                     </div>
-                    <h4>Luxury Body Piercing & Repair   </h4>
-                    <p class="text-muted mb-0">Turn tired or imperfect piercings into beautiful new masterpieces with our expert jewelry upgrades, precision stretching, and dedicated healing aftercare.</p>
                 </div>
+            </div>
+
+            {{-- Category 3: Needle Piercings --}}
+            <div class="col-lg-4 col-md-6">
+                <div role="button" data-bs-toggle="collapse" data-bs-target="#needle-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
+                    <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="card-img" alt="Needle Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
+                        <h3 class="fs-4 fw-bold text-white mb-1">Needle Piercings</h3>
+                        <p class="text-white-50 small mb-3">Septum, Nostril & Facial Art</p>
+                        <div class="d-flex align-items-center text-warning text-uppercase fw-bold" style="font-size: 0.85rem; letter-spacing: 1px;">
+                            Explore Gallery <i class="far fa-long-arrow-right ms-2 fs-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {{-- Accordion Container for Sliders --}}
+        <div class="accordion border-0" id="portfolioAccordion"> 
+            
+    {{-- Basic Piercings Slider --}}
+    <div id="basic-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
+        <div class="mb-5 mt-2">
+            <div id="carouselBasic" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
+                    
+                    {{-- Slide 1 (3 Images) --}}
+                    <div class="carousel-item active">
+                        <div class="row g-0"> 
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Ear Lobe" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Ear Lobe Piercing</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Upper Lobe" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Upper Lobe</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Helix" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Helix Alignment</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Slide 2 (3 Images) --}}
+                    <div class="carousel-item">
+                        <div class="row g-0">
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Tragus Placement</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Conch" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Conch Piercing</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Industrial" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Industrial Art</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBasic" data-bs-slide="prev" style="width: 5%;">
+                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselBasic" data-bs-slide="next" style="width: 5%;">
+                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{-- Wellness Piercings Slider --}}
+    <div id="wellness-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
+        <div class="mb-5 mt-2">
+            <div id="carouselWellness" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
+                    
+                    {{-- Slide 1 (3 Images) --}}
+                    <div class="carousel-item active">
+                        <div class="row g-0">
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Daith Piercing" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Daith Piercing</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Shen Men" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Shen Men</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Acupuncture Point" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Acupuncture Point</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Slide 2 (3 Images) --}}
+                    <div class="carousel-item">
+                        <div class="row g-0">
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/46924.jpg.jpeg') }}" class="d-block w-100" alt="Wellness Curative" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Wellness Curative</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Holistic Placement" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Holistic Placement</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Healing Art" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Healing Art</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselWellness" data-bs-slide="prev" style="width: 5%;">
+                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselWellness" data-bs-slide="next" style="width: 5%;">
+                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{-- Needle Piercings Slider --}}
+    <div id="needle-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
+        <div class="mb-5 mt-2">
+            <div id="carouselNeedle" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
+                    
+                    {{-- Slide 1 (3 Images) --}}
+                    <div class="carousel-item active">
+                        <div class="row g-0">
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/6.png') }}" class="d-block w-100" alt="Septum" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Septum Art</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/5.png') }}" class="d-block w-100" alt="Nostril" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Nostril Precision</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/4.png') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Tragus Care</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Slide 2 (3 Images) --}}
+                    <div class="carousel-item">
+                        <div class="row g-0">
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Custom Placement" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Custom Placement</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative border-end border-5 border-white">
+                                <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Bridge Piercing" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Bridge Piercing</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Eyebrow Art" style="height: 500px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
+                                    <h5 class="text-white fw-bold mb-2">Eyebrow Art</h5>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNeedle" data-bs-slide="prev" style="width: 5%;">
+                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNeedle" data-bs-slide="next" style="width: 5%;">
+                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
 </div>
+    </div>
+</div>
 
- @php
+ {{-- @php
     $gallery = [
         ['img' => 'assets/img/gallery/16706.jpg.jpeg', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
         ['img' => 'assets/img/gallery/20316.jpg.jpeg', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
@@ -195,7 +432,7 @@
         ['img' => 'assets/img/gallery/33258.jpg.jpeg', 'title' => 'Luxury Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
     ];
 @endphp
-@include('component.gallery')
+@include('component.gallery') --}}
 
 <div class="mission__area section-padding" style="background-color: #fdfbf7;">
     <div class="container">
@@ -232,25 +469,58 @@
             <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
                 <div class="mission__area-right">
                     {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 77%;margin-left: 69px;">
+                    <img src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;">
                 </div>
             </div>
         </div>
     </div>
 </div>
 	
-	<!-- Instagram Area Start -->	
-	@include('component.instagram')
-	<!-- Instagram Area End -->	 
-
-    <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl"> <div class="modal-content bg-transparent border-0">
+<!-- Instagram Area Start -->	
+@include('component.instagram')
+<!-- Instagram Area End -->	 
+<div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> 
+        <div class="modal-content bg-transparent border-0">
             <div class="modal-header border-0 pb-0 justify-content-end">
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1); opacity: 1;"></button>
             </div>
             <div class="modal-body text-center pt-0">
                 <img id="modalImage" src="" class="img-fluid rounded shadow-lg" alt="Preview" style="max-height: 85vh; object-fit: contain;">
             </div>
+        </div>
+    </div>
+</div>
+
+{{-- INQUIRY FORM --}}
+<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fw-bold text-dark" id="inquiryModalLabel">Enquiry  About Piercing</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body p-4">
+                <p class="text-muted small mb-4">Leave your details below and our piercing experts will get back to you shortly to confirm your consultation.</p>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Full Name</label>
+                        <input type="text" class="form-control rounded-3" placeholder="Enter your full name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small fw-bold">Phone Number</label>
+                        <input type="tel" class="form-control rounded-3" placeholder="Enter your mobile number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold">Message or Questions (Optional)</label>
+                        <textarea class="form-control rounded-3" rows="3" placeholder="Any specific piercing you are looking for?"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Send Inquiry</button>
+                </form>
+            </div>
+            
         </div>
     </div>
 </div>

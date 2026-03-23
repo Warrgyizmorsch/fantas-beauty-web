@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+
+<style>
+    /* Theme color override for active and hover states */
+    #makeover-tabs .btn-outline-dark.active,
+    #makeover-tabs .btn-outline-dark:hover {
+        background-color: #b48e40 !important;
+        border-color: #b48e40 !important;
+        color: #ffffff !important;
+    }
+</style>
 	
 <!-- Page Banner Start -->
 <div class="home__banner">
@@ -169,647 +179,1106 @@
 
 <div class="services__area section-padding bg-light">
     <div class="container">
+        
+        {{-- Main Section Header --}}
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
-                <h2>Our Beauty & Makeover Services</h2>
-                <p class="text-muted">
-                    Discover our complete range of beauty, hair and makeover services designed for everyday care and special occasion looks.
+                <span class="text-uppercase fw-bold text-secondary" style="letter-spacing: 2px;">Our Services</span>
+                <h2 class="display-6 fw-bold mb-3 mt-2 text-dark">Beauty & Makeover</h2>
+                <p class="text-muted lead fs-6">
+                    Discover our complete range of expert beauty, hair, and makeover services. Select a category below to explore our luxury offerings.
                 </p>
             </div>
         </div>
 
-        <div class="row justify-content-center">
-
-            {{-- Threading --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="\assets\img\services\threding.jpg" alt="Threading">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Threading</a></h4>
-                        <p class="service-short-desc">
-                            Clean and precise facial grooming for a neat and polished everyday look.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Eyebrows</li>
-                            <li>Upper Lip</li>
-                            <li>Chin</li>
-                            <li>Sides</li>
-                            <li>Cheeks</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Neck</li>
-                                <li>Forehead</li>
-                                <li>Full Face</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Threading"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        {{-- Horizontal Swipeable Menu (Pure Bootstrap, No CSS) --}}
+        <div class="row mb-4">
+            <div class="col-12">
+                <ul class="nav flex-nowrap overflow-x-auto gap-2 pb-2" id="makeover-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap active" data-bs-toggle="pill" data-bs-target="#threading-content" type="button" role="tab">Threading</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#waxing-content" type="button" role="tab">Waxing</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#eye-content" type="button" role="tab">Eye Treatments</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#massage-content" type="button" role="tab">Massage</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#facials-content" type="button" role="tab">Facials</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#spm-content" type="button" role="tab">Semi Permanent</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#hair-content" type="button" role="tab">Hair</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#braids-content" type="button" role="tab">Braids</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#tooth-content" type="button" role="tab">Tooth Gems</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#nails-content" type="button" role="tab">Nails</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap" data-bs-toggle="pill" data-bs-target="#henna-content" type="button" role="tab">Henna</button>
+                    </li>
+                </ul>
             </div>
-
-            {{-- Waxing --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/wax.jpg" alt="Waxing">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Waxing</a></h4>
-                        <p class="service-short-desc">
-                            Smooth skin care services for face and body with clean and comfortable finishing.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Eyebrows</li>
-                            <li>Upper Lip</li>
-                            <li>Chin</li>
-                            <li>Sides</li>
-                            <li>Cheeks</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Neck</li>
-                                <li>Full Face</li>
-                                <li>Full Arm / Half Arm</li>
-                                <li>Underarm</li>
-                                <li>Full Leg / Half Leg</li>
-                                <li>Back / Chest</li>
-                                <li>Bikini / Hollywood / Brazilian</li>
-                                <li>Full Body Wax</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Waxing"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Eye Treatments --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/eye.jpg" alt="Eye Treatments">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Eye Treatments</a></h4>
-                        <p class="service-short-desc">
-                            Lash and brow enhancement services to define and elevate your overall look.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Eyebrow Tinting</li>
-                            <li>Eyelash Tinting</li>
-                            <li>Thread & Tint</li>
-                            <li>Wax & Tint</li>
-                            <li>Eyelash Extensions</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Semi-Permanent Eyelashes</li>
-                                <li>Lash Removal</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Eye Treatments"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Massage --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/massage.png" alt="Massage">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Massage</a></h4>
-                        <p class="service-short-desc">
-                            Relaxing massage treatments designed to ease stress and reduce body tension.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Neck Massage</li>
-                            <li>Back Massage</li>
-                            <li>Shoulder Massage</li>
-                            <li>Neck, Back & Shoulders</li>
-                            <li>Full Body Massage</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Personalized Relaxation Sessions</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Massage"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Facials --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/facial.png" alt="Facials">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Facials</a></h4>
-                        <p class="service-short-desc">
-                            Skin care treatments for cleansing, glow and a refreshed appearance.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Mini Facial</li>
-                            <li>Deep Cleanse Facial</li>
-                            <li>Herbal Facial</li>
-                            <li>Gold Facial</li>
-                            <li>Glow Care Finish</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Skin Refresh Sessions</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Facials"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Semi Permanent Make-up --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/semi.png" alt="Semi Permanent Make-up">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Semi Permanent Make-up</a></h4>
-                        <p class="service-short-desc">
-                            Long-lasting beauty definition with expertly shaped brows, eyes and lips.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Eyebrows</li>
-                            <li>Ombre Brows</li>
-                            <li>Eyebrow Refill</li>
-                            <li>Eyeliner</li>
-                            <li>Top & Bottom Eyeliner</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Lip Liner</li>
-                                <li>Full Lip Colour</li>
-                                <li>Microblading</li>
-                                <li>Beauty Spot</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Semi Permanent Make-up"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Hair Treatments --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="/assets/img/services/hair.jpg" alt="Hair Treatments">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Hair Treatments</a></h4>
-                        <p class="service-short-desc">
-                            Styling, treatment and finishing services for complete professional hair care.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Lace Weave</li>
-                            <li>Wash & Set</li>
-                            <li>Wash & Blow-Dry</li>
-                            <li>Steam Treatment</li>
-                            <li>Hair Treatment</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Curly Perm</li>
-                                <li>Weave-on</li>
-                                <li>Curly Hair</li>
-                                <li>Ponytail</li>
-                                <li>Afro Twist</li>
-                                <li>Highlights</li>
-                                <li>Straight Bonding</li>
-                                <li>Trim</li>
-                                <li>Cornrows</li>
-                                <li>Micro-bonding</li>
-                                <li>Relaxer</li>
-                                <li>Gel Twist</li>
-                                <li>Front Lace Closure</li>
-                                <li>Front Lace Wig</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Hair Treatments"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Braids --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="{{ asset('assets/img/services/braids.jpg') }}" alt="Braids">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Braids</a></h4>
-                        <p class="service-short-desc">
-                            Stylish braid options for protective looks and statement hair styling.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Box Braids</li>
-                            <li>Goddess Braids</li>
-                            <li>Knotless Braids</li>
-                            <li>Butterfly Locks</li>
-                            <li>Single Braids</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Custom Styling Finish</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Braids"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Tooth Gems --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                <div class="services__page-item service-card-item">
-                    <div class="service-card-image">
-                        <img src="{{ asset('assets/img/services/tooth-gems.jpg') }}" alt="Tooth Gems">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4><a href="javascript:void(0)">Tooth Gems</a></h4>
-                        <p class="service-short-desc">
-                            Add a stylish sparkle to your smile with gem and temporary design options.
-                        </p>
-
-                        <ul class="service-sublist">
-                            <li>Small Gem</li>
-                            <li>Big Gem</li>
-                            <li>Extra Big Gem</li>
-                            <li>Temporary Tattoo</li>
-                            <li>Beauty Accent Styling</li>
-                        </ul>
-
-                        <div class="service-more-content">
-                            <ul class="service-sublist pt-0">
-                                <li>Custom Gem Placement</li>
-                            </ul>
-                        </div>
-
-                        <div class="service-btn-group">
-                            <a href="javascript:void(0)" class="simple-btn service-toggle-btn">
-                                Read More <i class="far fa-angle-double-right"></i>
-                            </a>
-                            <a href="javascript:void(0)"
-                               class="theme-btn-sm get-price-btn"
-                               data-service="Tooth Gems"
-                               data-bs-toggle="modal"
-                               data-bs-target="#getPriceModal">
-                                Get Price
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        {{-- Dynamic Content Area --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-content" id="makeover-tabsContent">
+                    
+                    {{-- 1. THREADING --}}
+                    <div class="tab-pane fade show active" id="threading-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/15.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Threading"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Precision Threading</h3>
+                                    <p class="text-muted mb-4">Clean and precise facial grooming for a neat and polished everyday look.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Eyebrows & Upper Lip</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Full Face Threading</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-threading" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-threading">
+                            <div id="carouselThreading" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/16.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrows</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/25.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Upper Lip</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/27.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Face</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Chin & Neck</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Sides & Cheeks</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Forehead</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Arrows --}}
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselThreading" data-bs-slide="prev" style="width: 5%;">
+                                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselThreading" data-bs-slide="next" style="width: 5%;">
+                                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 2. WAXING --}}
+                    <div class="tab-pane fade" id="waxing-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/17.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Waxing"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Luxury Waxing</h3>
+                                    <p class="text-muted mb-4">Smooth skin care services for face and body with clean and comfortable finishing.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Full/Half Arm & Leg</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Full Body Wax</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-waxing" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-waxing">
+                            <div id="carouselWaxing" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/22.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrows</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Upper Lip</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/30.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Face</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/23.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Arm</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/24.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Underarm</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/19.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Leg</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselWaxing" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselWaxing" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 3. EYE TREATMENTS --}}
+                    <div class="tab-pane fade" id="eye-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/eye.jpg') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Eye Treatments"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Lash & Brow Artistry</h3>
+                                    <p class="text-muted mb-4">Lash and brow enhancement services to define and elevate your overall look.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Eyelash Extensions</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Brow & Lash Tinting</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-eye" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-eye">
+                            <div id="carouselEye" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/26.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrow Tinting</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/semi permanent makeup.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Thread & Tint</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/20.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Wax & Tint</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/jose-castillo-Nr9ZASY4Uz8-unsplash.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Lash Removal</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/27.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Semi-Permanent Eyelashes</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/bermix-studio-CqEGy4zAmbI-unsplash.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyelashes Extensions</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselEye" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselEye" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 4. MASSAGE --}}
+                    <div class="tab-pane fade" id="massage-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/28.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Massage"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Relaxation Massage</h3>
+                                    <p class="text-muted mb-4">Relaxing massage treatments designed to ease stress and reduce body tension.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Neck & Shoulders</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Full Body Massage</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-massage" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-massage">
+                            <div id="carouselMassage" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/massage.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Neck Massage</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/29.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Back Massage</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/28.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Shoulders Massage</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    {{-- <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Chin & Neck</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Sides & Cheeks</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Forehead</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselMassage" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
+                                {{-- <button class="carousel-control-next" type="button" data-bs-target="#carouselMassage" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 5. FACIALS --}}
+                    <div class="tab-pane fade" id="facials-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/32.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Facials"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Rejuvenating Facials</h3>
+                                    <p class="text-muted mb-4">Deep skin care treatments designed for cleansing, restoring natural glow, and a refreshed appearance.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Deep Cleanse Facial</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Luxury Gold Facial</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-facials" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-facials">
+                            <div id="carouselFacials" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/32.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Mini Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/facial.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Deep Cleanse Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/80369459.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Gold Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/herbal.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Herbal Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/facial.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Deep Cleanse Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/80369459.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Gold Facial</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFacials" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselFacials" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 6. SEMI PERMANENT MAKEUP --}}
+                    <div class="tab-pane fade" id="spm-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/30.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="SPM"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Semi-Permanent Make-up</h3>
+                                    <p class="text-muted mb-4">Wake up flawless. Long-lasting beauty definition with expertly shaped brows, eyeliner, and lip tinting.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Ombre Brows</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Lip & Eyeliner</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-spm" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-spm">
+                            <div id="carouselSPM" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/semi permanent makeup.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrows</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/ali-shoaee-SdStLjkoWXM-unsplash.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Ombre</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi permanent makeup.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrows Refill</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/images.jpeg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyeliner</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/Liner1.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Top & Bottom Eyeliner</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/images (1).jpeg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Lip Liner</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Lip Collor</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/beauty.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Beauty Spot</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/25.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Microblading</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSPM" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselSPM" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 7. HAIR TREATMENTS --}}
+                    <div class="tab-pane fade" id="hair-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/37.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Hair"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Premium Hair Care</h3>
+                                    <p class="text-muted mb-4">Professional hair styling, coloring, deep treatments, and finishing services.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Wash, Cut & Style</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Highlights & Treatments</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-hair" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-hair">
+                            <div id="carouselHair" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/39.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Lace Weave</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/wash.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Wash & Set</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/image.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Wash & Blow-Dry</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/36.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Stear</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/hair treatment.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Hair Treatment</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/hair braids.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Curly Perm</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/40.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Weave-on</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/frontals.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Front Lace Closure</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/41.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Curly Hair</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHair" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselHair" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 8. BRAIDS --}}
+                    <div class="tab-pane fade" id="braids-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/hair braids.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Braids"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Custom Braiding</h3>
+                                    <p class="text-muted mb-4">Stylish and protective braid options expertly crafted for long-lasting statement hair styling.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Box & Knotless Braids</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Goddess Braids</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-braids" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-braids">
+                            <div id="carouselBraids" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/41.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Box Braids</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/hair braids.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Goddess Braids</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/39.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Knotless Braids</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Butterfly Locks</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/single.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Single Braids</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/gold.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Goddess Braids</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBraids" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselBraids" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 9. TOOTH GEMS --}}
+                    <div class="tab-pane fade" id="tooth-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/front-view-woman-posing-with-dental-gems.jpg') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Tooth Gems"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Tooth Gems</h3>
+                                    <p class="text-muted mb-4">Add a stylish sparkle to your smile with premium dental-grade gems and designs.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Small & Big Gems</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Custom Placement</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-tooth" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-tooth">
+                            <div id="carouselTooth" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/42.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Small Gen</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/43.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Big Gen</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/front-view-woman-posing-with-dental-gems.jpg') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Small Gen</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    {{-- <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Chin & Neck</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Sides & Cheeks</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Forehead</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselTooth" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
+                                {{-- <button class="carousel-control-next" type="button" data-bs-target="#carouselTooth" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 10. NAILS --}}
+                    <div class="tab-pane fade" id="nails-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/bg/NailExtensions.png') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Nails"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Luxury Nail Artistry</h3>
+                                    <p class="text-muted mb-4">Immaculate manicures, pedicures, and intricate nail art using premium, long-lasting polishes.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Acrylic & Gel Extensions</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Custom 3D Nail Art</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-nails" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-nails">
+                            <div id="carouselNails" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/8.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Set</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/11.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Take off & New Set</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/9.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Normal Polish Toe</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/12.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Normal Polish Nail</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Manicure Normal Polish</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Pedicure</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNails" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselNails" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- 11. HENNA --}}
+                    <div class="tab-pane fade" id="henna-content" role="tabpanel">
+                        <div class="card border-0 rounded-4 shadow-sm mb-4">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-5"><img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="img-fluid w-100 rounded-start" style="height: 350px; object-fit: cover;" alt="Henna"></div>
+                                <div class="col-lg-7 p-4 p-md-5">
+                                    <h3 class="fw-bold mb-3">Traditional Henna Art</h3>
+                                    <p class="text-muted mb-4">Intricate and beautiful organic Henna designs perfect for weddings, festivals, and personal expression.</p>
+                                    <ul class="list-unstyled text-muted mb-4 row">
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Bridal Henna</li>
+                                        <li class="col-md-6 mb-2"><i class="fas fa-check text-secondary me-2"></i> Minimalist Designs</li>
+                                    </ul>
+                                    <button class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed" data-bs-toggle="collapse" data-bs-target="#slider-henna" aria-expanded="false">Explore More <i class="fas fa-chevron-down ms-1"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse" id="slider-henna">
+                            <div id="carouselHenna" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-inner rounded-4 shadow-sm bg-white">
+                                    {{-- SLIDE 1 (Images 1, 2, 3) --}}
+                                    <div class="carousel-item active">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/16.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Eyebrows">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Eyebrows</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/25.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Upper Lip">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Upper Lip</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/27.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Full Face">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Full Face</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- SLIDE 2 (Images 4, 5, 6) --}}
+                                    <div class="carousel-item">
+                                        <div class="row g-0"> 
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/34.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Chin & Neck">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Chin & Neck</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative border-end border-white border-2">
+                                                <img src="{{ asset('assets/img/gallery/21.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Sides & Cheeks">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Sides & Cheeks</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 position-relative">
+                                                <img src="{{ asset('assets/img/gallery/semi.png') }}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Forehead">
+                                                <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-dark bg-opacity-50 text-center">
+                                                    <h6 class="text-white fw-bold mb-2">Forehead</h6>
+                                                    <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Enquiry Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHenna" data-bs-slide="prev" style="width: 5%;"><span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselHenna" data-bs-slide="next" style="width: 5%;"><span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- Get Price Modal Start -->
-<div class="modal fade" id="getPriceModal" tabindex="-1" aria-labelledby="getPriceModalLabel" aria-hidden="true">
+<div class="modal fade" id="inquiryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content get-price-modal-content border-0">
-            <div class="modal-header border-0 pb-0">
-                <div>
-                    <h4 class="modal-title mb-1" id="getPriceModalLabel">Get Price</h4>
-                    <p class="text-muted mb-0">Fill in your details and our team will contact you.</p>
-                </div>
+        <div class="modal-content border-0 shadow rounded-4">
+            <div class="modal-header bg-light border-bottom-0 rounded-top-4">
+                <h5 class="modal-title fw-bold text-dark">Book an Appointment</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <div class="modal-body pt-3">
-                <form action="{{ url('/service-price-enquiry') }}" method="POST">
-                    @csrf
-
+            <div class="modal-body p-4">
+                <form>
                     <div class="mb-3">
-                        <label class="form-label">Selected Service</label>
-                        <input type="text" class="form-control" id="selectedServiceInput" name="service" readonly>
+                        <label class="form-label text-muted small fw-bold">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your full name">
                     </div>
-
                     <div class="mb-3">
-                        <label class="form-label">Your Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                        <label class="form-label text-muted small fw-bold">Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="Enter your mobile number">
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+                    <div class="mb-4">
+                        <label class="form-label text-muted small fw-bold">Service Details (Optional)</label>
+                        <textarea class="form-control" rows="3" placeholder="Any specific requirements?"></textarea>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" name="phone" placeholder="Enter your phone number">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Message</label>
-                        <textarea class="form-control" name="message" rows="4" placeholder="Write your requirement or preferred service details"></textarea>
-                    </div>
-
-                    <button type="submit" class="theme-btn w-100">
-                        Submit Enquiry <i class="far fa-angle-double-right"></i>
-                    </button>
+                    <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase">Submit Inquiry</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- Get Price Modal End -->
-
-<style>
-    .service-card-item {
-        height: 100%;
-        transition: all 0.35s ease;
-        overflow: hidden;
-    }
-
-    .service-card-item:hover {
-        transform: translateY(-6px);
-    }
-
-    .service-card-image {
-        width: 100%;
-        height: 230px;
-        overflow: hidden;
-        border-radius: 8px 8px 0 0;
-    }
-
-    .service-card-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-        display: block;
-    }
-
-    .service-card-item:hover .service-card-image img {
-        transform: scale(1.06);
-    }
-
-    .services__page-item-content {
-        padding: 25px;
-    }
-
-    .service-short-desc {
-        margin-bottom: 14px;
-    }
-
-    .service-sublist {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 18px 0;
-    }
-
-    .service-sublist li {
-        position: relative;
-        padding-left: 18px;
-        margin-bottom: 8px;
-        color: #666;
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .service-sublist li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 11px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #c98a52;
-    }
-
-    .service-more-content {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.45s ease, opacity 0.35s ease, margin-top 0.35s ease;
-    }
-
-    .service-card-item.active .service-more-content {
-        max-height: 500px;
-        opacity: 1;
-        margin-top: 8px;
-    }
-
-    .service-toggle-btn {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .service-card-item.active .service-toggle-btn i {
-        transform: rotate(90deg);
-        transition: 0.3s ease;
-    }
-
-    .services__page-item-content h4 a {
-        pointer-events: none;
-    }
-
-    .service-btn-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        align-items: center;
-        margin-top: 15px;
-    }
-
-    .theme-btn-sm {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: #c98a52;
-        color: #fff;
-        padding: 9px 18px;
-        font-size: 14px;
-        font-weight: 600;
-        border-radius: 6px;
-        transition: 0.3s ease;
-        text-decoration: none;
-        border: 1px solid #c98a52;
-    }
-
-    .theme-btn-sm:hover {
-        background: #b87943;
-        color: #fff;
-    }
-
-    .get-price-modal-content {
-        border-radius: 16px;
-        padding: 8px;
-    }
-
-    .get-price-modal-content .form-control {
-        min-height: 48px;
-        border-radius: 8px;
-        box-shadow: none;
-    }
-
-    .get-price-modal-content textarea.form-control {
-        min-height: 120px;
-    }
-
-    .get-price-modal-content .form-label {
-        font-weight: 600;
-        margin-bottom: 8px;
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleButtons = document.querySelectorAll('.service-toggle-btn');
-        const priceButtons = document.querySelectorAll('.get-price-btn');
-        const selectedServiceInput = document.getElementById('selectedServiceInput');
-
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const card = this.closest('.service-card-item');
-                const isActive = card.classList.contains('active');
-
-                if (isActive) {
-                    card.classList.remove('active');
-                    this.innerHTML = 'Read More <i class="far fa-angle-double-right"></i>';
-                } else {
-                    card.classList.add('active');
-                    this.innerHTML = 'Show Less <i class="far fa-angle-double-right"></i>';
-                }
-            });
-        });
-
-        priceButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const serviceName = this.getAttribute('data-service');
-                selectedServiceInput.value = serviceName;
-            });
-        });
-    });
-</script>
  @php
     $gallery = [
         ['img' => 'assets/testimonials/1.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair', 'cat' => 'tattoo'],
@@ -856,7 +1325,7 @@
             <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
                 <div class="mission__area-right">
                     {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 77%;margin-left: 69px;">
+                    <img src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;">
                 </div>
             </div>
         </div>
