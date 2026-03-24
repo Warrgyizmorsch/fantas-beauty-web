@@ -28,7 +28,7 @@
                                  src="{{ asset($g['img']) }}"
                                  data-img="{{ asset($g['img']) }}"
                                  data-index="{{ $index }}"
-                                 alt="{{ $g['title'] }}">
+                                 alt="{{ $g['title'] }}" loading="lazy" decoding="async">
 
                             <div class="gallery__area-item-image-content">
                                 <h4>{{ $g['title'] }}</h4>
@@ -64,7 +64,7 @@
     <button class="lightbox-nav lightbox-next" type="button" aria-label="Next">&#10095;</button>
 
     <div class="lightbox-inner">
-        <img class="lightbox-content" id="lightboxImage" alt="Preview">
+        <img class="lightbox-content" id="lightboxImage" alt="Preview" loading="lazy" decoding="async">
         <div class="lightbox-caption">
             <h4 id="lightboxTitle"></h4>
             <span id="lightboxTag"></span>

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 	
+<style>
+    .banner__slide-area-image {
+        will-change: transform;
+    }
+</style>
 <!-- Page Banner Start -->
 <div class="home__banner">
   <div class="banner__slide swiper banner-slide">
@@ -89,7 +94,7 @@
                         <img 
                             src="{{ asset('assets/img/2220-W-2.webp') }}" 
                             alt="Fantas Tattoo & Piercing Studio"
-                            class="img-fluid rounded shadow-lg"
+                            class="img-fluid rounded shadow-lg" loading="lazy" decoding="async"
                         >
                     </div>
                 </div>
@@ -121,7 +126,7 @@
                                     src="{{ asset('assets/logo/fantas-logo.png') }}" 
                                     alt="Fantas Founder"
                                     class="img-fluid"
-                                    style="max-width: 60px;"
+                                    style="max-width: 60px;" loading="lazy" decoding="async"
                                 >
                             </div>
                             <div class="history__area-right-author-content">
@@ -155,7 +160,7 @@
             {{-- Category 1: Basic Piercings --}}
             <div class="col-lg-4 col-md-6">
                 <div role="button" data-bs-toggle="collapse" data-bs-target="#basic-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
-                    <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="card-img" alt="Basic Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="card-img" alt="Basic Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                     <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
                         <h3 class="fs-4 fw-bold text-white mb-1">Basic Piercings</h3>
                         <p class="text-white-50 small mb-3">Standard Lobe, Helix & More</p>
@@ -169,7 +174,7 @@
             {{-- Category 2: Wellness Piercings --}}
             <div class="col-lg-4 col-md-6">
                 <div role="button" data-bs-toggle="collapse" data-bs-target="#wellness-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
-                    <img src="{{ asset('assets/img/gallery/2.png') }}" class="card-img" alt="Wellness Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <img src="{{ asset('assets/img/gallery/2.webp') }}" class="card-img" alt="Wellness Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                     <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
                         <h3 class="fs-4 fw-bold text-white mb-1">Wellness Piercings</h3>
                         <p class="text-white-50 small mb-3">Daith, Shen Men & Curative</p>
@@ -183,7 +188,7 @@
             {{-- Category 3: Needle Piercings --}}
             <div class="col-lg-4 col-md-6">
                 <div role="button" data-bs-toggle="collapse" data-bs-target="#needle-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
-                    <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="card-img" alt="Needle Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;">
+                    <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="card-img" alt="Needle Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                     <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
                         <h3 class="fs-4 fw-bold text-white mb-1">Needle Piercings</h3>
                         <p class="text-white-50 small mb-3">Septum, Nostril & Facial Art</p>
@@ -209,21 +214,21 @@
                     <div class="carousel-item active">
                         <div class="row g-0"> 
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Ear Lobe" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="d-block w-100" alt="Ear Lobe" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Ear Lobe Piercing</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Ear Lobe Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Upper Lobe" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/20316.webp') }}" class="d-block w-100" alt="Upper Lobe" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Upper Lobe</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Upper Lobe" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Helix" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/24680.webp') }}" class="d-block w-100" alt="Helix" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Helix Alignment</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Helix Alignment" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -236,21 +241,21 @@
                     <div class="carousel-item">
                         <div class="row g-0">
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Tragus Placement</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Conch" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="d-block w-100" alt="Conch" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Conch Piercing</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Conch Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Industrial" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/20316.webp') }}" class="d-block w-100" alt="Industrial" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Industrial Art</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Industrial Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -282,21 +287,21 @@
                     <div class="carousel-item active">
                         <div class="row g-0">
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Daith Piercing" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/2.webp') }}" class="d-block w-100" alt="Daith Piercing" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Daith Piercing</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Daith Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Shen Men" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/24588.webp') }}" class="d-block w-100" alt="Shen Men" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Shen Men</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Shen Men" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Acupuncture Point" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/3.webp') }}" class="d-block w-100" alt="Acupuncture Point" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Acupuncture Point</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Acupuncture Point" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -309,21 +314,21 @@
                     <div class="carousel-item">
                         <div class="row g-0">
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/46924.jpg.jpeg') }}" class="d-block w-100" alt="Wellness Curative" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/46924.webp') }}" class="d-block w-100" alt="Wellness Curative" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Wellness Curative</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Wellness Curative" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Holistic Placement" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/2.webp') }}" class="d-block w-100" alt="Holistic Placement" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Holistic Placement</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Holistic Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Healing Art" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/24588.webp') }}" class="d-block w-100" alt="Healing Art" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Healing Art</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Healing Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -355,21 +360,21 @@
                     <div class="carousel-item active">
                         <div class="row g-0">
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/6.png') }}" class="d-block w-100" alt="Septum" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/6.webp') }}" class="d-block w-100" alt="Septum" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async" >
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Septum Art</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Septum Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/5.png') }}" class="d-block w-100" alt="Nostril" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/5.webp') }}" class="d-block w-100" alt="Nostril" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Nostril Precision</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Nostril Precision" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/4.png') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/4.webp') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Tragus Care</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Care" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -382,21 +387,21 @@
                     <div class="carousel-item">
                         <div class="row g-0">
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Custom Placement" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="d-block w-100" alt="Custom Placement" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Custom Placement</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Custom Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Bridge Piercing" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/3.webp') }}" class="d-block w-100" alt="Bridge Piercing" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Bridge Piercing</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Bridge Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Eyebrow Art" style="height: 500px; object-fit: cover;">
+                                <img src="{{ asset('assets/img/gallery/24680.webp') }}" class="d-block w-100" alt="Eyebrow Art" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Eyebrow Art</h5>
                                     <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Eyebrow Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
@@ -423,13 +428,13 @@
 
  {{-- @php
     $gallery = [
-        ['img' => 'assets/img/gallery/16706.jpg.jpeg', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/20316.jpg.jpeg', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/24680.jpg.jpeg', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/46924.jpg.jpeg', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/20316.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/24680.webp', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/46924.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
 
-        ['img' => 'assets/img/gallery/24588.jpg.jpeg', 'title' => 'Nose Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/33258.jpg.jpeg', 'title' => 'Luxury Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/24588.webp', 'title' => 'Nose Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/33258.webp', 'title' => 'Luxury Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
     ];
 @endphp
 @include('component.gallery') --}}
@@ -469,7 +474,7 @@
             <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
                 <div class="mission__area-right">
                     {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;">
+                    <img src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -486,7 +491,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1); opacity: 1;"></button>
             </div>
             <div class="modal-body text-center pt-0">
-                <img id="modalImage" src="" class="img-fluid rounded shadow-lg" alt="Preview" style="max-height: 85vh; object-fit: contain;">
+                <img id="modalImage" src="" class="img-fluid rounded shadow-lg" alt="Preview" style="max-height: 85vh; object-fit: contain;" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -497,7 +502,6 @@
 
 <script>
     function openImageModal(imageSrc) {
-        // Modal ke andar wale <img> tag ka src change karna
         document.getElementById('modalImage').src = imageSrc;
         
         // Bootstrap modal ko trigger karna

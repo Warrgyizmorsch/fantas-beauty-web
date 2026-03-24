@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 	
+<style>
+    .banner__slide-area-image {
+    will-change: transform;
+}
+</style>
 <!-- Page Banner Start -->
 <div class="home__banner">
   <div class="banner__slide swiper banner-slide">
@@ -86,11 +91,7 @@
             <div class="col-xl-6 col-lg-6 lg-mb-30">
                 <div class="history__area-left">
                     <div class="history__area-left-image">
-                        <img 
-                            src="{{ asset('assets/img/collins-lesulie-PWK6CeCJtJw-unsplash.jpg') }}" 
-                            alt="Fantas Tattoo & Piercing Studio"
-                            class="img-fluid rounded shadow-lg"
-                        >
+                        <img src="{{ asset('assets/img/collins-lesulie-PWK6CeCJtJw-unsplash.jpg') }}" alt="Fantas Tattoo & Piercing Studio"  class="img-fluid rounded shadow-lg" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -117,12 +118,7 @@
                     <div class="history__area-right-author mt-4">
                         <div class="d-flex align-items-center">
                             <div class="history__area-right-author-image mr-3">
-                                <img 
-                                    src="{{ asset('assets/logo/fantas-logo.png') }}" 
-                                    alt="Fantas Founder"
-                                    class="img-fluid"
-                                    style="max-width: 60px;"
-                                >
+                                <img src="{{ asset('assets/logo/fantas-logo.png') }}" alt="Fantas Founder" class="img-fluid" style="max-width: 60px;" loading="lazy" decoding="async">
                             </div>
                             <div class="history__area-right-author-content">
                                 <h4 class="mb-0">Fantas Beauty Studio</h4>
@@ -152,7 +148,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
                     <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/tattoo-machine.png') }}" alt="Custom Tattoos" width="50">
+                        <img src="{{ asset('assets/img/icon/tattoo-machine.png') }}" alt="Custom Tattoos" width="50" loading="lazy" decoding="async">
                     </div>
                     <h4>Custom Tattoos</h4>
                     <p class="text-muted mb-0">From hyper-realism to fine-line minimalism, we bring your unique vision to life with skin-safe, premium inks.</p>
@@ -163,7 +159,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
                     <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/tattoo.png') }}" alt="Body Piercing" width="50">
+                        <img src="{{ asset('assets/img/icon/tattoo.png') }}" alt="Body Piercing" width="50" loading="lazy" decoding="async">
                     </div>
                     <h4>Professional Piercing</h4>
                     <p class="text-muted mb-0">Ear, facial, and body piercings done safely using single-use sterilized needles and hypoallergenic jewelry.</p>
@@ -174,7 +170,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card border-0 shadow-sm h-100 text-center p-4">
                     <div class="card-icon mb-3">
-                        <img src="{{ asset('assets/img/icon/flower.png') }}" alt="Cover Ups" width="50">
+                        <img src="{{ asset('assets/img/icon/flower.png') }}" alt="Cover Ups" width="50" loading="lazy" decoding="async">
                     </div>
                     <h4>Tattoo Cover-Ups</h4>
                     <p class="text-muted mb-0">Turn unwanted or faded tattoos into beautiful new masterpieces with our expert cover-up techniques.</p>
@@ -199,7 +195,7 @@
         <div class="accordion border-0" id="tattooAccordion">
             <div class="row align-items-center mb-4">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="{{ asset('assets/img/gallery/7.png') }}" class="img-fluid rounded-4 shadow-lg w-100" alt="Custom Tattoos" style="height: 500px; object-fit: cover;">
+                    <img src="{{ asset('assets/img/gallery/7.webp') }}" class="img-fluid rounded-4 shadow-lg w-100" alt="Custom Tattoos" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
                 </div>
                 <div class="col-lg-5 offset-lg-1">
                     <h3 class="display-6 fw-bold text-dark mb-3">Tattoos</h3>
@@ -215,13 +211,13 @@
 
  @php
     $gallery = [
-        ['img' => 'assets/img/gallery/blog-banner.png', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/piercing-2.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/tattoo-1.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/tattoo-2.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/blog-banner.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/piercing-2.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-1.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-2.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
 
-        ['img' => 'assets/img/gallery/tattoo3.png', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
-        ['img' => 'assets/img/gallery/tattoo-4.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo3.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/tattoo-4.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
     ];
 @endphp
 @include('component.gallery')
@@ -261,7 +257,7 @@
             <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
                 <div class="mission__area-right">
                     {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;">
+                    <img src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -277,7 +273,6 @@
     
 <script>
     function openImageModal(imageSrc) {
-        // Modal ke andar wale <img> tag ka src change karna
         document.getElementById('modalImage').src = imageSrc;
         
         // Bootstrap modal ko trigger karna
