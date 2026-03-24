@@ -212,21 +212,21 @@
                                 <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Ear Lobe" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Ear Lobe Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Ear Lobe Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Upper Lobe" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Upper Lobe</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Upper Lobe" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Helix" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Helix Alignment</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Helix Alignment" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -239,21 +239,21 @@
                                 <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Tragus Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/Ear lobe piercing.png') }}" class="d-block w-100" alt="Conch" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Conch Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Conch Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100" alt="Industrial" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Industrial Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Industrial Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -285,21 +285,21 @@
                                 <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Daith Piercing" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Daith Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Daith Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Shen Men" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Shen Men</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Shen Men" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Acupuncture Point" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Acupuncture Point</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Acupuncture Point" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -312,21 +312,21 @@
                                 <img src="{{ asset('assets/img/gallery/46924.jpg.jpeg') }}" class="d-block w-100" alt="Wellness Curative" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Wellness Curative</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Wellness Curative" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/2.png') }}" class="d-block w-100" alt="Holistic Placement" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Holistic Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Holistic Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/24588.jpg.jpeg') }}" class="d-block w-100" alt="Healing Art" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Healing Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Healing Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -358,21 +358,21 @@
                                 <img src="{{ asset('assets/img/gallery/6.png') }}" class="d-block w-100" alt="Septum" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Septum Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Septum Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/5.png') }}" class="d-block w-100" alt="Nostril" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Nostril Precision</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Nostril Precision" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/4.png') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Tragus Care</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Care" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -385,21 +385,21 @@
                                 <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100" alt="Custom Placement" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Custom Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Custom Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative border-end border-5 border-white">
                                 <img src="{{ asset('assets/img/gallery/3.png') }}" class="d-block w-100" alt="Bridge Piercing" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Bridge Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Bridge Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                             <div class="col-4 position-relative">
                                 <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100" alt="Eyebrow Art" style="height: 500px; object-fit: cover;">
                                 <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
                                     <h5 class="text-white fw-bold mb-2">Eyebrow Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Eyebrow Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
                                 </div>
                             </div>
                         </div>
@@ -493,37 +493,7 @@
 </div>
 
 {{-- INQUIRY FORM --}}
-<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded-4 border-0 shadow-lg">
-            
-            <div class="modal-header border-bottom-0 pb-0">
-                <h5 class="modal-title fw-bold text-dark" id="inquiryModalLabel">Enquiry  About Piercing</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
-            <div class="modal-body p-4">
-                <p class="text-muted small mb-4">Leave your details below and our piercing experts will get back to you shortly to confirm your consultation.</p>
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Full Name</label>
-                        <input type="text" class="form-control rounded-3" placeholder="Enter your full name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Phone Number</label>
-                        <input type="tel" class="form-control rounded-3" placeholder="Enter your mobile number">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold">Message or Questions (Optional)</label>
-                        <textarea class="form-control rounded-3" rows="3" placeholder="Any specific piercing you are looking for?"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Send Inquiry</button>
-                </form>
-            </div>
-            
-        </div>
-    </div>
-</div>
+<x-inquiry-modal />
 
 <script>
     function openImageModal(imageSrc) {

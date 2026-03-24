@@ -204,56 +204,12 @@
                 <div class="col-lg-5 offset-lg-1">
                     <h3 class="display-6 fw-bold text-dark mb-3">Tattoos</h3>
                     <p class="text-muted fs-5 mb-4">Bring your unique vision to life. Our award-winning artists specialize in bespoke designs, from hyper-realism and portraits to traditional and neo-traditional masterpieces tailored perfectly to your body flow.</p>
-                    <button type="button" class="theme-btn px-4 py-3 rounded-pill text-uppercase fw-bold collapsed" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                    <button type="button" class="theme-btn px-4 py-3 rounded-pill text-uppercase fw-bold collapsed" data-bs-toggle="modal" data-bs-target="#inquiryModal"  data-service="Tattoo">
                         Send Enquiry <i class="far fa-angle-double-right"></i>
                     </button>
                 </div>
             </div>
-
-            {{-- <div id="customSlider" class="collapse mb-5 pb-4 border-bottom" data-bs-parent="#tattooAccordion">
-                <div class="mt-4 px-lg-3">
-                    <div id="carouselCustom" class="carousel slide" data-bs-ride="false">
-                        <div class="carousel-inner py-3">
-                            <div class="carousel-item active">
-                                <div class="row g-4">
-                                    <div class="col-6 position-relative">
-                                        <img src="{{ asset('assets/img/gallery/16706.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Realism" style="height: 450px; object-fit: cover;">
-                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                            <h4 class="text-white fw-bold mb-2">Realism Portrait</h4>
-                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 position-relative">
-                                        <img src="{{ asset('assets/img/gallery/20316.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Neo Traditional" style="height: 450px; object-fit: cover;">
-                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                            <h4 class="text-white fw-bold mb-2">Neo-Traditional</h4>
-                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row g-4">
-                                    <div class="col-6 position-relative">
-                                        <img src="{{ asset('assets/img/gallery/24680.jpg.jpeg') }}" class="d-block w-100 rounded-4 shadow-sm" alt="Japanese" style="height: 450px; object-fit: cover;">
-                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end rounded-bottom-4" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                            <h4 class="text-white fw-bold mb-2">Japanese Irezumi</h4>
-                                            <div><button class="btn btn-outline-light btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal">Inquire Now <i class="fas fa-arrow-right ms-1"></i></button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCustom" data-bs-slide="prev" style="width: 8%;">
-                            <div class="bg-white rounded-circle shadow-lg d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;"><i class="fas fa-chevron-left text-dark"></i></div>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselCustom" data-bs-slide="next" style="width: 8%;">
-                            <div class="bg-white rounded-circle shadow-lg d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;"><i class="fas fa-chevron-right text-dark"></i></div>
-                        </button>
-                    </div>
-                </div>
-            </div> --}}
-        </div> {{-- End Accordion --}}
+        </div> 
     </div>
 </div>
 
@@ -317,37 +273,7 @@
 <!-- Instagram Area End -->
 
 {{-- INQUIRY FORM --}}
-<div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded-4 border-0 shadow-lg">
-            
-            <div class="modal-header border-bottom-0 pb-0">
-                <h5 class="modal-title fw-bold text-dark" id="inquiryModalLabel">Enquiry  About Piercing</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
-            <div class="modal-body p-4">
-                <p class="text-muted small mb-4">Leave your details below and our piercing experts will get back to you shortly to confirm your consultation.</p>
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Full Name</label>
-                        <input type="text" class="form-control rounded-3" placeholder="Enter your full name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-muted small fw-bold">Phone Number</label>
-                        <input type="tel" class="form-control rounded-3" placeholder="Enter your mobile number">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold">Message or Questions (Optional)</label>
-                        <textarea class="form-control rounded-3" rows="3" placeholder="Any specific piercing you are looking for?"></textarea>
-                    </div>
-                    <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase" style="letter-spacing: 1px;">Send Inquiry</button>
-                </form>
-            </div>
-            
-        </div>
-    </div>
-</div>
+<x-inquiry-modal />
     
 <script>
     function openImageModal(imageSrc) {

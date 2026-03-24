@@ -75,6 +75,8 @@
     <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.meanmenu.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     {{-- Extra Page JS --}}
     @stack('scripts')
@@ -128,5 +130,26 @@
         console.log('PWA is already installed');
     });
 </script>
+
+@if(session('success'))
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        let modal = bootstrap.Modal.getInstance(document.getElementById('inquiryModal'));
+        if(modal){
+            modal.hide();
+        }
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Inquiry Sent!',
+            text: 'We will contact you soon 💎',
+            confirmButtonColor: '#d4a373',
+            timer: 2500,
+            showConfirmButton: false
+        });
+    });
+</script>
+@endif
 </body>
 </html>
