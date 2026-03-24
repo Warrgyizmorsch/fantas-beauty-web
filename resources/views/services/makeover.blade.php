@@ -9,6 +9,83 @@
             border-color: #b48e40 !important;
             color: #ffffff !important;
         }
+
+        .services-tab-nav {
+            scrollbar-width: thin;
+            scrollbar-color: #999 transparent;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .services-tab-nav::-webkit-scrollbar {
+            height: 6px;
+            display: none;
+        }
+
+        .services-tab-nav::-webkit-scrollbar-thumb {
+            background: #999;
+            border-radius: 20px;
+        }
+
+        .service-main-img {
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .service-slide-img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .service-card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.25), transparent);
+        }
+
+        .service-carousel-control {
+            width: 48px;
+            height: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+        .service-carousel-control .carousel-control-prev-icon,
+        .service-carousel-control .carousel-control-next-icon {
+            background-size: 18px 18px;
+            border-radius: 50%;
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        @media (max-width: 991.98px) {
+            .service-main-img {
+                height: 260px;
+                border-radius: 1rem 1rem 0 0 !important;
+            }
+
+            .service-slide-img {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .service-slide-item:not(:last-child) {
+                border-bottom: 2px solid #fff;
+            }
+
+            .service-carousel-control {
+                width: 38px;
+                height: 38px;
+            }
+
+            .service-carousel-control .carousel-control-prev-icon,
+            .service-carousel-control .carousel-control-next-icon {
+                padding: 12px;
+            }
+        }
     </style>
 
     <!-- Page Banner Start -->
@@ -111,7 +188,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="home__banner-button">
@@ -122,7 +198,6 @@
                     <i class="far fa-long-arrow-right"></i>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- Page Banner End -->
@@ -178,10 +253,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -204,10 +277,10 @@
             'items' => [
                 ['image' => 'assets/img/gallery/16.png', 'title' => 'Eyebrows'],
                 ['image' => 'assets/img/gallery/25.png', 'title' => 'Upper Lip'],
-                ['image' => 'assets/img/gallery/27.png', 'title' => 'Full Face'],
-                ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
-                ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
-                ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
+                ['image' => 'assets/img/gallery/facial-beauty-treatment-spa-salon-body-skin-care.jpg', 'title' => 'Chin'],
+                ['image' => 'assets/img/gallery/female-master-checks-contour-eyebrows-with-thread.jpg', 'title' => 'Sides'],
+                ['image' => 'assets/img/gallery/woman-going-through-microblading-procedure.jpg', 'title' => 'Cheeks'],
+                ['image' => 'assets/img/gallery/chain.jpg', 'title' => 'Chin'],
             ],
         ],
         [
@@ -271,9 +344,9 @@
                 ['image' => 'assets/img/gallery/massage.png', 'title' => 'Neck Massage'],
                 ['image' => 'assets/img/gallery/29.png', 'title' => 'Back Massage'],
                 ['image' => 'assets/img/gallery/28.png', 'title' => 'Shoulders Massage'],
-                ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
-                ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
-                ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
+                // ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
+                // ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
+                // ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
             ],
         ],
         [
@@ -317,10 +390,10 @@
                 ['image' => 'assets/img/gallery/semi permanent makeup.png', 'title' => 'Eyebrows Refill'],
                 ['image' => 'assets/img/gallery/images.jpeg', 'title' => 'Eyeliner'],
                 ['image' => 'assets/img/gallery/Liner1.jpg', 'title' => 'Top & Bottom Eyeliner'],
-                ['image' => 'assets/img/gallery/lip.jpg', 'title' => 'Lip Liner'],
-                ['image' => 'assets/img/gallery/lips.jpg', 'title' => 'Full Lip Collor'],
-                ['image' => 'assets/img/gallery/spot.jpg', 'title' => 'Beauty Spot'],
-                ['image' => 'assets/img/gallery/microblading.png', 'title' => 'Microblading'],
+                ['image' => 'assets/img/gallery/images (1).jpeg', 'title' => 'Lip Liner'],
+                ['image' => 'assets/img/gallery/34.png', 'title' => 'Full Lip Collor'],
+                ['image' => 'assets/img/gallery/beauty.png', 'title' => 'Beauty Spot'],
+                ['image' => 'assets/img/gallery/25.png', 'title' => 'Microblading'],
             ],
         ],
         [
@@ -342,8 +415,8 @@
                 ['image' => 'assets/img/gallery/image.png', 'title' => 'Wash & Blow-Dry'],
                 ['image' => 'assets/img/gallery/36.png', 'title' => 'Stear'],
                 ['image' => 'assets/img/gallery/hair treatment.png', 'title' => 'Hair Treatment'],
-                ['image' => 'assets/img/gallery/38.png', 'title' => 'Curly Perm'],
-                ['image' => 'assets/img/gallery/weaveon.png', 'title' => 'Weave-on'],
+                ['image' => 'assets/img/gallery/frontals.png', 'title' => 'Curly Perm'],
+                ['image' => 'assets/img/gallery/41.png', 'title' => 'Weave-on'],
                 ['image' => 'assets/img/gallery/40.png', 'title' => 'Front Lace Closure'],
                 ['image' => 'assets/img/gallery/37.png', 'title' => 'Curly Hair'],
             ],
@@ -387,9 +460,9 @@
                 ['image' => 'assets/img/gallery/42.png', 'title' => 'Small Gen'],
                 ['image' => 'assets/img/gallery/43.png', 'title' => 'Big Gen'],
                 ['image' => 'assets/img/gallery/front-view-woman-posing-with-dental-gems.jpg', 'title' => 'Small Gen'],
-                ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
-                ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
-                ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
+                // ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
+                // ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
+                // ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
             ],
         ],
         [
@@ -431,90 +504,16 @@
                 ['image' => 'assets/img/gallery/14.png', 'title' => 'Henna'],
                 ['image' => 'assets/img/gallery/13.png', 'title' => 'Henna'],
                 ['image' => 'assets/img/gallery/closeup-hands-pretty-hindu-bride-with-henna-tattoo.jpg', 'title' => 'Henna'],
-                ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
-                ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
-                ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
+                // ['image' => 'assets/img/gallery/34.png', 'title' => 'Chin & Neck'],
+                // ['image' => 'assets/img/gallery/21.png', 'title' => 'Sides & Cheeks'],
+                // ['image' => 'assets/img/gallery/19.png', 'title' => 'Forehead'],
             ],
         ],
     ];
 @endphp
 
-<style>
-    .services-tab-nav {
-        scrollbar-width: thin;
-        scrollbar-color: #999 transparent;
-    }
-
-    .services-tab-nav::-webkit-scrollbar {
-        height: 6px;
-    }
-
-    .services-tab-nav::-webkit-scrollbar-thumb {
-        background: #999;
-        border-radius: 20px;
-    }
-
-    .service-main-img {
-        height: 350px;
-        object-fit: cover;
-    }
-
-    .service-slide-img {
-        height: 400px;
-        object-fit: cover;
-    }
-
-    .service-card-overlay {
-        background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.25), transparent);
-    }
-
-    .service-carousel-control {
-        width: 48px;
-        height: 48px;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 1;
-    }
-
-    .service-carousel-control .carousel-control-prev-icon,
-    .service-carousel-control .carousel-control-next-icon {
-        background-size: 18px 18px;
-        border-radius: 50%;
-        padding: 16px;
-        background-color: rgba(0, 0, 0, 0.75);
-    }
-
-    @media (max-width: 991.98px) {
-        .service-main-img {
-            height: 260px;
-            border-radius: 1rem 1rem 0 0 !important;
-        }
-
-        .service-slide-img {
-            height: 280px;
-        }
-    }
-
-    @media (max-width: 767.98px) {
-        .service-slide-item:not(:last-child) {
-            border-bottom: 2px solid #fff;
-        }
-
-        .service-carousel-control {
-            width: 38px;
-            height: 38px;
-        }
-
-        .service-carousel-control .carousel-control-prev-icon,
-        .service-carousel-control .carousel-control-next-icon {
-            padding: 12px;
-        }
-    }
-</style>
-
 <div class="services__area section-padding bg-light">
     <div class="container">
-
         {{-- Main Section Header --}}
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
@@ -557,13 +556,7 @@
                         @php
                             $slides = array_chunk($category['items'], 3);
                         @endphp
-
-                        <div
-                            class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}"
-                            id="{{ $category['id'] }}"
-                            role="tabpanel"
-                            aria-labelledby="{{ $category['id'] }}-tab">
-
+                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="{{ $category['id'] }}" role="tabpanel" aria-labelledby="{{ $category['id'] }}-tab">
                             {{-- Main Card --}}
                             <div class="card border-0 rounded-4 shadow-sm mb-4 overflow-hidden">
                                 <div class="row g-0 align-items-center">
@@ -586,7 +579,7 @@
                                             @endforeach
                                         </ul>
 
-                                        <button
+                                        <button 
                                             class="theme-btn rounded-pill px-4 py-2 fw-bold collapsed"
                                             data-bs-toggle="collapse"
                                             data-bs-target="#{{ $category['collapse_id'] }}"
@@ -614,10 +607,7 @@
 
                                                             <div class="position-absolute bottom-0 start-0 w-100 p-3 text-center service-card-overlay">
                                                                 <h6 class="text-white fw-bold mb-2">{{ $item['title'] }}</h6>
-                                                                <button
-                                                                    class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#inquiryModal">
+                                                                <button class="theme-banner-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}" style="height: 10px;">
                                                                     Enquiry Now
                                                                 </button>
                                                             </div>
@@ -665,22 +655,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <form>
+                    <form method="POST" action="{{ route('inquiry.store') }}">
+                        @csrf
+                        <input type="hidden" name="service_name" id="service_name">
                         <div class="mb-3">
                             <label class="form-label text-muted small fw-bold">Full Name</label>
-                            <input type="text" class="form-control" placeholder="Enter your full name">
+                            <input type="text" name="name" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-muted small fw-bold">Phone Number</label>
-                            <input type="tel" class="form-control" placeholder="Enter your mobile number">
+                            <input type="tel" name="phone" class="form-control" required>
                         </div>
+                        <p class="text-muted">Service: <span id="service_text"></span></p>
                         <div class="mb-4">
-                            <label class="form-label text-muted small fw-bold">Service Details (Optional)</label>
-                            <textarea class="form-control" rows="3" placeholder="Any specific requirements?"></textarea>
+                            <label class="form-label text-muted small fw-bold">Service Details</label>
+                            <textarea name="message" class="form-control"></textarea>
                         </div>
-                        <button type="button" class="btn btn-dark w-100 rounded-pill py-2 fw-bold text-uppercase">Submit
-                            Inquiry</button>
+                        <button type="submit" class="theme-btn btn  w-100 rounded-pill py-2 fw-bold">
+                            Submit Inquiry
+                        </button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -767,6 +762,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const inquiryModal = document.getElementById('inquiryModal');
+
+        inquiryModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const serviceName = button.getAttribute('data-service');
+
+            document.getElementById('service_name').value = serviceName;
+            document.getElementById('service_text').innerText = serviceName;
+        });
+    </script>
 
     <script>
         function openImageModal(imageSrc) {

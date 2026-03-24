@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\InquiryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,4 +44,6 @@ Route::get('/blog-details', function () {
 });
 
 Route::get('/blog/{slug}', [BlogController::class, 'show']);
+Route::post('/inquiry-store', [InquiryController::class, 'store'])->name('inquiry.store');
+
 
