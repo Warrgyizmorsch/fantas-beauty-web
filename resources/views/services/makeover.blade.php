@@ -7,11 +7,10 @@
         display: flex;
         gap: 20px;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         padding-bottom: 20px;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
-        cursor: grab; /* Shows drag cursor */
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+        cursor: grab; 
     }
     .category-slider-wrapper:active {
         cursor: grabbing;
@@ -21,16 +20,15 @@
     }
 
     .category-card-ui {
-        flex: 0 0 calc(33.333% - 14px); /* Desktop: 3 Items */
+        flex: 0 0 calc(33.333% - 14px); 
         height: 380px;
         position: relative;
         border-radius: 8px;
         overflow: hidden;
-        scroll-snap-align: start;
         background: #111;
         border: 2px solid transparent;
         transition: border-color 0.3s ease, transform 0.3s ease;
-        user-select: none; /* Text select na ho drag karte waqt */
+        user-select: none; 
     }
 
     /* Active Tab Highlight */
@@ -115,7 +113,6 @@
     @media (max-width: 768px) { .service-slide-item { width: 260px; height: 360px; } }
 </style>
 
-<!-- Page Banner Start -->
 <div class="home__banner">
     <div class="banner__slide swiper banner-slide">
         <div class="swiper-wrapper">
@@ -223,8 +220,6 @@
         </div>
     </div>
 </div>
-<!-- Page Banner End -->
-
 <div class="history__area section-padding">
     <div class="container">
         <div class="row align-items-center">
@@ -545,7 +540,7 @@ $serviceCategories = [
                     {{-- <span class="subtitle__one">Welcome to Our Barbex</span> --}}
                     <h2 class="text-dark mb-4 ">Artistry With Makeover & Care</h2>
                     <p class="mb-25 text-muted">
-                            At Fantas Studio, our mission is to deliver exceptional luxury makeover services—spanning
+                        At Fantas Studio, our mission is to deliver exceptional luxury makeover services—spanning
                         expert hair grooming, flawless nail artistry, and premium eyelash extensions—with
                         uncompromising hygiene, safety, and professional care. We are dedicated to providing a
                         personalized experience from consultation to aftercare, focusing on every detail to ensure
@@ -557,7 +552,7 @@ $serviceCategories = [
             </div>
             <div class="col-xl-5 col-lg-5">
                 <div class="banner__two-right">
-                    <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="">
+                    <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="Artistry" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -582,132 +577,181 @@ $serviceCategories = [
 </div>
 
 <script>
-    function openImageModal(imageSrc) {
-        document.getElementById('modalImage').src = imageSrc;
-        var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
-        myModal.show();
-    }
-
-    const catSlider = document.getElementById('categorySliderDrag');
-    let isCatDown = false;
-    let catStartX;
-    let catScrollLeft;
-
-    catSlider.addEventListener('mousedown', (e) => {
-        isCatDown = true;
-        catStartX = e.pageX - catSlider.offsetLeft;
-        catScrollLeft = catSlider.scrollLeft;
-    });
-    catSlider.addEventListener('mouseleave', () => { isCatDown = false; });
-    catSlider.addEventListener('mouseup', () => { isCatDown = false; });
-    catSlider.addEventListener('mousemove', (e) => {
-        if (!isCatDown) return;
-        e.preventDefault();
-        const x = e.pageX - catSlider.offsetLeft;
-        const walk = (x - catStartX) * 2; // Scroll fast
-        catSlider.scrollLeft = catScrollLeft - walk;
-    });
-
-    // ==========================================
-    // 2. SWITCH CATEGORY LOGIC
-    // ==========================================
-    function switchCategory(targetId) {
-        // Card UI Update
-        document.querySelectorAll('.category-card-ui').forEach(card => card.classList.remove('active-tab'));
-        const activeCard = document.getElementById('card-' + targetId);
-        if(activeCard) activeCard.classList.add('active-tab');
-
-        // Stop old marquees and hide them
-        document.querySelectorAll('.marquee-display-section').forEach(sec => {
-            sec.classList.remove('active-section');
-            const marqueeInner = sec.querySelector('.service-marquee');
-            if(marqueeInner && marqueeInner.rafId) {
-                cancelAnimationFrame(marqueeInner.rafId);
-            }
-        });
-        
-        // Show new marquee and START it
-        const targetSection = document.getElementById(targetId + '-marquee');
-        if(targetSection) {
-            targetSection.classList.add('active-section');
-            const marquee = targetSection.querySelector('.service-marquee');
-            if (marquee) {
-                marquee.dataset.init = 'false';
-                // setTimeout zaruri hai taaki browser ko width calculate karne ka time mile 
-                // display:block hone ke turant baad.
-                setTimeout(() => {
-                    initMarqueeInstance(marquee);
-                }, 50); 
-            }
-        }
-    }
-
-    // ==========================================
-    // 3. OPTIMIZED MARQUEE ENGINE
-    // ==========================================
-    function initMarqueeInstance(container) {
-        const track = container.querySelector('.marquee-track');
-        if (!track || container.dataset.init === 'true') return;
-
-        let speed = parseFloat(container.dataset.speed || '0.8');
-        let state = { isHovered: false, isDragging: false, startX: 0, scrollLeft: 0, cachedWidth: 0 };
-
-        const updateWidth = () => {
-            const items = track.children;
-            const setLength = Math.floor(items.length / 3); 
-            if(setLength === 0) return 0;
-            let w = 0;
-            for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15; // 15px gap
-            return w;
-        };
-
-        const loop = () => {
-            if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
-                container.scrollLeft += speed;
-                if (container.scrollLeft >= state.cachedWidth * 2) container.scrollLeft -= state.cachedWidth;
-                else if (container.scrollLeft <= 0) container.scrollLeft += state.cachedWidth;
-            }
-            container.rafId = requestAnimationFrame(loop); // Store ID on DOM element
-        };
-
-        const startDrag = (x) => { state.isDragging = true; container.classList.add('is-dragging'); state.startX = x - container.offsetLeft; state.scrollLeft = container.scrollLeft; };
-        const onDrag = (x) => { if (!state.isDragging) return; container.scrollLeft = state.scrollLeft - ((x - container.offsetLeft - state.startX) * 1.5); };
-        const stopDrag = () => { state.isDragging = false; container.classList.remove('is-dragging'); };
-
-        // Clear old events
-        container.onmouseenter = null; container.onmouseleave = null; container.onmousedown = null;
-        container.onmousemove = null; window.onmouseup = null; container.ontouchstart = null;
-        container.ontouchmove = null; container.ontouchend = null;
-
-        // Bind Events
-        container.onmouseenter = () => state.isHovered = true;
-        container.onmouseleave = () => { state.isHovered = false; stopDrag(); };
-        container.onmousedown = (e) => startDrag(e.pageX);
-        container.onmousemove = (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); };
-        window.addEventListener('mouseup', stopDrag);
-
-        container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
-        container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
-        container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
-
-        // Setup & Play
-        state.cachedWidth = updateWidth();
-        container.scrollLeft = state.cachedWidth;
-        
-        if(container.rafId) cancelAnimationFrame(container.rafId);
-        container.rafId = requestAnimationFrame(loop);
-        container.dataset.init = 'true';
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-        // Pehla tab start karo
+        
+        // Modal logic
+        window.openImageModal = function(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
+            myModal.show();
+        };
+
+        // ==========================================
+        // 1. CATEGORY SLIDER AUTO-SCROLL LOGIC
+        // ==========================================
+        const catSlider = document.getElementById('categorySliderDrag');
+        let isCatDown = false;
+        let catStartX;
+        let catScrollLeft;
+        
+        // Auto-scroll variables
+        let isCatHovered = false;
+        let catAutoScrollSpeed = 1; // Speed adjust karein
+        let catRafId;
+
+        if(catSlider) {
+            // Mouse Events
+            catSlider.addEventListener('mouseenter', () => { isCatHovered = true; });
+            catSlider.addEventListener('mouseleave', () => { 
+                isCatHovered = false; 
+                isCatDown = false; 
+            });
+            catSlider.addEventListener('mousedown', (e) => {
+                isCatDown = true;
+                catStartX = e.pageX - catSlider.offsetLeft;
+                catScrollLeft = catSlider.scrollLeft;
+            });
+            catSlider.addEventListener('mouseup', () => { isCatDown = false; });
+            catSlider.addEventListener('mousemove', (e) => {
+                if (!isCatDown) return;
+                e.preventDefault();
+                const x = e.pageX - catSlider.offsetLeft;
+                const walk = (x - catStartX) * 2; 
+                catSlider.scrollLeft = catScrollLeft - walk;
+            });
+
+            // Touch Events
+            catSlider.addEventListener('touchstart', (e) => {
+                isCatDown = true;
+                isCatHovered = true; 
+                catStartX = e.touches[0].pageX - catSlider.offsetLeft;
+                catScrollLeft = catSlider.scrollLeft;
+            }, { passive: true });
+            catSlider.addEventListener('touchend', () => {
+                isCatDown = false;
+                isCatHovered = false;
+            });
+            catSlider.addEventListener('touchmove', (e) => {
+                if (!isCatDown) return;
+                const x = e.touches[0].pageX - catSlider.offsetLeft;
+                const walk = (x - catStartX) * 2;
+                catSlider.scrollLeft = catScrollLeft - walk;
+            }, { passive: true });
+
+            // Auto Scroll Function
+            function autoScrollCategory() {
+                if (!isCatDown && !isCatHovered) {
+                    catSlider.scrollLeft += catAutoScrollSpeed;
+                    if (catSlider.scrollLeft + catSlider.clientWidth >= catSlider.scrollWidth - 1) {
+                        catSlider.scrollLeft = 0; 
+                    }
+                }
+                catRafId = requestAnimationFrame(autoScrollCategory);
+            }
+            catRafId = requestAnimationFrame(autoScrollCategory);
+        }
+
+        // ==========================================
+        // 2. SWITCH CATEGORY LOGIC (Optimized)
+        // ==========================================
+        window.switchCategory = function(targetId) {
+            // Remove active state from current UI Card only
+            const currentActiveCard = document.querySelector('.category-card-ui.active-tab');
+            if (currentActiveCard) currentActiveCard.classList.remove('active-tab');
+            
+            // Set new active Card
+            const activeCard = document.getElementById('card-' + targetId);
+            if(activeCard) activeCard.classList.add('active-tab');
+
+            // Find current active section and stop its animation
+            const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
+            if (currentActiveSection) {
+                currentActiveSection.classList.remove('active-section');
+                const marqueeInner = currentActiveSection.querySelector('.service-marquee');
+                if(marqueeInner && marqueeInner.rafId) {
+                    cancelAnimationFrame(marqueeInner.rafId);
+                }
+            }
+            
+            // Show new marquee and START it
+            const targetSection = document.getElementById(targetId + '-marquee');
+            if(targetSection) {
+                targetSection.classList.add('active-section');
+                const marquee = targetSection.querySelector('.service-marquee');
+                if (marquee) {
+                    marquee.dataset.init = 'false';
+                    setTimeout(() => {
+                        initMarqueeInstance(marquee);
+                    }, 50); 
+                }
+            }
+        };
+
+        // ==========================================
+        // 3. MARQUEE ENGINE
+        // ==========================================
+        function initMarqueeInstance(container) {
+            const track = container.querySelector('.marquee-track');
+            if (!track || container.dataset.init === 'true') return;
+
+            let speed = parseFloat(container.dataset.speed || '0.8');
+            let state = { isHovered: false, isDragging: false, startX: 0, scrollLeft: 0, cachedWidth: 0 };
+
+            const updateWidth = () => {
+                const items = track.children;
+                const setLength = Math.floor(items.length / 3); 
+                if(setLength === 0) return 0;
+                let w = 0;
+                for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15; 
+                return w;
+            };
+
+            const loop = () => {
+                if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
+                    container.scrollLeft += speed;
+                    if (container.scrollLeft >= state.cachedWidth * 2) container.scrollLeft -= state.cachedWidth;
+                    else if (container.scrollLeft <= 0) container.scrollLeft += state.cachedWidth;
+                }
+                container.rafId = requestAnimationFrame(loop); 
+            };
+
+            const startDrag = (x) => { state.isDragging = true; container.classList.add('is-dragging'); state.startX = x - container.offsetLeft; state.scrollLeft = container.scrollLeft; };
+            const onDrag = (x) => { if (!state.isDragging) return; container.scrollLeft = state.scrollLeft - ((x - container.offsetLeft - state.startX) * 1.5); };
+            const stopDrag = () => { state.isDragging = false; container.classList.remove('is-dragging'); };
+
+            // Clear old events
+            container.onmouseenter = null; container.onmouseleave = null; container.onmousedown = null;
+            container.onmousemove = null; window.onmouseup = null; container.ontouchstart = null;
+            container.ontouchmove = null; container.ontouchend = null;
+
+            // Bind Events
+            container.onmouseenter = () => state.isHovered = true;
+            container.onmouseleave = () => { state.isHovered = false; stopDrag(); };
+            container.onmousedown = (e) => startDrag(e.pageX);
+            container.onmousemove = (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); };
+            window.addEventListener('mouseup', stopDrag);
+
+            container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
+            container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
+            container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
+
+            // Setup & Play
+            state.cachedWidth = updateWidth();
+            container.scrollLeft = state.cachedWidth;
+            
+            if(container.rafId) cancelAnimationFrame(container.rafId);
+            container.rafId = requestAnimationFrame(loop);
+            container.dataset.init = 'true';
+        }
+
+        // Initialize First Tab Marquee on Load
         const activeMarquee = document.querySelector('.marquee-display-section.active-section .service-marquee');
         if(activeMarquee) {
-            // Chota delay taaki images aur layout puri tarah load ho jayein
             setTimeout(() => {
                 initMarqueeInstance(activeMarquee);
             }, 100);
         }
+
     });
 </script>
 
