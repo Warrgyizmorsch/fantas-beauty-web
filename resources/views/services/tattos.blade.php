@@ -221,48 +221,29 @@
     ];
 @endphp
 @include('component.gallery')
-    
-<div class="mission__area section-padding" style="background-color: #fdfbf7;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6">
-                <div class="mission__area-left">
-                    <div class="mission__area-left-title">
 
-                        {{-- Subtitle color adjusted --}}
-                        <span class="subtitle__two" style="color: #d4a373;">Mission</span>
-                        
-                        {{-- Heading dark color --}}
-                        <h2 class="text-dark mb-4">Artistry With Precision & Safety</h2>
-
-                        {{-- Paragraphs with muted text for a softer look --}}
-                        <p class="mb-25 text-muted" style="font-size: 1.1rem; line-height: 1.8;">
-                            At Fantas Studio, our mission is to deliver luxury tattoo artistry and premium piercing services with uncompromising hygiene and professional care. We believe every client deserves a transformation that feels confident, clean, and timeless.
-                        </p>
-
-                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+<div style="background-color: #fdfbf7;" class="banner__two" data-background="assets/img/bg/banner.jpg" style="background-image: url(&quot;assets/img/bg/banner.jpg&quot;);">
+        <div class="container custom__container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-7 lg-mb-30">
+                    <div class="banner__two-title">
+                        {{-- <span class="subtitle__one">Welcome to Our Barbex</span> --}}
+                        <h2 class="text-dark mb-4 ">Artistry With Precision & Safety</h2>
+                        <p class="mb-25 text-muted">
+                            At Fantas Studio, our mission is to deliver luxury tattoo artistry and premium piercing services with uncompromising hygiene and professional care. We believe every client deserves a transformation that feels confident, clean, and timeless. <br>
                             From consultation to aftercare, we focus on detail, comfort, and personalized styling. Our expert artists use modern techniques and high-quality products to ensure every service meets the highest standards.
                         </p>
-
-                        {{-- Button updated to a dark/bold style to pop against light background --}}
-                        <a href="{{ url('/book-appointment') }}" class="theme-btn">
-                            Book Appointment <i class="far fa-angle-double-right"></i>
-                        </a>
-
+                        <a href="{{ url('/book-appointment') }}" class="theme-btn">Booking Appointment<i class="far fa-angle-double-right"></i></a>
                     </div>
                 </div>
-            </div>
-            
-            {{-- Right Image --}}
-            <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
-                <div class="mission__area-right">
-                    {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;" loading="lazy" decoding="async">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="banner__two-right">
+                        <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- Instagram Area Start -->	
 @include('component.instagram')

@@ -2,117 +2,117 @@
 @section('content')
 
 <style>
-/* =========================
-   SCROLLER FIXED / SMOOTH
-========================= */
-.marquee-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    touch-action: pan-y;
-    padding: 4px 0 2px;
-}
-
-.marquee-container::-webkit-scrollbar {
-    display: none;
-}
-
-.marquee-container.is-dragging {
-    cursor: grabbing;
-}
-
-.marquee-track {
-    display: flex;
-    align-items: stretch;
-    gap: 15px;
-    width: max-content;
-    will-change: transform;
-}
-
-.service-slide-item {
-    width: 280px;
-    min-width: 280px;
-    max-width: 280px;
-    height: 340px;
-    position: relative;
-    flex: 0 0 280px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-}
-
-.service-slide-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-.service-card-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.18), transparent);
-    text-align: center;
-    color: #fff;
-    z-index: 2;
-}
-
-.service-card-overlay h6 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 1.3;
-}
-
-.service-main-img {
-    height: 100%;
-    min-height: 380px;
-    object-fit: cover;
-}
-
-.services-tab-nav::-webkit-scrollbar {
-    height: 4px;
-}
-.services-tab-nav::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-
-.service-slider-wrap {
-    margin-top: 18px;
-}
-
-@media (max-width: 768px) {
-    .service-slide-item {
-        width: 220px;
-        min-width: 220px;
-        max-width: 220px;
-        height: 280px;
-        flex: 0 0 220px;
+    /* Optimized Scroller */
+    .category-slider-wrapper {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        cursor: grab; /* Shows drag cursor */
+    }
+    .category-slider-wrapper:active {
+        cursor: grabbing;
+    }
+    .category-slider-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
     }
 
-    .service-card-overlay {
-        padding: 12px;
+    .category-card-ui {
+        flex: 0 0 calc(33.333% - 14px); /* Desktop: 3 Items */
+        height: 380px;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        background: #111;
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease, transform 0.3s ease;
+        user-select: none; /* Text select na ho drag karte waqt */
     }
 
-    .service-card-overlay h6 {
-        font-size: 14px;
-        margin-bottom: 8px;
+    /* Active Tab Highlight */
+    .category-card-ui.active-tab {
+        border-color: #d4a373; /* Gold border for active */
     }
 
-    .service-main-img {
-        min-height: 260px;
+    .category-card-ui img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: transform 0.6s ease, opacity 0.3s ease;
+        pointer-events: none; /* Image drag ghost roko */
     }
-}
+    .category-card-ui:hover img, .category-card-ui.active-tab img {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    .category-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 25px 20px;
+        pointer-events: none; /* Let clicks pass to the card */
+    }
+
+    .category-card-overlay h3 { color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+    .category-card-overlay p { color: rgba(255, 255, 255, 0.7); font-size: 13px; margin-bottom: 20px; line-height: 1.4; }
+
+    /* Explore Link / Button */
+    .explore-link {
+        color: #d4a373;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        pointer-events: auto; /* Make it clickable */
+        padding: 10px 0;
+    }
+    .explore-link:hover { color: #fff; }
+
+    @media (max-width: 991px) { .category-card-ui { flex: 0 0 calc(50% - 10px); height: 350px; } }
+    @media (max-width: 768px) { .category-card-ui { flex: 0 0 85%; height: 320px; } }
+
+    /* ==========================================
+    2. MARQUEE SLIDER DISPLAY AREA
+    ============================================= */
+    .marquee-display-section {
+        display: none; 
+        animation: fadeSlideUp 0.4s ease forwards;
+    }
+    .marquee-display-section.active-section { display: block; }
+    @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .marquee-wrapper { overflow: hidden; width: 100%; position: relative; padding: 10px 0 30px; cursor: grab; touch-action: pan-y; }
+    .marquee-wrapper.is-dragging { cursor: grabbing; }
+    .marquee-track { display: flex; width: max-content; will-change: transform; gap: 15px; }
+
+    .service-slide-item { width: 320px; height: 420px; position: relative; flex-shrink: 0; background: #000; border-radius: 12px; overflow: hidden; }
+    .service-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .service-card-overlay { position: absolute; inset: auto 0 0 0; padding: 25px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; text-align: center; }
+    .service-card-overlay h6 { color: #fff; margin-bottom: 15px; font-size: 18px; font-weight: 600;}
+
+    .new-btn {
+        height: 40px;
+        border-radius: 50px; 
+        border:none; 
+        font-size: 13px;
+    }
+    @media (max-width: 768px) { .service-slide-item { width: 260px; height: 360px; } }
 </style>
 
 <!-- Page Banner Start -->
@@ -186,11 +186,7 @@
 
             <div class="banner__slide-area swiper-slide" data-swiper-autoplay="6000"
                 style="height: 500px; min-height: 500px; position: relative;">
-                <div class="banner__slide-area-image" style="background-image: url('{{ asset('assets/img/bg/Eyelashes.png')}}'); 
-                        background-size: cover !important; 
-                        background-position: center !important; 
-                        background-repeat: no-repeat !important; 
-                        filter: brightness(0.7) !important; 
+                <div class="banner__slide-area-image" style="background-image: url('{{ asset('assets/img/bg/Eyelashes.png')}}'); background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; filter: brightness(0.7) !important; 
                         position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
                 </div>
 
@@ -240,7 +236,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xl-6 col-lg-6">
                 <div class="history__area-right">
                     <div class="history__area-right-title">
@@ -278,7 +273,7 @@
                 </div>
             </div>
         </div>
-     </div>
+    </div>
 </div>
 
 @php
@@ -470,105 +465,60 @@ $serviceCategories = [
 ];
 @endphp
 
-<div class="services__area section-padding bg-light">
-    <div class="container">
+<div class="services__area section-padding bg-white">
+    <div class="container-fluid px-md-5">
+        
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
-                <span class="text-uppercase fw-bold text-secondary" style="letter-spacing: 2px;">Our Services</span>
-                <h2 class="display-6 fw-bold mb-3 mt-2 text-dark">Beauty & Makeover</h2>
-                <p class="text-muted lead fs-6">
-                    Discover our complete range of expert beauty, hair, and makeover services. Select a category below to explore our luxury offerings.
-                </p>
+                <span class="text-uppercase fw-bold" style="letter-spacing: 2px; color: #d4a373;">Portfolio</span>
+                <h2 class="display-6 fw-bold mb-3 mt-2 text-dark">Beauty & Makeover Galleries</h2>
+                <p class="text-muted lead fs-6">Select a category below to explore our luxury beauty and styling artistry.</p>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="col-12">
-                <ul class="nav flex-nowrap overflow-auto gap-2 pb-2 services-tab-nav" id="makeover-tabs" role="tablist">
-                    @foreach ($serviceCategories as $index => $category)
-                        <li class="nav-item" role="presentation">
-                            <button
-                                class="btn btn-outline-dark rounded-pill px-4 py-2 text-nowrap {{ $index === 0 ? 'active' : '' }}"
-                                id="{{ $category['id'] }}-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#{{ $category['id'] }}"
-                                type="button"
-                                role="tab"
-                                aria-controls="{{ $category['id'] }}"
-                                aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
-                                {{ $category['tab'] }}
-                            </button>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="tab-content" id="makeover-tabsContent">
-                    @foreach ($serviceCategories as $index => $category)
-                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="{{ $category['id'] }}" role="tabpanel" aria-labelledby="{{ $category['id'] }}-tab">
-                            <div class="card border-0 rounded-4 shadow-sm overflow-hidden">
-                                <div class="row g-0 align-items-center">
-                                    <div class="col-lg-5">
-                                        <img
-                                            src="{{ asset($category['main_image']) }}"
-                                            class="img-fluid w-100 service-main-img"
-                                            alt="{{ $category['main_alt'] }}"
-                                            loading="lazy"
-                                            decoding="async">
-                                    </div>
-
-                                    <div class="col-lg-7 p-4 p-md-5">
-                                        <h3 class="fw-bold mb-3">{{ $category['title'] }}</h3>
-                                        <p class="text-muted mb-4">{{ $category['description'] }}</p>
-
-                                        <ul class="list-unstyled text-muted mb-0 row">
-                                            @foreach ($category['highlights'] as $highlight)
-                                                <li class="col-md-6 mb-2">
-                                                    <i class="fas fa-check text-secondary me-2"></i>{{ $highlight }}
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="service-slider-wrap">
-                                @php
-                                    $loopItems = array_merge($category['items'], $category['items'], $category['items']);
-                                @endphp
-
-                                <div class="marquee-container service-marquee" data-speed="0.45" data-pause-on-hover="true">
-                                    <div class="marquee-track">
-                                        @foreach ($loopItems as $item)
-                                            <div class="service-slide-item">
-                                                <img
-                                                    src="{{ asset($item['image']) }}"
-                                                    alt="{{ $item['title'] }}"
-                                                    loading="lazy"
-                                                    decoding="async">
-
-                                                <div class="service-card-overlay">
-                                                    <h6>{{ $item['title'] }}</h6>
-                                                    <button
-                                                        class="theme-banner-btn btn-sm rounded-pill openInquiryModal"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#inquiryModal"
-                                                        data-service="{{ $item['title'] }}">
-                                                        Enquiry Now
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+        <div class="category-slider-wrapper mb-5" id="categorySliderDrag">
+            @foreach ($serviceCategories as $index => $category)
+                <div class="category-card-ui {{ $index === 0 ? 'active-tab' : '' }}" id="card-{{ $category['id'] }}">
+                    <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
+                    <div class="category-card-overlay">
+                        <h3>{{ $category['title'] }}</h3>
+                        <p>{{ implode(', ', $category['highlights']) }}</p>
+                        <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
+                            EXPLORE GALLERY <i class="far fa-arrow-right"></i>
+                        </span>
+                    </div>
                 </div>
-            </div>
+            @endforeach
+        </div>
+
+        <div id="marquee-master-container">
+            @foreach ($serviceCategories as $index => $category)
+                <div id="{{ $category['id'] }}-marquee" class="marquee-display-section {{ $index === 0 ? 'active-section' : '' }}">
+                    <div class="text-center mb-4 mt-2">
+                        <h3 class="fw-bold text-dark">{{ $category['title'] }} Collection</h3>
+                    </div>
+
+                    <div class="marquee-wrapper service-marquee" data-speed="0.8">
+                        <div class="marquee-track">
+                            @php
+                                $loopItems = array_merge($category['items'], $category['items'], $category['items']);
+                            @endphp
+                            
+                            @foreach ($loopItems as $item)
+                                <div class="service-slide-item">
+                                    <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                    <div class="service-card-overlay">
+                                        <h6>{{ $item['title'] }}</h6>
+                                        <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
+                                            ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -585,38 +535,29 @@ $serviceCategories = [
         ['img' => 'assets/testimonials/12.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'tattoo'],
     ];
 @endphp
-
 @include('component.gallery')
 
-<div class="mission__area section-padding" style="background-color: #fdfbf7;">
-    <div class="container">
+<div style="background-color: #fdfbf7;" class="banner__two" data-background="assets/img/bg/banner.jpg" style="background-image: url(&quot;assets/img/bg/banner.jpg&quot;);">
+    <div class="container custom__container">
         <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6">
-                <div class="mission__area-left">
-                    <div class="mission__area-left-title">
-                        <h2 class="text-dark mb-4">Artistry With Precision, Hygiene & Personalized Care</h2>
-
-                        <p class="mb-25 text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+            <div class="col-xl-7 col-lg-7 lg-mb-30">
+                <div class="banner__two-title">
+                    {{-- <span class="subtitle__one">Welcome to Our Barbex</span> --}}
+                    <h2 class="text-dark mb-4 ">Artistry With Makeover & Care</h2>
+                    <p class="mb-25 text-muted">
                             At Fantas Studio, our mission is to deliver exceptional luxury makeover services—spanning
-                            expert hair grooming, flawless nail artistry, and premium eyelash extensions—with
-                            uncompromising hygiene, safety, and professional care. We are dedicated to providing a
-                            personalized experience from consultation to aftercare, focusing on every detail to ensure
-                            comfort and perfection. Our expert team utilizes modern techniques and high-quality products
-                            to create confident, flawless transformations tailored to your unique beauty.
-                        </p>
-
-                        <a href="{{ url('/book-appointment') }}" class="theme-btn">
-                            Book Appointment <i class="far fa-angle-double-right"></i>
-                        </a>
-                    </div>
+                        expert hair grooming, flawless nail artistry, and premium eyelash extensions—with
+                        uncompromising hygiene, safety, and professional care. We are dedicated to providing a
+                        personalized experience from consultation to aftercare, focusing on every detail to ensure
+                        comfort and perfection. Our expert team utilizes modern techniques and high-quality products
+                        to create confident, flawless transformations tailored to your unique beauty.
+                    </p>
+                    <a href="{{ url('/book-appointment') }}" class="theme-btn">Booking Appointment<i class="far fa-angle-double-right"></i></a>
                 </div>
             </div>
-
-            <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
-                <div class="mission__area-right">
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}"
-                        alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg"
-                        style="margin-bottom: 160px;width: 50%;margin-left: 46%;" loading="lazy" decoding="async">
+            <div class="col-xl-5 col-lg-5">
+                <div class="banner__two-right">
+                    <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -641,196 +582,133 @@ $serviceCategories = [
 </div>
 
 <script>
-function openImageModal(imageSrc) {
-    document.getElementById('modalImage').src = imageSrc;
-    var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
-    myModal.show();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    function initMarquee(container) {
-        if (!container || container.dataset.marqueeReady === 'true') return;
-
-        const track = container.querySelector('.marquee-track');
-        if (!track) return;
-
-        const pauseOnHover = container.dataset.pauseOnHover === 'true';
-        let speed = parseFloat(container.dataset.speed || '0.45');
-
-        let isHovered = false;
-        let isDragging = false;
-        let startX = 0;
-        let startScrollLeft = 0;
-        let rafId = null;
-
-        function getSetWidth() {
-            const children = track.children;
-            if (!children.length) return 0;
-
-            const totalItems = children.length;
-            const oneSetCount = Math.floor(totalItems / 3);
-            if (oneSetCount <= 0) return 0;
-
-            let width = 0;
-            for (let i = 0; i < oneSetCount; i++) {
-                width += children[i].offsetWidth;
-            }
-
-            const styles = window.getComputedStyle(track);
-            const gap = parseFloat(styles.columnGap || styles.gap || 15);
-            width += gap * (oneSetCount - 1);
-
-            return width;
-        }
-
-        function setInitialScroll() {
-            const oneSetWidth = getSetWidth();
-            if (oneSetWidth > 0) {
-                container.scrollLeft = oneSetWidth;
-            }
-        }
-
-        function normalizeLoop() {
-            const oneSetWidth = getSetWidth();
-            if (!oneSetWidth) return;
-
-            if (container.scrollLeft >= oneSetWidth * 2) {
-                container.scrollLeft -= oneSetWidth;
-            } else if (container.scrollLeft <= 0) {
-                container.scrollLeft += oneSetWidth;
-            }
-        }
-
-        function animate() {
-            if (!(pauseOnHover && isHovered) && !isDragging) {
-                container.scrollLeft += speed;
-                normalizeLoop();
-            }
-            rafId = requestAnimationFrame(animate);
-        }
-
-        function stopAnimation() {
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-                rafId = null;
-            }
-        }
-
-        function startAnimation() {
-            stopAnimation();
-            animate();
-        }
-
-        if (pauseOnHover) {
-            container.addEventListener('mouseenter', function () {
-                isHovered = true;
-            });
-
-            container.addEventListener('mouseleave', function () {
-                isHovered = false;
-            });
-        }
-
-        container.addEventListener('wheel', function (e) {
-            const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-            if (!delta) return;
-
-            e.preventDefault();
-            container.scrollLeft += delta;
-            normalizeLoop();
-        }, { passive: false });
-
-        container.addEventListener('mousedown', function (e) {
-            isDragging = true;
-            container.classList.add('is-dragging');
-            startX = e.pageX;
-            startScrollLeft = container.scrollLeft;
-        });
-
-        window.addEventListener('mousemove', function (e) {
-            if (!isDragging) return;
-            e.preventDefault();
-
-            const walk = e.pageX - startX;
-            container.scrollLeft = startScrollLeft - (walk * 1.2);
-            normalizeLoop();
-        });
-
-        window.addEventListener('mouseup', function () {
-            isDragging = false;
-            container.classList.remove('is-dragging');
-        });
-
-        container.addEventListener('dragstart', function (e) {
-            e.preventDefault();
-        });
-
-        let touchStartX = 0;
-        let touchStartScrollLeft = 0;
-
-        container.addEventListener('touchstart', function (e) {
-            isDragging = true;
-            touchStartX = e.touches[0].pageX;
-            touchStartScrollLeft = container.scrollLeft;
-        }, { passive: true });
-
-        container.addEventListener('touchmove', function (e) {
-            if (!isDragging) return;
-            const walk = e.touches[0].pageX - touchStartX;
-            container.scrollLeft = touchStartScrollLeft - (walk * 1.1);
-            normalizeLoop();
-        }, { passive: true });
-
-        container.addEventListener('touchend', function () {
-            isDragging = false;
-        });
-
-        function refreshMarquee() {
-            setInitialScroll();
-        }
-
-        window.addEventListener('load', refreshMarquee);
-        window.addEventListener('resize', refreshMarquee);
-
-        setInitialScroll();
-        startAnimation();
-        container.dataset.marqueeReady = 'true';
+    function openImageModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc;
+        var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
+        myModal.show();
     }
 
-    document.querySelectorAll('.service-marquee').forEach(initMarquee);
+    const catSlider = document.getElementById('categorySliderDrag');
+    let isCatDown = false;
+    let catStartX;
+    let catScrollLeft;
 
-    document.querySelectorAll('[data-bs-toggle="pill"], [data-bs-toggle="tab"]').forEach(function (tabBtn) {
-        tabBtn.addEventListener('shown.bs.tab', function () {
-            setTimeout(function () {
-                document.querySelectorAll('.service-marquee').forEach(function (container) {
-                    if (container.dataset.marqueeReady !== 'true') {
-                        initMarquee(container);
-                    } else {
-                        const track = container.querySelector('.marquee-track');
-                        if (!track) return;
-
-                        const children = track.children;
-                        const oneSetCount = Math.floor(children.length / 3);
-                        if (oneSetCount <= 0) return;
-
-                        let width = 0;
-                        for (let i = 0; i < oneSetCount; i++) {
-                            width += children[i].offsetWidth;
-                        }
-
-                        const styles = window.getComputedStyle(track);
-                        const gap = parseFloat(styles.columnGap || styles.gap || 15);
-                        width += gap * (oneSetCount - 1);
-
-                        if (width > 0) {
-                            container.scrollLeft = width;
-                        }
-                    }
-                });
-            }, 100);
-        });
+    catSlider.addEventListener('mousedown', (e) => {
+        isCatDown = true;
+        catStartX = e.pageX - catSlider.offsetLeft;
+        catScrollLeft = catSlider.scrollLeft;
     });
-});
+    catSlider.addEventListener('mouseleave', () => { isCatDown = false; });
+    catSlider.addEventListener('mouseup', () => { isCatDown = false; });
+    catSlider.addEventListener('mousemove', (e) => {
+        if (!isCatDown) return;
+        e.preventDefault();
+        const x = e.pageX - catSlider.offsetLeft;
+        const walk = (x - catStartX) * 2; // Scroll fast
+        catSlider.scrollLeft = catScrollLeft - walk;
+    });
+
+    // ==========================================
+    // 2. SWITCH CATEGORY LOGIC
+    // ==========================================
+    function switchCategory(targetId) {
+        // Card UI Update
+        document.querySelectorAll('.category-card-ui').forEach(card => card.classList.remove('active-tab'));
+        const activeCard = document.getElementById('card-' + targetId);
+        if(activeCard) activeCard.classList.add('active-tab');
+
+        // Stop old marquees and hide them
+        document.querySelectorAll('.marquee-display-section').forEach(sec => {
+            sec.classList.remove('active-section');
+            const marqueeInner = sec.querySelector('.service-marquee');
+            if(marqueeInner && marqueeInner.rafId) {
+                cancelAnimationFrame(marqueeInner.rafId);
+            }
+        });
+        
+        // Show new marquee and START it
+        const targetSection = document.getElementById(targetId + '-marquee');
+        if(targetSection) {
+            targetSection.classList.add('active-section');
+            const marquee = targetSection.querySelector('.service-marquee');
+            if (marquee) {
+                marquee.dataset.init = 'false';
+                // setTimeout zaruri hai taaki browser ko width calculate karne ka time mile 
+                // display:block hone ke turant baad.
+                setTimeout(() => {
+                    initMarqueeInstance(marquee);
+                }, 50); 
+            }
+        }
+    }
+
+    // ==========================================
+    // 3. OPTIMIZED MARQUEE ENGINE
+    // ==========================================
+    function initMarqueeInstance(container) {
+        const track = container.querySelector('.marquee-track');
+        if (!track || container.dataset.init === 'true') return;
+
+        let speed = parseFloat(container.dataset.speed || '0.8');
+        let state = { isHovered: false, isDragging: false, startX: 0, scrollLeft: 0, cachedWidth: 0 };
+
+        const updateWidth = () => {
+            const items = track.children;
+            const setLength = Math.floor(items.length / 3); 
+            if(setLength === 0) return 0;
+            let w = 0;
+            for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15; // 15px gap
+            return w;
+        };
+
+        const loop = () => {
+            if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
+                container.scrollLeft += speed;
+                if (container.scrollLeft >= state.cachedWidth * 2) container.scrollLeft -= state.cachedWidth;
+                else if (container.scrollLeft <= 0) container.scrollLeft += state.cachedWidth;
+            }
+            container.rafId = requestAnimationFrame(loop); // Store ID on DOM element
+        };
+
+        const startDrag = (x) => { state.isDragging = true; container.classList.add('is-dragging'); state.startX = x - container.offsetLeft; state.scrollLeft = container.scrollLeft; };
+        const onDrag = (x) => { if (!state.isDragging) return; container.scrollLeft = state.scrollLeft - ((x - container.offsetLeft - state.startX) * 1.5); };
+        const stopDrag = () => { state.isDragging = false; container.classList.remove('is-dragging'); };
+
+        // Clear old events
+        container.onmouseenter = null; container.onmouseleave = null; container.onmousedown = null;
+        container.onmousemove = null; window.onmouseup = null; container.ontouchstart = null;
+        container.ontouchmove = null; container.ontouchend = null;
+
+        // Bind Events
+        container.onmouseenter = () => state.isHovered = true;
+        container.onmouseleave = () => { state.isHovered = false; stopDrag(); };
+        container.onmousedown = (e) => startDrag(e.pageX);
+        container.onmousemove = (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); };
+        window.addEventListener('mouseup', stopDrag);
+
+        container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
+        container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
+        container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
+
+        // Setup & Play
+        state.cachedWidth = updateWidth();
+        container.scrollLeft = state.cachedWidth;
+        
+        if(container.rafId) cancelAnimationFrame(container.rafId);
+        container.rafId = requestAnimationFrame(loop);
+        container.dataset.init = 'true';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Pehla tab start karo
+        const activeMarquee = document.querySelector('.marquee-display-section.active-section .service-marquee');
+        if(activeMarquee) {
+            // Chota delay taaki images aur layout puri tarah load ho jayein
+            setTimeout(() => {
+                initMarqueeInstance(activeMarquee);
+            }, 100);
+        }
+    });
 </script>
 
 @endsection

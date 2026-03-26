@@ -2,6 +2,90 @@
 @section('content')
 	
 <style>
+
+    .new-btn
+    {
+    height: 45px;
+    width: 210px;
+    text-align: center;
+    border-radius: 20px;
+    }
+   .marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    padding: 20px 0;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y; /* Allows vertical page scroll, captures horizontal swipe */
+    scrollbar-width: none; /* Firefox */
+}
+.marquee-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+.marquee-wrapper.is-dragging {
+    cursor: grabbing;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform, scroll-position;
+}
+
+.service-slide-item {
+    width: 350px;
+    height: 450px;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 2px; /* 2px seamless gap */
+    background: #000;
+}
+
+.service-slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none; /* Prevents image dragging ghost */
+}
+
+/* Overlay & Typography */
+.service-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+}
+
+.service-card-overlay h6 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+    .service-slide-item { width: 300px; height: 400px; }
+    .service-card-overlay h6 { font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+    .service-slide-item { width: 250px; height: 350px; }
+    .service-card-overlay { padding: 20px; }
+    .service-card-overlay h6 { font-size: 18px; margin-bottom: 10px; }
+    .enquiry-btn-gold { padding: 8px 16px !important; font-size: 11px !important; }
+}
+
     .banner__slide-area-image {
         will-change: transform;
     }
@@ -135,16 +219,13 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 <div class="services__area section-padding bg-white">
     <div class="container">
-        
         {{-- Section Header --}}
         <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-7">
@@ -156,7 +237,6 @@
 
         {{-- Category Image Cards (Bootstrap Native) --}}
         <div class="row g-4 mb-4">
-            
             {{-- Category 1: Basic Piercings --}}
             <div class="col-lg-4 col-md-6">
                 <div role="button" data-bs-toggle="collapse" data-bs-target="#basic-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark">
@@ -203,230 +283,67 @@
 
         {{-- Accordion Container for Sliders --}}
         <div class="accordion border-0" id="portfolioAccordion"> 
-            
-    {{-- Basic Piercings Slider --}}
-    <div id="basic-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
-        <div class="mb-5 mt-2">
-            <div id="carouselBasic" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
-                    
-                    {{-- Slide 1 (3 Images) --}}
-                    <div class="carousel-item active">
-                        <div class="row g-0"> 
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="d-block w-100" alt="Ear Lobe" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Ear Lobe Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Ear Lobe Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/20316.webp') }}" class="d-block w-100" alt="Upper Lobe" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Upper Lobe</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Upper Lobe" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24680.webp') }}" class="d-block w-100" alt="Helix" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Helix Alignment</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Helix Alignment" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    {{-- Slide 2 (3 Images) --}}
-                    <div class="carousel-item">
-                        <div class="row g-0">
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Tragus Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
+    @php
+        // Categories Data Array
+        $portfolioCategories = [
+            'basic-collapse' => [
+                ['img' => 'assets/img/gallery/Ear lobe piercing.webp', 'title' => 'Ear Lobe Piercing'],
+                ['img' => 'assets/img/gallery/20316.webp', 'title' => 'Upper Lobe Piercing'],
+                ['img' => 'assets/img/gallery/24680.webp', 'title' => 'Helix Alignment'],
+                ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Tragus Placement'],
+            ],
+            'wellness-collapse' => [
+                ['img' => 'assets/img/gallery/2.webp', 'title' => 'Daith Wellness'],
+                ['img' => 'assets/img/gallery/24588.webp', 'title' => 'Shen Men Point'],
+                ['img' => 'assets/img/gallery/6.webp', 'title' => 'Septum Artistry'],
+                ['img' => 'assets/img/gallery/5.webp', 'title' => 'Nostril Precision'],
+            ],
+            'needle-collapse' => [
+                ['img' => 'assets/img/gallery/6.webp', 'title' => 'Septum Art'],
+                ['img' => 'assets/img/gallery/5.webp', 'title' => 'Nostril Precision'],
+                ['img' => 'assets/img/gallery/4.webp', 'title' => 'Tragus Care'],
+                ['img' => 'assets/img/gallery/Ear lobe piercing.webp', 'title' => 'Lobe Mastery'],
+            ]
+        ];
+    @endphp
+@foreach($portfolioCategories as $id => $items)
+    <div id="{{ $id }}" class="collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#portfolioAccordion">
+        <div class="services__area bg-white">
+            <div class="container-fluid p-0"> 
+                <div class="marquee-wrapper service-marquee" data-speed="0.8">
+                    <div class="marquee-track">
+                        @php 
+                            // Triple loop for seamless infinite scrolling
+                            $loopItems = array_merge($items, $items, $items, $items); 
+                        @endphp
+                        
+                        @foreach ($loopItems as $item)
+                            <div class="service-slide-item">
+                                <img src="{{ asset($item['img']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                <div class="service-card-overlay">
+                                    <h6>{{ $item['title'] }}</h6>
+                                    <button class="theme-banner-btn openInquiryModal new-btn" 
+                                            data-bs-toggle="modal" data-bs-target="#inquiryModal" 
+                                            data-service="{{ $item['title'] }}">
+                                        ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="d-block w-100" alt="Conch" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Conch Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Conch Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/20316.webp') }}" class="d-block w-100" alt="Industrial" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Industrial Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Industrial Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
 
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBasic" data-bs-slide="prev" style="width: 5%;">
-                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselBasic" data-bs-slide="next" style="width: 5%;">
-                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </div>
+@endforeach
 
-    {{-- Wellness Piercings Slider --}}
-    <div id="wellness-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
-        <div class="mb-5 mt-2">
-            <div id="carouselWellness" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
-                    
-                    {{-- Slide 1 (3 Images) --}}
-                    <div class="carousel-item active">
-                        <div class="row g-0">
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/2.webp') }}" class="d-block w-100" alt="Daith Piercing" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Daith Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Daith Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/24588.webp') }}" class="d-block w-100" alt="Shen Men" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Shen Men</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Shen Men" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/3.webp') }}" class="d-block w-100" alt="Acupuncture Point" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Acupuncture Point</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Acupuncture Point" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Slide 2 (3 Images) --}}
-                    <div class="carousel-item">
-                        <div class="row g-0">
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/46924.webp') }}" class="d-block w-100" alt="Wellness Curative" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Wellness Curative</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Wellness Curative" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/2.webp') }}" class="d-block w-100" alt="Holistic Placement" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Holistic Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Holistic Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24588.webp') }}" class="d-block w-100" alt="Healing Art" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Healing Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Healing Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselWellness" data-bs-slide="prev" style="width: 5%;">
-                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselWellness" data-bs-slide="next" style="width: 5%;">
-                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    {{-- Needle Piercings Slider --}}
-    <div id="needle-collapse" class="collapse" data-bs-parent="#portfolioAccordion">
-        <div class="mb-5 mt-2">
-            <div id="carouselNeedle" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner shadow-lg rounded-5 overflow-hidden bg-white">
-                    
-                    {{-- Slide 1 (3 Images) --}}
-                    <div class="carousel-item active">
-                        <div class="row g-0">
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/6.webp') }}" class="d-block w-100" alt="Septum" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async" >
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Septum Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Septum Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/5.webp') }}" class="d-block w-100" alt="Nostril" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Nostril Precision</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Nostril Precision" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/4.webp') }}" class="d-block w-100" alt="Tragus" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Tragus Care</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Tragus Care" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Slide 2 (3 Images) --}}
-                    <div class="carousel-item">
-                        <div class="row g-0">
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="d-block w-100" alt="Custom Placement" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Custom Placement</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Custom Placement" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative border-end border-5 border-white">
-                                <img src="{{ asset('assets/img/gallery/3.webp') }}" class="d-block w-100" alt="Bridge Piercing" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Bridge Piercing</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Bridge Piercing" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                            <div class="col-4 position-relative">
-                                <img src="{{ asset('assets/img/gallery/24680.webp') }}" class="d-block w-100" alt="Eyebrow Art" style="height: 500px; object-fit: cover;" loading="lazy" decoding="async">
-                                <div class="position-absolute bottom-0 start-0 w-100 p-4 d-flex flex-column justify-content-end" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); height: 50%;">
-                                    <h5 class="text-white fw-bold mb-2">Eyebrow Art</h5>
-                                    <div><button class="theme-btn btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="Eyebrow Art" style="font-size: 0.8rem; padding-top: 8px !important; padding-bottom: 8px !important;">Enquiry Now <i class="far fa-angle-double-right"></i></button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNeedle" data-bs-slide="prev" style="width: 5%;">
-                    <span class="carousel-control-prev-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselNeedle" data-bs-slide="next" style="width: 5%;">
-                    <span class="carousel-control-next-icon bg-dark bg-opacity-75 rounded-circle p-3 shadow-lg" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
 </div>
     </div>
 </div>
 
- {{-- @php
+ @php
     $gallery = [
         ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
         ['img' => 'assets/img/gallery/20316.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
@@ -437,49 +354,30 @@
         ['img' => 'assets/img/gallery/33258.webp', 'title' => 'Luxury Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
     ];
 @endphp
-@include('component.gallery') --}}
-
-<div class="mission__area section-padding" style="background-color: #fdfbf7;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6">
-                <div class="mission__area-left">
-                    <div class="mission__area-left-title">
-
-                        {{-- Subtitle color adjusted --}}
-                        <span class="subtitle__two" style="color: #d4a373;">Mission</span>
-                        
-                        {{-- Heading dark color --}}
-                        <h2 class="text-dark mb-4">Artistry With Precision & Safety</h2>
-
-                        {{-- Paragraphs with muted text for a softer look --}}
-                        <p class="mb-25 text-muted" style="font-size: 1.1rem; line-height: 1.8;">
-                           At Fantas Studio, our mission is to deliver luxury body piercing artistry and premium piercing care services with uncompromising hygiene, safety, and professional excellence. We believe every client deserves a transformation that feels confident, clean, and truly personal.
-                        </p>
-
-                        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+@include('component.gallery')
+<div style="background-color: #fdfbf7;" class="banner__two" data-background="assets/img/bg/banner.jpg" style="background-image: url(&quot;assets/img/bg/banner.jpg&quot;);">
+        <div class="container custom__container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-7 lg-mb-30">
+                    <div class="banner__two-title">
+                        {{-- <span class="subtitle__one">Welcome to Our Barbex</span> --}}
+                        <h2 class="text-dark mb-4 ">Artistry With Precision & Safety</h2>
+                        <p class="mb-25 text-muted">
+                            At Fantas Studio, our mission is to deliver luxury body piercing artistry and premium piercing care services with uncompromising hygiene, safety, and professional excellence. We believe every client deserves a transformation that feels confident, clean, and truly personal. <br>
                             From the moment of initial consultation to dedicated aftercare, our focus is meticulously on every detail, your absolute comfort, and a tailored experience that reflects your unique style. Our expert, certified piercing technicians utilize modern techniques and only high-quality, hypoallergenic professional products (including 14k gold, implant-grade titanium, and precious stones) to ensure every service meets the highest standards.
                         </p>
-
-                        {{-- Button updated to a dark/bold style to pop against light background --}}
-                        <a href="{{ url('/book-appointment') }}" class="theme-btn">
-                            Book Appointment <i class="far fa-angle-double-right"></i>
-                        </a>
-
+                        <a href="{{ url('/book-appointment') }}" class="theme-btn">Booking Appointment<i class="far fa-angle-double-right"></i></a>
                     </div>
                 </div>
-            </div>
-            
-            {{-- Right Image --}}
-            <div class="col-xl-6 col-lg-6 mt-5 mt-lg-0 text-center">
-                <div class="mission__area-right">
-                    {{-- Added shadow-lg for better depth on light background --}}
-                    <img src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="Fantas Studio Mission" class="img-fluid rounded shadow-lg" style="margin-bottom: 160px;width: 50%;margin-left: 46%;" loading="lazy" decoding="async">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="banner__two-right">
+                        <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 	
 <!-- Instagram Area Start -->	
 @include('component.instagram')
@@ -508,6 +406,114 @@
         var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
         myModal.show();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    
+    const initMarquee = (container) => {
+        const track = container.querySelector('.marquee-track');
+        if (!track || container.dataset.init === 'true') return;
+
+        let speed = parseFloat(container.dataset.speed || '0.8');
+        let state = {
+            isHovered: false,
+            isDragging: false,
+            startX: 0,
+            scrollLeft: 0,
+            cachedWidth: 0,
+            rafId: null
+        };
+
+        // Width Calculation
+        const updateWidth = () => {
+            const items = track.children;
+            const setLength = Math.floor(items.length / 4); // Divided by 4 as we merged 4 times for safety margin
+            if(setLength === 0) return 0;
+            
+            let w = 0;
+            for (let i = 0; i < setLength; i++) {
+                w += items[i].offsetWidth + 2; // +2px margin-right
+            }
+            return w;
+        };
+
+        // Core Animation Loop
+        const loop = () => {
+            if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
+                container.scrollLeft += speed;
+                
+                // Seamless Infinite Loop Logic
+                if (container.scrollLeft >= state.cachedWidth * 2) {
+                    container.scrollLeft -= state.cachedWidth;
+                } else if (container.scrollLeft <= 0) {
+                    container.scrollLeft += state.cachedWidth;
+                }
+            }
+            state.rafId = requestAnimationFrame(loop);
+        };
+
+        // --- Drag & Swipe Events ---
+        const startDrag = (x) => {
+            state.isDragging = true;
+            container.classList.add('is-dragging');
+            state.startX = x - container.offsetLeft;
+            state.scrollLeft = container.scrollLeft;
+        };
+
+        const onDrag = (x) => {
+            if (!state.isDragging) return;
+            const walk = (x - container.offsetLeft - state.startX) * 1.5; // Swipe sensitivity
+            container.scrollLeft = state.scrollLeft - walk;
+        };
+
+        const stopDrag = () => {
+            state.isDragging = false;
+            container.classList.remove('is-dragging');
+        };
+
+        // Mouse Events
+        container.addEventListener('mouseenter', () => state.isHovered = true);
+        container.addEventListener('mouseleave', () => { state.isHovered = false; stopDrag(); });
+        container.addEventListener('mousedown', (e) => startDrag(e.pageX));
+        container.addEventListener('mousemove', (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); });
+        window.addEventListener('mouseup', stopDrag);
+
+        // Touch Events (Mobile) - using passive: true for scroll performance
+        container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
+        container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
+        container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
+
+        // Initialize
+        const setup = () => {
+            state.cachedWidth = updateWidth();
+            container.scrollLeft = state.cachedWidth;
+        };
+
+        setup();
+        state.rafId = requestAnimationFrame(loop);
+        container.dataset.init = 'true';
+
+        // Recalculate on window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setup, 150); // Debounce resize to save CPU
+        });
+    };
+
+    // Initialize Marquees when Accordion opens (fixes width = 0 issue)
+    document.querySelectorAll('.collapse').forEach(collapseEl => {
+        collapseEl.addEventListener('shown.bs.collapse', () => {
+            const marquee = collapseEl.querySelector('.service-marquee');
+            if(marquee) {
+                marquee.dataset.init = 'false'; // Force re-init
+                initMarquee(marquee);
+            }
+        });
+    });
+
+    // Initialize marquees that are already visible on load
+    document.querySelectorAll('.collapse.show .service-marquee').forEach(initMarquee);
+});
 </script>
 
 @endsection
