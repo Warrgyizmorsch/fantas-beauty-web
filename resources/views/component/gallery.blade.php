@@ -1,5 +1,5 @@
 {{-- =========================         GALLERY SECTION ========================= --}}
-<div class="gallery__area section-padding">
+<div class="gallery__area">
     <div class="container">
 
         {{-- Title --}}

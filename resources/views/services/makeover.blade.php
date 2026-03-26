@@ -97,9 +97,9 @@
 
     .marquee-wrapper { overflow: hidden; width: 100%; position: relative; padding: 10px 0 30px; cursor: grab; touch-action: pan-y; }
     .marquee-wrapper.is-dragging { cursor: grabbing; }
-    .marquee-track { display: flex; width: max-content; will-change: transform; gap: 15px; }
+    .marquee-track { display: flex; width: max-content; will-change: transform; gap: 2px; }
 
-    .service-slide-item { width: 320px; height: 420px; position: relative; flex-shrink: 0; background: #000; border-radius: 12px; overflow: hidden; }
+    .service-slide-item { width: 320px; height: 420px; position: relative; flex-shrink: 0; background: #000;}
     .service-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
     .service-card-overlay { position: absolute; inset: auto 0 0 0; padding: 25px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; text-align: center; }
     .service-card-overlay h6 { color: #fff; margin-bottom: 15px; font-size: 18px; font-weight: 600;}
@@ -460,7 +460,7 @@ $serviceCategories = [
 ];
 @endphp
 
-<div class="services__area section-padding bg-white">
+<div class="services__area  bg-white">
     <div class="container-fluid px-md-5">
         
         <div class="row mb-5 justify-content-center text-center">

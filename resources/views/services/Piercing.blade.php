@@ -71,8 +71,6 @@
     font-weight: 600;
 }
 
-
-
 /* Responsive Breakpoints */
 @media (max-width: 991px) {
     .service-slide-item { width: 300px; height: 400px; }
@@ -224,7 +222,7 @@
         </div>
     </div>
 </div>
-<div class="services__area section-padding bg-white">
+<div class="services__area bg-white">
     <div class="container">
         {{-- Section Header --}}
         <div class="row mb-5 justify-content-center text-center">
