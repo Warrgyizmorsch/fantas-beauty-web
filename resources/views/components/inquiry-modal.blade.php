@@ -23,8 +23,8 @@
                             <label class="form-label text-muted small fw-bold">Service Details</label>
                             <textarea name="message" placeholder="Discription" class="form-control"></textarea>
                         </div>
-                        <button type="submit" class="theme-btn btn  w-100 rounded-pill py-2 fw-bold">
-                            Submit Inquiry
+                        <button type="submit" class="theme-btn btn w-100 rounded-pill py-2 fw-bold justify-content-center">
+                            Submit Enquiry
                         </button>
                     </form>
 

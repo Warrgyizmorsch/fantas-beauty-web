@@ -6,11 +6,12 @@
     .category-slider-wrapper {
         display: flex;
         gap: 20px;
-        overflow-x: auto;
+        overflow-x: hidden;
         padding-bottom: 20px;
         scrollbar-width: none; 
         -ms-overflow-style: none; 
         cursor: grab; 
+        touch-action: pan-y;
     }
     .category-slider-wrapper:active {
         cursor: grabbing;
@@ -26,14 +27,28 @@
         border-radius: 8px;
         overflow: hidden;
         background: #111;
-        border: 2px solid transparent;
-        transition: border-color 0.3s ease, transform 0.3s ease;
+        border: 2px solid transparent; /* Normal border width */
+        transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
         user-select: none; 
+        opacity: 0.75; /* Much softer dimming instead of heavy black filters */
+    }
+
+    .category-card-ui:hover {
+        opacity: 0.9;
+        transform: translateY(-5px);
     }
 
     /* Active Tab Highlight */
     .category-card-ui.active-tab {
         border-color: #d4a373; /* Gold border for active */
+        opacity: 1; /* Full vibrancy */
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
+        z-index: 2;
+    }
+    
+    .category-card-ui.active-tab .explore-link {
+        color: #fff !important;
     }
 
     .category-card-ui img {
@@ -60,8 +75,7 @@
         pointer-events: none; /* Let clicks pass to the card */
     }
 
-    .category-card-overlay h3 { color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
-    .category-card-overlay p { color: rgba(255, 255, 255, 0.7); font-size: 13px; margin-bottom: 20px; line-height: 1.4; }
+
 
     /* Explore Link / Button */
     .explore-link {
@@ -283,11 +297,11 @@ $serviceCategories = [
         'main_alt' => 'Threading',
         'items' => [
             ['image' => 'assets/img/gallery/16.webp', 'title' => 'Eyebrows'],
-            ['image' => 'assets/img/gallery/25.webp', 'title' => 'Upper Lip'],
+            ['image' => 'assets/img/gallery/chain.webp', 'title' => 'Upper Lip'],
             ['image' => 'assets/img/gallery/facial-beauty-treatment-spa-salon-body-skin-care.webp', 'title' => 'Chin'],
             ['image' => 'assets/img/gallery/female-master-checks-contour-eyebrows-with-thread.webp', 'title' => 'Sides'],
             ['image' => 'assets/img/gallery/woman-going-through-microblading-procedure.webp', 'title' => 'Cheeks'],
-            ['image' => 'assets/img/gallery/chain.webp', 'title' => 'Chin'],
+            ['image' => 'assets/img/gallery/threding.webp', 'title' => 'Full Face'],
         ],
     ],
     [
@@ -301,10 +315,10 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/22.webp', 'title' => 'Eyebrows'],
             ['image' => 'assets/img/gallery/34.webp', 'title' => 'Upper Lip'],
-            ['image' => 'assets/img/gallery/30.webp', 'title' => 'Full Face'],
+            ['image' => 'assets/img/gallery/19.webp', 'title' => 'Full Face'],
             ['image' => 'assets/img/gallery/23.webp', 'title' => 'Full Arm'],
             ['image' => 'assets/img/gallery/24.webp', 'title' => 'Underarm'],
-            ['image' => 'assets/img/gallery/19.webp', 'title' => 'Full Leg'],
+            ['image' => 'assets/img/gallery/wax.webp', 'title' => 'Full Leg'],
         ],
     ],
     [
@@ -317,11 +331,11 @@ $serviceCategories = [
         'main_alt' => 'Eye Treatments',
         'items' => [
             ['image' => 'assets/img/gallery/26.webp', 'title' => 'Eyebrow Tinting'],
-            ['image' => 'assets/img/gallery/semi permanent makeup.webp', 'title' => 'Thread & Tint'],
-            ['image' => 'assets/img/gallery/20.webp', 'title' => 'Wax & Tint'],
-            ['image' => 'assets/img/gallery/jose-castillo-Nr9ZASY4Uz8-unsplash.webp', 'title' => 'Lash Removal'],
-            ['image' => 'assets/img/gallery/27.webp', 'title' => 'Semi-Permanent Eyelashes'],
-            ['image' => 'assets/img/gallery/17.webp', 'title' => 'Eyelashes Extensions'],
+            ['image' => 'assets/img/gallery/20.webp', 'title' => 'Thread & Tint'],
+            ['image' => 'assets/img/gallery/jose-castillo-Nr9ZASY4Uz8-unsplash.webp', 'title' => 'Wax & Tint'],
+            ['image' => 'assets/img/gallery/27.webp', 'title' => 'Lash Removal'],
+            ['image' => 'assets/img/gallery/eye.webp', 'title' => 'Semi-Permanent Eyelashes'],
+            ['image' => 'assets/img/gallery/beauty.webp', 'title' => 'Eyelashes Extensions'],
         ],
     ],
     [
@@ -336,6 +350,9 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/massage.webp', 'title' => 'Neck Massage'],
             ['image' => 'assets/img/gallery/29.webp', 'title' => 'Back Massage'],
             ['image' => 'assets/img/gallery/28.webp', 'title' => 'Shoulders Massage'],
+            ['image' => 'assets/img/gallery/bermix-studio-CqEGy4zAmbI-unsplash.webp', 'title' => 'Full Body Swedish'],
+            ['image' => 'assets/img/gallery/ali-shoaee-SdStLjkoWXM-unsplash.webp', 'title' => 'Deep Tissue'],
+            ['image' => 'assets/img/gallery/victor-sirbu-kA74I2XMiSQ-unsplash.webp', 'title' => 'Aromatherapy Reflexology'],
         ],
     ],
     [
@@ -351,8 +368,8 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/facial.webp', 'title' => 'Deep Cleanse Facial'],
             ['image' => 'assets/img/gallery/80369459.webp', 'title' => 'Gold Facial'],
             ['image' => 'assets/img/gallery/herbal.webp', 'title' => 'Herbal Facial'],
-            ['image' => 'assets/img/gallery/facial.webp', 'title' => 'Deep Cleanse Facial'],
-            ['image' => 'assets/img/gallery/80369459.webp', 'title' => 'Gold Facial'],
+            ['image' => 'assets/img/gallery/31.webp', 'title' => 'Hydrating Glow Facial'],
+            ['image' => 'assets/img/gallery/36.webp', 'title' => 'Anti-Aging Therapy'],
         ],
     ],
     [
@@ -365,13 +382,10 @@ $serviceCategories = [
         'main_alt' => 'SPM',
         'items' => [
             ['image' => 'assets/img/gallery/semi permanent makeup.webp', 'title' => 'Eyebrows'],
-            ['image' => 'assets/img/gallery/ali-shoaee-SdStLjkoWXM-unsplash.webp', 'title' => 'Ombre'],
-            ['image' => 'assets/img/gallery/semi permanent makeup.webp', 'title' => 'Eyebrows Refill'],
             ['image' => 'assets/img/gallery/images.webp', 'title' => 'Eyeliner'],
             ['image' => 'assets/img/gallery/Liner1.webp', 'title' => 'Top & Bottom Eyeliner'],
             ['image' => 'assets/img/gallery/images (1).webp', 'title' => 'Lip Liner'],
-            ['image' => 'assets/img/gallery/34.webp', 'title' => 'Full Lip Collor'],
-            ['image' => 'assets/img/gallery/beauty.webp', 'title' => 'Beauty Spot'],
+            ['image' => 'assets/img/gallery/semi.webp', 'title' => 'Full Lip Color'],
             ['image' => 'assets/img/gallery/25.webp', 'title' => 'Microblading'],
         ],
     ],
@@ -387,12 +401,9 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/39.webp', 'title' => 'Lace Weave'],
             ['image' => 'assets/img/gallery/wash.webp', 'title' => 'Wash & Set'],
             ['image' => 'assets/img/gallery/image.webp', 'title' => 'Wash & Blow-Dry'],
-            ['image' => 'assets/img/gallery/36.webp', 'title' => 'Stear'],
             ['image' => 'assets/img/gallery/hair treatment.webp', 'title' => 'Hair Treatment'],
             ['image' => 'assets/img/gallery/frontals.webp', 'title' => 'Curly Perm'],
-            ['image' => 'assets/img/gallery/41.webp', 'title' => 'Weave-on'],
-            ['image' => 'assets/img/gallery/40.webp', 'title' => 'Front Lace Closure'],
-            ['image' => 'assets/img/gallery/37.webp', 'title' => 'Curly Hair'],
+            ['image' => 'assets/img/gallery/hair.webp', 'title' => 'Front Lace Closure'],
         ],
     ],
     [
@@ -406,10 +417,10 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/41.webp', 'title' => 'Box Braids'],
             ['image' => 'assets/img/gallery/hair braids.webp', 'title' => 'Goddess Braids'],
-            ['image' => 'assets/img/gallery/39.webp', 'title' => 'Knotless Braids'],
-            ['image' => 'assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.webp', 'title' => 'Butterfly Locks'],
-            ['image' => 'assets/img/gallery/single.webp', 'title' => 'Single Braids'],
-            ['image' => 'assets/img/gallery/hair braids.webp', 'title' => 'Goddess Braids'],
+            ['image' => 'assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.webp', 'title' => 'Knotless Braids'],
+            ['image' => 'assets/img/gallery/single.webp', 'title' => 'Butterfly Locks'],
+            ['image' => 'assets/img/gallery/11.webp', 'title' => 'Single Braids'],
+            ['image' => 'assets/img/gallery/12.webp', 'title' => 'Boho Braids'],
         ],
     ],
     [
@@ -421,9 +432,12 @@ $serviceCategories = [
         'main_image' => 'assets/img/gallery/front-view-woman-posing-with-dental-gems.webp',
         'main_alt' => 'Tooth Gems',
         'items' => [
-            ['image' => 'assets/img/gallery/42.webp', 'title' => 'Small Gen'],
-            ['image' => 'assets/img/gallery/43.webp', 'title' => 'Big Gen'],
-            ['image' => 'assets/img/gallery/front-view-woman-posing-with-dental-gems.webp', 'title' => 'Small Gen'],
+            ['image' => 'assets/img/gallery/42.webp', 'title' => 'Small Gem'],
+            ['image' => 'assets/img/gallery/43.webp', 'title' => 'Big Gem'],
+            ['image' => 'assets/img/gallery/front-view-woman-posing-with-dental-gems.webp', 'title' => 'Custom Layout'],
+            ['image' => 'assets/img/gallery/33258.webp', 'title' => 'Butterfly Design'],
+            ['image' => 'assets/img/gallery/16706.webp', 'title' => 'Crystal Star'],
+            ['image' => 'assets/img/gallery/5.webp', 'title' => 'Gold Charm'],
         ],
     ],
     [
@@ -435,12 +449,12 @@ $serviceCategories = [
         'main_image' => 'assets/img/bg/NailExtensions.png',
         'main_alt' => 'Nails',
         'items' => [
-            ['image' => 'assets/img/gallery/8.webp', 'title' => 'Full Set'],
-            ['image' => 'assets/img/gallery/11.webp', 'title' => 'Take off & New Set'],
-            ['image' => 'assets/img/gallery/9.webp', 'title' => 'Normal Polish Toe'],
-            ['image' => 'assets/img/gallery/10.webp', 'title' => 'Normal Polish Nail'],
-            ['image' => 'assets/img/gallery/Gemini_Generated_Image_hzi3ehhzi3ehhzi3 (1).webp', 'title' => 'Manicure Normal Polish'],
-            ['image' => 'assets/img/gallery/12.webp', 'title' => 'Pedicure'],
+            ['image' => 'assets/img/gallery/8.webp', 'title' => 'Full Set Acrylic'],
+            ['image' => 'assets/img/gallery/9.webp', 'title' => 'Take off & New Set'],
+            ['image' => 'assets/img/gallery/10.webp', 'title' => 'Normal Polish Toe'],
+            ['image' => 'assets/img/gallery/2.webp', 'title' => 'Gel Polish Nail'],
+            ['image' => 'assets/img/gallery/3.webp', 'title' => 'Manicure Luxury'],
+            ['image' => 'assets/img/gallery/4.webp', 'title' => 'Pedicure Care'],
         ],
     ],
     [
@@ -452,9 +466,12 @@ $serviceCategories = [
         'main_image' => 'assets/img/gallery/13.webp',
         'main_alt' => 'Henna',
         'items' => [
-            ['image' => 'assets/img/gallery/14.webp', 'title' => 'Henna'],
-            ['image' => 'assets/img/gallery/13.webp', 'title' => 'Henna'],
-            ['image' => 'assets/img/gallery/closeup-hands-pretty-hindu-bride-with-henna-tattoo.webp', 'title' => 'Henna'],
+            ['image' => 'assets/img/gallery/14.webp', 'title' => 'Bridal Henna'],
+            ['image' => 'assets/img/gallery/13.webp', 'title' => 'Minimalist Henna'],
+            ['image' => 'assets/img/gallery/closeup-hands-pretty-hindu-bride-with-henna-tattoo.webp', 'title' => 'Hand Mandalas'],
+            ['image' => 'assets/img/gallery/24588.webp', 'title' => 'Foot Henna Design'],
+            ['image' => 'assets/img/gallery/20316.webp', 'title' => 'Modern Geometric'],
+            ['image' => 'assets/img/gallery/46924.webp', 'title' => 'Classic Indian'],
         ],
     ],
 ];
@@ -472,14 +489,19 @@ $serviceCategories = [
         </div>
 
         <div class="category-slider-wrapper mb-5" id="categorySliderDrag">
-            @foreach ($serviceCategories as $index => $category)
-                <div class="category-card-ui {{ $index === 0 ? 'active-tab' : '' }}" id="card-{{ $category['id'] }}">
+            @php
+                $loopCategories = array_merge(
+                    $serviceCategories, $serviceCategories, $serviceCategories, $serviceCategories
+                );
+            @endphp
+            @foreach ($loopCategories as $index => $category)
+                <div class="category-card-ui {{ $category['id'] === $serviceCategories[0]['id'] ? 'active-tab' : '' }}" data-card-id="{{ $category['id'] }}" data-img="{{ asset($category['main_image']) }}">
                     <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
                     <div class="category-card-overlay">
-                        <h3>{{ $category['title'] }}</h3>
-                        <p>{{ implode(', ', $category['highlights']) }}</p>
+                        <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
+                        <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
                         <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
-                            EXPLORE GALLERY <i class="far fa-arrow-right"></i>
+                            EXPLORE More <i class="far fa-arrow-right"></i>
                         </span>
                     </div>
                 </div>
@@ -496,7 +518,12 @@ $serviceCategories = [
                     <div class="marquee-wrapper service-marquee" data-speed="0.8">
                         <div class="marquee-track">
                             @php
-                                $loopItems = array_merge($category['items'], $category['items'], $category['items']);
+                                $mItems = $category['items'];
+                                $loopItems = array_merge(
+                                    $mItems, $mItems, $mItems, $mItems,
+                                    $mItems, $mItems, $mItems, $mItems,
+                                    $mItems, $mItems, $mItems, $mItems
+                                );
                             @endphp
                             
                             @foreach ($loopItems as $item)
@@ -587,27 +614,36 @@ $serviceCategories = [
         };
 
         // ==========================================
-        // 1. CATEGORY SLIDER AUTO-SCROLL LOGIC
+        // 1. SEAMLESS CATEGORY SLIDER SCROLL LOGIC
         // ==========================================
         const catSlider = document.getElementById('categorySliderDrag');
-        let isCatDown = false;
-        let catStartX;
-        let catScrollLeft;
-        
-        // Auto-scroll variables
-        let isCatHovered = false;
-        let catAutoScrollSpeed = 1; // Speed adjust karein
-        let catRafId;
+        let isCatDown = false, isCatHovered = false, catStartX, catScrollLeft, catRafId;
+        let catAutoScrollSpeed = 0.5; // smoother speed
+        let catCachedWidth = 0;
 
         if(catSlider) {
+            let isCatDragging = false;
+            
+            const updateCatWidth = () => {
+                const items = catSlider.children;
+                const setLength = Math.floor(items.length / 4); 
+                if(setLength === 0) return 0;
+                let w = 0;
+                for (let i = 0; i < setLength; i++) {
+                    w += items[i].offsetWidth + 20; // 20px is flex gap
+                }
+                return w;
+            };
+
+            catCachedWidth = updateCatWidth();
+            catSlider.scrollLeft = catCachedWidth; // Start in middle
+
             // Mouse Events
             catSlider.addEventListener('mouseenter', () => { isCatHovered = true; });
-            catSlider.addEventListener('mouseleave', () => { 
-                isCatHovered = false; 
-                isCatDown = false; 
-            });
+            catSlider.addEventListener('mouseleave', () => { isCatHovered = false; isCatDown = false; });
             catSlider.addEventListener('mousedown', (e) => {
                 isCatDown = true;
+                isCatDragging = false;
                 catStartX = e.pageX - catSlider.offsetLeft;
                 catScrollLeft = catSlider.scrollLeft;
             });
@@ -615,8 +651,9 @@ $serviceCategories = [
             catSlider.addEventListener('mousemove', (e) => {
                 if (!isCatDown) return;
                 e.preventDefault();
-                const x = e.pageX - catSlider.offsetLeft;
-                const walk = (x - catStartX) * 2; 
+                const currentX = e.pageX - catSlider.offsetLeft;
+                if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
+                const walk = (currentX - catStartX) * 1.5; 
                 catSlider.scrollLeft = catScrollLeft - walk;
             });
 
@@ -624,44 +661,54 @@ $serviceCategories = [
             catSlider.addEventListener('touchstart', (e) => {
                 isCatDown = true;
                 isCatHovered = true; 
+                isCatDragging = false;
                 catStartX = e.touches[0].pageX - catSlider.offsetLeft;
                 catScrollLeft = catSlider.scrollLeft;
             }, { passive: true });
-            catSlider.addEventListener('touchend', () => {
-                isCatDown = false;
-                isCatHovered = false;
-            });
+            catSlider.addEventListener('touchend', () => { isCatDown = false; isCatHovered = false; });
             catSlider.addEventListener('touchmove', (e) => {
                 if (!isCatDown) return;
-                const x = e.touches[0].pageX - catSlider.offsetLeft;
-                const walk = (x - catStartX) * 2;
+                const currentX = e.touches[0].pageX - catSlider.offsetLeft;
+                if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
+                const walk = (currentX - catStartX) * 1.5;
                 catSlider.scrollLeft = catScrollLeft - walk;
             }, { passive: true });
 
-            // Auto Scroll Function
+            // Click to Open Modal Handling
+            catSlider.addEventListener('click', (e) => {
+                if (isCatDragging || e.target.closest('.explore-link')) return;
+                const card = e.target.closest('.category-card-ui');
+                if (card && card.dataset.img) {
+                    openImageModal(card.dataset.img);
+                }
+            });
+
+            // Seamless Auto Scroll Function
             function autoScrollCategory() {
-                if (!isCatDown && !isCatHovered) {
+                if (!isCatDown && !isCatHovered && catCachedWidth > 0) {
                     catSlider.scrollLeft += catAutoScrollSpeed;
-                    if (catSlider.scrollLeft + catSlider.clientWidth >= catSlider.scrollWidth - 1) {
-                        catSlider.scrollLeft = 0; 
+                    
+                    if (catSlider.scrollLeft >= catCachedWidth * 2) {
+                        catSlider.scrollLeft -= catCachedWidth;
+                    } else if (catSlider.scrollLeft <= 0) {
+                        catSlider.scrollLeft += catCachedWidth;
                     }
                 }
                 catRafId = requestAnimationFrame(autoScrollCategory);
             }
             catRafId = requestAnimationFrame(autoScrollCategory);
+
+            window.addEventListener('resize', () => {
+                setTimeout(() => { catCachedWidth = updateCatWidth(); }, 150);
+            });
         }
 
         // ==========================================
         // 2. SWITCH CATEGORY LOGIC (Optimized)
         // ==========================================
         window.switchCategory = function(targetId) {
-            // Remove active state from current UI Card only
-            const currentActiveCard = document.querySelector('.category-card-ui.active-tab');
-            if (currentActiveCard) currentActiveCard.classList.remove('active-tab');
-            
-            // Set new active Card
-            const activeCard = document.getElementById('card-' + targetId);
-            if(activeCard) activeCard.classList.add('active-tab');
+            document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
+            document.querySelectorAll('.category-card-ui[data-card-id="' + targetId + '"]').forEach(el => el.classList.add('active-tab'));
 
             // Find current active section and stop its animation
             const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
@@ -699,7 +746,7 @@ $serviceCategories = [
 
             const updateWidth = () => {
                 const items = track.children;
-                const setLength = Math.floor(items.length / 3); 
+                const setLength = Math.floor(items.length / 12); 
                 if(setLength === 0) return 0;
                 let w = 0;
                 for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15; 
