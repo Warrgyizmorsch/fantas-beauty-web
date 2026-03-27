@@ -18,7 +18,7 @@
                                                                                                                                                         background-size: cover !important; 
                                                                                                                                                         background-position: center !important; 
                                                                                                                                                         background-repeat: no-repeat !important; 
-                                                                                                                                                        filter: brightness(0.7) !important; 
+                                                                                                                                                        filter: brightness(0.85) !important; 
                                                                                                                                                         position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
                     </div>
 
@@ -51,7 +51,7 @@
                                                                                                                                                         background-size: cover !important; 
                                                                                                                                                         background-position: center !important; 
                                                                                                                                                         background-repeat: no-repeat !important; 
-                                                                                                                                                        filter: brightness(0.7) !important; 
+                                                                                                                                                        filter: brightness(0.85) !important; 
                                                                                                                                                         position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
                     </div>
 
@@ -382,9 +382,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
+            opacity: 1; /* Full vibrancy for clarity */
             transition: transform 0.6s ease, opacity 0.3s ease;
             pointer-events: none;
+            image-rendering: -webkit-optimize-contrast; /* Sharpening for Chrome/Safari */
+            image-rendering: high-quality;
         }
 
         .category-card-ui:hover img,
@@ -492,6 +494,8 @@
             object-fit: cover;
             display: block;
             pointer-events: none;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
         }
 
         .service-card-overlay {
