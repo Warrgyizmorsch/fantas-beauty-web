@@ -325,28 +325,44 @@
                 'basic-collapse' => [
                     'name' => 'Basic Piercings',
                     'items' => [
-                        ['img' => 'assets/img/gallery/Ear lobe piercing.webp', 'title' => 'Ear Lobe Piercing'],
-                        ['img' => 'assets/img/gallery/20316.webp', 'title' => 'Upper Lobe Piercing'],
-                        ['img' => 'assets/img/gallery/24680.webp', 'title' => 'Helix Alignment'],
-                        ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Tragus Placement'],
+                        ['img' => 'assets/img/gallery/ear1.jpg', 'title' => 'Ear Lobe Piercing'],
+                        ['img' => 'assets/img/gallery/ear2b.jpg', 'title' => 'Both Ears'],
+                        ['img' => 'assets/img/gallery/baby1.jpg', 'title' => 'Baby Ear Piercing'],
+                        
                     ]
                 ],
                 'wellness-collapse' => [
                     'name' => 'Wellness Piercings',
                     'items' => [
-                        ['img' => 'assets/img/gallery/2.webp', 'title' => 'Daith Wellness'],
-                        ['img' => 'assets/img/gallery/24588.webp', 'title' => 'Shen Men Point'],
-                        ['img' => 'assets/img/gallery/6.webp', 'title' => 'Septum Artistry'],
-                        ['img' => 'assets/img/gallery/5.webp', 'title' => 'Nostril Precision'],
+                        ['img' => 'assets/img/gallery/ear1.jpg', 'title' => 'Ear Lobe Piercing'],
+                        ['img' => 'assets/img/gallery/ear2b.jpg', 'title' => 'Both Ears'],
+                        ['img' => 'assets/img/gallery/baby1.jpg', 'title' => 'Baby Ears Piercing'],
+                        ['img' => 'assets/img/gallery/3.webp', 'title' => 'Nose Piercing'],
                     ]
                 ],
                 'needle-collapse' => [
                     'name' => 'Needle Piercings',
                     'items' => [
-                        ['img' => 'assets/img/gallery/6.webp', 'title' => 'Septum Art'],
-                        ['img' => 'assets/img/gallery/5.webp', 'title' => 'Nostril Precision'],
-                        ['img' => 'assets/img/gallery/4.webp', 'title' => 'Tragus Care'],
-                        ['img' => 'assets/img/gallery/Ear lobe piercing.webp', 'title' => 'Lobe Mastery'],
+                        ['img' => 'assets/img/gallery/3.webp', 'title' => 'Nose'],
+                        ['img' => 'assets/img/gallery/t1.jpg', 'title' => 'Tragus'],
+                        ['img' => 'assets/img/gallery/Gemini_Generated_Image_cno5d7cno5d7cno5.webp', 'title' => 'Eye Brow'],
+                        ['img' => 'assets/img/gallery/l1.jpg', 'title' => 'Lip'],
+                        ['img' => 'assets/img/gallery/rook1.jpg', 'title' => 'Rook'],
+                        ['img' => 'assets/img/gallery/neck1.jpg', 'title' => 'Neck'],
+                        ['img' => 'assets/img/gallery/saffold1.jpg', 'title' => 'Scaffold / Industrial'],
+                        ['img' => 'assets/img/gallery/septum1.jpg', 'title' => 'Septum'],
+                        ['img' => 'assets/img/gallery/helx1.jpg', 'title' => 'Helix / Cartilage'],
+                        ['img' => 'assets/img/gallery/fh1.jpg', 'title' => 'Forward Helix'],
+                        ['img' => 'assets/img/gallery/bel1.jpg', 'title' => 'Belly'],
+                        ['img' => 'assets/img/gallery/neck1.jpg', 'title' => 'Microdermal'],
+                        ['img' => 'assets/img/gallery/sn1.jpg', 'title' => 'Snake Bite'],
+                        ['img' => 'assets/img/gallery/daith1.jpg', 'title' => 'Daith'],
+                        ['img' => 'assets/img/gallery/sm1.jpg', 'title' => 'Smiley Piercing'],
+                        ['img' => 'assets/img/gallery/web1.jpg', 'title' => 'Frenulum / Web'],
+                        ['img' => 'assets/img/gallery/fl1.webp', 'title' => 'Frowny / Lower Frendulum'],
+                        ['img' => 'assets/img/gallery/snug.jpg', 'title' => 'Snug'],
+                        ['img' => 'assets/img/gallery/con1.webp', 'title' => 'Conch'],
+                        
                     ]
                 ]
             ];
