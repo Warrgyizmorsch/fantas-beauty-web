@@ -125,6 +125,70 @@
         font-size: 13px;
     }
     @media (max-width: 768px) { .service-slide-item { width: 260px; height: 360px; } }
+
+    /* ==========================================
+    3. NEW PREMIUM NAILS TAB UI
+    ============================================= */
+    .luxury-tabs {
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+    }
+    .luxury-tabs .nav-link {
+        color: #666;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 30px;
+        padding: 10px 24px;
+        margin: 0 5px;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .luxury-tabs .nav-link:hover {
+        color: #d4a373;
+        background-color: #fcf9f5;
+    }
+    .luxury-tabs .nav-link.active {
+        background-color: #d4a373;
+        color: #fff;
+        box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+    }
+    
+    .tab-content-box {
+        background: #fff;
+        border-radius: 20px;
+        border: 1px solid #f0f0f0;
+        overflow: hidden;
+    }
+    
+    .service-hover-card {
+        border: 1px solid #f8f9fa;
+        background: #fafafa;
+        transition: all 0.3s ease;
+    }
+    .service-hover-card:hover {
+        border-color: #d4a373;
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+    }
+    
+    .enquire-btn-mini {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #d4a373;
+        background: transparent;
+        border: 1.5px solid #d4a373;
+        border-radius: 30px;
+        padding: 6px 14px;
+        transition: all 0.3s ease;
+    }
+    .service-hover-card:hover .enquire-btn-mini {
+        background: #d4a373;
+        color: #fff;
+    }
 </style>
 
 <div class="home__banner">
@@ -316,11 +380,28 @@ $serviceCategories = [
         'main_alt' => 'Waxing',
         'items' => [
             ['image' => 'assets/img/gallery/22.webp', 'title' => 'Eyebrows'],
-            ['image' => 'assets/img/gallery/34.webp', 'title' => 'Upper Lip'],
-            ['image' => 'assets/img/gallery/19.webp', 'title' => 'Full Face'],
+            ['image' => 'assets/img/gallery/upp.jpg', 'title' => 'Upper Lip'],
+            ['image' => 'assets/img/gallery/facewax.jpg', 'title' => 'Full Face'],
             ['image' => 'assets/img/gallery/23.webp', 'title' => 'Full Arm'],
             ['image' => 'assets/img/gallery/24.webp', 'title' => 'Underarm'],
             ['image' => 'assets/img/gallery/wax.webp', 'title' => 'Full Leg'],
+            ['image' => 'assets/img/gallery/22.webp', 'title' => 'Eyebrows'],
+            ['image' => 'assets/img/gallery/chinw.jpg', 'title' => 'Chin'],
+            ['image' => 'assets/img/gallery/sides.jpg', 'title' => 'Sides'],
+            ['image' => 'assets/img/gallery/cheeks.jpg', 'title' => 'Cheeks'],
+            ['image' => 'assets/img/gallery/neck.jpg', 'title' => 'Neck'],
+            ['image' => 'assets/img/gallery/half.jpg', 'title' => 'Half Arm'],
+            ['image' => 'assets/img/gallery/fullarm.jpg', 'title' => 'Full Arm & Underarm'],
+            ['image' => 'assets/img/gallery/halfl.jpg', 'title' => 'Half Leg'],
+            ['image' => 'assets/img/gallery/back11.jpg', 'title' => 'Back'],
+            ['image' => 'assets/img/gallery/fs.jpg', 'title' => 'Full Stomach'],
+            ['image' => 'assets/img/gallery/hs.jpg', 'title' => 'Half Stomach'],
+            ['image' => 'assets/img/gallery/hb.jpg', 'title' => 'Hollywood'],
+            ['image' => 'assets/img/gallery/hw.jpg', 'title' => 'Hollywood plus back'],
+            ['image' => 'assets/img/gallery/bw.jpg', 'title' => 'Brazilian'],
+            ['image' => 'assets/img/gallery/bb.jpg', 'title' => 'Brazilian plus back'],
+            ['image' => 'assets/img/gallery/ful.jpg', 'title' => 'Full Body Wax (inc chest, back & stomach)'],
+            ['image' => 'assets/img/gallery/fuu.jpg', 'title' => 'Full Body Wax inc Hollywood / Brazilian'],
         ],
     ],
     [
@@ -459,18 +540,68 @@ $serviceCategories = [
         'tab' => 'Nails',
         'title' => 'Nails',
         'description' => 'Modern nail extensions, polish, manicure, and pedicure services for every occasion.',
-        'highlights' => ['Acrylic & Gel Extensions','Custom 3D Nail Art'],
+        'highlights' => ['Acrylic & Gel Extensions', 'Custom 3D Nail Art', 'Ombre & Powder Colour'],
         'main_image' => 'assets/img/bg/NailExtensions.png',
         'main_alt' => 'Nails',
-        'items' => [
-            ['image' => 'assets/img/gallery/8.webp', 'title' => 'Full Set'],
-            ['image' => 'assets/img/gallery/9.webp', 'title' => 'Take off & New Set'],
-            ['image' => 'assets/img/gallery/10.webp', 'title' => 'Normal Polish Toe'],
-            ['image' => 'assets/img/gallery/npn.jpg', 'title' => 'Normal Polish Nail'],
-            ['image' => 'assets/img/gallery/lm.jpg', 'title' => 'Manicure Luxury'],
-            ['image' => 'assets/img/gallery/ped.jpg', 'title' => 'Pedicure Care'],
-            ['image' => 'assets/img/gallery/infill.jpg', 'title' => 'Infill'],
-        ],
+        'categories' => [
+            [
+                'name' => 'NORMAL POLISH',
+                'image' => 'assets/img/gallery/npn.jpg',
+                'services' => [
+                    ['name' => 'Full Set'],
+                    ['name' => 'Infill'],
+                    ['name' => 'Take off & New Set'],
+                    ['name' => 'Normal Polish Toe'],
+                    ['name' => 'Normal Polish Nail'],
+                    ['name' => 'Manicure Normal Polish'],
+                    ['name' => 'Pedicure'],
+                    ['name' => 'Two Big Toe Normal Polish'],
+                ]
+            ],
+            [
+                'name' => 'ACRYLIC & SHELLAC',
+                'image' => 'assets/img/gallery/8.webp',
+                'services' => [
+                    ['name' => 'Full set Shellac'],
+                    ['name' => 'Full set Shellac with White Tip'],
+                    ['name' => 'Infill'],
+                    ['name' => 'Take off & new set'],
+                    ['name' => 'Manicure with Shellac'],
+                    ['name' => 'Pedicure with Shellac'],
+                    ['name' => 'Shellac on nature nails'],
+                    ['name' => 'Take off Shellac new one'],
+                    ['name' => 'Two Big toe with Shellac'],
+                    ['name' => 'Take of Shellac'],
+                    ['name' => 'Take of Acrylic'],
+                    ['name' => 'Take of Acrylic & new Set'],
+                ]
+            ],
+            [
+                'name' => 'OMBRE',
+                'image' => 'assets/img/gallery/9.webp',
+                'services' => [
+                    ['name' => 'Full set'],
+                    ['name' => 'Infill same colour'],
+                    ['name' => 'Take off & new set'],
+                ]
+            ],
+            [
+                'name' => 'POWDER COLOUR',
+                'image' => 'assets/img/gallery/10.webp',
+                'services' => [
+                    ['name' => 'Full set'],
+                    ['name' => 'Infill Same Colour'],
+                    ['name' => 'Take off & new set'],
+                    ['name' => 'Full set powder colour white tip'],
+                    ['name' => 'Infill White tip'],
+                    ['name' => 'Fullset Toe powder'],
+                    ['name' => 'Fullset Toe white tip'],
+                    ['name' => 'Take off acrylic only'],
+                    ['name' => 'Long Nails extra'],
+                    ['name' => 'Extra cost for design'],
+                ]
+            ]
+        ]
     ],
     [
         'id' => 'henna-content',
@@ -527,30 +658,76 @@ $serviceCategories = [
                         <h3 class="fw-bold text-dark">{{ $category['title'] }} Collection</h3>
                     </div>
 
-                    <div class="marquee-wrapper service-marquee" data-speed="0.8">
-                        <div class="marquee-track">
-                            @php
-                                $mItems = $category['items'];
-                                $loopItems = array_merge(
-                                    $mItems, $mItems, $mItems, $mItems,
-                                    $mItems, $mItems, $mItems, $mItems,
-                                    $mItems, $mItems, $mItems, $mItems
-                                );
-                            @endphp
-                            
-                            @foreach ($loopItems as $item)
-                                <div class="service-slide-item">
-                                    <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
-                                    <div class="service-card-overlay">
-                                        <h6>{{ $item['title'] }}</h6>
-                                        <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
-                                            ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                    @if(isset($category['categories']))
+                        <div class="container mt-5 mb-5">
+                            <ul class="nav nav-pills justify-content-center mb-4 luxury-tabs" id="nails-tab" role="tablist">
+                                @foreach($category['categories'] as $catIndex => $subCat)
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link {{ $catIndex == 0 ? 'active' : '' }}" id="tab-nails-{{ $catIndex }}" data-bs-toggle="pill" data-bs-target="#pane-nails-{{ $catIndex }}" type="button" role="tab" aria-selected="{{ $catIndex == 0 ? 'true' : 'false' }}">
+                                            {{ $subCat['name'] }}
                                         </button>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                            <div class="tab-content shadow-sm tab-content-box" id="nails-tabContent">
+                                @foreach($category['categories'] as $catIndex => $subCat)
+                                    <div class="tab-pane fade {{ $catIndex == 0 ? 'show active' : '' }}" id="pane-nails-{{ $catIndex }}" role="tabpanel" aria-labelledby="tab-nails-{{ $catIndex }}">
+                                        
+                                        <div class="row g-0 align-items-stretch">
+                                            <div class="col-lg-5 d-none d-lg-block">
+                                                <img src="{{ asset($subCat['image']) }}" alt="{{ $subCat['name'] }}" style="width: 100%; height: 100%; object-fit: cover; min-height: 450px;">
+                                            </div>
+                                            
+                                            <div class="col-lg-7 p-4 p-md-5 bg-white">
+                                                <h3 class="mb-4" style="color: #2b2b2b; font-weight: 700;">{{ $subCat['name'] }} <span style="color: #d4a373;">Services</span></h3>
+                                                
+                                                <div class="row">
+                                                    @foreach($subCat['services'] as $service)
+                                                        <div class="col-md-6 mb-3">
+                                                            <div class="d-flex justify-content-between align-items-center p-3 rounded-3 service-hover-card">
+                                                                <span class="fw-semibold text-dark" style="font-size: 14px;">{{ $service['name'] }}</span>
+                                                                <button class="enquire-btn-mini openInquiryModal" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $service['name'] }} - {{ $subCat['name'] }}">
+                                                                    ENQUIRE
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @elseif(isset($category['items']))
+                        <div class="marquee-wrapper service-marquee" data-speed="0.8">
+                            <div class="marquee-track">
+                                @php
+                                    $mItems = $category['items'];
+                                    $loopItems = array_merge(
+                                        $mItems, $mItems, $mItems, $mItems,
+                                        $mItems, $mItems, $mItems, $mItems,
+                                        $mItems, $mItems, $mItems, $mItems
+                                    );
+                                @endphp
+                                
+                                @foreach ($loopItems as $item)
+                                    <div class="service-slide-item">
+                                        <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                        <div class="service-card-overlay">
+                                            <h6>{{ $item['title'] }}</h6>
+                                            <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
+                                                ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
             @endforeach
         </div>
