@@ -5,8 +5,216 @@
         .banner__slide-area-image {
             will-change: transform;
         }
+
+        /* ==========================================
+        1. UNIVERSAL OPTIMIZED SLIDER CSS
+        ============================================= */
+        .slider-container-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .slider-container-wrapper.has-nav-buttons {
+            padding: 0 45px; 
+        }
+        .slider-container-wrapper.no-nav-buttons {
+            padding: 0; 
+            display: flex;
+            justify-content: center; 
+        }
+
+        .slider-wrapper {
+            display: flex;
+            gap: 20px; 
+            overflow-x: auto;
+            width: 100%;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE */
+            padding-bottom: 20px; 
+            padding-top: 10px;
+        }
+        .slider-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        /* Minimalist Arrow Buttons (< >) */
+        .slider-control-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: #d4a373; 
+            border: none;
+            font-size: 38px; 
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10;
+            padding: 10px 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .slider-control-btn:hover {
+            color: #111; 
+            transform: translateY(-50%) scale(1.1); 
+        }
+        .slider-prev-btn { left: -5px; }
+        .slider-next-btn { right: -5px; }
+
+        /* ==========================================
+        2. CATEGORY ITEMS UI (User's Exact Active CSS)
+        ============================================= */
+        .category-card-ui {
+            flex: 0 0 calc((100% - 40px) / 3); /* EXACTLY 3 items */
+            height: 380px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #111;
+            border: 2px solid transparent; 
+            transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+            user-select: none; 
+            opacity: 0.75; 
+            scroll-snap-align: start;
+        }
+
+        .category-card-ui:hover {
+            opacity: 0.9;
+            transform: translateY(-5px);
+        }
+
+        /* Active Tab Highlight - Kept original as requested */
+        .category-card-ui.active-tab {
+            border-color: #d4a373; 
+            opacity: 1; 
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
+            z-index: 2;
+        }
+        
+        .category-card-ui.active-tab .explore-link {
+            color: #fff !important;
+        }
+
+        .category-card-ui img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1; 
+            transition: transform 0.6s ease, opacity 0.3s ease;
+            pointer-events: none; 
+            image-rendering: -webkit-optimize-contrast; 
+            image-rendering: high-quality;
+        }
+
+        .category-card-ui:hover img, .category-card-ui.active-tab img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .category-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px 20px;
+            pointer-events: none; 
+        }
+
+        .explore-link {
+            color: #d4a373;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            pointer-events: auto; 
+            padding: 10px 0;
+        }
+
+        .explore-link:hover {
+            color: #fff;
+        }
+
+        /* ==========================================
+        3. SERVICE SLIDE ITEMS
+        ============================================= */
+        .service-slide-item {
+            flex: 0 0 calc((100% - 40px) / 3); /* EXACTLY 3 items */
+            height: 420px;
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        .service-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+        }
+
+        .service-card-overlay {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 25px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: #fff;
+            text-align: center;
+        }
+
+        .service-card-overlay h6 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .new-btn {
+            height: 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 13px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            .category-card-ui, .service-slide-item { flex: 0 0 calc((100% - 20px) / 2); height: 350px; }
+            .slider-container-wrapper.has-nav-buttons { padding: 0 40px; }
+            .slider-control-btn { font-size: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .category-card-ui, .service-slide-item { flex: 0 0 100%; height: 320px; }
+            .slider-container-wrapper.has-nav-buttons { padding: 0 30px; }
+            .slider-control-btn { font-size: 28px; }
+        }
+
+        /* Display Section */
+        .marquee-display-section {
+            display: none;
+            animation: fadeSlideUp 0.4s ease forwards;
+        }
+
+        .marquee-display-section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
-    <!-- Page Banner Start -->
+    
     <div class="home__banner">
         <div class="banner__slide swiper banner-slide">
             <div class="swiper-wrapper">
@@ -15,11 +223,11 @@
                     style="height: 500px; min-height: 500px; position: relative;">
                     <div class="banner__slide-area-image"
                         style="background-image: url('{{ asset('assets/img/bg/Tatto1.png')}}'); 
-                                                                                                                                                        background-size: cover !important; 
-                                                                                                                                                        background-position: center !important; 
-                                                                                                                                                        background-repeat: no-repeat !important; 
-                                                                                                                                                        filter: brightness(0.85) !important; 
-                                                                                                                                                        position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-size: cover !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-position: center !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-repeat: no-repeat !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                filter: brightness(0.85) !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
                     </div>
 
                     <div class="container" style="height: 100%; display: flex; align-items: center;">
@@ -48,11 +256,11 @@
                     style="height: 500px; min-height: 500px; position: relative;">
                     <div class="banner__slide-area-image"
                         style="background-image: url('{{ asset('assets/img/bg/Tatto4.png')}}'); 
-                                                                                                                                                        background-size: cover !important; 
-                                                                                                                                                        background-position: center !important; 
-                                                                                                                                                        background-repeat: no-repeat !important; 
-                                                                                                                                                        filter: brightness(0.85) !important; 
-                                                                                                                                                        position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-size: cover !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-position: center !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-repeat: no-repeat !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                filter: brightness(0.85) !important; 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;">
                     </div>
 
                     <div class="container" style="height: 100%; display: flex; align-items: center;">
@@ -89,7 +297,6 @@
 
         </div>
     </div>
-    <!-- Page Banner End -->
     <div class="history__area section-padding">
         <div class="container">
             <div class="row align-items-center">
@@ -110,7 +317,6 @@
                     <div class="history__area-right">
 
                         <div class="history__area-right-title">
-                            <!-- <span class="subtitle__two">Our Journey</span> -->
                             <span class="subtitle__one">Fantas Ink & Piercing</span>
                             <h2>Crafting Art, Ink & Confidence</h2>
 
@@ -147,11 +353,11 @@
             </div>
         </div>
     </div>
+    
     <div class="services__area section-padding bg-light">
         <div class="container">
             <div class="row mb-5 justify-content-center text-center">
                 <div class="col-lg-8">
-                    <!-- <span class="subtitle__two text-primary">What We Do</span> -->
                     <h2>Our Premium Specialties</h2>
                     <p class="text-muted">Explore our wide range of professional body art and piercing services, executed
                         with top-tier hygiene and precision.</p>
@@ -326,209 +532,6 @@
         ];
     @endphp
 
-    <style>
-        /* Optimized Scroller */
-        .category-slider-wrapper {
-            display: flex;
-            gap: 20px;
-            overflow-x: hidden;
-            /* Changed to hidden to prevent manual scrollbar interfering with smooth infinite touch bounds */
-            padding-bottom: 20px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            cursor: grab;
-            touch-action: pan-y;
-        }
-
-        .category-slider-wrapper:active {
-            cursor: grabbing;
-        }
-
-        .category-slider-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-
-        .category-card-ui {
-            flex: 0 0 calc(33.333% - 14px);
-            height: 380px;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #111;
-            border: 2px solid transparent;
-            transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
-            user-select: none;
-            opacity: 0.75;
-        }
-
-        .category-card-ui:hover {
-            opacity: 0.9;
-            transform: translateY(-5px);
-        }
-
-        .category-card-ui.active-tab {
-            border-color: #d4a373;
-            opacity: 1;
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
-            z-index: 2;
-        }
-
-        .category-card-ui.active-tab .explore-link {
-            color: #fff !important;
-        }
-
-        .category-card-ui img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 1; /* Full vibrancy for clarity */
-            transition: transform 0.6s ease, opacity 0.3s ease;
-            pointer-events: none;
-            image-rendering: -webkit-optimize-contrast; /* Sharpening for Chrome/Safari */
-            image-rendering: high-quality;
-        }
-
-        .category-card-ui:hover img,
-        .category-card-ui.active-tab img {
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        .category-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 40%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px 20px;
-            pointer-events: none;
-        }
-
-        .explore-link {
-            color: #d4a373;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            pointer-events: auto;
-            padding: 10px 0;
-        }
-
-        .explore-link:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 991px) {
-            .category-card-ui {
-                flex: 0 0 calc(50% - 10px);
-                height: 350px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .category-card-ui {
-                flex: 0 0 85%;
-                height: 320px;
-            }
-        }
-
-        /* MARQUEE DISPLAY AREA */
-        .marquee-display-section {
-            display: none;
-            animation: fadeSlideUp 0.4s ease forwards;
-        }
-
-        .marquee-display-section.active-section {
-            display: block;
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .marquee-wrapper {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 10px 0 30px;
-            cursor: grab;
-            touch-action: pan-y;
-        }
-
-        .marquee-wrapper.is-dragging {
-            cursor: grabbing;
-        }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            will-change: transform;
-            gap: 2px;
-        }
-
-        .service-slide-item {
-            width: 320px;
-            height: 420px;
-            position: relative;
-            flex-shrink: 0;
-            background: #000;
-        }
-
-        .service-slide-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: high-quality;
-        }
-
-        .service-card-overlay {
-            position: absolute;
-            inset: auto 0 0 0;
-            padding: 25px 20px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            color: #fff;
-            text-align: center;
-        }
-
-        .service-card-overlay h6 {
-            color: #fff;
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .new-btn {
-            height: 40px;
-            border-radius: 50px;
-            border: none;
-            font-size: 13px;
-        }
-
-        @media (max-width: 768px) {
-            .service-slide-item {
-                width: 260px;
-                height: 360px;
-            }
-        }
-    </style>
-
     <div class="services__area section-padding bg-white">
         <div class="container-fluid px-md-5">
 
@@ -541,30 +544,36 @@
                 </div>
             </div>
 
-            <div class="category-slider-wrapper mb-5" id="categorySliderDrag">
-                @php
-                    // 4x duplication for seamless infinite upper slider
-                    $loopCategories = array_merge(
-                        $tattooCategories,
-                        $tattooCategories,
-                        $tattooCategories,
-                        $tattooCategories
-                    );
-                @endphp
-                @foreach ($loopCategories as $index => $category)
-                    <div class="category-card-ui {{ $category['id'] === $tattooCategories[0]['id'] ? 'active-tab' : '' }}"
-                        data-card-id="{{ $category['id'] }}" data-img="{{ asset($category['main_image']) }}">
-                        <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy"
-                            decoding="async">
-                        <div class="category-card-overlay">
-                            <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
-                            <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
-                            <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
-                                EXPLORE More <i class="far fa-arrow-right"></i>
-                            </span>
+            @php $catCount = count($tattooCategories); @endphp
+            
+            <div class="slider-container-wrapper {{ $catCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }} mb-5">
+                @if($catCount > 3)
+                <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('categorySliderDrag', -1)">
+                    <i class="far fa-chevron-left"></i>
+                </button>
+                @endif
+
+                <div class="slider-wrapper" id="categorySliderDrag">
+                    @foreach ($tattooCategories as $index => $category)
+                        <div class="category-card-ui {{ $index === 0 ? 'active-tab' : '' }}"
+                            data-card-id="{{ $category['id'] }}" data-img="{{ asset($category['main_image']) }}">
+                            <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
+                            <div class="category-card-overlay">
+                                <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
+                                <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
+                                <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
+                                    EXPLORE More <i class="far fa-arrow-right"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+
+                @if($catCount > 3)
+                <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('categorySliderDrag', 1)">
+                    <i class="far fa-chevron-right"></i>
+                </button>
+                @endif
             </div>
 
             <div id="marquee-master-container">
@@ -575,44 +584,44 @@
                             <h3 class="fw-bold text-dark">{{ $category['title'] }} Collection</h3>
                         </div>
 
-                        <div class="marquee-wrapper service-marquee" data-speed="0.8">
-                            <div class="marquee-track">
-                                @php
-                                    $mItems = $category['items'];
-                                    $loopItems = array_merge(
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems,
-                                        $mItems
-                                    );
-                                @endphp
+                        @php
+                            $items = $category['items'] ?? [];
+                            $itemCount = count($items);
+                        @endphp
 
-                                @foreach ($loopItems as $item)
-                                    <div class="service-slide-item">
-                                        <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy"
-                                            decoding="async">
-                                        <div class="service-card-overlay">
-                                            <h6>{{ $item['title'] }}</h6>
-                                            <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal"
-                                                data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
-                                                ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
-                                            </button>
+                        @if($itemCount > 0)
+                            <div class="slider-container-wrapper {{ $itemCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }}">
+                                @if($itemCount > 3)
+                                <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('slider-{{ $category['id'] }}', -1)">
+                                    <i class="far fa-chevron-left"></i>
+                                </button>
+                                @endif
+
+                                <div class="slider-wrapper" id="slider-{{ $category['id'] }}">
+                                    @foreach ($items as $item)
+                                        <div class="service-slide-item">
+                                            <img src="{{ asset($item['image'] ?? $item['img']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                            <div class="service-card-overlay">
+                                                <h6>{{ $item['title'] }}</h6>
+                                                <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
+                                                    ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+
+                                @if($itemCount > 3)
+                                <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('slider-{{ $category['id'] }}', 1)">
+                                    <i class="far fa-chevron-right"></i>
+                                </button>
+                                @endif
                             </div>
-                        </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
+            
         </div>
     </div>
 
@@ -651,204 +660,88 @@
                 <div class="col-xl-5 col-lg-5">
                     <div class="banner__two-right">
                         <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_ajkmfajkmfajkmfa.png') }}"
-                            alt="">
+                            alt="" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Instagram Area Start -->
     @include('component.instagram')
-    <!-- Instagram Area End -->
-
     {{-- INQUIRY FORM --}}
     <x-inquiry-modal />
 
+    <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+                        style="filter: invert(1); opacity: 1;"></button>
+                </div>
+                <div class="modal-body text-center pt-0">
+                    <img id="modalImage" src="" class="img-fluid rounded shadow-lg" alt="Preview"
+                        style="max-height: 85vh; object-fit: contain;" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function openImageModal(imageSrc) {
-            document.getElementById('modalImage').src = imageSrc;
-            var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
-            myModal.show();
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. DRAG & SEAMLESS AUTO-SCROLL FOR CATEGORY SLIDER
-            const catSlider = document.getElementById('categorySliderDrag');
-            let isCatDown = false, isCatHovered = false, isCatDragging = false, catStartX, catScrollLeft, catRafId;
-            let catAutoScrollSpeed = 0.5;
-            let catCachedWidth = 0;
 
-            if (catSlider) {
-                // Calculate width of one SET of categories (4x duplicated = length / 4)
-                const updateCatWidth = () => {
-                    const items = catSlider.children;
-                    const setLength = Math.floor(items.length / 4);
-                    if (setLength === 0) return 0;
-                    let w = 0;
-                    for (let i = 0; i < setLength; i++) {
-                        w += items[i].offsetWidth + 20; // 20px is flex gap from CSS
-                    }
-                    return w;
-                };
+            // Modal Logic
+            window.openImageModal = function (imageSrc) {
+                document.getElementById('modalImage').src = imageSrc;
+                var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
+                myModal.show();
+            };
 
-                catCachedWidth = updateCatWidth();
-                catSlider.scrollLeft = catCachedWidth; // Start in middle
-
-                // Mouse Events
-                catSlider.addEventListener('mouseenter', () => { isCatHovered = true; });
-                catSlider.addEventListener('mouseleave', () => { isCatHovered = false; isCatDown = false; });
-                catSlider.addEventListener('mousedown', (e) => {
-                    isCatDown = true;
-                    isCatDragging = false;
-                    catStartX = e.pageX - catSlider.offsetLeft;
-                    catScrollLeft = catSlider.scrollLeft;
-                });
-                catSlider.addEventListener('mouseup', () => { isCatDown = false; });
-                catSlider.addEventListener('mousemove', (e) => {
-                    if (!isCatDown) return;
-                    e.preventDefault();
-                    const currentX = e.pageX - catSlider.offsetLeft;
-                    if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
-                    const walk = (currentX - catStartX) * 1.5;
-                    catSlider.scrollLeft = catScrollLeft - walk;
-                });
-
-                // Touch Events
-                catSlider.addEventListener('touchstart', (e) => {
-                    isCatDown = true; isCatHovered = true; isCatDragging = false;
-                    catStartX = e.touches[0].pageX - catSlider.offsetLeft;
-                    catScrollLeft = catSlider.scrollLeft;
-                }, { passive: true });
-                catSlider.addEventListener('touchend', () => { isCatDown = false; isCatHovered = false; });
-                catSlider.addEventListener('touchmove', (e) => {
-                    if (!isCatDown) return;
-                    const currentX = e.touches[0].pageX - catSlider.offsetLeft;
-                    if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
-                    const walk = (currentX - catStartX) * 1.5;
-                    catSlider.scrollLeft = catScrollLeft - walk;
-                }, { passive: true });
-
-                // Click to Open Modal Handling & Switch Category
-                catSlider.addEventListener('click', (e) => {
-                    if (isCatDragging) return;
-
-                    const card = e.target.closest('.category-card-ui');
-                    if (!card) return;
-
-                    const catId = card.dataset.cardId;
-
-                    // If clicking the "Explore More" link or the card itself, switch the category
-                    if (e.target.closest('.explore-link') || card) {
-                        switchCategory(catId);
-                    }
-
-                    // Also open the main image modal if they clicked the image part specifically 
-                    // (but only if they didn't click the link)
-                    if (!e.target.closest('.explore-link') && e.target.tagName === 'IMG') {
-                        // Optional: trigger modal if requested, but user wants to see the "collection"
-                        // openImageModal(card.dataset.img); 
-                    }
-                });
-
-                // Seamless Auto Scroll Function
-                function autoScrollCategory() {
-                    if (!isCatDown && !isCatHovered && catCachedWidth > 0) {
-                        catSlider.scrollLeft += catAutoScrollSpeed;
-
-                        if (catSlider.scrollLeft >= catCachedWidth * 2) {
-                            catSlider.scrollLeft -= catCachedWidth;
-                        } else if (catSlider.scrollLeft <= 0) {
-                            catSlider.scrollLeft += catCachedWidth;
-                        }
-                    }
-                    catRafId = requestAnimationFrame(autoScrollCategory);
-                }
-                catRafId = requestAnimationFrame(autoScrollCategory);
-
-                window.addEventListener('resize', () => {
-                    setTimeout(() => { catCachedWidth = updateCatWidth(); }, 150);
-                });
-            }
-
-            // 2. SWITCH CATEGORY LOGIC
+            // Switch Category Logic
             window.switchCategory = function (targetId) {
                 document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
-
-                // Add active-tab to all duplicated cards safely
                 document.querySelectorAll('.category-card-ui[data-card-id="' + targetId + '"]').forEach(el => el.classList.add('active-tab'));
 
                 const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
                 if (currentActiveSection) {
                     currentActiveSection.classList.remove('active-section');
-                    const marqueeInner = currentActiveSection.querySelector('.service-marquee');
-                    if (marqueeInner && marqueeInner.rafId) {
-                        cancelAnimationFrame(marqueeInner.rafId);
-                    }
                 }
 
                 const targetSection = document.getElementById(targetId + '-marquee');
                 if (targetSection) {
                     targetSection.classList.add('active-section');
-                    const marquee = targetSection.querySelector('.service-marquee');
-                    if (marquee) {
-                        marquee.dataset.init = 'false';
-                        setTimeout(() => { initMarqueeInstance(marquee); }, 50);
-                    }
                 }
             };
 
-            // 3. MARQUEE ENGINE
-            function initMarqueeInstance(container) {
-                const track = container.querySelector('.marquee-track');
-                if (!track || container.dataset.init === 'true') return;
+            // Slider Navigation Logic (< > Buttons)
+            window.scrollSlider = function(sliderId, direction) {
+                const slider = document.getElementById(sliderId);
+                if (!slider) return;
+                
+                // Get any slide item to calculate exact scroll distance
+                const item = slider.querySelector('.service-slide-item') || slider.querySelector('.category-card-ui');
+                if (!item) return;
 
-                let speed = parseFloat(container.dataset.speed || '0.8');
-                let state = { isHovered: false, isDragging: false, startX: 0, scrollLeft: 0, cachedWidth: 0 };
+                // scroll amount = (item width + 20px gap) * direction
+                const scrollAmount = (item.offsetWidth + 20) * direction;
+                
+                slider.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            };
 
-                const updateWidth = () => {
-                    const items = track.children;
-                    const setLength = Math.floor(items.length / 12);
-                    if (setLength === 0) return 0;
-                    let w = 0;
-                    for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15;
-                    return w;
-                };
-
-                const loop = () => {
-                    if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
-                        container.scrollLeft += speed;
-                        if (container.scrollLeft >= state.cachedWidth * 2) container.scrollLeft -= state.cachedWidth;
-                        else if (container.scrollLeft <= 0) container.scrollLeft += state.cachedWidth;
+            // Click handling for opening image modal on category cards
+            const catSlider = document.getElementById('categorySliderDrag');
+            if (catSlider) {
+                catSlider.addEventListener('click', (e) => {
+                    if (e.target.closest('.explore-link')) return;
+                    const card = e.target.closest('.category-card-ui');
+                    if (card && card.dataset.img) {
+                        openImageModal(card.dataset.img);
                     }
-                    container.rafId = requestAnimationFrame(loop);
-                };
-
-                const startDrag = (x) => { state.isDragging = true; container.classList.add('is-dragging'); state.startX = x - container.offsetLeft; state.scrollLeft = container.scrollLeft; };
-                const onDrag = (x) => { if (!state.isDragging) return; container.scrollLeft = state.scrollLeft - ((x - container.offsetLeft - state.startX) * 1.5); };
-                const stopDrag = () => { state.isDragging = false; container.classList.remove('is-dragging'); };
-
-                container.onmouseenter = () => state.isHovered = true;
-                container.onmouseleave = () => { state.isHovered = false; stopDrag(); };
-                container.onmousedown = (e) => startDrag(e.pageX);
-                container.onmousemove = (e) => { if (state.isDragging) e.preventDefault(); onDrag(e.pageX); };
-                window.addEventListener('mouseup', stopDrag);
-
-                container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
-                container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
-                container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
-
-                state.cachedWidth = updateWidth();
-                container.scrollLeft = state.cachedWidth;
-
-                if (container.rafId) cancelAnimationFrame(container.rafId);
-                container.rafId = requestAnimationFrame(loop);
-                container.dataset.init = 'true';
+                });
             }
 
-            // Initialize First Tab Marquee on Load
-            const activeMarquee = document.querySelector('.marquee-display-section.active-section .service-marquee');
-            if (activeMarquee) { setTimeout(() => { initMarqueeInstance(activeMarquee); }, 100); }
         });
     </script>
 

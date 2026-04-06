@@ -2,35 +2,75 @@
 @section('content')
 
 <style>
-    /* Optimized Scroller */
-    .category-slider-wrapper {
+    /* ==========================================
+    1. UNIVERSAL OPTIMIZED SLIDER CSS
+    ============================================= */
+    .slider-container-wrapper {
+        position: relative;
+        width: 100%;
+    }
+    .slider-container-wrapper.has-nav-buttons {
+        padding: 0 45px; 
+    }
+    .slider-container-wrapper.no-nav-buttons {
+        padding: 0; 
         display: flex;
-        gap: 20px;
-        overflow-x: hidden;
-        padding-bottom: 20px;
-        scrollbar-width: none; 
-        -ms-overflow-style: none; 
-        cursor: grab; 
-        touch-action: pan-y;
+        justify-content: center; 
     }
-    .category-slider-wrapper:active {
-        cursor: grabbing;
+
+    .slider-wrapper {
+        display: flex;
+        gap: 20px; 
+        overflow-x: auto;
+        width: 100%;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE */
+        padding-bottom: 20px; 
+        padding-top: 10px;
     }
-    .category-slider-wrapper::-webkit-scrollbar {
+    .slider-wrapper::-webkit-scrollbar {
         display: none; /* Chrome/Safari */
     }
 
+    /* Minimalist Arrow Buttons (< >) */
+    .slider-control-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        color: #d4a373; 
+        border: none;
+        font-size: 38px; 
+        font-weight: 300;
+        cursor: pointer;
+        z-index: 10;
+        padding: 10px 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .slider-control-btn:hover {
+        color: #111; 
+        transform: translateY(-50%) scale(1.1); 
+    }
+    .slider-prev-btn { left: -5px; }
+    .slider-next-btn { right: -5px; }
+
+    /* ==========================================
+    2. CATEGORY & SERVICE ITEMS UI
+    ============================================= */
     .category-card-ui {
-        flex: 0 0 calc(33.333% - 14px); 
+        flex: 0 0 calc((100% - 40px) / 3); /* EXACTLY 3 items */
         height: 380px;
         position: relative;
         border-radius: 8px;
         overflow: hidden;
         background: #111;
-        border: 2px solid transparent; /* Normal border width */
+        border: 2px solid transparent; 
         transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
         user-select: none; 
-        opacity: 0.75; /* Much softer dimming instead of heavy black filters */
+        opacity: 0.75; 
+        scroll-snap-align: start;
     }
 
     .category-card-ui:hover {
@@ -40,8 +80,8 @@
 
     /* Active Tab Highlight */
     .category-card-ui.active-tab {
-        border-color: #d4a373; /* Gold border for active */
-        opacity: 1; /* Full vibrancy */
+        border-color: #d4a373; 
+        opacity: 1; 
         transform: scale(1.02);
         box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
         z-index: 2;
@@ -57,7 +97,7 @@
         object-fit: cover;
         opacity: 0.8;
         transition: transform 0.6s ease, opacity 0.3s ease;
-        pointer-events: none; /* Image drag ghost roko */
+        pointer-events: none; 
     }
     .category-card-ui:hover img, .category-card-ui.active-tab img {
         transform: scale(1.05);
@@ -72,10 +112,8 @@
         flex-direction: column;
         justify-content: flex-end;
         padding: 25px 20px;
-        pointer-events: none; /* Let clicks pass to the card */
+        pointer-events: none; 
     }
-
-
 
     /* Explore Link / Button */
     .explore-link {
@@ -88,16 +126,46 @@
         align-items: center;
         gap: 8px;
         cursor: pointer;
-        pointer-events: auto; /* Make it clickable */
+        pointer-events: auto; 
         padding: 10px 0;
     }
     .explore-link:hover { color: #fff; }
 
-    @media (max-width: 991px) { .category-card-ui { flex: 0 0 calc(50% - 10px); height: 350px; } }
-    @media (max-width: 768px) { .category-card-ui { flex: 0 0 85%; height: 320px; } }
+    /* SERVICE SLIDE ITEMS */
+    .service-slide-item { 
+        flex: 0 0 calc((100% - 40px) / 3); /* EXACTLY 3 items */
+        height: 420px; 
+        position: relative; 
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        scroll-snap-align: start;
+    }
+    .service-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .service-card-overlay { position: absolute; inset: auto 0 0 0; padding: 25px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; text-align: center; }
+    .service-card-overlay h6 { color: #fff; margin-bottom: 15px; font-size: 18px; font-weight: 600;}
+
+    .new-btn {
+        height: 40px;
+        border-radius: 50px; 
+        border:none; 
+        font-size: 13px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 991px) { 
+        .category-card-ui, .service-slide-item { flex: 0 0 calc((100% - 20px) / 2); height: 350px; } 
+        .slider-container-wrapper.has-nav-buttons { padding: 0 40px; }
+        .slider-control-btn { font-size: 32px; }
+    }
+    @media (max-width: 768px) { 
+        .category-card-ui, .service-slide-item { flex: 0 0 100%; height: 320px; } 
+        .slider-container-wrapper.has-nav-buttons { padding: 0 30px; }
+        .slider-control-btn { font-size: 28px; }
+    }
 
     /* ==========================================
-    2. MARQUEE SLIDER DISPLAY AREA
+    3. SECTION DISPLAY & TABS UI
     ============================================= */
     .marquee-display-section {
         display: none; 
@@ -109,86 +177,17 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .marquee-wrapper { overflow: hidden; width: 100%; position: relative; padding: 10px 0 30px; cursor: grab; touch-action: pan-y; }
-    .marquee-wrapper.is-dragging { cursor: grabbing; }
-    .marquee-track { display: flex; width: max-content; will-change: transform; gap: 2px; }
-
-    .service-slide-item { width: 320px; height: 420px; position: relative; flex-shrink: 0; background: #000;}
-    .service-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
-    .service-card-overlay { position: absolute; inset: auto 0 0 0; padding: 25px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; text-align: center; }
-    .service-card-overlay h6 { color: #fff; margin-bottom: 15px; font-size: 18px; font-weight: 600;}
-
-    .new-btn {
-        height: 40px;
-        border-radius: 50px; 
-        border:none; 
-        font-size: 13px;
-    }
-    @media (max-width: 768px) { .service-slide-item { width: 260px; height: 360px; } }
-
-    /* ==========================================
-    3. NEW PREMIUM NAILS TAB UI
-    ============================================= */
-    .luxury-tabs {
-        border-bottom: 2px solid #f0f0f0;
-        padding-bottom: 10px;
-    }
-    .luxury-tabs .nav-link {
-        color: #666;
-        font-weight: 600;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-radius: 30px;
-        padding: 10px 24px;
-        margin: 0 5px;
-        border: 1px solid transparent;
-        transition: all 0.3s ease;
-    }
-    .luxury-tabs .nav-link:hover {
-        color: #d4a373;
-        background-color: #fcf9f5;
-    }
-    .luxury-tabs .nav-link.active {
-        background-color: #d4a373;
-        color: #fff;
-        box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
-    }
+    .luxury-tabs { border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+    .luxury-tabs .nav-link { color: #666; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; border-radius: 30px; padding: 10px 24px; margin: 0 5px; border: 1px solid transparent; transition: all 0.3s ease; }
+    .luxury-tabs .nav-link:hover { color: #d4a373; background-color: #fcf9f5; }
+    .luxury-tabs .nav-link.active { background-color: #d4a373; color: #fff; box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4); }
     
-    .tab-content-box {
-        background: #fff;
-        border-radius: 20px;
-        border: 1px solid #f0f0f0;
-        overflow: hidden;
-    }
+    .tab-content-box { background: #fff; border-radius: 20px; border: 1px solid #f0f0f0; overflow: hidden; }
+    .service-hover-card { border: 1px solid #f8f9fa; background: #fafafa; transition: all 0.3s ease; }
+    .service-hover-card:hover { border-color: #d4a373; background: #fff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important; }
     
-    .service-hover-card {
-        border: 1px solid #f8f9fa;
-        background: #fafafa;
-        transition: all 0.3s ease;
-    }
-    .service-hover-card:hover {
-        border-color: #d4a373;
-        background: #fff;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
-    }
-    
-    .enquire-btn-mini {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        color: #d4a373;
-        background: transparent;
-        border: 1.5px solid #d4a373;
-        border-radius: 30px;
-        padding: 6px 14px;
-        transition: all 0.3s ease;
-    }
-    .service-hover-card:hover .enquire-btn-mini {
-        background: #d4a373;
-        color: #fff;
-    }
+    .enquire-btn-mini { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: #d4a373; background: transparent; border: 1.5px solid #d4a373; border-radius: 30px; padding: 6px 14px; transition: all 0.3s ease; }
+    .service-hover-card:hover .enquire-btn-mini { background: #d4a373; color: #fff; }
 </style>
 
 <div class="home__banner">
@@ -516,7 +515,6 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.webp', 'title' => 'Knotless Braids'],
             ['image' => 'assets/img/gallery/single.webp', 'title' => 'Butterfly Locks'],
             ['image' => 'assets/img/gallery/br12.jpg', 'title' => 'Single Braids'],
-            
         ],
     ],
     [
@@ -532,7 +530,6 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/43.webp', 'title' => 'Big Gem'],
             ['image' => 'assets/img/gallery/front-view-woman-posing-with-dental-gems.webp', 'title' => 'Extra Big Gem'],
             ['image' => 'assets/img/gallery/front-view-man-posing-with-dental-gems.webp', 'title' => 'Temporary Tattoo'],
-           
         ],
     ],
     [
@@ -631,24 +628,37 @@ $serviceCategories = [
             </div>
         </div>
 
-        <div class="category-slider-wrapper mb-5" id="categorySliderDrag">
-            @php
-                $loopCategories = array_merge(
-                    $serviceCategories, $serviceCategories, $serviceCategories, $serviceCategories
-                );
-            @endphp
-            @foreach ($loopCategories as $index => $category)
-                <div class="category-card-ui {{ $category['id'] === $serviceCategories[0]['id'] ? 'active-tab' : '' }}" data-card-id="{{ $category['id'] }}" data-img="{{ asset($category['main_image']) }}">
-                    <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
-                    <div class="category-card-overlay">
-                        <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
-                        <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
-                        <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
-                            EXPLORE More <i class="far fa-arrow-right"></i>
-                        </span>
+        @php
+            $catCount = count($serviceCategories);
+        @endphp
+
+        <div class="slider-container-wrapper {{ $catCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }} mb-5">
+            @if($catCount > 3)
+            <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('categorySliderDrag', -1)">
+                <i class="far fa-chevron-left"></i>
+            </button>
+            @endif
+
+            <div class="slider-wrapper" id="categorySliderDrag">
+                @foreach ($serviceCategories as $index => $category)
+                    <div class="category-card-ui {{ $index === 0 ? 'active-tab' : '' }}" data-card-id="{{ $category['id'] }}" data-img="{{ asset($category['main_image']) }}">
+                        <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
+                        <div class="category-card-overlay">
+                            <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
+                            <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
+                            <span class="explore-link" onclick="switchCategory('{{ $category['id'] }}')">
+                                EXPLORE More <i class="far fa-arrow-right"></i>
+                            </span>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+
+            @if($catCount > 3)
+            <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('categorySliderDrag', 1)">
+                <i class="far fa-chevron-right"></i>
+            </button>
+            @endif
         </div>
 
         <div id="marquee-master-container">
@@ -659,6 +669,7 @@ $serviceCategories = [
                     </div>
 
                     @if(isset($category['categories']))
+                        {{-- NAILS UI (Untouched) --}}
                         <div class="container mt-5 mb-5">
                             <ul class="nav nav-pills justify-content-center mb-4 luxury-tabs" id="nails-tab" role="tablist">
                                 @foreach($category['categories'] as $catIndex => $subCat)
@@ -703,18 +714,21 @@ $serviceCategories = [
                             </div>
                         </div>
                     @elseif(isset($category['items']))
-                        <div class="marquee-wrapper service-marquee" data-speed="0.8">
-                            <div class="marquee-track">
-                                @php
-                                    $mItems = $category['items'];
-                                    $loopItems = array_merge(
-                                        $mItems, $mItems, $mItems, $mItems,
-                                        $mItems, $mItems, $mItems, $mItems,
-                                        $mItems, $mItems, $mItems, $mItems
-                                    );
-                                @endphp
-                                
-                                @foreach ($loopItems as $item)
+                        @php 
+                            $items = $category['items'];
+                            $itemCount = count($items);
+                        @endphp
+                        
+                        <div class="slider-container-wrapper {{ $itemCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }}">
+                            
+                            @if($itemCount > 3)
+                            <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('slider-{{ $category['id'] }}', -1)">
+                                <i class="far fa-chevron-left"></i>
+                            </button>
+                            @endif
+
+                            <div class="slider-wrapper" id="slider-{{ $category['id'] }}">
+                                @foreach ($items as $item)
                                     <div class="service-slide-item">
                                         <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
                                         <div class="service-card-overlay">
@@ -726,6 +740,12 @@ $serviceCategories = [
                                     </div>
                                 @endforeach
                             </div>
+
+                            @if($itemCount > 3)
+                            <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('slider-{{ $category['id'] }}', 1)">
+                                <i class="far fa-chevron-right"></i>
+                            </button>
+                            @endif
                         </div>
                     @endif
                 </div>
@@ -802,192 +822,55 @@ $serviceCategories = [
             myModal.show();
         };
 
-        // ==========================================
-        // 1. SEAMLESS CATEGORY SLIDER SCROLL LOGIC
-        // ==========================================
-        const catSlider = document.getElementById('categorySliderDrag');
-        let isCatDown = false, isCatHovered = false, catStartX, catScrollLeft, catRafId;
-        let catAutoScrollSpeed = 0.5; // smoother speed
-        let catCachedWidth = 0;
-
-        if(catSlider) {
-            let isCatDragging = false;
+        // Switch Category (Tabs) Logic
+        window.switchCategory = function(targetId) {
+            // Remove active classes
+            document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
             
-            const updateCatWidth = () => {
-                const items = catSlider.children;
-                const setLength = Math.floor(items.length / 4); 
-                if(setLength === 0) return 0;
-                let w = 0;
-                for (let i = 0; i < setLength; i++) {
-                    w += items[i].offsetWidth + 20; // 20px is flex gap
-                }
-                return w;
-            };
+            // Add active class to target
+            document.querySelectorAll('.category-card-ui[data-card-id="' + targetId + '"]').forEach(el => el.classList.add('active-tab'));
 
-            catCachedWidth = updateCatWidth();
-            catSlider.scrollLeft = catCachedWidth; // Start in middle
+            // Toggle sections
+            const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
+            if (currentActiveSection) {
+                currentActiveSection.classList.remove('active-section');
+            }
+            
+            const targetSection = document.getElementById(targetId + '-marquee');
+            if(targetSection) {
+                targetSection.classList.add('active-section');
+            }
+        };
 
-            // Mouse Events
-            catSlider.addEventListener('mouseenter', () => { isCatHovered = true; });
-            catSlider.addEventListener('mouseleave', () => { isCatHovered = false; isCatDown = false; });
-            catSlider.addEventListener('mousedown', (e) => {
-                isCatDown = true;
-                isCatDragging = false;
-                catStartX = e.pageX - catSlider.offsetLeft;
-                catScrollLeft = catSlider.scrollLeft;
+        // Optimized Slider Navigation Logic (< > Buttons)
+        window.scrollSlider = function(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+            
+            // Get any slide item to calculate exact scroll distance
+            const item = slider.querySelector('.service-slide-item') || slider.querySelector('.category-card-ui');
+            if (!item) return;
+
+            // scroll amount = (item width + 20px gap) * direction
+            const scrollAmount = (item.offsetWidth + 20) * direction;
+            
+            slider.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
             });
-            catSlider.addEventListener('mouseup', () => { isCatDown = false; });
-            catSlider.addEventListener('mousemove', (e) => {
-                if (!isCatDown) return;
-                e.preventDefault();
-                const currentX = e.pageX - catSlider.offsetLeft;
-                if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
-                const walk = (currentX - catStartX) * 1.5; 
-                catSlider.scrollLeft = catScrollLeft - walk;
-            });
+        };
 
-            // Touch Events
-            catSlider.addEventListener('touchstart', (e) => {
-                isCatDown = true;
-                isCatHovered = true; 
-                isCatDragging = false;
-                catStartX = e.touches[0].pageX - catSlider.offsetLeft;
-                catScrollLeft = catSlider.scrollLeft;
-            }, { passive: true });
-            catSlider.addEventListener('touchend', () => { isCatDown = false; isCatHovered = false; });
-            catSlider.addEventListener('touchmove', (e) => {
-                if (!isCatDown) return;
-                const currentX = e.touches[0].pageX - catSlider.offsetLeft;
-                if (Math.abs(currentX - catStartX) > 5) isCatDragging = true;
-                const walk = (currentX - catStartX) * 1.5;
-                catSlider.scrollLeft = catScrollLeft - walk;
-            }, { passive: true });
-
-            // Click to Open Modal Handling
+        // Open Modal from Image click on Categories
+        const catSlider = document.getElementById('categorySliderDrag');
+        if(catSlider) {
             catSlider.addEventListener('click', (e) => {
-                if (isCatDragging || e.target.closest('.explore-link')) return;
+                if (e.target.closest('.explore-link')) return;
                 const card = e.target.closest('.category-card-ui');
                 if (card && card.dataset.img) {
                     openImageModal(card.dataset.img);
                 }
             });
-
-            // Seamless Auto Scroll Function
-            function autoScrollCategory() {
-                if (!isCatDown && !isCatHovered && catCachedWidth > 0) {
-                    catSlider.scrollLeft += catAutoScrollSpeed;
-                    
-                    if (catSlider.scrollLeft >= catCachedWidth * 2) {
-                        catSlider.scrollLeft -= catCachedWidth;
-                    } else if (catSlider.scrollLeft <= 0) {
-                        catSlider.scrollLeft += catCachedWidth;
-                    }
-                }
-                catRafId = requestAnimationFrame(autoScrollCategory);
-            }
-            catRafId = requestAnimationFrame(autoScrollCategory);
-
-            window.addEventListener('resize', () => {
-                setTimeout(() => { catCachedWidth = updateCatWidth(); }, 150);
-            });
         }
-
-        // ==========================================
-        // 2. SWITCH CATEGORY LOGIC (Optimized)
-        // ==========================================
-        window.switchCategory = function(targetId) {
-            document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
-            document.querySelectorAll('.category-card-ui[data-card-id="' + targetId + '"]').forEach(el => el.classList.add('active-tab'));
-
-            // Find current active section and stop its animation
-            const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
-            if (currentActiveSection) {
-                currentActiveSection.classList.remove('active-section');
-                const marqueeInner = currentActiveSection.querySelector('.service-marquee');
-                if(marqueeInner && marqueeInner.rafId) {
-                    cancelAnimationFrame(marqueeInner.rafId);
-                }
-            }
-            
-            // Show new marquee and START it
-            const targetSection = document.getElementById(targetId + '-marquee');
-            if(targetSection) {
-                targetSection.classList.add('active-section');
-                const marquee = targetSection.querySelector('.service-marquee');
-                if (marquee) {
-                    marquee.dataset.init = 'false';
-                    setTimeout(() => {
-                        initMarqueeInstance(marquee);
-                    }, 50); 
-                }
-            }
-        };
-
-        // ==========================================
-        // 3. MARQUEE ENGINE
-        // ==========================================
-        function initMarqueeInstance(container) {
-            const track = container.querySelector('.marquee-track');
-            if (!track || container.dataset.init === 'true') return;
-
-            let speed = parseFloat(container.dataset.speed || '0.8');
-            let state = { isHovered: false, isDragging: false, startX: 0, scrollLeft: 0, cachedWidth: 0 };
-
-            const updateWidth = () => {
-                const items = track.children;
-                const setLength = Math.floor(items.length / 12); 
-                if(setLength === 0) return 0;
-                let w = 0;
-                for (let i = 0; i < setLength; i++) w += items[i].offsetWidth + 15; 
-                return w;
-            };
-
-            const loop = () => {
-                if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
-                    container.scrollLeft += speed;
-                    if (container.scrollLeft >= state.cachedWidth * 2) container.scrollLeft -= state.cachedWidth;
-                    else if (container.scrollLeft <= 0) container.scrollLeft += state.cachedWidth;
-                }
-                container.rafId = requestAnimationFrame(loop); 
-            };
-
-            const startDrag = (x) => { state.isDragging = true; container.classList.add('is-dragging'); state.startX = x - container.offsetLeft; state.scrollLeft = container.scrollLeft; };
-            const onDrag = (x) => { if (!state.isDragging) return; container.scrollLeft = state.scrollLeft - ((x - container.offsetLeft - state.startX) * 1.5); };
-            const stopDrag = () => { state.isDragging = false; container.classList.remove('is-dragging'); };
-
-            // Clear old events
-            container.onmouseenter = null; container.onmouseleave = null; container.onmousedown = null;
-            container.onmousemove = null; window.onmouseup = null; container.ontouchstart = null;
-            container.ontouchmove = null; container.ontouchend = null;
-
-            // Bind Events
-            container.onmouseenter = () => state.isHovered = true;
-            container.onmouseleave = () => { state.isHovered = false; stopDrag(); };
-            container.onmousedown = (e) => startDrag(e.pageX);
-            container.onmousemove = (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); };
-            window.addEventListener('mouseup', stopDrag);
-
-            container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
-            container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
-            container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
-
-            // Setup & Play
-            state.cachedWidth = updateWidth();
-            container.scrollLeft = state.cachedWidth;
-            
-            if(container.rafId) cancelAnimationFrame(container.rafId);
-            container.rafId = requestAnimationFrame(loop);
-            container.dataset.init = 'true';
-        }
-
-        // Initialize First Tab Marquee on Load
-        const activeMarquee = document.querySelector('.marquee-display-section.active-section .service-marquee');
-        if(activeMarquee) {
-            setTimeout(() => {
-                initMarqueeInstance(activeMarquee);
-            }, 100);
-        }
-
     });
 </script>
 

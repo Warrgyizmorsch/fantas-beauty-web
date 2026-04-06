@@ -4,89 +4,136 @@
     <style>
         .new-btn {
             height: 45px;
-        width: 210px;
-        text-align: center;
-        border-radius: 20px;
+            width: 210px;
+            text-align: center;
+            border-radius: 20px;
         }
-       .marquee-wrapper {
-        overflow: hidden;
-        width: 100%;
-        background: #fff;
-        position: relative;
-        padding: 20px 0;
-        cursor: grab;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: pan-y; /* Allows vertical page scroll, captures horizontal swipe */
-        scrollbar-width: none; /* Firefox */
-    }
-    .marquee-wrapper::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-    }
-    .marquee-wrapper.is-dragging {
-        cursor: grabbing;
-    }
+        
+        /* Optimized Slider Wrapper */
+        .slider-container-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        /* Padding tabhi aayegi jab buttons honge */
+        .slider-container-wrapper.has-nav-buttons {
+            padding: 0 45px; 
+        }
+        
+        .slider-container-wrapper.no-nav-buttons {
+            padding: 0; 
+            display: flex;
+            justify-content: center; /* Center align if 3 or less items */
+        }
 
-    .marquee-track {
-        display: flex;
-        width: max-content;
-        will-change: transform, scroll-position;
-    }
+        /* Slider Wrapper directly acting as flex container for perfect math */
+        .slider-wrapper {
+            display: flex;
+            gap: 20px; /* Exact gap between items */
+            overflow-x: auto;
+            width: 100%;
+            background: #fff;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
+            padding: 10px 0; /* Slight padding for hover shadow */
+        }
+        
+        .slider-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
 
-    .service-slide-item {
-        width: 350px;
-        height: 450px;
-        position: relative;
-        flex-shrink: 0;
-        margin-right: 2px; /* 2px seamless gap */
-        background: #000;
-    }
+        .service-slide-item {
+            /* Exactly 3 items visible: 100% width minus 2 gaps of 20px (40px) divided by 3 */
+            flex: 0 0 calc((100% - 40px) / 3); 
+            height: 450px;
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            scroll-snap-align: start; 
+        }
 
-    .service-slide-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        pointer-events: none; /* Prevents image dragging ghost */
-    }
+        .service-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none; 
+        }
 
-    /* Overlay & Typography */
-    .service-card-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 30px;
-        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
-    }
+        /* Overlay & Typography */
+        .service-card-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+        }
 
-    .service-card-overlay h6 {
-        color: #fff;
-        margin-bottom: 15px;
-        font-size: 24px;
-        font-family: 'Playfair Display', serif;
-        font-weight: 600;
-    }
+        .service-card-overlay h6 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 991px) {
-        .service-slide-item { width: 300px; height: 400px; }
-        .service-card-overlay h6 { font-size: 20px; }
-    }
+        /* Minimalist Arrow Buttons (< >) */
+        .slider-control-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: #d4a373; /* Elegant Gold */
+            border: none;
+            font-size: 38px; /* Clean large arrows */
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10;
+            padding: 10px 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .slider-control-btn:hover {
+            color: #111; /* Dark on hover */
+            transform: translateY(-50%) scale(1.1); /* Slight pop */
+        }
+        .slider-prev-btn { left: -5px; }
+        .slider-next-btn { right: -5px; }
 
-    @media (max-width: 768px) {
-        .service-slide-item { width: 250px; height: 350px; }
-        .service-card-overlay { padding: 20px; }
-        .service-card-overlay h6 { font-size: 18px; margin-bottom: 10px; }
-        .enquiry-btn-gold { padding: 8px 16px !important; font-size: 11px !important; }
-    }
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            /* 2 items exactly visible on Tablet */
+            .service-slide-item { 
+                flex: 0 0 calc((100% - 20px) / 2); 
+                height: 400px; 
+            }
+            .service-card-overlay h6 { font-size: 20px; }
+            .slider-container-wrapper.has-nav-buttons { padding: 0 40px; }
+            .slider-control-btn { font-size: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            /* 1 item exactly visible on Mobile */
+            .service-slide-item { 
+                flex: 0 0 100%; 
+                height: 350px; 
+            }
+            .service-card-overlay { padding: 20px; }
+            .service-card-overlay h6 { font-size: 18px; margin-bottom: 10px; }
+            .enquiry-btn-gold { padding: 8px 16px !important; font-size: 11px !important; }
+            .slider-control-btn { font-size: 28px; }
+            .slider-container-wrapper.has-nav-buttons { padding: 0 30px; }
+        }
 
         .banner__slide-area-image {
             will-change: transform;
         }
     </style>
-    <!-- Page Banner Start -->
+    
     <div class="home__banner">
       <div class="banner__slide swiper banner-slide">
         <div class="swiper-wrapper">
@@ -162,8 +209,7 @@
 
       </div>
     </div>
-    <!-- Page Banner End -->
-       <div class="history__area section-padding">
+    <div class="history__area section-padding">
         <div class="container">
             <div class="row align-items-center">
 
@@ -185,7 +231,6 @@
                     <div class="history__area-right">
 
                         <div class="history__area-right-title">
-                            <!-- <span class="subtitle__two">Our Journey</span> -->
                             <span class="subtitle__one">Fantas Nail Studio</span>
                             <h2>Crafting Elegance, Art & Confidence</h2>
 
@@ -220,6 +265,7 @@
             </div>
         </div>
     </div>
+    
     <div class="services__area bg-white">
         <div class="container">
             {{-- Section Header --}}
@@ -252,7 +298,6 @@
                     color: #fff !important;
                 }
 
-                /* Explore Link / Button styling exactly like Makeover */
                 .explore-link {
                     color: #d4a373;
                     font-size: 13px;
@@ -328,7 +373,6 @@
                         ['img' => 'assets/img/gallery/ear1.jpg', 'title' => 'Ear Lobe Piercing'],
                         ['img' => 'assets/img/gallery/ear2b.jpg', 'title' => 'Both Ears'],
                         ['img' => 'assets/img/gallery/baby1.jpg', 'title' => 'Baby Ear Piercing'],
-                        
                     ]
                 ],
                 'wellness-collapse' => [
@@ -362,61 +406,63 @@
                         ['img' => 'assets/img/gallery/fl1.webp', 'title' => 'Frowny / Lower Frendulum'],
                         ['img' => 'assets/img/gallery/snug.jpg', 'title' => 'Snug'],
                         ['img' => 'assets/img/gallery/con1.webp', 'title' => 'Conch'],
-                        
                     ]
                 ]
             ];
         @endphp
-    @foreach($portfolioCategories as $id => $category)
-        <div id="{{ $id }}" class="collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#portfolioAccordion">
-            <div class="services__area bg-white pt-4 pb-5">
-                <div class="text-center mb-5 mt-3">
-                    <h3 class="fw-bold text-dark">{{ $category['name'] }} Collection</h3>
-                </div>
-                <div class="container-fluid p-0"> 
-                    <div class="marquee-wrapper service-marquee" data-speed="0.8">
-                        <div class="marquee-track">
-                            @php 
-                                                        // 12x loop for seamless infinite scrolling even on ultra-wide screens
-                                $items = $category['items'];
-                                $loopItems = array_merge(
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items,
-                                    $items
-                                ); 
-                            @endphp
 
-                            @foreach ($loopItems as $item)
-                                <div class="service-slide-item">
-                                    <img src="{{ asset($item['img']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
-                                    <div class="service-card-overlay">
-                                        <h6>{{ $item['title'] }}</h6>
-                                        <button class="theme-banner-btn openInquiryModal new-btn" 
-                                                data-bs-toggle="modal" data-bs-target="#inquiryModal" 
-                                                data-service="{{ $item['title'] }}">
-                                            ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
-                                        </button>
+        @foreach($portfolioCategories as $id => $category)
+            @php 
+                $items = $category['items'];
+                $itemCount = count($items);
+            @endphp
+            
+            <div id="{{ $id }}" class="collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#portfolioAccordion">
+                <div class="services__area bg-white pt-4 pb-5">
+                    <div class="text-center mb-5 mt-3">
+                        <h3 class="fw-bold text-dark">{{ $category['name'] }} Collection</h3>
+                    </div>
+                    
+                    <div class="container-fluid p-0"> 
+                        {{-- Conditionally add class based on item count --}}
+                        <div class="slider-container-wrapper {{ $itemCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }}">
+                            
+                            {{-- Check if items are greater than 3, then show Left Button --}}
+                            @if($itemCount > 3)
+                            <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('slider-{{ $id }}', -1)">
+                                <i class="far fa-chevron-left"></i>
+                            </button>
+                            @endif
+
+                            <div class="slider-wrapper" id="slider-{{ $id }}">
+                                @foreach ($items as $item)
+                                    <div class="service-slide-item">
+                                        <img src="{{ asset($item['img']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                        <div class="service-card-overlay">
+                                            <h6>{{ $item['title'] }}</h6>
+                                            <button class="theme-banner-btn openInquiryModal new-btn" 
+                                                    data-bs-toggle="modal" data-bs-target="#inquiryModal" 
+                                                    data-service="{{ $item['title'] }}">
+                                                ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
 
+                            {{-- Check if items are greater than 3, then show Right Button --}}
+                            @if($itemCount > 3)
+                            <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('slider-{{ $id }}', 1)">
+                                <i class="far fa-chevron-right"></i>
+                            </button>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
 
-    </div>
+            </div>
         </div>
     </div>
 
@@ -426,12 +472,12 @@
             ['img' => 'assets/img/gallery/20316.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
             ['img' => 'assets/img/gallery/24680.webp', 'title' => 'Custom Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
             ['img' => 'assets/img/gallery/46924.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
-
             ['img' => 'assets/img/gallery/24588.webp', 'title' => 'Nose Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
             ['img' => 'assets/img/gallery/33258.webp', 'title' => 'Luxury Piercing', 'tag' => 'Piercing', 'cat' => 'tattoo'],
         ];
     @endphp
     @include('component.gallery')
+    
     <div style="background-color: #fdfbf7;" class="banner__two" data-background="assets/img/bg/banner.jpg" style="background-image: url(&quot;assets/img/bg/banner.jpg&quot;);">
             <div class="container custom__container">
                 <div class="row align-items-center">
@@ -448,17 +494,14 @@
                     </div>
                     <div class="col-xl-5 col-lg-5">
                         <div class="banner__two-right">
-                            <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="">
+                            <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-    <!-- Instagram Area Start -->	
     @include('component.instagram')
-    <!-- Instagram Area End -->	 
     <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl"> 
             <div class="modal-content bg-transparent border-0">
@@ -476,121 +519,29 @@
     <x-inquiry-modal />
 
     <script>
+        // Image Modal Function
         function openImageModal(imageSrc) {
             document.getElementById('modalImage').src = imageSrc;
-
-            // Bootstrap modal ko trigger karna
             var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
             myModal.show();
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // Optimized Slider Navigation Logic
+        function scrollSlider(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+            
+            const item = slider.querySelector('.service-slide-item');
+            if (!item) return;
 
-        const initMarquee = (container) => {
-            const track = container.querySelector('.marquee-track');
-            if (!track || container.dataset.init === 'true') return;
-
-            let speed = parseFloat(container.dataset.speed || '0.5');
-            let state = {
-                isHovered: false,
-                isDragging: false,
-                startX: 0,
-                scrollLeft: 0,
-                cachedWidth: 0,
-                rafId: null
-            };
-
-            // Width Calculation
-            const updateWidth = () => {
-                const items = track.children;
-                const setLength = Math.floor(items.length / 12); 
-                if(setLength === 0) return 0;
-
-                let w = 0;
-                for (let i = 0; i < setLength; i++) {
-                    w += items[i].offsetWidth + 2; // +2px margin-right
-                }
-                return w;
-            };
-
-            // Core Animation Loop
-            const loop = () => {
-                if (!state.isHovered && !state.isDragging && state.cachedWidth > 0) {
-                    container.scrollLeft += speed;
-
-                    // Seamless Infinite Loop Logic
-                    if (container.scrollLeft >= state.cachedWidth * 2) {
-                        container.scrollLeft -= state.cachedWidth;
-                    } else if (container.scrollLeft <= 0) {
-                        container.scrollLeft += state.cachedWidth;
-                    }
-                }
-                state.rafId = requestAnimationFrame(loop);
-            };
-
-            // --- Drag & Swipe Events ---
-            const startDrag = (x) => {
-                state.isDragging = true;
-                container.classList.add('is-dragging');
-                state.startX = x - container.offsetLeft;
-                state.scrollLeft = container.scrollLeft;
-            };
-
-            const onDrag = (x) => {
-                if (!state.isDragging) return;
-                const walk = (x - container.offsetLeft - state.startX) * 1.5; // Swipe sensitivity
-                container.scrollLeft = state.scrollLeft - walk;
-            };
-
-            const stopDrag = () => {
-                state.isDragging = false;
-                container.classList.remove('is-dragging');
-            };
-
-            // Mouse Events
-            container.addEventListener('mouseenter', () => state.isHovered = true);
-            container.addEventListener('mouseleave', () => { state.isHovered = false; stopDrag(); });
-            container.addEventListener('mousedown', (e) => startDrag(e.pageX));
-            container.addEventListener('mousemove', (e) => { if(state.isDragging) e.preventDefault(); onDrag(e.pageX); });
-            window.addEventListener('mouseup', stopDrag);
-
-            // Touch Events (Mobile) - using passive: true for scroll performance
-            container.addEventListener('touchstart', (e) => { state.isHovered = true; startDrag(e.touches[0].pageX); }, { passive: true });
-            container.addEventListener('touchmove', (e) => onDrag(e.touches[0].pageX), { passive: true });
-            container.addEventListener('touchend', () => { state.isHovered = false; stopDrag(); });
-
-            // Initialize
-            const setup = () => {
-                state.cachedWidth = updateWidth();
-                container.scrollLeft = state.cachedWidth;
-            };
-
-            setup();
-            state.rafId = requestAnimationFrame(loop);
-            container.dataset.init = 'true';
-
-            // Recalculate on window resize
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(setup, 150); // Debounce resize to save CPU
+            // Calculating exact width of 1 item + 20px CSS gap
+            const scrollAmount = (item.offsetWidth + 20) * direction;
+            
+            slider.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
             });
-        };
-
-        // Initialize Marquees when Accordion opens (fixes width = 0 issue)
-        document.querySelectorAll('.collapse').forEach(collapseEl => {
-            collapseEl.addEventListener('shown.bs.collapse', () => {
-                const marquee = collapseEl.querySelector('.service-marquee');
-                if(marquee) {
-                    marquee.dataset.init = 'false'; // Force re-init
-                    initMarquee(marquee);
-                }
-            });
-        });
-
-        // Initialize marquees that are already visible on load
-        document.querySelectorAll('.collapse.show .service-marquee').forEach(initMarquee);
-    });
+        }
     </script>
 
 @endsection
