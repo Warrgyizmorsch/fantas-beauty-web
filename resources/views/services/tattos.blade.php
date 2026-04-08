@@ -3,7 +3,7 @@
 
 <style>
     /* ==========================================
-    1. UNIVERSAL OPTIMIZED SLIDER CSS (SERVICES)
+    1. UNIVERSAL SLIDER CSS
     ============================================= */
     .slider-container-wrapper {
         position: relative;
@@ -12,29 +12,20 @@
     .slider-container-wrapper.has-nav-buttons {
         padding: 0 45px; 
     }
-    .slider-container-wrapper.no-nav-buttons {
-        padding: 0; 
-        display: flex;
-        justify-content: center; 
-    }
-
     .slider-wrapper {
         display: flex;
-        gap: 2px; /* 🔥 EXACTLY 2PX GAP */
+        gap: 2px; 
         overflow-x: auto;
         width: 100%;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         padding-bottom: 20px; 
         padding-top: 10px;
     }
-    .slider-wrapper::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-    }
+    .slider-wrapper::-webkit-scrollbar { display: none; }
 
-    /* Minimalist Arrow Buttons (< >) */
     .slider-control-btn {
         position: absolute;
         top: 50%;
@@ -43,86 +34,52 @@
         color: #d4a373; 
         border: none;
         font-size: 38px; 
-        font-weight: 300;
-        cursor: pointer;
         z-index: 10;
-        padding: 10px 0;
-        transition: color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
-    .slider-control-btn:hover {
-        color: #111; 
-        transform: translateY(-50%) scale(1.1); 
-    }
+    .slider-control-btn:hover { color: #111; transform: translateY(-50%) scale(1.1); }
     .slider-prev-btn { left: -5px; }
     .slider-next-btn { right: -5px; }
 
     /* ==========================================
-    2. NEW COVERFLOW CATEGORY UI (EXACT MATCH)
+    2. CATEGORY UI (AS PER YOUR RECENT CODE)
     ============================================= */
-    .cat-coverflow-container {
-        position: relative;
-        width: 100%;
-        overflow: hidden; /* Hide cards outside the screen */
-        padding: 50px 0; /* Extra space for scaled up center card */
-    }
-
-    .cat-coverflow-track {
-        display: flex;
-        align-items: center;
-        gap: 20px; /* Gap between cards */
-        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth center sliding */
-        width: max-content;
-        margin: 0 auto;
-    }
-
-    .cat-cover-card {
-        width: 320px; /* Width of category card */
+    .category-card-ui {
+        flex: 0 0 calc((100% - 40px) / 3); 
         height: 380px;
-        background: #000;
-        border-radius: 12px;
         position: relative;
+        border-radius: 12px;
         overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        cursor: pointer;
+        background: #000;
         border: 2px solid transparent; 
-        
-        /* 🔥 INACTIVE STATE: Small, Dim, Grayscale */
-        transform: scale(0.85);
-        opacity: 0.5;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0.55; 
+        transform: scale(0.92);
         filter: grayscale(40%);
+        scroll-snap-align: center;
     }
 
-    .cat-cover-card:hover {
-        opacity: 0.8;
-    }
-
-    /* 🔥 ACTIVE STATE: Large, Center, Glowing Border */
-    .cat-cover-card.active {
-        transform: scale(1.15);
-        opacity: 1;
-        border-color: #d4a373;
-        z-index: 5;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    .category-card-ui.active-tab {
+        border-color: #d4a373 !important; 
+        opacity: 1; 
+        transform: scale(1.05);
+        z-index: 2;
         filter: grayscale(0%);
+        box-shadow: 0 15px 35px rgba(212, 163, 115, 0.3);
     }
 
-    .cat-cover-card img {
+    .category-card-ui img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.9;
-        transition: transform 0.5s ease;
-        pointer-events: none;
+        transition: transform 0.6s ease;
     }
 
-    .cat-cover-card.active img {
-        opacity: 1;
-    }
-
-    .cat-card-overlay {
+    .category-card-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -130,131 +87,75 @@
         pointer-events: none; 
     }
 
-    .cat-card-overlay h3 {
-        color: #fff;
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 5px;
-        transition: color 0.3s ease;
-    }
-
-    .cat-cover-card.active .cat-card-overlay h3 {
+    .explore-link {
         color: #d4a373;
-        text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-    }
-
-    .cat-card-overlay p {
-        color: rgba(255,255,255,0.7);
         font-size: 13px;
-        margin-bottom: 10px;
-    }
-
-    /* Explore Button / Link */
-    .cat-explore-text {
-        color: #d4a373;
-        font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 1px;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        transition: all 0.3s ease;
-        padding: 10px 0;
+        gap: 8px;
+        cursor: pointer;
         pointer-events: auto; 
+        padding: 10px 0;
+        transition: all 0.3s ease;
     }
 
-    .cat-cover-card.active .cat-explore-text {
+    .category-card-ui.active-tab .explore-link {
         background: #d4a373;
-        color: #111;
-        padding: 10px 20px;
+        color: #111 !important;
+        padding: 8px 16px; /* Padding kam kar di */
         border-radius: 30px;
         margin-top: 10px;
         width: max-content;
+        font-size: 11px; /* Font size thoda chota kiya */
         box-shadow: 0 4px 10px rgba(212, 163, 115, 0.3);
     }
 
-    .cat-cover-card.active .cat-explore-text:hover {
-        background: #fff;
-        color: #111;
-    }
-
-    /* Custom Navigation Arrows for Categories (< >) */
-    .carousel-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
-        color: #d4a373;
-        border: none;
-        font-size: 40px;
-        font-weight: 300;
-        cursor: pointer;
-        z-index: 10;
-        padding: 10px 15px;
+    .new-btn {
+        height: 38px; /* Height thodi kam ki for better look */
+        border-radius: 30px !important; /* Perfect roundness */
+        border: none; 
+        font-size: 12px;
+        padding: 0 20px; /* Side padding for better button shape */
+        font-weight: 700;
         transition: all 0.3s ease;
     }
-    .carousel-arrow:hover {
-        color: #111;
-        transform: translateY(-50%) scale(1.1);
+
+    /* Button hover effect (Optional but recommended) */
+    .new-btn:hover {
+        background-color: #fff !important;
+        color: #111 !important;
+        transform: translateY(-2px);
     }
-    .carousel-arrow.left { left: 10px; }
-    .carousel-arrow.right { right: 10px; }
 
     /* ==========================================
-    3. SERVICE SLIDE ITEMS
+    3. SERVICE ITEMS & SECTIONS
     ============================================= */
     .service-slide-item { 
-        flex: 0 0 calc((100% - 4px) / 3); /* EXACTLY 3 items matching 2px gap */
+        flex: 0 0 calc((100% - 40px) / 3);
         height: 420px; 
         position: relative; 
         background: #000;
-        border-radius: 0px; /* 🔥 NO BORDER RADIUS */
         overflow: hidden;
         scroll-snap-align: start;
     }
-    .service-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .service-slide-item img { width: 100%; height: 100%; object-fit: cover; }
     .service-card-overlay { position: absolute; inset: auto 0 0 0; padding: 25px 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; text-align: center; }
-    .service-card-overlay h6 { color: #fff; margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;}
 
-    .new-btn {
-        height: 40px;
-        border-radius: 50px; 
-        border:none; 
-        font-size: 13px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 991px) { 
-        .cat-cover-card { width: 260px; height: 320px; }
-        .service-slide-item { flex: 0 0 calc((100% - 2px) / 2); height: 350px; } 
-        .slider-container-wrapper.has-nav-buttons { padding: 0 40px; }
-        .slider-control-btn { font-size: 32px; }
-    }
-    @media (max-width: 768px) { 
-        .cat-cover-card { width: 220px; height: 280px; }
-        .service-slide-item { flex: 0 0 100%; height: 320px; } 
-        .slider-container-wrapper.has-nav-buttons { padding: 0 30px; }
-        .slider-control-btn { font-size: 28px; }
-        .service-card-overlay h6 { font-size: 18px; margin-bottom: 10px; }
-    }
-
-    /* ==========================================
-    4. SECTION DISPLAY
-    ============================================= */
-    .marquee-display-section {
-        display: none; 
-        animation: fadeSlideUp 0.4s ease forwards;
-    }
+    .marquee-display-section { display: none; animation: fadeSlideUp 0.4s ease forwards; }
     .marquee-display-section.active-section { display: block; }
+
     @keyframes fadeSlideUp {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .banner__slide-area-image {
-        will-change: transform;
+    @media (max-width: 991px) { 
+        .category-card-ui, .service-slide-item { flex: 0 0 calc((100% - 20px) / 2); } 
+    }
+    @media (max-width: 768px) { 
+        .category-card-ui, .service-slide-item { flex: 0 0 100%; } 
     }
 </style>
 
@@ -570,43 +471,45 @@
 
 <div class="services__area section-padding bg-white">
     <div class="container-fluid px-md-5">
-
-        <div class="row mb-4 justify-content-center text-center">
+        
+        <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8">
                 <span class="text-uppercase fw-bold" style="letter-spacing: 2px; color: #d4a373;">Portfolio</span>
                 <h2 class="display-6 fw-bold mb-3 mt-2 text-dark">Premium Tattoo Artistry</h2>
-                <p class="text-muted lead fs-6">Select a category below to explore our luxury tattooing, where creative
-                    vision meets flawless execution and uncompromising hygiene.</p>
+                <p class="text-muted lead fs-6">Select a category below to explore our luxury tattooing artistry.</p>
             </div>
         </div>
 
-        {{-- 🔥 EXACT MATCH COVERFLOW CAROUSEL FOR CATEGORIES 🔥 --}}
-        <div class="cat-coverflow-container mb-5">
-            <button class="carousel-arrow left" onclick="moveCategory(-1)"><i class="far fa-chevron-left"></i></button>
-            
-            <div class="cat-coverflow-track" id="cat-track">
+        @php $catCount = count($tattooCategories); @endphp
+
+        <div class="slider-container-wrapper {{ $catCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }} mb-5">
+            @if($catCount > 3)
+            <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('categorySliderDrag', -1)">
+                <i class="far fa-chevron-left"></i>
+            </button>
+            @endif
+
+            <div class="slider-wrapper" id="categorySliderDrag">
                 @foreach ($tattooCategories as $index => $category)
-                    <div class="cat-cover-card {{ $index === 0 ? 'active' : '' }}" 
-                         data-id="{{ $category['id'] }}" 
-                         onclick="activateCategory({{ $index }})">
-                        
-                        <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async">
-                        
-                        <div class="cat-card-overlay">
-                            <h3>{{ $category['title'] }}</h3>
-                            <p>{{ implode(', ', $category['highlights']) }}</p>
-                            <span class="cat-explore-text">
+                    <div class="category-card-ui {{ $index === 0 ? 'active-tab' : '' }}" data-card-id="{{ $category['id'] }}" onclick="switchCategory('{{ $category['id'] }}')">
+                        <img src="{{ asset($category['main_image']) }}" alt="{{ $category['title'] }}" loading="lazy">
+                        <div class="category-card-overlay">
+                            <h3 class="fs-4 fw-bold text-white mb-1">{{ $category['title'] }}</h3>
+                            <p class="text-white-50 small mb-3">{{ implode(', ', $category['highlights']) }}</p>
+                            <span class="explore-link">
                                 EXPLORE More <i class="far fa-arrow-right"></i>
                             </span>
                         </div>
-
                     </div>
                 @endforeach
             </div>
 
-            <button class="carousel-arrow right" onclick="moveCategory(1)"><i class="far fa-chevron-right"></i></button>
+            @if($catCount > 3)
+            <button class="slider-control-btn slider-next-btn" onclick="scrollSlider('categorySliderDrag', 1)">
+                <i class="far fa-chevron-right"></i>
+            </button>
+            @endif
         </div>
-
 
         <div id="marquee-master-container">
             @foreach ($tattooCategories as $index => $category)
@@ -621,7 +524,6 @@
                     @endphp
                     
                     <div class="slider-container-wrapper {{ $itemCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }}">
-                        
                         @if($itemCount > 3)
                         <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('slider-{{ $category['id'] }}', -1)">
                             <i class="far fa-chevron-left"></i>
@@ -631,9 +533,9 @@
                         <div class="slider-wrapper" id="slider-{{ $category['id'] }}">
                             @foreach ($items as $item)
                                 <div class="service-slide-item">
-                                    <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
+                                    <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy">
                                     <div class="service-card-overlay">
-                                        <h6>{{ $item['title'] }}</h6>
+                                        <h6 style="color: white;">{{ $item['title'] }}</h6>
                                         <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
                                             ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
                                         </button>
@@ -715,80 +617,55 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Modal logic
-        window.openImageModal = function(imageSrc) {
-            document.getElementById('modalImage').src = imageSrc;
-            var myModal = new bootstrap.Modal(document.getElementById('imagePreviewModal'));
-            myModal.show();
-        };
-
-        // --- NEW JAVASCRIPT FOR CATEGORY COVERFLOW ---
-        let currentCatIndex = 0;
-        const catTrack = document.getElementById('cat-track');
-        let catCards = [];
-
-        if (catTrack) {
-            catCards = Array.from(catTrack.querySelectorAll('.cat-cover-card'));
-            updateCoverflow();
-            window.addEventListener('resize', updateCoverflow);
-        }
-
-        function updateCoverflow() {
-            if (!catTrack || catCards.length === 0) return;
-
-            // 1. Update visual states
-            catCards.forEach((card, index) => {
-                if (index === currentCatIndex) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
+        
+        // Switch Category Logic (Copying your Nail/Hair Logic)
+        window.switchCategory = function(targetId) {
+            // 1. Remove active classes
+            document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
+            
+            // 2. Add active class to target
+            const targetCard = document.querySelector('.category-card-ui[data-card-id="' + targetId + '"]');
+            if (targetCard) {
+                targetCard.classList.add('active-tab');
+                
+                // 3. Center logic using scrollTo (as per your recent code)
+                const slider = document.getElementById('categorySliderDrag');
+                if (slider) {
+                    const scrollPos = targetCard.offsetLeft - (slider.clientWidth / 2) + (targetCard.clientWidth / 2);
+                    slider.scrollTo({
+                        left: scrollPos,
+                        behavior: 'smooth'
+                    });
                 }
-            });
+            }
 
-            // 2. Move track to center the active card
-            const activeCard = catCards[currentCatIndex];
-            const containerCenter = catTrack.parentElement.clientWidth / 2;
-            const cardCenter = activeCard.offsetLeft + (activeCard.offsetWidth / 2);
-            const offset = containerCenter - cardCenter;
-
-            catTrack.style.transform = `translateX(${offset}px)`;
-
-            // 3. Show corresponding service collection
-            const targetId = activeCard.dataset.id;
-            document.querySelectorAll('.marquee-display-section').forEach(sec => sec.classList.remove('active-section'));
-            const targetSec = document.getElementById(targetId + '-marquee');
-            if (targetSec) targetSec.classList.add('active-section');
-        }
-
-        window.moveCategory = function(direction) {
-            currentCatIndex += direction;
-            if (currentCatIndex < 0) currentCatIndex = catCards.length - 1;
-            if (currentCatIndex >= catCards.length) currentCatIndex = 0;
-            updateCoverflow();
+            // 4. Toggle section display
+            document.querySelectorAll('.marquee-display-section.active-section').forEach(sec => sec.classList.remove('active-section'));
+            const targetSection = document.getElementById(targetId + '-marquee');
+            if(targetSection) targetSection.classList.add('active-section');
         };
 
-        window.activateCategory = function(index) {
-            if (currentCatIndex === index) return;
-            currentCatIndex = index;
-            updateCoverflow();
-        };
-
-        // Optimized Slider Navigation Logic (< > Buttons) for Services
+        // Scroll Slider Logic for both Categories and Services
         window.scrollSlider = function(sliderId, direction) {
             const slider = document.getElementById(sliderId);
             if (!slider) return;
             
-            const item = slider.querySelector('.service-slide-item');
+            const item = slider.querySelector('.service-slide-item') || slider.querySelector('.category-card-ui');
             if (!item) return;
 
-            // scroll amount = (item width + 2px gap) * direction
-            const scrollAmount = (item.offsetWidth + 2) * direction;
-            
-            slider.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
+            const scrollAmount = (item.offsetWidth + 20) * direction;
+            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         };
+
+        // Initial alignment
+        setTimeout(() => {
+            const firstActive = document.querySelector('.category-card-ui.active-tab');
+            if (firstActive) {
+                const slider = document.getElementById('categorySliderDrag');
+                const scrollPos = firstActive.offsetLeft - (slider.clientWidth / 2) + (firstActive.clientWidth / 2);
+                slider.scrollTo({ left: scrollPos });
+            }
+        }, 100);
     });
 </script>
 
