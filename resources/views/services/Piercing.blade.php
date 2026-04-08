@@ -29,7 +29,7 @@
         /* Slider Wrapper directly acting as flex container for perfect math */
         .slider-wrapper {
             display: flex;
-            gap: 20px; /* Exact gap between items */
+            gap: 2px; /* Exact gap between items */
             overflow-x: auto;
             width: 100%;
             background: #fff;
@@ -50,7 +50,7 @@
             height: 450px;
             position: relative;
             background: #000;
-            border-radius: 12px;
+            /* border-radius: 12px; */
             overflow: hidden;
             scroll-snap-align: start; 
         }
@@ -78,7 +78,7 @@
             color: #fff;
             margin-bottom: 15px;
             font-size: 24px;
-            font-family: 'Playfair Display', serif;
+            /* font-family: 'Playfair Display', serif; */
             font-weight: 600;
         }
 
@@ -131,6 +131,62 @@
 
         .banner__slide-area-image {
             will-change: transform;
+        }
+
+        /* ACTIVE CATEGORY CENTERING & SCALING CSS */
+        #categories-row {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .category-col {
+            transition: order 0.3s ease;
+        }
+
+        .piercing-card {
+            border: 2px solid transparent !important;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0.6;
+            transform: scale(0.9); /* Make inactive smaller */
+        }
+        .piercing-card:hover {
+            opacity: 0.85;
+        }
+        .piercing-card[aria-expanded="true"] {
+            border-color: #d4a373 !important;
+            opacity: 1;
+            transform: scale(1.1); /* Make active larger */
+            box-shadow: 0 12px 30px rgba(212, 163, 115, 0.25) !important;
+            z-index: 10;
+        }
+        .piercing-card[aria-expanded="true"] .explore-link {
+            color: #fff !important;
+        }
+        
+        /* Font styling updated here to match services */
+        .piercing-card h3 {
+            /* font-family: 'Playfair Display', serif; */
+            font-weight: 600;
+        }
+        
+        .piercing-card[aria-expanded="true"] h3 {
+            color: #d4a373 !important;
+        }
+
+        .explore-link {
+            color: #d4a373;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .explore-link:hover {
+            color: #fff;
         }
     </style>
     
@@ -277,52 +333,15 @@
                 </div>
             </div>
 
-            <style>
-                .piercing-card {
-                    border: 2px solid transparent !important;
-                    transition: all 0.4s ease;
-                    opacity: 0.8;
-                }
-                .piercing-card:hover {
-                    opacity: 0.95;
-                    transform: translateY(-5px);
-                }
-                .piercing-card[aria-expanded="true"] {
-                    border-color: #d4a373 !important;
-                    opacity: 1;
-                    transform: scale(1.02);
-                    box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15) !important;
-                    z-index: 2;
-                }
-                .piercing-card[aria-expanded="true"] .explore-link {
-                    color: #fff !important;
-                }
-
-                .explore-link {
-                    color: #d4a373;
-                    font-size: 13px;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    cursor: pointer;
-                    transition: color 0.3s ease;
-                }
-                .explore-link:hover {
-                    color: #fff;
-                }
-            </style>
-
-            {{-- Category Image Cards (Bootstrap Native) --}}
-            <div class="row g-4 mb-4">
+            {{-- Category Image Cards with Custom Flex Ordering --}}
+            <div class="row g-4 mb-2" id="categories-row">
+                
                 {{-- Category 1: Basic Piercings --}}
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 category-col">
                     <div role="button" data-bs-toggle="collapse" data-bs-target="#basic-collapse" aria-expanded="true" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark piercing-card">
                         <img src="{{ asset('assets/img/gallery/Ear lobe piercing.webp') }}" class="card-img" alt="Basic Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                         <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
-                            <h3 class="fs-4 fw-bold text-white mb-1">Basic Piercings</h3>
+                            <h3 class="fs-4 text-white mb-1">Basic Piercings</h3>
                             <p class="text-white-50 small mb-3">Standard Lobe, Helix & More</p>
                             <span class="explore-link">
                                 EXPLORE More <i class="far fa-arrow-right"></i>
@@ -332,11 +351,11 @@
                 </div>
 
                 {{-- Category 2: Wellness Piercings --}}
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 category-col">
                     <div role="button" data-bs-toggle="collapse" data-bs-target="#wellness-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark piercing-card">
                         <img src="{{ asset('assets/img/gallery/2.webp') }}" class="card-img" alt="Wellness Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                         <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
-                            <h3 class="fs-4 fw-bold text-white mb-1">Wellness Piercings</h3>
+                            <h3 class="fs-4 text-white mb-1">Wellness Piercings</h3>
                             <p class="text-white-50 small mb-3">Daith, Shen Men & Curative</p>
                             <span class="explore-link">
                                 EXPLORE More <i class="far fa-arrow-right"></i>
@@ -346,11 +365,11 @@
                 </div>
 
                 {{-- Category 3: Needle Piercings --}}
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 category-col">
                     <div role="button" data-bs-toggle="collapse" data-bs-target="#needle-collapse" aria-expanded="false" class="card border-0 rounded-4 shadow-sm overflow-hidden h-100 text-bg-dark piercing-card">
                         <img src="{{ asset('assets/img/gallery/16706.webp') }}" class="card-img" alt="Needle Piercings" style="height: 420px; object-fit: cover; opacity: 0.85;" loading="lazy" decoding="async">
                         <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.9) 100%);">
-                            <h3 class="fs-4 fw-bold text-white mb-1">Needle Piercings</h3>
+                            <h3 class="fs-4 text-white mb-1">Needle Piercings</h3>
                             <p class="text-white-50 small mb-3">Septum, Nostril & Facial Art</p>
                             <span class="explore-link">
                                 EXPLORE More <i class="far fa-arrow-right"></i>
@@ -419,7 +438,7 @@
             
             <div id="{{ $id }}" class="collapse {{ $loop->first ? 'show' : '' }}" data-bs-parent="#portfolioAccordion">
                 <div class="services__area bg-white pt-4 pb-5">
-                    <div class="text-center mb-5 mt-3">
+                    <div class="text-center mb-2 mt-3">
                         <h3 class="fw-bold text-dark">{{ $category['name'] }} Collection</h3>
                     </div>
                     
@@ -461,7 +480,6 @@
                 </div>
             </div>
         @endforeach
-
             </div>
         </div>
     </div>
@@ -542,6 +560,40 @@
                 behavior: 'smooth'
             });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logic to automatically bring the active category to the middle
+            const catRow = document.getElementById('categories-row');
+            if(catRow) {
+                const cols = Array.from(catRow.querySelectorAll('.category-col'));
+                
+                const centerActiveCategory = () => {
+                    let activeIndex = cols.findIndex(col => col.querySelector('.piercing-card').getAttribute('aria-expanded') === 'true');
+                    if (activeIndex === -1) activeIndex = 0; // fallback
+                    
+                    let currentOrder = 1;
+                    cols.forEach((col, idx) => {
+                        if (idx === activeIndex) {
+                            col.style.order = 2; // Middle position
+                        } else {
+                            col.style.order = currentOrder;
+                            currentOrder += 2; 
+                        }
+                    });
+                };
+
+                // Run on load
+                centerActiveCategory();
+
+                // Run when any category is clicked
+                cols.forEach(col => {
+                    col.addEventListener('click', () => {
+                        // Small timeout to allow bootstrap aria-expanded attribute to update
+                        setTimeout(centerActiveCategory, 50); 
+                    });
+                });
+            }
+        });
     </script>
 
 @endsection

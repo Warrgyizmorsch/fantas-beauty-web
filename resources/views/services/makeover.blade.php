@@ -20,7 +20,7 @@
 
     .slider-wrapper {
         display: flex;
-        gap: 20px; 
+        gap: 2px; 
         overflow-x: auto;
         width: 100%;
         scroll-behavior: smooth;
@@ -57,51 +57,74 @@
     .slider-next-btn { right: -5px; }
 
     /* ==========================================
-    2. CATEGORY & SERVICE ITEMS UI
+    2. CATEGORY & SERVICE ITEMS UI (UPDATED FOR 11 ITEMS)
     ============================================= */
     .category-card-ui {
         flex: 0 0 calc((100% - 40px) / 3); /* EXACTLY 3 items */
         height: 380px;
         position: relative;
-        border-radius: 8px;
+        border-radius: 12px;
         overflow: hidden;
-        background: #111;
+        background: #000;
         border: 2px solid transparent; 
-        transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         user-select: none; 
-        opacity: 0.75; 
-        scroll-snap-align: start;
+        
+        /* Inactive State: Smaller & Dimmed to make active stand out */
+        opacity: 0.55; 
+        transform: scale(0.92);
+        filter: grayscale(40%);
+        scroll-snap-align: center; /* Snaps to center */
     }
 
     .category-card-ui:hover {
-        opacity: 0.9;
-        transform: translateY(-5px);
+        opacity: 0.85;
+        transform: scale(0.96);
+        filter: grayscale(10%);
     }
 
-    /* Active Tab Highlight */
+    /* Active Tab Highlight - Large, Centered & Glowing */
     .category-card-ui.active-tab {
-        border-color: #d4a373; 
+        border-color: #d4a373 !important; 
         opacity: 1; 
-        transform: scale(1.02);
-        box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
+        transform: scale(1.05); /* Pops out */
+        box-shadow: 0 15px 35px rgba(212, 163, 115, 0.3), inset 0 0 20px rgba(212, 163, 115, 0.2);
         z-index: 2;
+        filter: grayscale(0%);
     }
     
+    /* Make the title gold when active */
+    .category-card-ui.active-tab h3 {
+        color: #d4a373 !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Make the explore link look like a solid button when active */
     .category-card-ui.active-tab .explore-link {
-        color: #fff !important;
+        color: #111 !important;
+        background: #d4a373;
+        padding: 10px 20px;
+        border-radius: 30px;
+        margin-top: 10px;
+        width: max-content;
+        box-shadow: 0 4px 10px rgba(212, 163, 115, 0.3);
+    }
+
+    .category-card-ui.active-tab .explore-link:hover {
+        background: #fff !important;
+        color: #111 !important;
     }
 
     .category-card-ui img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.8;
-        transition: transform 0.6s ease, opacity 0.3s ease;
+        opacity: 1;
+        transition: transform 0.6s ease;
         pointer-events: none; 
     }
     .category-card-ui:hover img, .category-card-ui.active-tab img {
         transform: scale(1.05);
-        opacity: 1;
     }
 
     .category-card-overlay {
@@ -128,6 +151,7 @@
         cursor: pointer;
         pointer-events: auto; 
         padding: 10px 0;
+        transition: all 0.3s ease;
     }
     .explore-link:hover { color: #fff; }
 
@@ -137,7 +161,7 @@
         height: 420px; 
         position: relative; 
         background: #000;
-        border-radius: 12px;
+        /* border-radius: 12px; */
         overflow: hidden;
         scroll-snap-align: start;
     }
@@ -632,7 +656,7 @@ $serviceCategories = [
             $catCount = count($serviceCategories);
         @endphp
 
-        <div class="slider-container-wrapper {{ $catCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }} mb-5">
+        <div class="slider-container-wrapper {{ $catCount > 3 ? 'has-nav-buttons' : 'no-nav-buttons' }} mb-2">
             @if($catCount > 3)
             <button class="slider-control-btn slider-prev-btn" onclick="scrollSlider('categorySliderDrag', -1)">
                 <i class="far fa-chevron-left"></i>
@@ -828,7 +852,20 @@ $serviceCategories = [
             document.querySelectorAll('.category-card-ui.active-tab').forEach(el => el.classList.remove('active-tab'));
             
             // Add active class to target
-            document.querySelectorAll('.category-card-ui[data-card-id="' + targetId + '"]').forEach(el => el.classList.add('active-tab'));
+            const targetCard = document.querySelector('.category-card-ui[data-card-id="' + targetId + '"]');
+            if (targetCard) {
+                targetCard.classList.add('active-tab');
+                
+                // Center the active card in the slider
+                const slider = document.getElementById('categorySliderDrag');
+                if (slider) {
+                    const scrollPos = targetCard.offsetLeft - (slider.clientWidth / 2) + (targetCard.clientWidth / 2);
+                    slider.scrollTo({
+                        left: scrollPos,
+                        behavior: 'smooth'
+                    });
+                }
+            }
 
             // Toggle sections
             const currentActiveSection = document.querySelector('.marquee-display-section.active-section');
@@ -841,6 +878,18 @@ $serviceCategories = [
                 targetSection.classList.add('active-section');
             }
         };
+
+        // Center the first active tab on load
+        setTimeout(() => {
+            const firstActive = document.querySelector('.category-card-ui.active-tab');
+            if (firstActive) {
+                const slider = document.getElementById('categorySliderDrag');
+                if (slider) {
+                    const scrollPos = firstActive.offsetLeft - (slider.clientWidth / 2) + (firstActive.clientWidth / 2);
+                    slider.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                }
+            }
+        }, 100);
 
         // Optimized Slider Navigation Logic (< > Buttons)
         window.scrollSlider = function(sliderId, direction) {
