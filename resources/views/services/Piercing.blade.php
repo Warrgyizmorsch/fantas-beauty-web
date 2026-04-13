@@ -400,18 +400,18 @@
                         ['img' => 'assets/img/gallery/ear1.jpg', 'title' => 'Ear Lobe Piercing'],
                         ['img' => 'assets/img/gallery/ear2b.jpg', 'title' => 'Both Ears'],
                         ['img' => 'assets/img/gallery/baby1.jpg', 'title' => 'Baby Ears Piercing'],
-                        ['img' => 'assets/img/gallery/3.webp', 'title' => 'Nose Piercing'],
+                        ['img' => 'assets/img/gallery/2.webp', 'title' => 'Nose Piercing'],
                     ]
                 ],
                 'needle-collapse' => [
                     'name' => 'Needle Piercings',
                     'items' => [
-                        ['img' => 'assets/img/gallery/3.webp', 'title' => 'Nose'],
+                        ['img' => 'assets/img/gallery/needlenosepiercing.webp', 'title' => 'Nose'],
                         ['img' => 'assets/img/gallery/t1.jpg', 'title' => 'Tragus'],
                         ['img' => 'assets/img/gallery/Gemini_Generated_Image_cno5d7cno5d7cno5.webp', 'title' => 'Eye Brow'],
-                        ['img' => 'assets/img/gallery/l1.jpg', 'title' => 'Lip'],
+                        ['img' => 'assets/img/gallery/lip.webp', 'title' => 'Lip'],
                         ['img' => 'assets/img/gallery/rook1.jpg', 'title' => 'Rook'],
-                        ['img' => 'assets/img/gallery/neck1.jpg', 'title' => 'Neck'],
+                        ['img' => 'assets/img/gallery/neck.webp', 'title' => 'Neck'],
                         ['img' => 'assets/img/gallery/saffold1.jpg', 'title' => 'Scaffold / Industrial'],
                         ['img' => 'assets/img/gallery/septum1.jpg', 'title' => 'Septum'],
                         ['img' => 'assets/img/gallery/helx1.jpg', 'title' => 'Helix / Cartilage'],
