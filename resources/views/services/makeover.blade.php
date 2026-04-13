@@ -506,7 +506,7 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/39.webp', 'title' => 'Lace Weave'],
             ['image' => 'assets/img/gallery/wash.webp', 'title' => 'Wash & Set'],
-            ['image' => 'assets/img/gallery/image.webp', 'title' => 'Wash & Blow-Dry'],
+            ['image' => 'assets\img\washdry.webp', 'title' => 'Wash & Blow-Dry'],
             ['image' => 'assets/img/gallery/steam.jpg', 'title' => 'Steam'],
             ['image' => 'assets/img/gallery/hair treatment.webp', 'title' => 'Hair Treatment'],
             ['image' => 'assets/img/gallery/frontals.webp', 'title' => 'Curly Perm'],
@@ -519,7 +519,7 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/trim.jpg', 'title' => 'Trim'],
             ['image' => 'assets/img/gallery/corn.jpg', 'title' => 'Cornrows'],
             ['image' => 'assets/img/gallery/micro.jpg', 'title' => 'Micro-Bonding'],
-            ['image' => 'assets/img/gallery/relaxer.webp', 'title' => 'Relaxer'],
+            ['image' => 'assets/img/gallery/rel1.webp', 'title' => 'Relaxer'],
             ['image' => 'assets/img/gallery/gel.webp', 'title' => 'Gel Twist'],
             ['image' => 'assets/img/gallery/front.jpg', 'title' => 'Front Lace Closure'],
             ['image' => 'assets/img/gallery/fl.jpg', 'title' => 'Front Lace Wig'],
@@ -534,8 +534,8 @@ $serviceCategories = [
         'main_image' => 'assets/img/gallery/hair braids.webp',
         'main_alt' => 'Braids',
         'items' => [
-            ['image' => 'assets/img/gallery/41.webp', 'title' => 'Box Braids'],
-            ['image' => 'assets/img/gallery/hair braids.webp', 'title' => 'Goddess Braids'],
+            ['image' => 'assets/img/gallery/box1.webp', 'title' => 'Box Braids'],
+            ['image' => 'assets/img/gallery/god1.webp', 'title' => 'Goddess Braids'],
             ['image' => 'assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.webp', 'title' => 'Knotless Braids'],
             ['image' => 'assets/img/gallery/single.webp', 'title' => 'Butterfly Locks'],
             ['image' => 'assets/img/gallery/br12.jpg', 'title' => 'Single Braids'],
@@ -633,9 +633,9 @@ $serviceCategories = [
         'main_image' => 'assets/img/gallery/13.webp',
         'main_alt' => 'Henna',
         'items' => [
-            ['image' => 'assets/img/gallery/14.webp', 'title' => 'Bridal Henna'],
+            ['image' => 'assets/img/gallery/henna1.webp', 'title' => 'Bridal Henna'],
             ['image' => 'assets/img/gallery/13.webp', 'title' => 'Minimalist Henna'],
-            ['image' => 'assets/img/gallery/closeup-hands-pretty-hindu-bride-with-henna-tattoo.webp', 'title' => 'Hand Mandalas'],
+            ['image' => 'assets\img\henna2.webp', 'title' => 'Hand Mandalas'],
         ],
     ],
 ];
@@ -910,16 +910,7 @@ $serviceCategories = [
         };
 
         // Open Modal from Image click on Categories
-        const catSlider = document.getElementById('categorySliderDrag');
-        if(catSlider) {
-            catSlider.addEventListener('click', (e) => {
-                if (e.target.closest('.explore-link')) return;
-                const card = e.target.closest('.category-card-ui');
-                if (card && card.dataset.img) {
-                    openImageModal(card.dataset.img);
-                }
-            });
-        }
+        
     });
 </script>
 
