@@ -433,7 +433,7 @@ $serviceCategories = [
         'title' => 'Eye Treatments',
         'description' => 'Lash and brow enhancement services to define and elevate your overall look.',
         'highlights' => ['Eyelash Extensions','Brow & Lash Tinting'],
-        'main_image' => 'assets/img/gallery/eye.webp',
+        'main_image' => 'assets/img/gallery/bermix-studio-CqEGy4zAmbI-unsplash.webp',
         'main_alt' => 'Eye Treatments',
         'items' => [
             ['image' => 'assets/img/gallery/ovinuchi-ejiohuo-vaOosG1lgGE-unsplash.webp', 'title' => 'Eyebrow Tinting'],
