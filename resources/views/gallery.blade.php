@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="page__banner-title">
-                    <h1>Gallary</h1>
+                    <h1>Gallery</h1>
                     <div class="page__banner-title-menu">
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>
