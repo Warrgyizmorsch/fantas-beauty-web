@@ -408,8 +408,7 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/23.webp', 'title' => 'Full Arm'],
             ['image' => 'assets/img/gallery/24.webp', 'title' => 'Underarm'],
             ['image' => 'assets/img/gallery/wax.webp', 'title' => 'Full Leg'],
-            ['image' => 'assets/img/gallery/22.webp', 'title' => 'Eyebrows'],
-            ['image' => 'assets/img/gallery/fcb.webp', 'title' => 'Chin'],
+            ['image' => 'assets/img/gallery/chin11.webp', 'title' => 'Chin'],
             ['image' => 'assets/img/gallery/sides.jpg', 'title' => 'Sides'],
             ['image' => 'assets/img/gallery/Chin-Hairs.webp', 'title' => 'Cheeks'],
             ['image' => 'assets/img/gallery/neck.jpg', 'title' => 'Neck'],
@@ -436,7 +435,7 @@ $serviceCategories = [
         'main_image' => 'assets/img/gallery/bermix-studio-CqEGy4zAmbI-unsplash.webp',
         'main_alt' => 'Eye Treatments',
         'items' => [
-            ['image' => 'assets/img/gallery/ovinuchi-ejiohuo-vaOosG1lgGE-unsplash.webp', 'title' => 'Eyebrow Tinting'],
+            ['image' => 'assets/img/gallery/eyet1.webp', 'title' => 'Eyebrow Tinting'],
             ['image' => 'assets/img/gallery/Lash-Tinting.webp', 'title' => 'Eyelash Tinting'],
             ['image' => 'assets/img/gallery/tint.webp', 'title' => 'Thread & Tint'],
             ['image' => 'assets/img/gallery/wax-tint.webp', 'title' => 'Wax & Tint'],
