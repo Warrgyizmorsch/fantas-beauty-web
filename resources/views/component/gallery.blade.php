@@ -3,7 +3,7 @@
     <div class="container">
 
         {{-- Title --}}
-        {{-- <div class="row mb-65">
+        <div class="row mb-65">
             <div class="col-xl-12">
                 <div class="gallery__area-title">
                     <span class="subtitle__two text-black">Gallery</span>
@@ -11,7 +11,7 @@
                     <h2 class="text-black">Explore Our Latest Tattoo, Lashes & Nail Transformations</h2>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
       
       
