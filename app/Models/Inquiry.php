@@ -10,6 +10,7 @@ class Inquiry extends Model
     [
         'name',
         'phone',
+        'email', 
         'service_name',
         'message'
     ];
