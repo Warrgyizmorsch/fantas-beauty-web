@@ -395,7 +395,7 @@
                     ]
                 ],
                 'wellness-collapse' => [
-                    'name' => 'Wellness Piercings',
+                    'name' => 'Piercing',
                     'items' => [
                         ['img' => 'assets/img/gallery/ear1.jpg', 'title' => 'Ear Lobe Piercing'],
                         ['img' => 'assets/img/gallery/ear2b.jpg', 'title' => 'Both Ears'],
@@ -408,6 +408,7 @@
                     'items' => [
                         ['img' => 'assets/img/gallery/needlenosepiercing.webp', 'title' => 'Nose'],
                         ['img' => 'assets/img/gallery/t1.jpg', 'title' => 'Tragus'],
+                        ['img' => 'assets/img/gallery/4.webp', 'title' => 'Toungue'],
                         ['img' => 'assets/img/gallery/Gemini_Generated_Image_cno5d7cno5d7cno5.webp', 'title' => 'Eye Brow'],
                         ['img' => 'assets/img/gallery/lip.webp', 'title' => 'Lip'],
                         ['img' => 'assets/img/gallery/rook1.jpg', 'title' => 'Rook'],
@@ -512,7 +513,7 @@
                     </div>
                     <div class="col-xl-5 col-lg-5">
                         <div class="banner__two-right">
-                            <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_qrb1slqrb1slqrb1.png') }}" alt="" loading="lazy" decoding="async">
+                            <img class="img__full" src="{{ asset('assets/img/piercing.webp') }}" alt="" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>

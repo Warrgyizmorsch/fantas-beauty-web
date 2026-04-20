@@ -404,7 +404,7 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/22.webp', 'title' => 'Eyebrows'],
             ['image' => 'assets/img/gallery/cheeks.jpg', 'title' => 'Upper Lip'],
-            ['image' => 'assets/img/gallery/facewax.jpg', 'title' => 'Full Face'],
+            ['image' => 'assets/img/gallery/fcb.webp', 'title' => 'Full Face'],
             ['image' => 'assets/img/gallery/23.webp', 'title' => 'Full Arm'],
             ['image' => 'assets/img/gallery/24.webp', 'title' => 'Underarm'],
             ['image' => 'assets/img/gallery/wax.webp', 'title' => 'Full Leg'],
@@ -438,9 +438,9 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/eyet1.webp', 'title' => 'Eyebrow Tinting'],
             ['image' => 'assets/img/gallery/Lash-Tinting.webp', 'title' => 'Eyelash Tinting'],
             ['image' => 'assets/img/gallery/tint.webp', 'title' => 'Thread & Tint'],
-            ['image' => 'assets/img/gallery/wax-tint.webp', 'title' => 'Wax & Tint'],
-            ['image' => 'assets/img/gallery/27.webp', 'title' => 'Lash Removal'],
-            ['image' => 'assets/img/gallery/semi.webp', 'title' => 'Semi-Permanent Eyelashes'],
+            ['image' => 'assets/img/gallery/wax-tint1.jpg', 'title' => 'Wax & Tint'],
+            ['image' => 'assets/img/gallery/lashes.webp', 'title' => 'Lash Removal'],
+            ['image' => 'assets/img/gallery/semi1.webp', 'title' => 'Semi-Permanent Eyelashes'],
             ['image' => 'assets/img/gallery/Gemini_Generated_Image_auf42mauf42mauf4.webp', 'title' => 'Eyelashes Extensions'],
         ],
     ],
@@ -508,7 +508,7 @@ $serviceCategories = [
             ['image' => 'assets\img\washdry.webp', 'title' => 'Wash & Blow-Dry'],
             ['image' => 'assets/img/gallery/steam.jpg', 'title' => 'Steam'],
             ['image' => 'assets/img/gallery/hair treatment.webp', 'title' => 'Hair Treatment'],
-            ['image' => 'assets/img/gallery/frontals.webp', 'title' => 'Curly Perm'],
+            ['image' => 'assets/img/gallery/Curly1.jpg', 'title' => 'Curly Perm'],
             ['image' => 'assets/img/gallery/weaveon.jpg', 'title' => 'Weave-on'],
             ['image' => 'assets/img/gallery/curly.jpg', 'title' => 'Curly Hair'],
             ['image' => 'assets/img/gallery/pony.jpg', 'title' => 'Ponytail'],
@@ -535,8 +535,8 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/box1.webp', 'title' => 'Box Braids'],
             ['image' => 'assets/img/gallery/god1.webp', 'title' => 'Goddess Braids'],
-            ['image' => 'assets/img/gallery/studio-shoot-girl-gray-dress-with-dreads-white-background.webp', 'title' => 'Knotless Braids'],
-            ['image' => 'assets/img/gallery/single.webp', 'title' => 'Butterfly Locks'],
+            ['image' => 'assets/img/gallery/Knotless.webp', 'title' => 'Knotless Braids'],
+            ['image' => 'assets/img/gallery/Butterfly.webp', 'title' => 'Butterfly Locks'],
             ['image' => 'assets/img/gallery/br12.jpg', 'title' => 'Single Braids'],
         ],
     ],
@@ -811,7 +811,7 @@ $serviceCategories = [
             </div>
             <div class="col-xl-5 col-lg-5">
                 <div class="banner__two-right">
-                    <img class="img__full" src="{{ asset('assets/img/Gemini_Generated_Image_hur36ohur36ohur3.png') }}" alt="Artistry" loading="lazy" decoding="async">
+                    <img class="img__full" src="{{ asset('assets/img/makeover.webp') }}" alt="Artistry" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
