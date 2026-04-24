@@ -328,10 +328,7 @@
                     style="display: inline-block; padding: 14px 40px; text-decoration: none; margin-right: 15px;">
                     📥 Download Consent Form <i class="far fa-angle-double-right"></i>
                 </a>
-                <a href="{{ route('consent-form.preview', $consentForm->consent_token) }}" class="theme-border-btn"
-                    style="display: inline-block; padding: 14px 40px; text-decoration: none;">
-                    👁️ Preview Form <i class="far fa-angle-double-right"></i>
-                </a>
+                
             </div>
         @endif
 
