@@ -352,12 +352,12 @@
             'title' => 'Small Tattoos',
             'description' => 'Minimalist and tiny black ink designs',
             'highlights' => ['Tiny Details', 'Micro Art'],
-            'main_image' => 'assets/img/gallery/Small 5.webp',
+            'main_image' => 'assets/img/gallery/tinymoon.webp',
             'main_alt' => 'Small Tattoos',
             'items' => [
-                ['image' => 'assets/img/gallery/Small 7.webp', 'title' => 'Tiny Moon & Stars'],
-                ['image' => 'assets/img/gallery/Small 1.webp', 'title' => 'Line Art Overlapping Faces'],
-                ['image' => 'assets/img/gallery/Small 2.webp', 'title' => 'Black & Pink Butterfly'],
+                ['image' => 'assets/img/gallery/tinymoon.webp', 'title' => 'Tiny Moon & Stars'],
+                ['image' => 'assets/img/gallery/lineart.jpeg', 'title' => 'Line Art Overlapping Faces'],
+                ['image' => 'assets/img/gallery/pinkbutter.webp', 'title' => 'Black & Pink Butterfly'],
                 ['image' => 'assets/img/gallery/Small 4.webp', 'title' => 'Large Maple Leaf'],
                 ['image' => 'assets/img/gallery/Small 3.webp', 'title' => 'Botanical Fruit Branch'],
                 ['image' => 'assets/img/gallery/Small 6.webp', 'title' => 'Delicate Script Wrist'],
@@ -372,7 +372,7 @@
             'main_image' => 'assets/img/gallery/Geometric 4.webp',
             'main_alt' => 'Geometric Tattoos',
             'items' => [
-                ['image' => 'assets/img/gallery/Geometric 2.webp', 'title' => 'Snake & Geometric Mandala'],
+                ['image' => 'assets/img/gallery/snakeart.jpg', 'title' => 'Snake & Geometric Mandala'],
                 ['image' => 'assets/img/gallery/Geometric 1.webp', 'title' => 'Geometric Wolf Portrait'],
                 ['image' => 'assets/img/gallery/Geometric 3.webp', 'title' => 'Symmetrical Elbow Mandala'],
                 ['image' => 'assets/img/gallery/Geometric 6.webp', 'title' => 'Dotwork Sacred Geometry'],
@@ -407,11 +407,11 @@
             'main_alt' => 'Animal Tattoos',
             'items' => [
                 ['image' => 'assets/img/gallery/Animal 1.webp', 'title' => 'Majestic Lion Head'],
-                ['image' => 'assets/img/gallery/Animal 2.webp', 'title' => 'Realistic Big Cat'],
+                ['image' => 'assets/img/gallery/bigcat.jpg', 'title' => 'Realistic Big Cat'],
                 ['image' => 'assets/img/gallery/Animal 3.webp', 'title' => 'Alpha Wolf Portrait'],
                 ['image' => 'assets/img/gallery/Animal 4.webp', 'title' => 'Soaring Majestic Eagle'],
                 ['image' => 'assets/img/gallery/Animal 5.webp', 'title' => 'Traditional Koi Fish'],
-                ['image' => 'assets/img/gallery/Animal 6.webp', 'title' => 'Mystical Owl Spirit'],
+                ['image' => 'assets/img/gallery/owlt.jpg', 'title' => 'Mystical Owl Spirit'],
             ],
         ],
         [
@@ -424,11 +424,11 @@
             'main_alt' => 'Calligraphy Tattoos',
             'items' => [
                 ['image' => 'assets/img/gallery/Calligraphy 3.webp', 'title' => '"PURE" Neck Lettering'],
-                ['image' => 'assets/img/gallery/Calligraphy 5.webp', 'title' => 'Elite Initials Script'],
+                ['image' => 'assets/img/gallery/elitet.jpg', 'title' => 'Elite Initials Script'],
                 ['image' => 'assets/img/gallery/Calligraphy 4.webp', 'title' => 'Roman Numerals Memory'],
                 ['image' => 'assets/img/gallery/Calligraphy 7.webp', 'title' => 'Bold Gothic Forearm'],
                 ['image' => 'assets/img/gallery/Calligraphy 2.webp', 'title' => '"RESPECT" Neck Piece'],
-                ['image' => 'assets/img/gallery/Calligraphy 6.webp', 'title' => 'Handwritten Verse Ink'],
+                ['image' => 'assets/img/gallery/scriptingg.png', 'title' => 'Handwritten Verse Ink'],
             ],
         ],
         [
