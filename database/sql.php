@@ -1,0 +1,8 @@
+USE fantas_beauty;
+
+ALTER TABLE inquiries
+ADD COLUMN email VARCHAR(255) NULL, 
+ADD COLUMN referer VARCHAR(255) NULL,
+ADD COLUMN category VARCHAR(100) NULL,
+ADD COLUMN sub_category VARCHAR(100) NULL,
+ADD COLUMN service_name VARCHAR(150) NULL;  

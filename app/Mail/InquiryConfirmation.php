@@ -13,10 +13,12 @@ class InquiryConfirmation extends Mailable
     use Queueable, SerializesModels;
 
     public $inquiry;
+    public $consentForm;
 
-    public function __construct($inquiry)
+    public function __construct($inquiry, $consentForm = null)
     {
         $this->inquiry = $inquiry;
+        $this->consentForm = $consentForm;
     }
 
     public function envelope(): Envelope

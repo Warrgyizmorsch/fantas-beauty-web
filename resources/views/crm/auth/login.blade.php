@@ -1,40 +1,25 @@
-@extends('crm.layouts.admin')
-@section('title', 'Login')
-
+@extends('crm.layouts.auth')
 @section('content')
-<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="col-md-4">
-        <div class="card shadow-lg p-4">
-            <div class="text-center mb-4">
-                <h2 class="fw-bold">Welcome Back</h2>
-                <p class="text-muted">Login to manage your studio</p>
-            </div>
-
-            @if(session('success'))
-                <div class="alert alert-success small">{{ session('success') }}</div>
-            @endif
-
-            @if($errors->any())
-                <div class="alert alert-danger small">{{ $errors->first() }}</div>
-            @endif
-
-            <form action="{{ route('crm.login.post') }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" placeholder="admin@fantas.com" required autofocus>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn btn-warning w-100 fw-bold py-2 mt-2">SIGN IN</button>
-            </form>
-            
-            <div class="text-center mt-4">
-                <p class="small text-muted">Don't have an account? <a href="{{ route('crm.register') }}" class="text-warning text-decoration-none fw-bold">Register Admin</a></p>
-            </div>
+<div class="card shadow-sm" style="width: 100%; max-width: 420px;">
+    <div class="card-body p-4 p-md-5">
+        <div class="text-center mb-4">
+            <img src="{{ asset('assets/logo/fantas-logo.png') }}" alt="Fantas Beauty" style="height: 60px; width: 60px;">
+            <h4 class="mt-3 mb-1">Welcome Back</h4>
+            <p class="text-muted">Login to CRM Dashboard</p>
         </div>
+        <form method="POST" action="{{ route('login.post') }}">
+            @csrf
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
     </div>
 </div>
 @endsection
+

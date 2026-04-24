@@ -721,7 +721,7 @@ $serviceCategories = [
                                                         <div class="col-md-6 mb-3">
                                                             <div class="d-flex justify-content-between align-items-center p-3 rounded-3 service-hover-card">
                                                                 <span class="fw-semibold text-dark" style="font-size: 14px;">{{ $service['name'] }}</span>
-                                                                <button class="enquire-btn-mini openInquiryModal" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $service['name'] }} - {{ $subCat['name'] }}">
+                                                                <button class="enquire-btn-mini openInquiryModal" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $service['name'] }} - {{ $subCat['name'] }}" data-category="Makeover" data-sub-category="{{ $subCat['name'] }}">
                                                                     ENQUIRE
                                                                 </button>
                                                             </div>
@@ -756,7 +756,7 @@ $serviceCategories = [
                                         <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async">
                                         <div class="service-card-overlay">
                                             <h6>{{ $item['title'] }}</h6>
-                                            <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
+                                            <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}" data-category="Makeover" data-sub-category="{{ $category['title'] }}">
                                                 ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
                                             </button>
                                         </div>
