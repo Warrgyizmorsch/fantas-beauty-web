@@ -536,7 +536,7 @@
                                     <img src="{{ asset($item['image']) }}" alt="{{ $item['title'] }}" loading="lazy">
                                     <div class="service-card-overlay">
                                         <h6 style="color: white;">{{ $item['title'] }}</h6>
-                                        <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}">
+                                        <button class="theme-banner-btn openInquiryModal new-btn" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-service="{{ $item['title'] }}" data-category="Tattoo" data-sub-category="{{ $category['title'] }}">
                                             ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
                                         </button>
                                     </div>

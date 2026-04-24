@@ -462,7 +462,9 @@
                                             <h6>{{ $item['title'] }}</h6>
                                             <button class="theme-banner-btn openInquiryModal new-btn" 
                                                     data-bs-toggle="modal" data-bs-target="#inquiryModal" 
-                                                    data-service="{{ $item['title'] }}">
+                                                    data-service="{{ $item['title'] }}"
+                                                    data-category="Piercing"
+                                                    data-sub-category="{{ $category['name'] }}">
                                                 ENQUIRY NOW <i class="far fa-chevron-double-right ms-1"></i>
                                             </button>
                                         </div>

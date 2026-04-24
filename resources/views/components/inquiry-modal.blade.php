@@ -9,6 +9,8 @@
                 <div class="modal-body p-4 pt-2">
                     <form method="POST" action="{{ route('inquiry.store') }}">
                         @csrf
+                        <input type="hidden" name="category" id="category">
+                        <input type="hidden" name="sub_category" id="sub_category">
                         <input type="hidden" name="service_name" id="service_name">
                         <div class="mb-2">
                             <label class="form-label mb-1 small fw-bold" style="color: #2d2d2d;">Full Name</label>
@@ -42,8 +44,12 @@
     inquiryModal.addEventListener('show.bs.modal', function (event) {
         const button = event.relatedTarget;
         const serviceName = button.getAttribute('data-service');
+        const category = button.getAttribute('data-category') || '';
+        const subCategory = button.getAttribute('data-sub-category') || '';
         document.getElementById('service_name').value = serviceName;
         document.getElementById('service_text').innerText = serviceName;
+        document.getElementById('category').value = category;
+        document.getElementById('sub_category').value = subCategory;
     });
 </script>
 

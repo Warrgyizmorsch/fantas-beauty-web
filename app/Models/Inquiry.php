@@ -6,13 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inquiry extends Model
 {
-    protected $fillable = 
+    protected $fillable =
     [
         'name',
         'phone',
-        'email', 
+        'email',
+        'referer',
+        'category',
+        'sub_category',
         'service_name',
         'message'
     ];
 
+    /**
+     * Get the consent form for this inquiry
+     */
+    public function consentForm()
+    {
+        return $this->hasOne(ConsentForm::class);
+    }
 }

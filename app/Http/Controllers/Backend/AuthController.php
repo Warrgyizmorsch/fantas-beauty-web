@@ -12,7 +12,6 @@ class AuthController extends Controller
 {
     // Login Form dikhane ke liye
     public function showLogin() {
-        if (Auth::check()) return redirect()->route('crm.dashboard');
         return view('crm.auth.login');
     }
 
@@ -25,7 +24,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(route('crm.dashboard'));
+return redirect()->intended(route('crm-dashboard.dashboard'));
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
@@ -36,7 +35,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('crm.login');
+return redirect()->route('login');
     }
 
     // --- Optional: Registration (Starting me user banane ke liye) ---
@@ -57,6 +56,6 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('crm.login')->with('success', 'Account created successfully!');
+return redirect()->route('login')->with('success', 'Account created successfully!');
     }
 }

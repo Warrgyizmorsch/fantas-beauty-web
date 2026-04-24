@@ -50,6 +50,34 @@
             margin: 20px 0;
         }
 
+        .consent-section {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .consent-section h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #0d0d1a;
+        }
+
         .footer {
             background: #f4f4f4;
             padding: 20px 30px;
@@ -75,10 +103,25 @@
                 <p style="margin:0;">👉 <strong>Next Step:</strong> Our team will contact you on
                     <strong>{{ $inquiry->phone }}</strong> or reply to this email shortly.</p>
             </div>
-            <p>To stay updated or proceed further, you can use the link below:
 
-                👉 [Access Your Request / Next Step]
-                (Link will be activated soon)</p>
+            {{-- Consent Form Section for Tattoo Services --}}
+            @if($consentForm)
+                <div class="consent-section">
+                    <h3>📋 Tattoo Consent Form Required</h3>
+                    <p>Before we proceed with your tattoo appointment, we require you to fill out and sign our <strong>Tattoo Consent Form</strong>. This is an important document that ensures your safety and confirms your understanding of the tattoo process.</p>
+                    
+                    <p><strong>Please complete the consent form using the link below:</strong></p>
+                    
+                    <center>
+                        <a href="{{ route('consent-form.show', $consentForm->consent_token) }}" class="btn">
+                            📝 Complete Consent Form
+                        </a>
+                    </center>
+
+                    <p><small style="color: #666;">Your information has been pre-filled for your convenience. You'll need to agree to all terms and conditions and provide your signature to complete the process.</small></p>
+                </div>
+            @endif
+
             <p>If you have any questions or need assistance, feel free to reply to this email.</p>
             <p>Best regards,<br><strong>Fantas Beauty</strong><br>nikhil.warrgyizmorsch@gmail.com</p>
         </div>
