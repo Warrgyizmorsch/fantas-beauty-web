@@ -17,7 +17,9 @@ class InquiryController extends Controller
             'name'         => $request->name,
             'phone'        => $request->phone,
             'email'        => $request->email,
-            'referer'      => $request->server('HTTP_REFERER') ?: $request->referer ?: null,
+            'referer'      => $request->category && $request->sub_category && $request->service_name
+                ? $request->category . ' - ' . $request->sub_category . ' - ' . $request->service_name
+                : ($request->server('HTTP_REFERER') ?: $request->referer ?: null),
             'category'     => $request->category,
             'sub_category' => $request->sub_category,
             'service_name' => $request->service_name,

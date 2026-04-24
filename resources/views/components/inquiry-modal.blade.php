@@ -58,13 +58,21 @@
     document.addEventListener("DOMContentLoaded", function() {
         Swal.fire({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Inquiry Submitted!',
             showConfirmButton: false,
             timer: 3000,
-            timerProgressBar: true
+            timerProgressBar: true,
+            customClass: {
+                container: 'swal2-toast-zindex'
+            }
         });
     });
 </script>
+<style>
+    .swal2-toast-zindex {
+        z-index: 9999 !important;
+    }
+</style>
 @endif
