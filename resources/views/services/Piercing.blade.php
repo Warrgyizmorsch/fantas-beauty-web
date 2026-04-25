@@ -406,7 +406,7 @@
                 'needle-collapse' => [
                     'name' => 'Needle Piercings',
                     'items' => [
-                        ['img' => 'assets/img/gallery/needlenosepiercing.webp', 'title' => 'Nose'],
+                        ['img' => 'assets/img/gallery/nose.webp', 'title' => 'Nose'],
                         ['img' => 'assets/img/gallery/t1.jpg', 'title' => 'Tragus'],
                         ['img' => 'assets/img/gallery/4.webp', 'title' => 'Toungue'],
                         ['img' => 'assets/img/gallery/Gemini_Generated_Image_cno5d7cno5d7cno5.webp', 'title' => 'Eye Brow'],
@@ -423,7 +423,7 @@
                         ['img' => 'assets/img/gallery/daith1.jpg', 'title' => 'Daith'],
                         ['img' => 'assets/img/gallery/sm1.jpg', 'title' => 'Smiley Piercing'],
                         ['img' => 'assets/img/gallery/frenulum.jpeg', 'title' => 'Frenulum / Web'],
-                        ['img' => 'assets/img/gallery/fl1.webp', 'title' => 'Frowny / Lower Frendulum'],
+                        ['img' => 'assets/img/gallery/frowny-piercing.webp', 'title' => 'Frowny / Lower Frendulum'],
                         ['img' => 'assets/img/gallery/snug.webp', 'title' => 'Snug'],
                         ['img' => 'assets/img/gallery/con1.webp', 'title' => 'Conch'],
                     ]

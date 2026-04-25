@@ -438,7 +438,7 @@ $serviceCategories = [
             ['image' => 'assets/img/gallery/eyet1.webp', 'title' => 'Eyebrow Tinting'],
             ['image' => 'assets/img/gallery/Lash-Tinting.webp', 'title' => 'Eyelash Tinting'],
             ['image' => 'assets/img/gallery/tint.webp', 'title' => 'Thread & Tint'],
-            ['image' => 'assets/img/gallery/waxntnt.png', 'title' => 'Wax & Tint'],
+            ['image' => 'assets/img/gallery/waxtint.webp', 'title' => 'Wax & Tint'],
             ['image' => 'assets/img/gallery/lashrem.jpg', 'title' => 'Lash Removal'],
             ['image' => 'assets/img/gallery/semilash.webp', 'title' => 'Semi-Permanent Eyelashes'],
             ['image' => 'assets/img/gallery/Gemini_Generated_Image_auf42mauf42mauf4.webp', 'title' => 'Eyelashes Extensions'],
@@ -484,13 +484,13 @@ $serviceCategories = [
         'main_alt' => 'SPM',
         'items' => [
             ['image' => 'assets/img/gallery/semi permanent makeup.webp', 'title' => 'Eyebrows'],
-            ['image' => 'assets/img/gallery/1748598171158-ombre.webp ', 'title' => 'Ombre'],
+            ['image' => 'assets/img/gallery/Ombre.webp', 'title' => 'Ombre'],
             ['image' => 'assets/img/gallery/25.webp', 'title' => 'Eyebrows Refill'],
             ['image' => 'assets/img/gallery/eyelinerr.jpg', 'title' => 'Eyeliner'],
             ['image' => 'assets/img/gallery/tbeye.webp', 'title' => 'Top & Bottom Eyeliner'],
             ['image' => 'assets/img/gallery/lipl.jpg', 'title' => 'Lip Liner'],
             ['image' => 'assets/img/gallery/fulllip.webp', 'title' => 'Full Lip Color'],
-            ['image' => 'assets/img/gallery/Eyebrow.webp', 'title' => 'Microblading'],
+            ['image' => 'assets/img/gallery/Microblading.webp', 'title' => 'Microblading'],
             ['image' => 'assets/img/gallery/beauty.webp', 'title' => 'Beauty Spot'],
         ],
     ],
@@ -634,7 +634,7 @@ $serviceCategories = [
         'items' => [
             ['image' => 'assets/img/gallery/henna1.webp', 'title' => 'Bridal Henna'],
             ['image' => 'assets/img/gallery/13.webp', 'title' => 'Minimalist Henna'],
-            ['image' => 'assets\img\hmehendi.jpg', 'title' => 'Hand Mandalas'],
+            ['image' => 'assets/img/gallery/HandMandalas.webp', 'title' => 'Hand Mandalas'],
         ],
     ],
 ];
