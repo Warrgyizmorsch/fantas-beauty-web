@@ -8,7 +8,15 @@
                 <div class="gallery__area-title">
                     <span class="subtitle__two text-black">Gallery</span>
                     <span class="subtitle__one ">Our Work</span>
-                    <h2 class="text-black">Explore Our Latest Tattoo, Lashes & Nail Transformations</h2>
+                    @if(request()->is('services/tattoos'))
+                        <h2 class="text-black">Explore Our Latest Tattoos Designs</h2>
+                    @elseif(request()->is('services/makeover'))
+                        <h2 class="text-black">Explore Our Latest Lashes & Nails Transformations</h2>
+                    @elseif(request()->is('services/Piercing'))
+                        <h2 class="text-black">Explore Our Latest Piercings</h2>
+                    @else
+                        <h2 class="text-black">Explore Our Latest Tattoo, Lashes & Nail Transformations</h2>
+                    @endif
                 </div>
             </div>
         </div>

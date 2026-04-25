@@ -44,6 +44,7 @@
                     <ul class="gallery-tabs">
                         <li><button type="button" class="gallery-tab is-active" data-filter="all">All</button></li>
                         <li><button type="button" class="gallery-tab" data-filter="tattoo">Tattoo Art</button></li>
+                        <li><button type="button" class="gallery-tab" data-filter="piercing">Piercing</button></li>
                         <li><button type="button" class="gallery-tab" data-filter="nails">Nails</button></li>
                         <li><button type="button" class="gallery-tab" data-filter="hair">Hair</button></li>
                     </ul>
@@ -57,6 +58,14 @@
                 ['img' => 'assets/testimonials/original-grid-image-26400-1487673173-6.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
                 ['img' => 'assets/testimonials/1.jpg', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
                 ['img' => 'assets/testimonials/deeb222d-64b9-4c37-84b8-2b6064cd5d10.webp', 'title' => 'Custom Tattoo', 'tag' => 'Tattoo Art', 'cat' => 'tattoo'],
+
+                // ADDED PIERCING IMAGES HERE
+                ['img' => 'assets/img/gallery/2.webp', 'title' => 'Ear Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
+                ['img' => 'assets/img/gallery/6.webp', 'title' => 'Nose Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
+                ['img' => 'assets/img/gallery/4.webp', 'title' => 'Navel Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
+                ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Surface Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
+                ['img' => 'assets/img/gallery/t1.jpg', 'title' => 'Surface Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
+                ['img' => 'assets/img/gallery/16706.webp', 'title' => 'Surface Piercing', 'tag' => 'Piercing', 'cat' => 'piercing'],
 
                 ['img' => 'assets/testimonials/2.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'nails'],
                 ['img' => 'assets/testimonials/12.jpg', 'title' => 'Nail Extensions & Fine Line', 'tag' => 'Nails & Tattoo Art', 'cat' => 'nails'],
