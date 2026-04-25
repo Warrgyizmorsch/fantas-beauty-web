@@ -561,7 +561,7 @@ $serviceCategories = [
         'title' => 'Nails',
         'description' => 'Modern nail extensions, polish, manicure, and pedicure services for every occasion.',
         'highlights' => ['Acrylic & Gel Extensions', 'Custom 3D Nail Art', 'Ombre & Powder Colour'],
-        'main_image' => 'assets/img/bg/NailExtensions.png',
+        'main_image' => 'assets/img/gallery/IMG_1907.JPEG',
         'main_alt' => 'Nails',
         'categories' => [
             [
@@ -580,7 +580,7 @@ $serviceCategories = [
             ],
             [
                 'name' => 'ACRYLIC & SHELLAC',
-                'image' => 'assets/img/gallery/8.webp',
+                'image' => 'assets/img/gallery/IMG_1913.JPEG',
                 'services' => [
                     ['name' => 'Full set Shellac'],
                     ['name' => 'Full set Shellac with White Tip'],
@@ -782,11 +782,11 @@ $serviceCategories = [
 @php
     $gallery = [
         ['img' => 'assets/testimonials/1.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair', 'cat' => 'tattoo'],
-        ['img' => 'assets/testimonials/insta-3.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/IMG_1907.JPEG', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'tattoo'],
         ['img' => 'assets/testimonials/ovinuchi-ejiohuo-vaOosG1lgGE-unsplash.jpg', 'title' => 'Eyelash Extensions', 'tag' => 'Eyelash', 'cat' => 'tattoo'],
         ['img' => 'assets/testimonials/Gemini_Generated_Image_auf42mauf42mauf4.png', 'title' => 'Eyelash Extensions', 'tag' => 'Eyelash', 'cat' => 'tattoo'],
         ['img' => 'assets/testimonials/4.jpg', 'title' => 'Hair Styling', 'tag' => 'Hair', 'cat' => 'tattoo'],
-        ['img' => 'assets/testimonials/12.jpg', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'tattoo'],
+        ['img' => 'assets/img/gallery/IMG_1896.JPEG', 'title' => 'Nail Extensions', 'tag' => 'Nails', 'cat' => 'tattoo'],
     ];
 @endphp
 @include('component.gallery')
