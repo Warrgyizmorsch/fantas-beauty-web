@@ -28,7 +28,7 @@ class InquiryController extends Controller
 
         // Create consent form if service is tattoo-related
         $consentForm = null;
-        $isTattooService = $this->isTattooService($request->service_name);
+        $isTattooService = $this->isTattooService($request);
         
         if ($isTattooService) {
             $consentForm = ConsentForm::create([
@@ -97,12 +97,21 @@ class InquiryController extends Controller
     /**
      * Detect if the service is tattoo-related
      */
-    private function isTattooService($serviceName)
+    private function isTattooService(Request $request)
     {
+        $serviceName = strtolower($request->service_name ?: '');
+        $category = strtolower($request->category ?: '');
+        $subCategory = strtolower($request->sub_category ?: '');
 
-        $serviceName = strtolower($serviceName);
-        
-        // List of tattoo-related keywords
+        // Check category/sub-category first — covers ALL tattoo page items
+        $categoryKeywords = ['tattoo', 'piercing'];
+        foreach ($categoryKeywords as $keyword) {
+            if (strpos($category, $keyword) !== false || strpos($subCategory, $keyword) !== false) {
+                return true;
+            }
+        }
+
+        // Fallback: check the service name itself for tattoo-related keywords
         $tattooKeywords = [
             'tattoo',
             'ink',
@@ -135,14 +144,12 @@ class InquiryController extends Controller
             'session'
         ];
 
-
-        
         foreach ($tattooKeywords as $keyword) {
             if (strpos($serviceName, $keyword) !== false) {
                 return true;
             }
         }
-        
+
         return false;
     }
     }
