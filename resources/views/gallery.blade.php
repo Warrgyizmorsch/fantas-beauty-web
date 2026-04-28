@@ -274,7 +274,7 @@
 .lightbox-next{ right: 18px; }
 
 @media (max-width: 768px){
-    .gallery-box{ height: 220px; }
+    .gallery-box{ height: 400px; }
     .lightbox-prev{ left: 10px; }
     .lightbox-next{ right: 10px; }
 }
