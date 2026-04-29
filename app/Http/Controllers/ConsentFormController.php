@@ -193,9 +193,11 @@ class ConsentFormController extends Controller
         ]);
     }
 
-    public function preview($token)
+public function crmPreview($token)
     {
-        $consentForm = ConsentForm::where('consent_token', $token)->firstOrFail();
+        $consentForm = ConsentForm::where('consent_token', $token)
+            ->where('is_signed', true)
+            ->firstOrFail();
 
         $pdfPath = storage_path('app/' . $this->ensurePdfExists($consentForm));
 

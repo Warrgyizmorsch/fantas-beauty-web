@@ -21,16 +21,11 @@
                             <span class="nxl-mtext">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
+                    <li class="nxl-item">
+                        <a href="{{ url('crm/leads/all-leads') }}" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-users"></i></span>
                             <span class="nxl-mtext">Leads</span>
                         </a>
-                        <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="{{ url('crm/leads/all-leads') }}">All Leads</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="{{ url('crm/leads/consent-form-filled') }}">Consent Form Filled</a></li>
-                            <li class="nxl-item"><a class="nxl-link" href="{{ url('crm/leads/consent-form-pending') }}">Consent Form Pending</a></li>
-                        </ul>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">

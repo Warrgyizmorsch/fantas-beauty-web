@@ -17,9 +17,7 @@ class InquiryController extends Controller
             'name'         => $request->name,
             'phone'        => $request->phone,
             'email'        => $request->email,
-            'referer'      => $request->category && $request->sub_category && $request->service_name
-                ? $request->category . ' - ' . $request->sub_category . ' - ' . $request->service_name
-                : ($request->server('HTTP_REFERER') ?: $request->referer ?: null),
+'referer'      => $request->server('HTTP_REFERER') ?: $request->fullUrl() ?: 'Direct',
             'category'     => $request->category,
             'sub_category' => $request->sub_category,
             'service_name' => $request->service_name,
@@ -28,18 +26,15 @@ class InquiryController extends Controller
 
         // Create consent form if service is tattoo-related
         $consentForm = null;
-        $isTattooService = $this->isTattooService($request);
-        
-        if ($isTattooService) {
-            $consentForm = ConsentForm::create([
+$consentForm = $this->isTattooService($request) ? ConsentForm::create([
                 'inquiry_id' => $inquiry->id,
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'consent_token' => Str::random(32),
                 'agreed_terms' => json_encode([]),
-            ]);
-        }
+            ]) : null;
+
 
         // Send confirmation email with consent form link if tattoo service
         Mail::to($request->email)->send(new InquiryConfirmation($inquiry, $consentForm));
@@ -61,36 +56,7 @@ class InquiryController extends Controller
 
 
 
-    /**
-     * Display leads with filled/signed consent forms
-     */
-    public function consentFormsFilled()
-    {
-        $forms = ConsentForm::with('inquiry')
-            ->where('is_signed', true)
-            ->latest()
-            ->paginate(15);
 
-        return view('crm.leads.consent-form-filled', compact('forms'));
-    }
-
-    /**
-     * Display leads with pending consent forms
-     */
-    public function consentFormsPending()
-    {
-        $pendingForms = ConsentForm::with('inquiry')
-            ->whereHas('inquiry')
-            ->where('is_signed', false)
-            ->latest()
-            ->paginate(15);
-
-        $noConsentForms = Inquiry::doesntHave('consentForm')
-            ->latest()
-            ->paginate(15);
-
-        return view('crm.leads.consent-form-pending', compact('pendingForms', 'noConsentForms'));
-    }
 
 
 

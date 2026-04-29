@@ -25,11 +25,7 @@
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Category</th>
-                                                <th>Sub Category</th>
+                                                <th>User Details</th>
                                                 <th>Service</th>
                                                 <th>Combined</th>
                                                 <th>From Page</th>
@@ -41,14 +37,12 @@
                                         <tbody>
                                             @forelse($inquiries as $inquiry)
                                             <tr>
-                                                <td>{{ $inquiry->name }}</td>
-                                                <td>{{ $inquiry->phone }}</td>
-                                                <td>{{ $inquiry->email ?? 'N/A' }}</td>
                                                 <td>
-                                                    <span class="badge bg-soft-primary text-primary">{{ $inquiry->category ?? '—' }}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-soft-info text-info">{{ $inquiry->sub_category ?? '—' }}</span>
+                                                    <div>
+                                                        <div class="fw-bold">{{ $inquiry->name }}</div>
+                                                        <div class="text-muted small">{{ $inquiry->email ?? 'N/A' }}</div>
+                                                        <div class="text-muted small">Phone: {{ $inquiry->phone }}</div>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <span class="badge text-black">{{ $inquiry->service_name }}</span>
@@ -59,25 +53,60 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    {{ $inquiry->referer ?: 'Direct' }}
+                                                    <span title="{{ $inquiry->referer ?: 'Direct' }}">{{ Str::limit($inquiry->referer ?: 'Direct', 50) }}</span>
                                                 </td>
                                                 <td>
-                                                    <div style="max-width: 280px; max-height: 100px; overflow: auto; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px 10px; background: #f8f9fa; font-size: 13px; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word;">
-                                                        {{ $inquiry->message ?? '—' }}
-                                                    </div>
+                                                       <div style="max-width: 280px; height: 80px; overflow: auto; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px; background: #f8f9fa; font-size: 13px; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word;">{{ $inquiry->message ?? '—' }}</div> 
                                                 </td>
                                                 <td>{{ $inquiry->created_at->format('M d, Y') }}</td>
                                                 <td>
-                                                    @if($inquiry->consentForm)
-                                                        <span class="badge text-black">Yes</span>
-                                                    @else
-                                                        <span class="badge text-black">No</span>
-                                                    @endif
+@php
+    $serviceName = strtolower($inquiry->service_name ?: '');
+    $category = strtolower($inquiry->category ?: '');
+    $subCategory = strtolower($inquiry->sub_category ?: '');
+    $isTattoo = false;
+    
+    $categoryKeywords = ['tattoo'];
+    foreach ($categoryKeywords as $keyword) {
+        if (strpos($category, $keyword) !== false || strpos($subCategory, $keyword) !== false) {
+            $isTattoo = true;
+            break;
+        }
+    }
+    
+    if (!$isTattoo) {
+        $tattooKeywords = [
+            'tattoo', 'ink', 'design', 'art', 'leaf', 'maple', 
+            'line art', 'overlapping', 'sleeve', 'custom', 'portrait', 
+            'pattern', 'tribal', 'geometric', 'floral', 'botanical', 
+            'fruit', 'branch', 'script', 'lettering', 'color', 
+            'black & gray', 'realism', 'anime', 'manga', 'traditional', 
+            'placement', 'session'
+        ];
+        foreach ($tattooKeywords as $keyword) {
+            if (strpos($serviceName, $keyword) !== false) {
+                $isTattoo = true;
+                break;
+            }
+        }
+    }
+@endphp
+@if($isTattoo)
+    @if($inquiry->consentForm && $inquiry->consentForm->is_signed)
+        <span class="badge bg-success">
+            <a href="{{ url('crm/consent-forms/' . $inquiry->consentForm->consent_token . '/preview') }}" target="_blank" class="text-decoration-none text-white">Preview</a>
+        </span>
+    @else
+        <span class="badge bg-warning">Not Filled</span>
+    @endif
+@else
+    <span class="badge bg-secondary">NA</span>
+@endif
                                                 </td>
                                             </tr>
                                             @empty
                                             <tr>
-                                                <td colspan="11" class="text-center">No leads found.</td>
+                                                <td colspan="7" class="text-center">No leads found.</td>
                                             </tr>
                                             @endforelse
                                         </tbody>

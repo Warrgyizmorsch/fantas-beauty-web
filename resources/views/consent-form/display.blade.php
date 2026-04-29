@@ -42,11 +42,15 @@
                             @enderror
                         </div>
 
+                        {{-- CHANGED: Date of Birth Validation Added Here --}}
                         <div class="form-group">
-                            <label style="display: block; color: #5A4A42; font-weight: 600; margin-bottom: 8px;">Date of Birth
-                                *</label>
+                            <label style="display: block; color: #5A4A42; font-weight: 600; margin-bottom: 8px;">Date of Birth *</label>
                             <input type="date" name="date_of_birth"
-                                value="{{ old('date_of_birth', $consentForm->date_of_birth) }}" required
+                                value="{{ old('date_of_birth', $consentForm->date_of_birth) }}" 
+                                required
+                                max="{{ \Carbon\Carbon::now()->subYears(18)->format('Y-m-d') }}"
+                                oninvalid="this.setCustomValidity('You must be at least 18 years old to sign this consent form.')"
+                                oninput="this.setCustomValidity('')"
                                 style="width: 100%; padding: 10px; border: 1px solid #E5E0D8; border-radius: 6px; font-size: 14px;">
                             @error('date_of_birth')
                                 <span class="error" style="color: #C62828; font-size: 12px;">{{ $message }}</span>
@@ -104,8 +108,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label style="display: block; color: #5A4A42; font-weight: 600; margin-bottom: 8px;">ZIP Code
-                                *</label>
+                            <label style="display: block; color: #5A4A42; font-weight: 600; margin-bottom: 8px;">ZIP Code *</label>
                             <input type="text" name="zip" value="{{ old('zip', $consentForm->zip) }}" required
                                 style="width: 100%; padding: 10px; border: 1px solid #E5E0D8; border-radius: 6px; font-size: 14px;">
                             @error('zip')
@@ -414,4 +417,3 @@
         </script>
     @endpush
 @endsection
-

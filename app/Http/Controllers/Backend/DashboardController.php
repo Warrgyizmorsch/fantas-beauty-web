@@ -11,24 +11,29 @@ class DashboardController extends Controller
 {
     public function index() {
         $totalLeads = Inquiry::count();
-        $formsFilled = ConsentForm::where('is_signed', true)->count();
-        $formsPending = ConsentForm::where('is_signed', false)->count();
-        $noConsentForm = Inquiry::doesntHave('consentForm')->count();
-        $totalPending = $formsPending + $noConsentForm;
-
+        
+        // Tattoo only (exclude piercing per feedback)
+        $formsFilled = ConsentForm::whereHas('inquiry', function($q) {
+            $q->whereRaw('LOWER(service_name) LIKE "%tattoo%" OR LOWER(category) LIKE "%tattoo%" OR LOWER(sub_category) LIKE "%tattoo%"');
+        })->where('is_signed', true)->count();
+        
+        $formsPending = ConsentForm::whereHas('inquiry', function($q) {
+            $q->whereRaw('LOWER(service_name) LIKE "%tattoo%" OR LOWER(category) LIKE "%tattoo%" OR LOWER(sub_category) LIKE "%tattoo%"');
+        })->where('is_signed', false)->count();
+        
+        $totalPending = $formsPending;
         $totalForms = $formsFilled + $totalPending;
         $filledPercentage = $totalForms > 0 ? round(($formsFilled / $totalForms) * 100) : 0;
         $pendingPercentage = $totalForms > 0 ? round(($totalPending / $totalForms) * 100) : 0;
 
         $latestLeads = Inquiry::with('consentForm')->latest()->limit(10)->get();
 
-        // Chart data: consent forms filled over last 30 days
+        // Chart data: tattoo consent forms filled over last 30 days
         $startDate = Carbon::now()->subDays(29)->startOfDay();
         $endDate = Carbon::now()->endOfDay();
 
-        $filledByDate = ConsentForm::where('is_signed', true)
-            ->whereBetween('signed_at', [$startDate, $endDate])
-            ->selectRaw('DATE(signed_at) as date, COUNT(*) as count')
+        $leadsByDate = Inquiry::whereBetween('created_at', [$startDate, $endDate])
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as count')
             ->groupBy('date')
             ->orderBy('date')
             ->get()
@@ -40,7 +45,7 @@ class DashboardController extends Controller
         for ($i = 29; $i >= 0; $i--) {
             $date = Carbon::now()->subDays($i)->format('Y-m-d');
             $chartDates[] = Carbon::parse($date)->format('M d');
-            $chartCounts[] = $filledByDate->has($date) ? $filledByDate[$date]->count : 0;
+        $chartCounts[] = $leadsByDate->has($date) ? $leadsByDate[$date]->count : 0;
         }
 
         return view('crm.dashboard', compact(

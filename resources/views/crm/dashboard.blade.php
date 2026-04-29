@@ -105,7 +105,7 @@
                     <div class="col-xxl-8">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Consent Forms Filled (Over Time)</h5>
+                                <h5 class="card-title">All Leads - Inquiry Form Filled (Over Time)</h5>
                                 <div class="card-header-action">
                                     <div class="card-header-btn">
                                         <div data-bs-toggle="tooltip" title="Refresh Data">
@@ -217,7 +217,7 @@
                 if (dateChartEl && typeof ApexCharts !== 'undefined') {
                     var dateChartOptions = {
                         series: [{
-                            name: 'Forms Filled',
+                            name: 'Leads Submitted',
                             data: @json($chartCounts)
                         }],
                         chart: {
@@ -257,7 +257,7 @@
                         },
                         tooltip: {
                             x: { show: true },
-                            y: { formatter: function(val) { return val + ' forms'; } }
+                                    y: { formatter: function(val) { return val + ' leads'; } }
                         },
                         responsive: [{
                             breakpoint: 768,
