@@ -107,12 +107,17 @@
                                                 $isBookAppointment = strpos($inquiry->referer ?? '', 'book-appointment') !== false;
                                             @endphp
                                             @if($isBookAppointment)
-                                            <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.2; color: #6c757d;">
+                                            <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.4; color: #6c757d;">
                                                 <div>size- {{ $inquiry->tattoo_size ?? '—' }}</div>
                                                 <div>placement- {{ $inquiry->tattoo_placement ?? '—' }}</div>
                                                 <div>style- {{ $inquiry->tattoo_style ?? $inquiry->sub_category ?? '—' }}</div>
                                                 <div>type- {{ $inquiry->tattoo_type ?? '—' }}</div>
                                                 <div>preference- {{ $inquiry->ink_preference ?? '—' }}</div>
+                                                @if($inquiry->reference_link)
+                                                <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> <a href="{{ $inquiry->reference_link }}" target="_blank" style="color: #0066cc; text-decoration: underline;">{{ Str::limit($inquiry->reference_link, 30) }}</a></div>
+                                                @else
+                                                <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> —</div>
+                                                @endif
                                             </div>
                                             @endif
                                         </td>

@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $filledPercentage = $totalForms > 0 ? round(($formsFilled / $totalForms) * 100) : 0;
         $pendingPercentage = $totalForms > 0 ? round(($totalPending / $totalForms) * 100) : 0;
 
-        $latestLeads = Inquiry::with('consentForm')->latest()->limit(10)->get();
+$latestLeads = Inquiry::with('consentForm')->latest()->take(10)->get();
 
         // Chart data: tattoo consent forms filled over last 30 days
         $startDate = Carbon::now()->subDays(29)->startOfDay();

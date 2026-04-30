@@ -13,11 +13,7 @@
                 </div>
                 <div class="page-header-right ms-auto">
                     <div class="page-header-right-items">
-                        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <div id="reportrange" class="reportrange-picker d-flex align-items-center">
-                                <span class="reportrange-picker-field"></span>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -143,49 +139,69 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-12">
+<div class="col-xxl-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Latest Leads</h5>
-                                <a href="{{ url('crm/leads/all-leads') }}" class="btn btn-sm btn-primary">View All</a>
+                                <h5 class="card-title">Latest Leads (Last 10)</h5>
                             </div>
                             <div class="card-body custom-card-action p-0">
                                 <div class="table-responsive">
                                     <table class="table table-hover mb-0">
-                                        <thead>
+<thead>
                                             <tr class="border-b">
-                                                <th scope="row">Lead Info</th>
-                                                <th>Service Required</th>
-                                                <th>Date Submitted</th>
-                                                <th>Consent Form Status</th>
-                                                <th class="text-end">Actions</th>
+<th>ID</th>
+                                                <th>User Details</th>
+                                                <th>Service</th>
+                                                <th>Combined</th>
+                                                <th>From Page</th>
+                                                <th>Message</th>
+                                                <th>Created</th>
+                                                <th>Consent</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @forelse($latestLeads as $lead)
                                             <tr>
                                                 <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <a href="javascript:void(0);">
-                                                            <span class="d-block fw-bold text-dark">{{ $lead->name }}</span>
-                                                            <span class="fs-12 d-block fw-normal text-muted">{{ $lead->email ?? 'N/A' }}</span>
-                                                        </a>
+                                                    <div class="fw-bold">#{{ $lead->id }}</div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="fw-bold">{{ $lead->name }}</div>
+                                                        <div class="text-muted small">{{ $lead->email ?? 'N/A' }}</div>
+                                                        <div class="text-muted small">Phone: {{ $lead->phone }}</div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <span class="badge bg-gray-200 text-dark">{{ $lead->service_name ?? 'General' }}</span>
 @php
-                                                        $isBookAppointment = strpos($lead->referer ?? '', 'book-appointment') !== false;
-                                                    @endphp
-                                                    @if($isBookAppointment)
-                                                    <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.2; color: #6c757d;">
-                                                        <div>size- {{ $lead->tattoo_size ?? '—' }}</div>
-                                                        <div>placement- {{ $lead->tattoo_placement ?? '—' }}</div>
-                                                        <div>style- {{ $lead->tattoo_style ?? $lead->sub_category ?? '—' }}</div>
-                                                        <div>type- {{ $lead->tattoo_type ?? '—' }}</div>
-                                                        <div>preference- {{ $lead->ink_preference ?? '—' }}</div>
-                                                    </div>
+                                                    $isBookAppointment = strpos($lead->referer ?? '', 'book-appointment') !== false;
+                                                @endphp
+                                                @if($isBookAppointment)
+                                                <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.4; color: #6c757d;">
+                                                    <div>size- {{ $lead->tattoo_size ?? '—' }}</div>
+                                                    <div>placement- {{ $lead->tattoo_placement ?? '—' }}</div>
+                                                    <div>style- {{ $lead->tattoo_style ?? $lead->sub_category ?? '—' }}</div>
+                                                    <div>type- {{ $lead->tattoo_type ?? '—' }}</div>
+                                                    <div>preference- {{ $lead->ink_preference ?? '—' }}</div>
+                                                    @if($lead->reference_link)
+                                                    <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> <a href="{{ $lead->reference_link }}" target="_blank" style="color: #0066cc; text-decoration: underline;">{{ Str::limit($lead->reference_link, 30) }}</a></div>
+                                                    @else
+                                                    <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> —</div>
                                                     @endif
+                                                </div>
+                                                @endif
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-soft-success text-success">
+                                                        {{ $lead->category ?? '—' }} - {{ $lead->sub_category ?? '—' }} - {{ $lead->service_name }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span title="{{ $lead->referer ?: 'Direct' }}">{{ Str::limit($lead->referer ?: 'Direct', 30) }}</span>
+                                                </td>
+                                                <td>
+                                                    <div style="max-width: 150px; height: 60px; overflow: auto; border: 1px solid #e9ecef; border-radius: 4px; padding: 4px; font-size: 11px; line-height: 1.3; white-space: pre-wrap; word-wrap: break-word;">{{ $lead->message ?? '—' }}</div>
                                                 </td>
                                                 <td>{{ $lead->created_at->format('M d, Y h:i A') }}</td>
                                                 <td>
@@ -202,17 +218,22 @@
                                                         <span class="badge bg-soft-warning text-warning">Pending</span>
                                                     @endif
                                                 </td>
-                                                <td class="text-end">
-                                                    <a href="{{ url('crm/leads/all-leads') }}" class="btn btn-sm btn-light">View</a>
-                                                </td>
-                                            </tr>
+</tr>
                                             @empty
                                             <tr>
-                                                <td colspan="5" class="text-center text-muted py-4">No leads found</td>
+                                                <td colspan="8" class="text-center text-muted py-4">No leads found</td>
                                             </tr>
                                             @endforelse
-                                            </tbody>
+                                        </tbody>
                                     </table>
+                                </div>
+<div class="card-footer border-top-0">
+                                    <div class="d-flex justify-content-end">
+                                        <a href="{{ url('crm/leads/all-leads') }}" class="btn btn-sm btn-primary d-inline-flex align-items-center gap-2">
+                                            View All Leads
+                                            <i class="feather-arrow-right" style="width: 14px; height: 14px;"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

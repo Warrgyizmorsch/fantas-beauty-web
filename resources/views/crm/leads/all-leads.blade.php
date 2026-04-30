@@ -3,17 +3,15 @@
         <div class="nxl-content">
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10">All Leads</h5>
-                    </div>
+                    
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('crm-dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('crm/leads') }}">Leads</a></li>
                         <li class="breadcrumb-item active">All Leads</li>
                     </ul>
                 </div>
             </div>
-            <div class="main-content">
+            
+<div class="main-content">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -23,8 +21,9 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover">
-                                        <thead>
+<thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>User Details</th>
                                                 <th>Service</th>
                                                 <th>Combined</th>
@@ -32,14 +31,18 @@
                                                 <th>Message</th>
                                                 <th>Created</th>
                                                 <th>Consent</th>
+                                                <th class="text-end">Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+<tbody>
                                             @forelse($inquiries as $inquiry)
-                                            <tr>
+<tr>
 @php
                                                     $isBookAppointment = strpos($inquiry->referer ?? '', 'book-appointment') !== false;
                                                 @endphp
+                                                <td>
+                                                    <div class="fw-bold">#{{ $inquiry->id }}</div>
+                                                </td>
                                                 <td>
                                                     <div>
                                                         <div class="fw-bold">{{ $inquiry->name }}</div>
@@ -50,14 +53,17 @@
                                                 <td>
                                                     <span class="badge text-black">{{ $inquiry->service_name }}</span>
                                                     @if($isBookAppointment)
-                                                    <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.2; color: #6c757d;">
-
-
+                                                    <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.4; color: #6c757d;">
                                                         <div>size- {{ $inquiry->tattoo_size ?? '—' }}</div>
                                                         <div>placement- {{ $inquiry->tattoo_placement ?? '—' }}</div>
                                                         <div>style- {{ $inquiry->tattoo_style ?? $inquiry->sub_category ?? '—' }}</div>
                                                         <div>type- {{ $inquiry->tattoo_type ?? '—' }}</div>
                                                         <div>preference- {{ $inquiry->ink_preference ?? '—' }}</div>
+                                                        @if($inquiry->reference_link)
+                                                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> <a href="{{ $inquiry->reference_link }}" target="_blank" style="color: #0066cc; text-decoration: underline;">{{ Str::limit($inquiry->reference_link, 30) }}</a></div>
+                                                        @else
+                                                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid #e9ecef;"><strong>ref:</strong> —</div>
+                                                        @endif
                                                     </div>
                                                     @endif
                                                 </td>
@@ -70,9 +76,9 @@
                                                     <span title="{{ $inquiry->referer ?: 'Direct' }}">{{ Str::limit($inquiry->referer ?: 'Direct', 50) }}</span>
                                                 </td>
                                                 <td>
-                                                       <div style="max-width: 280px; height: 80px; overflow: auto; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px; background: #f8f9fa; font-size: 13px; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word;">{{ $inquiry->message ?? '—' }}</div> 
+                                                       <div style="max-width: 280px; height: 80px; overflow: auto; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px;  font-size: 13px; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word;">{{ $inquiry->message ?? '—' }}</div> 
                                                 </td>
-                                                <td>{{ $inquiry->created_at->format('M d, Y') }}</td>
+<td>{{ $inquiry->created_at->format('M d, Y h:i A') }}</td>
                                                 <td>
 @php
     $serviceName = strtolower($inquiry->service_name ?: '');
@@ -117,10 +123,21 @@
     <span class="badge bg-secondary">NA</span>
 @endif
                                                 </td>
+                                                <td class="text-end">
+                                                    <div class="hstack gap-2 justify-content-end">
+                                                        <form action="{{ route('crm.leads.destroy', $inquiry->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this lead? This will also delete the consent form and all related data.');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                                                <i class="feather-trash-2"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
                                             </tr>
                                             @empty
                                             <tr>
-                                                <td colspan="7" class="text-center">No leads found.</td>
+<td colspan="9" class="text-center">No leads found.</td>
                                             </tr>
                                             @endforelse
                                         </tbody>

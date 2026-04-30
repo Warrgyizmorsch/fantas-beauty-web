@@ -462,7 +462,8 @@
 
                             <div class="col-sm-12 mb-30">
                                 <div class="contact__area-bottom-form-item">
-                                    <textarea name="message" rows="5" placeholder="Write your message..." required>{{ old('message') }}</textarea>
+                                    <textarea name="message" id="messageField" rows="5" placeholder="Write your message..." required>{{ old('message') }}</textarea>
+                                    <div id="messageError" class="field-hint" style="color:#C62828; display:none; margin-top: 8px;">⚠️ Please write a message only. Code, SQL queries, and special characters are not allowed.</div>
                                     @error('message') <div class="field-hint" style="color:#C62828;">{{ $message }}</div> @enderror
                                 </div>
                             </div>
@@ -493,5 +494,55 @@
 
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const messageField = document.getElementById('messageField');
+        const messageError = document.getElementById('messageError');
+        const submitBtn = document.querySelector('.theme-banner-btn');
+        
+        // Pattern to detect SQL queries, code, and malicious content
+        const suspiciousPattern = /(<|>|{|}|\$|;|SELECT|INSERT|DELETE|DROP|UPDATE|SCRIPT|JAVASCRIPT|ONCLICK|ONERROR|alert|console|eval|function|class|import|export|const |let |var |if |for |while |return |new |this\.|prototype|__proto__|constructor)/i;
+        
+        function validateMessage() {
+            const message = messageField.value.trim();
+            
+            if (suspiciousPattern.test(message)) {
+                // Show error and disable submit
+                messageError.style.display = 'block';
+                messageField.style.borderColor = '#C62828';
+                messageField.style.boxShadow = '0 0 0 4px rgba(198, 40, 40, 0.14)';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.5';
+                submitBtn.style.cursor = 'not-allowed';
+            } else {
+                // Hide error and enable submit
+                messageError.style.display = 'none';
+                messageField.style.borderColor = '#E5E0D8';
+                messageField.style.boxShadow = '';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            }
+        }
+        
+        // Validate on input
+        messageField.addEventListener('input', validateMessage);
+        messageField.addEventListener('change', validateMessage);
+        
+        // Prevent form submission if message contains suspicious content
+        const form = messageField.closest('form');
+        form.addEventListener('submit', function(e) {
+            if (suspiciousPattern.test(messageField.value.trim())) {
+                e.preventDefault();
+                messageError.style.display = 'block';
+                messageField.focus();
+            }
+        });
+        
+        // Initial validation on page load (for old values)
+        validateMessage();
+    });
+</script>
 
 @endsection

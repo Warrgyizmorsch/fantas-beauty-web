@@ -47,11 +47,25 @@ $consentForm = $this->isTattooService($request) ? ConsentForm::create([
      */
 
 
-    public function index()
+public function index()
     {
         return view('crm.leads.all-leads', [
             'inquiries' => Inquiry::with('consentForm')->latest()->paginate(20)
         ]);
+    }
+
+    /**
+     * Delete a lead and all related data (consent form, signature, PDF)
+     */
+    public function destroy($id)
+    {
+        $inquiry = Inquiry::with('consentForm')->findOrFail($id);
+        
+        // Use the model's method to delete inquiry with all related data
+        $inquiry->deleteWithRelations();
+        
+        return redirect()->route('crm.leads.all-leads')
+            ->with('success', 'Lead and all related data deleted successfully.');
     }
 
 

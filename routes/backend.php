@@ -18,6 +18,7 @@ Route::prefix('crm-dashboard')->name('crm-dashboard.')->middleware('auth')->grou
 
 Route::prefix('crm')->name('crm.')->middleware('auth')->group(function () {
         Route::get('leads/all-leads', [\App\Http\Controllers\InquiryController::class, 'index'])->name('leads.all-leads');
+        Route::delete('leads/{id}', [\App\Http\Controllers\InquiryController::class, 'destroy'])->name('leads.destroy');
         Route::get('consent-forms/{token}/preview', [\App\Http\Controllers\ConsentFormController::class, 'crmPreview'])->name('consent-form.preview');
         Route::get('consent-forms/{token}/download', [\App\Http\Controllers\ConsentFormController::class, 'download'])->name('consent-form.download');
         Route::get('consent-forms/{token}/pdf', [\App\Http\Controllers\ConsentFormController::class, 'servePdf'])->name('consent-form.serve-pdf');
