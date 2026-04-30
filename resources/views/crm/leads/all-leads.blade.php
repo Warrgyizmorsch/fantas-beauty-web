@@ -37,6 +37,9 @@
                                         <tbody>
                                             @forelse($inquiries as $inquiry)
                                             <tr>
+@php
+                                                    $isBookAppointment = strpos($inquiry->referer ?? '', 'book-appointment') !== false;
+                                                @endphp
                                                 <td>
                                                     <div>
                                                         <div class="fw-bold">{{ $inquiry->name }}</div>
@@ -46,6 +49,17 @@
                                                 </td>
                                                 <td>
                                                     <span class="badge text-black">{{ $inquiry->service_name }}</span>
+                                                    @if($isBookAppointment)
+                                                    <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.2; color: #6c757d;">
+
+
+                                                        <div>size- {{ $inquiry->tattoo_size ?? '—' }}</div>
+                                                        <div>placement- {{ $inquiry->tattoo_placement ?? '—' }}</div>
+                                                        <div>style- {{ $inquiry->tattoo_style ?? $inquiry->sub_category ?? '—' }}</div>
+                                                        <div>type- {{ $inquiry->tattoo_type ?? '—' }}</div>
+                                                        <div>preference- {{ $inquiry->ink_preference ?? '—' }}</div>
+                                                    </div>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <span class="badge bg-soft-success text-success">

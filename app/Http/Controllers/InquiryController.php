@@ -65,57 +65,12 @@ $consentForm = $this->isTattooService($request) ? ConsentForm::create([
      */
     private function isTattooService(Request $request)
     {
-        $serviceName = strtolower($request->service_name ?: '');
-        $category = strtolower($request->category ?: '');
-        $subCategory = strtolower($request->sub_category ?: '');
-
-        // Check category/sub-category first — covers ALL tattoo page items
-        $categoryKeywords = ['tattoo', 'piercing'];
-        foreach ($categoryKeywords as $keyword) {
-            if (strpos($category, $keyword) !== false || strpos($subCategory, $keyword) !== false) {
-                return true;
-            }
-        }
-
-        // Fallback: check the service name itself for tattoo-related keywords
-        $tattooKeywords = [
-            'tattoo',
-            'ink',
-            'design',
-            'art',
-            'piercing',
-            'leaf',
-            'maple',
-            'line art',
-            'overlapping',
-            'sleeve',
-            'custom',
-            'portrait',
-            'pattern',
-            'tribal',
-            'geometric',
-            'floral',
-            'botanical',
-            'fruit',
-            'branch',
-            'script',
-            'lettering',
-            'color',
-            'black & gray',
-            'realism',
-            'anime',
-            'manga',
-            'traditional',
-            'placement',
-            'session'
-        ];
-
-        foreach ($tattooKeywords as $keyword) {
-            if (strpos($serviceName, $keyword) !== false) {
-                return true;
-            }
-        }
-
-        return false;
+        $referer = $request->server('HTTP_REFERER') ?: '';
+        
+        // Check if request came from tattoo-specific pages
+        $isTattooPage = strpos($referer, '/services/tattoos') !== false || 
+                       strpos($referer, '/book-appointment') !== false;
+        
+        return $isTattooPage;
     }
     }

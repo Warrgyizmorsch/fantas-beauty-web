@@ -172,10 +172,31 @@
                                                         </a>
                                                     </div>
                                                 </td>
-                                                <td><span class="badge bg-gray-200 text-dark">{{ $lead->service_name ?? 'General' }}</span></td>
+                                                <td>
+                                                    <span class="badge bg-gray-200 text-dark">{{ $lead->service_name ?? 'General' }}</span>
+@php
+                                                        $isBookAppointment = strpos($lead->referer ?? '', 'book-appointment') !== false;
+                                                    @endphp
+                                                    @if($isBookAppointment)
+                                                    <div class="tattoo-details small mt-1 ps-2" style="font-size: 0.75rem; line-height: 1.2; color: #6c757d;">
+                                                        <div>size- {{ $lead->tattoo_size ?? '—' }}</div>
+                                                        <div>placement- {{ $lead->tattoo_placement ?? '—' }}</div>
+                                                        <div>style- {{ $lead->tattoo_style ?? $lead->sub_category ?? '—' }}</div>
+                                                        <div>type- {{ $lead->tattoo_type ?? '—' }}</div>
+                                                        <div>preference- {{ $lead->ink_preference ?? '—' }}</div>
+                                                    </div>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $lead->created_at->format('M d, Y h:i A') }}</td>
                                                 <td>
-                                                    @if($lead->consentForm && $lead->consentForm->is_signed)
+                                                    @php
+                                                        $isTattoo = strpos(strtolower($lead->service_name ?? ''), 'tattoo') !== false ||
+                                                                    strpos(strtolower($lead->category ?? ''), 'tattoo') !== false ||
+                                                                    strpos(strtolower($lead->sub_category ?? ''), 'tattoo') !== false;
+                                                    @endphp
+                                                    @if(!$isTattoo)
+                                                        <span class="badge bg-gray-200 text-dark">N/A</span>
+                                                    @elseif($lead->consentForm && $lead->consentForm->is_signed)
                                                         <span class="badge bg-soft-success text-success">Filled</span>
                                                     @else
                                                         <span class="badge bg-soft-warning text-warning">Pending</span>

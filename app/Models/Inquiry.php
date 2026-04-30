@@ -15,7 +15,13 @@ class Inquiry extends Model
         'category',
         'sub_category',
         'service_name',
-        'message'
+        'message',
+        'tattoo_size',
+        'tattoo_placement',
+        'tattoo_style',
+        'tattoo_type',
+        'ink_preference',
+        'reference_link'
     ];
 
     /**
