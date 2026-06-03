@@ -1,11 +1,9 @@
-
-
 {{-- =========================
-        HEADER START
+HEADER START
 ========================= --}}
 <style>
     .logo-img {
-        height: 50px; 
+        height: 50px;
         width: auto;
         transition: all 0.3s ease;
     }
@@ -34,62 +32,67 @@
     }
 
     .header__area-menubar-right-menu ul li a {
-        padding-top: 20px !important; 
+        padding-top: 20px !important;
         padding-bottom: 20px !important;
     }
 
     .header__area-menubar-right-menu ul li .primary-btn {
         padding: 10px 25px !important;
     }
+
     @media only screen and (max-width: 767px) {
-    /* Container ko align karne ke liye */
-    .header__area-menubar-right-box {
-        display: flex !important;
-        align-items: center;
-        justify-content: flex-end;
-    }
 
-    .header__area-menubar-right-box-download {
-        margin-right: 31px; /* Three lines se gap */
-        margin-top: -66px;      /* Negative margin ki zaroorat nahi padegi */
-        display: inline-block;
-    }
+        /* Container ko align karne ke liye */
+        .header__area-menubar-right-box {
+            display: flex !important;
+            align-items: center;
+            justify-content: flex-end;
+        }
 
-    /* Button ka size mobile ke hisaab se perfect karne ke liye */
-    #installAppBtn {
-        padding: 6px 10px;
-        font-size: 12px;
+        .header__area-menubar-right-box-download {
+            margin-right: 31px;
+            /* Three lines se gap */
+            margin-top: -66px;
+            /* Negative margin ki zaroorat nahi padegi */
+            display: inline-block;
+        }
+
+        /* Button ka size mobile ke hisaab se perfect karne ke liye */
+        #installAppBtn {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
     }
-}
 </style>
 <div class="header__sticky">
     <div class="top__bar">
-    <div class="container custom__container">
-        <div class="row align-items-center">
-            <div class="col-12">
-                <div class="top__bar-left">
-                    <ul class="d-flex align-items-center justify-content-around w-100" style="margin: 0; padding: 0; list-style: none;">
-                        <li>
-                            <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px;">
-                                Tattoos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px;">
-                                Piercing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px;">
-                                Makeover
-                            </a>
-                        </li>
-                    </ul>
+        <div class="container custom__container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="top__bar-left">
+                        <ul class="d-flex align-items-center justify-content-around w-100"
+                            style="margin: 0; padding: 0; list-style: none;">
+                            <li>
+                                <a href="{{ url('/services/tattoos') }}" style="font-weight: 500; font-size: 14px;">
+                                    Tattoos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/services/Piercing') }}" style="font-weight: 500; font-size: 14px;">
+                                    Piercing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/services/makeover') }}" style="font-weight: 500; font-size: 14px;">
+                                    Makeover
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <div class="header__area two">
         <div class="container custom__container">
             <div class="header__area-menubar">
@@ -99,9 +102,7 @@
                     <div class="header__area-menubar-left-logo">
 
                         <a href="{{ url('/') }}" class="logo-wrapper">
-                            <img 
-                                src="{{ asset('assets/logo/fantas-logo.png') }}" 
-                                alt="Fantas Beauty"
+                            <img src="{{ asset('assets/logo/fantas-logo.png') }}" alt="Fantas Beauty"
                                 class="logo-img img-fluid">
                         </a>
 
@@ -116,30 +117,30 @@
 
                             <li><a href="{{ url('/') }}">Home</a></li>
 
-                                <li class="menu-item-has-children">
-                                    <a href="#">Services</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="{{ url('services/tattoos') }}">
-                                                Tattoos 
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('services/Piercing') }}">
-                                                Piercing
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('services/makeover') }}">
-                                                Makeover
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Services</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="{{ url('services/tattoos') }}">
+                                            Tattoos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('services/Piercing') }}">
+                                            Piercing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('services/makeover') }}">
+                                            Makeover
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                             <li><a href="{{ url('/gallery') }}">Gallery</a></li>
                             <li><a href="{{ url('/about-us') }}">About Us</a></li>
-                                
+
                             <li><a href="{{ url('/contact-us') }}">Contact</a></li>
 
                             <li>
@@ -155,11 +156,11 @@
                 {{-- RIGHT SIDE ICONS --}}
                 <div class="header__area-menubar-right-box d-flex align-items-center justify-content-end">
                     <div class="header__area-menubar-right-call header-call-desktop">
-                        <a class="call-pill" href="tel:+447957317266" aria-label="Call us">
+                        <a class="call-pill" href="tel:+447399846192" aria-label="Call us">
                             <span class="call-ico"><i class="fal fa-phone-alt"></i></span>
                             <span class="call-text">
                                 <small>Call Us</small>
-                                <strong>+44 7957 317266</strong>
+                                <strong>+44 7399 846192</strong>
                             </span>
                         </a>
                     </div>
@@ -177,13 +178,15 @@
                     </div>
 
                     <div class="header__area-menubar-right-box-download">
-                        <button id="installAppBtn" class="btn" style="padding: 8px 12px; font-size: 20px; border-radius: 5px;">
+                        <button id="installAppBtn" class="btn"
+                            style="padding: 8px 12px; font-size: 20px; border-radius: 5px;">
                             <i class="fas fa-download"></i>
                         </button>
                     </div>
 
                     <div class="header__area-menubar-right-box-sidebar">
-                        <div class="header__area-menubar-right-box-sidebar-popup-icon" style="cursor: pointer; font-size: 20px;">
+                        <div class="header__area-menubar-right-box-sidebar-popup-icon"
+                            style="cursor: pointer; font-size: 20px;">
                             <i class="fal fa-bars"></i>
                         </div>
                     </div>
@@ -193,13 +196,13 @@
     </div>
 </div>
 {{-- =========================
-        HEADER END
+HEADER END
 ========================= --}}
 
 
 
 {{-- =========================
-        SIDEBAR START
+SIDEBAR START
 ========================= --}}
 <div class="header__area-menubar-right-box-sidebar-popup">
     <div class="sidebar-close-btn">
@@ -213,7 +216,7 @@
     </div>
 
     <p>
-        Fantas Beauty provides premium tattoo and nail extension services with 
+        Fantas Beauty provides premium tattoo and nail extension services with
         professional care and a luxury experience.
     </p>
 
@@ -226,7 +229,7 @@
             </div>
             <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
                 <span>Call Now</span>
-                <h6><a href="tel:+447957317266">+44 7957 317266</a></h6>
+                <h6><a href="tel:+447399846192">+44 7399 846192</a></h6>
             </div>
         </div>
 
@@ -263,13 +266,14 @@
                     <i class="fab fa-instagram"></i>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="https://www.youtube.com/channel/UCl814PIbTHK7T8v-xGjPJTQ" target="_blank">
                     <i class="fab fa-youtube"></i>
                 </a>
             </li>
-               <li>
-                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0" target="_blank">
+            <li>
+                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0"
+                    target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </li>
@@ -280,42 +284,56 @@
 <div class="sidebar-overlay"></div>
 
 <style>
-  .header-call-desktop{display:none;}
-  @media (min-width: 992px){ .header-call-desktop{display:block;} }
+    .header-call-desktop {
+        display: none;
+    }
 
-  .call-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 14px;
-    border-radius:999px;
-    text-decoration:none;
-    border:1px solid rgba(0,0,0,.12);
-    background: rgba(255,255,255,.9);
-    transition: .2s;
-  }
-  .call-pill:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(0,0,0,.10);
-  }
-  .call-ico{
-    width:38px;height:38px;border-radius:50%;
-    display:grid;place-items:center;
-    border:1px solid rgba(0,0,0,.12);
-  }
-  .call-text small{
-    display:block;
-    font-size:12px;
-    opacity:.7;
-    line-height:1;
-  }
-  .call-text strong{
-    display:block;
-    font-size:14px;
-    line-height:1.1;
-    letter-spacing:.2px;
-  }
+    @media (min-width: 992px) {
+        .header-call-desktop {
+            display: block;
+        }
+    }
+
+    .call-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        border: 1px solid rgba(0, 0, 0, .12);
+        background: rgba(255, 255, 255, .9);
+        transition: .2s;
+    }
+
+    .call-pill:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .10);
+    }
+
+    .call-ico {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(0, 0, 0, .12);
+    }
+
+    .call-text small {
+        display: block;
+        font-size: 12px;
+        opacity: .7;
+        line-height: 1;
+    }
+
+    .call-text strong {
+        display: block;
+        font-size: 14px;
+        line-height: 1.1;
+        letter-spacing: .2px;
+    }
 </style>
 {{-- =========================
-        SIDEBAR END
+SIDEBAR END
 ========================= --}}

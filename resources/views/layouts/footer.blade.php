@@ -1,29 +1,29 @@
 {{-- =========================
-        FOOTER START
+FOOTER START
 ========================= --}}
 
 <style>
     /* Footer Logo Default */
-.footer-logo {
-    height: 70px;
-    width: auto;
-    max-width: 100%;
-    transition: all 0.3s ease;
-}
-
-/* Tablet */
-@media (max-width: 991px) {
     .footer-logo {
-        height: 55px;
+        height: 70px;
+        width: auto;
+        max-width: 100%;
+        transition: all 0.3s ease;
     }
-}
 
-/* Mobile */
-@media (max-width: 576px) {
-    .footer-logo {
-        height: 45px;
+    /* Tablet */
+    @media (max-width: 991px) {
+        .footer-logo {
+            height: 55px;
+        }
     }
-}
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .footer-logo {
+            height: 45px;
+        }
+    }
 </style>
 <div class="footer__two">
 
@@ -38,18 +38,16 @@
             <div class="col-xl-4 col-lg-4 col-md-8 md-mb-30">
                 <div class="footer__two-widget">
 
-                   <div class="footer__two-widget-logo">
+                    <div class="footer__two-widget-logo">
                         <a href="{{ url('/') }}" class="footer-logo-wrapper">
-                            <img 
-                                src="{{ asset('assets/logo/fantas-logo.png') }}" 
-                                alt="Fantas Beauty"
+                            <img src="{{ asset('assets/logo/fantas-logo.png') }}" alt="Fantas Beauty"
                                 class="footer-logo img-fluid">
                         </a>
                     </div>
 
                     <p>
-                        Premium tattoo & beauty studio — luxury ink, flawless hygiene, and 
-                        artist-led transformations. Experience precision, creativity, and 
+                        Premium tattoo & beauty studio — luxury ink, flawless hygiene, and
+                        artist-led transformations. Experience precision, creativity, and
                         elegance with every service at Fantas Beauty.
                     </p>
 
@@ -84,8 +82,8 @@
                             </div>
                             <div class="footer__two-widget-contact-item-content">
                                 <h6>
-                                    <a href="tel:+447957317266">
-                                        +44 07957 317266
+                                    <a href="tel:+447399846192">
+                                        +44 7399 846192
                                     </a>
                                 </h6>
                             </div>
@@ -141,13 +139,14 @@
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="https://www.youtube.com/channel/UCl814PIbTHK7T8v-xGjPJTQ" target="_blank">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
-                               <li>
-                                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0" target="_blank">
+                            <li>
+                                <a href="https://api.whatsapp.com/send/?phone=447957317266&text&type=phone_number&app_absent=0"
+                                    target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>
@@ -169,7 +168,7 @@
                 <div class="col-xl-12">
                     <div class="copyright__two-center">
                         <p>
-                            © {{ date('Y') }} Fantas Beauty. All Rights Reserved.  
+                            © {{ date('Y') }} Fantas Beauty. All Rights Reserved.
                             Developed by <strong>Warrgyizmorsch</strong>
                         </p>
                     </div>
@@ -180,5 +179,5 @@
 
 </div>
 {{-- =========================
-        FOOTER END
+FOOTER END
 ========================= --}}
