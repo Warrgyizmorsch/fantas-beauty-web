@@ -214,67 +214,69 @@ HOW IT WORKS (4 STEPS)
 
         <div class="row">
 
-            {{-- Step 01 --}}
-            <div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30" data-aos="fade-up" data-aos-delay="100">
-                <div class="services__page-item">
-                    <div class="services__page-item-icon">
-                        <img src="{{ asset('assets/img/icon/services-1.png') }}" alt="Consultation">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4 class="text-black">01. Best Consultation </h4>
-                        <p>
-                            Share your tattoo idea, placement, and references with our artists.
-                            Our team reviews and responds within 24–48 hours with guidance.
-                        </p>
-                    </div>
-                </div>
-            </div>
+           {{-- Step 01 --}}
+<div class="col-xl-3 col-lg-4 col-md-6 xl-mb-30 d-flex" data-aos="fade-up" data-aos-delay="100">
+    <div class="services__page-item" style="width:100%; min-height:420px; display:flex; flex-direction:column;">
+        <div class="services__page-item-icon">
+            <img src="{{ asset('assets/img/icon/home1.png') }}" alt="Consultation" style="width: 100px; height: 100px;">
+        </div>
+        <div class="services__page-item-content">
+            <h4 class="text-black">01. Best Consultation</h4>
+            <p>
+                Share your tattoo idea, placement, and references with our artists.
+                Our team reviews and responds within 24–48 hours with guidance.
+            </p>
+        </div>
+    </div>
+</div>
 
-            {{-- Step 02 --}}
-            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30" data-aos="fade-up" data-aos-delay="300">
-                <div class="services__page-item">
-                    <div class="services__page-item-icon">
-                        <img src="{{ asset('assets/img/icon/services-2.png') }}" alt="Design">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4 class="text-black">02. Design & Deposit</h4>
-                        <p>
-                            We prepare a custom sketch based on your concept and take approval.
-                            A small deposit confirms your booking slot securely.
-                        </p>
-                    </div>
-                </div>
-            </div>
+{{-- Step 02 --}}
+<div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 d-flex" data-aos="fade-up" data-aos-delay="300">
+    <div class="services__page-item" style="width:100%; min-height:420px; display:flex; flex-direction:column;">
+        <div class="services__page-item-icon">
+            <img src="{{ asset('assets/img/icon/home2.png') }}" alt="Design" style="width: 100px; height: 100px;">
+        </div>
+        <div class="services__page-item-content">
+            <h4 class="text-black">02. Design & Deposit</h4>
+            <p>
+                We prepare a custom sketch based on your concept and take approval.
+                A small deposit confirms your booking slot securely.
+            </p>
+        </div>
+    </div>
+</div>
 
-            {{-- Step 03 --}}
-            <div class="col-xl-3 col-lg-4 col-md-6 md-mb-30" data-aos="fade-up" data-aos-delay="500">
-                <div class="services__page-item">
-                    <div class="services__page-item-icon">
-                        <img src="{{ asset('assets/img/icon/services-3.png') }}" alt="Appointment">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4 class="text-black">03. Appointment</h4>
-                        <p>
-                            Visit the studio well-rested and hydrated for your session.
-                            Depending on design, tattoo sessions usually last 3–8 hours.
-                        </p>
-                    </div>
-                </div>
-            </div>
+{{-- Step 03 --}}
+<div class="col-xl-3 col-lg-4 col-md-6 md-mb-30 d-flex" data-aos="fade-up" data-aos-delay="500">
+    <div class="services__page-item" style="width:100%; min-height:420px; display:flex; flex-direction:column;">
+        <div class="services__page-item-icon">
+            <img src="{{ asset('assets/img/icon/home3.png') }}" alt="Appointment" style="width: 100px; height: 100px;">
+        </div>
+        <div class="services__page-item-content">
+            <h4 class="text-black">03. Appointment</h4>
+            <p>
+                Visit the studio well-rested and hydrated for your session.
+                Depending on design, tattoo sessions usually last 3–8 hours.
+            </p>
+        </div>
+    </div>
+</div>
 
-            {{-- Step 04 --}}
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="services__page-item">
-                    <div class="services__page-item-icon">
-                        <img src="{{ asset('assets/img/icon/services-4.png') }}" alt="Aftercare">
-                    </div>
-                    <div class="services__page-item-content">
-                        <h4 class="text-black">04. Aftercare</h4>
-                        <p>
-                            Follow our professional aftercare instructions carefully for proper healing.
-                            We provide complete support until your tattoo heals perfectly.
-                        </p>
-                    </div>
+{{-- Step 04 --}}
+<div class="col-xl-3 col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="700">
+    <div class="services__page-item" style="width:100%; min-height:420px; display:flex; flex-direction:column;">
+        <div class="services__page-item-icon">
+            <img src="{{ asset('assets/img/icon/home4.png') }}" alt="Aftercare" style="width: 100px; height: 100px;">
+        </div>
+        <div class="services__page-item-content">
+            <h4 class="text-black">04. Aftercare</h4>
+            <p>
+                Follow our professional aftercare instructions carefully for proper healing.
+                We provide complete support until your tattoo heals perfectly.
+            </p>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
 
